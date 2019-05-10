@@ -1,0 +1,35 @@
+<acceptance-test-run title="Create check listing report" name="createCheckListingReport" steps="5" successful="4" failures="1" skipped="0" ignored="0" pending="0" annotated-result="FAILURE" result="FAILURE" duration="91641" timestamp="2018-02-28T16:44:24.605+05:00" session-id="ae0fe3a8-ca62-4715-8167-ed8a34153c5a">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="10038">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10692">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5235">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7224">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="FAILURE" duration="385">
+    <screenshots>
+      <screenshot image="12dc5a5e93646612a7bd7ff72f392fc3.png" source="pagesource5806004229363205838.html.txt"/>
+    </screenshots>
+    <description>Create check listing report</description>
+    <error>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException:Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.Reports.ReportsPage.compareOutputMessage(ReportsPage.java:119), com.aptafund.test.steps.MyAptaFund.ReportSteps.createCheckListingReport(ReportSteps.java:82), com.aptafund.test.features.login.Reports.ReportsTest.createCheckListingReport(ReportsTest.java:209)]</exception>
+  </test-step>
+</acceptance-test-run>

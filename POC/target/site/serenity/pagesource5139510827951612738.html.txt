@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Dashboard | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.3.1026.545/kendocss?v=9b3Pb8L0Sh843zHN4fSyt6LB87OXGtjN4-E-XTmlUUk1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=4C4zh4XVZ28qaKFIigfdF5wrRvPe458oE63pP4saA7o1" />
+
+    <script src="/Bundles/framework?v=Mh1woxRtbybvOSxP_SrOKPxJTxWtEti3TGb9AQLcLYw1"></script>
+
+    <script src="/Bundles/aptafundscript?v=7GHqhnWFAfAV_u_BnFxBUkl5-TXGTiFt4gIsiH6NMVg1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">autoreq2@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(1, 0);" class="menuheaderrollover" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display: inline; position: absolute; left: 0px; top: 119.5px; width: 1251px;" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 1; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(1);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+ <a href="/QAAutom">Home</a>                                 </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div id="actionbuttons">
+                                    <div style="visibility:visible">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+<div id="divMainDashboard">
+
+    <div></div>
+
+<script>
+</script>
+
+    <div class="aptaDashboardMainDiv" id="divAptaDashboard">
+        <table>
+            <tbody><tr>
+                    <td style="width:175px; vertical-align:top">
+                        <div class="aptaDashboardLeftDiv">
+                                                            <div>
+                                    <label for="Quick_Links" class="quickLinksLabel">Quick Links</label>
+                                    <div id="divMyQuickLinks">
+                                        <ul>
+                                            Employee Self-Service
+
+                                                <li><span onclick="NavigateToNewDatabase();" class="clsMyQuickLinks" id="lnk_navigatetonewdatabase">Change My Location</span></li>                                                                                            <li><span onclick="NavigateToNewLeaveRequest();" class="clsMyQuickLinks" id="lnk_navigatetonewleaverequest">New Leave Request</span></li>                                                                                            <li><span onclick="NavigateToMyPaychecks();" class="clsMyQuickLinks" id="lnk_navigatetomypaychecks">My Paychecks</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveRequests();" class="clsMyQuickLinks" id="lnk_navigatetomyleaverequests">My Leave Requests</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveBalances();" class="clsMyQuickLinks" id="lnk_navigatetomyleavebalances">My Leave Balances</span></li>                                                                                                                                        <li><span onclick="NavigateToMyYTDTotals();" class="clsMyQuickLinks" id="lnk_navigatetomyyeartodatetotals">My Year to Date Totals</span></li>                                                                                            <li><span onclick="NavigateToMyDocuments();" class="clsMyQuickLinks" id="lnk_navigatetomydocuments">My Documents</span></li>                                                                                            <li><span onclick="NavigateToMyW2Forms();" class="clsMyQuickLinks" id="lnk_navigatetomyw2forms">My W-2 Forms</span></li>                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </td>                <td style="vertical-align:top">
+                            <div class="DashboardWidget" id="divPayCheck">
+                                <a href="/QAAutom/ESS/ESS/ManagePaychecks" class="DashBoardHeaderLink">My Paychecks</a> (most recent)
+                                <div data-role="AptaDataView" id="divDashboardPaycheckDataView">
+    <script>
+        $("#divDashboardPaycheckDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardPaycheckDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardPaycheckDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:125px" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Pay Date" data-index="0" data-field="PayDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=108%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PayDate-asc" class="k-link">Pay Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Check Number" data-index="1" data-field="CheckNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=108%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=CheckNumber-asc" class="k-link">Check Number</a></th><th style="text-align:right;" scope="col" data-title="Net Pay" data-index="2" data-field="NetPay" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=108%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=NetPay-asc" class="k-link">Net Pay</a></th><th style="text-align:left;" scope="col" data-title="Check Type" data-index="3" data-field="PaycheckType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=108%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PaycheckType-asc" class="k-link">Check Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:125px" class="k-sorted" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="1fe984ab-0990-4ddb-88e5-2427b3714862" class="kendo-data-row" data-aptafund-kendogrid-rowid="30364"><td role="gridcell" class="" style="text-align:left;">01/11/2018</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/30364">9909745</a></td><td role="gridcell" class="" style="text-align:right;"><div>$523.01</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="5c94b3c1-b9d3-4d68-ba40-457dfd8b08b1" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="30138"><td role="gridcell" class="" style="text-align:left;">12/27/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/30138">9909647</a></td><td role="gridcell" class="" style="text-align:right;"><div>$1,464.95</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="f450346a-ac48-4cba-aa68-eff7c6970afd" class="kendo-data-row" data-aptafund-kendogrid-rowid="29511"><td role="gridcell" class="" style="text-align:left;">12/14/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/29511">9909396</a></td><td role="gridcell" class="" style="text-align:right;"><div>$1,446.62</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="e559c249-d9bf-468f-bc29-d57dc3c8723e" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="29200"><td role="gridcell" class="" style="text-align:left;">11/29/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/29200">9909297</a></td><td role="gridcell" class="" style="text-align:right;"><div>$1,365.47</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="02a4afa5-0727-49e5-ac6a-ae7dc2b28c63" class="kendo-data-row" data-aptafund-kendogrid-rowid="28942"><td role="gridcell" class="" style="text-align:left;">11/14/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/28942">9909046</a></td><td role="gridcell" class="" style="text-align:right;"><div>$1,365.47</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr></tbody></table></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardPaycheckDataView").kendoGrid({"dataBound":$('#divDashboardPaycheckDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Pay Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayDate","data-title":"Pay Date"},"width":"125px","field":"PayDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Check Number","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"CheckNumber","data-title":"Check Number"},"width":"125px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/#=Id#\"\u003e${ CheckNumber }\u003c/a\u003e","field":"CheckNumber","filterable":false,"encoded":true},{"title":"Net Pay","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"NetPay","data-title":"Net Pay"},"width":"115px","template":"\u003cdiv \u003e#= kendo.toString(NetPay, \"C\") #\u003c/div\u003e","field":"NetPay","format":"{0:C}","filterable":false,"encoded":true},{"title":"Check Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckType","data-title":"Check Type"},"width":"143px","field":"PaycheckType","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView\u0026parentFilter=108~365","data":$('#divDashboardPaycheckDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardPaycheckDataView\u0026parentFilter=108~365"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardPaycheckDataView\u0026parentFilter=108~365"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardPaycheckDataView\u0026parentFilter=108~365"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"PayDate","dir":"desc"}],"filter":[],"error":$('#divDashboardPaycheckDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"PaycheckId":{"editable":false,"type":"number"},"EmployeeId":{"editable":false,"type":"number"},"PayDate":{"editable":false,"type":"date"},"CheckNumber":{"editable":false,"type":"number"},"NetPay":{"editable":false,"type":"number"},"PaycheckType":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardPaycheckDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardPaycheckDataView" value="true" />
+
+<div id="dvGridSettings__DashboardPaycheckDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardPaycheckDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardPaycheckDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSearchSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#settingsWindow__DashboardPaycheckDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardPaycheckDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardPaycheckDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardPaycheckDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView();
+        $('#tbFilterName__DashboardPaycheckDataView').val("");
+        $("#searchSettings__DashboardPaycheckDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardPaycheckDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardPaycheckDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardPaycheckDataView').html(result);
+                InitializeGrid___DashboardPaycheckDataView(false);
+                var function_name = 'DashboardPaycheckDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+                }
+                HideGridFooter("DashboardPaycheckDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView()
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardPaycheckDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardPaycheckDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardPaycheckDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardPaycheckDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardPaycheckDataView() {
+        var gridName = 'DashboardPaycheckDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardPaycheckDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardPaycheckDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardPaycheckDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardPaycheckDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveRequest">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="DashBoardHeaderLink">My Leave Requests</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveRequestDataView">
+    <script>
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveRequestDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveRequestDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20108&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveStartDate-asc" class="k-link">Start Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Leave Type" data-index="1" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20108&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th style="text-align:right;" scope="col" data-title="Total" data-index="2" data-field="LeaveTotal" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20108&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTotal-asc" class="k-link">Total</a></th><th style="text-align:right;;display:none" scope="col" data-title="ID" data-index="3" data-field="RequestId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20108&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=RequestId-asc" class="k-link">ID</a></th><th style="text-align:left;" scope="col" data-title="Approval Status" data-index="4" data-field="ApprovalStatusDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20108&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=ApprovalStatusDescription-asc" class="k-link">Approval Status</a></th><th scope="col" data-index="5" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="9d190494-98c6-46d8-991d-fe8ce8027953" class="kendo-data-row" data-aptafund-kendogrid-rowid="9513"><td role="gridcell" class="" style="text-align:left;">12/26/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=9513">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">9513</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="c89c5787-4e59-44da-94fd-74b20de0e173" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="9512"><td role="gridcell" class="" style="text-align:left;">12/18/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=9512">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">40.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">9512</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="cff2f23b-3821-479c-95f2-b45f696b9d87" class="kendo-data-row" data-aptafund-kendogrid-rowid="9426"><td role="gridcell" class="" style="text-align:left;">12/14/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=9426">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">9426</td><td role="gridcell" class="" style="text-align:left;">n/a</td><td role="gridcell"></td></tr><tr role="row" data-uid="11935f80-24e7-4d51-ba84-3b2de04774ff" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="9310"><td role="gridcell" class="" style="text-align:left;">12/05/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=9310">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">9310</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="ff9b9c7a-0e9f-4d55-9140-48dbb9004761" class="kendo-data-row" data-aptafund-kendogrid-rowid="9171"><td role="gridcell" class="" style="text-align:left;">11/27/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=9171">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">9171</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="402527c8-193e-4250-993a-13ca6ca6f71c" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="8964"><td role="gridcell" class="" style="text-align:left;">11/06/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8964">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">8964</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="1a957b39-b0a8-40f1-b722-ba5a12079aaa" class="kendo-data-row" data-aptafund-kendogrid-rowid="8890"><td role="gridcell" class="" style="text-align:left;">10/31/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8890">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">8890</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="94a56a54-3663-4d91-b564-4a5550f7064d" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="8891"><td role="gridcell" class="" style="text-align:left;">10/30/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8891">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">8891</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="0ac22594-fb85-487c-a66e-877631b1018e" class="kendo-data-row" data-aptafund-kendogrid-rowid="8533"><td role="gridcell" class="" style="text-align:left;">10/04/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8533">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">1.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">8533</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="db1b183f-6cbe-480d-acc3-8564f346680b" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="8357"><td role="gridcell" class="" style="text-align:left;">09/20/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8357">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">8357</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="bacb3fbe-6488-474a-beda-d010e073dc79" class="kendo-data-row" data-aptafund-kendogrid-rowid="8301"><td role="gridcell" class="" style="text-align:left;">09/18/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8301">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">8301</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="4895d842-c8ac-448a-a252-ba8d6afca394" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="8140"><td role="gridcell" class="" style="text-align:left;">09/05/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8140">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">8140</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="14a99315-764c-42c5-bbdd-9dab698888e6" class="kendo-data-row" data-aptafund-kendogrid-rowid="8106"><td role="gridcell" class="" style="text-align:left;">08/30/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8106">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">8106</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="b1f0749a-3fdf-4ee4-9ed7-f55be58e2956" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7985"><td role="gridcell" class="" style="text-align:left;">08/18/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7985">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7985</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="a1ccf218-dc57-43b3-9c46-ab9db38f5f56" class="kendo-data-row" data-aptafund-kendogrid-rowid="7826"><td role="gridcell" class="" style="text-align:left;">07/26/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7826">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">2.5000</td><td role="gridcell" class="" style="display:none;text-align:right;">7826</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="80af5d56-5eb9-4b60-b3c5-560d74898365" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7203"><td role="gridcell" class="" style="text-align:left;">05/22/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7203">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7203</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="8113e800-241d-454d-8331-532046b0c5b3" class="kendo-data-row" data-aptafund-kendogrid-rowid="7202"><td role="gridcell" class="" style="text-align:left;">05/19/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7202">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7202</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="0f382522-9c11-499a-b3be-e1beb526d971" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7298"><td role="gridcell" class="" style="text-align:left;">05/16/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7298">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">7298</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="fe1bdc90-1507-4a12-8368-da37c9115577" class="kendo-data-row" data-aptafund-kendogrid-rowid="6797"><td role="gridcell" class="" style="text-align:left;">04/10/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6797">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">20.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6797</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="759bdbf2-8cff-413c-a49b-fa366f9af6ad" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="6611"><td role="gridcell" class="" style="text-align:left;">03/24/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6611">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6611</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="d478e774-9573-4728-a214-84f9ea6321a1" class="kendo-data-row" data-aptafund-kendogrid-rowid="6459"><td role="gridcell" class="" style="text-align:left;">03/10/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6459">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6459</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="1566cb74-4850-4437-8060-a52e58f26a52" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="6356"><td role="gridcell" class="" style="text-align:left;">03/06/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6356">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">6356</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="a74857e7-dba2-4d32-bf3e-2d14c454a6b5" class="kendo-data-row" data-aptafund-kendogrid-rowid="6299"><td role="gridcell" class="" style="text-align:left;">03/02/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6299">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6299</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="c61c9d19-84b6-481c-a45a-c67a9b85b77a" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="6298"><td role="gridcell" class="" style="text-align:left;">02/28/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6298">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.5000</td><td role="gridcell" class="" style="display:none;text-align:right;">6298</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="1cb16a7b-e578-494a-b09d-f41a471805d6" class="kendo-data-row" data-aptafund-kendogrid-rowid="5862"><td role="gridcell" class="" style="text-align:left;">01/25/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5862">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">5862</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="e0f4941e-ec2f-4ee0-a889-2bd7db3bdbd3" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="5429"><td role="gridcell" class="" style="text-align:left;">01/03/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5429">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">5429</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="cc719f93-4b52-4d4c-a0a5-3530cfbd8e1f" class="kendo-data-row" data-aptafund-kendogrid-rowid="5427"><td role="gridcell" class="" style="text-align:left;">12/27/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5427">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">14.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">5427</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="abb760d1-7052-4158-81ba-fd117b7d07f5" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="5425"><td role="gridcell" class="" style="text-align:left;">12/20/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5425">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">5425</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="b2586d67-996a-49dc-8471-3cefa4f81e27" class="kendo-data-row" data-aptafund-kendogrid-rowid="4841"><td role="gridcell" class="" style="text-align:left;">12/05/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4841">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4841</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="5ab936e1-a802-43df-9172-3ee0cfe56529" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4840"><td role="gridcell" class="" style="text-align:left;">11/30/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4840">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">24.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4840</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="b4682141-6f95-4a97-b98f-fa6307385ae7" class="kendo-data-row" data-aptafund-kendogrid-rowid="5003"><td role="gridcell" class="" style="text-align:left;">11/28/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5003">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">5003</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="4efddf52-8aaa-4f77-aa78-76ad9b009d69" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4859"><td role="gridcell" class="" style="text-align:left;">11/16/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4859">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">4859</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="d73fb41c-7a0e-4dc7-82b6-212af3691452" class="kendo-data-row" data-aptafund-kendogrid-rowid="4768"><td role="gridcell" class="" style="text-align:left;">11/07/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4768">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4768</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="eb1b6dc9-6301-4d4d-b662-ea9c92fbe513" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4499"><td role="gridcell" class="" style="text-align:left;">10/19/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4499">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4499</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="90c9851e-87bb-4792-b4dc-45f12829c2ea" class="kendo-data-row" data-aptafund-kendogrid-rowid="4210"><td role="gridcell" class="" style="text-align:left;">09/28/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4210">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.2500</td><td role="gridcell" class="" style="display:none;text-align:right;">4210</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="2450b439-9540-4ae8-87a6-91cb64ddb832" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4091"><td role="gridcell" class="" style="text-align:left;">09/20/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4091">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4091</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="e4c7e2ae-21e6-448d-b937-7ffdbf0ac76b" class="kendo-data-row" data-aptafund-kendogrid-rowid="3846"><td role="gridcell" class="" style="text-align:left;">08/30/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3846">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">0.5000</td><td role="gridcell" class="" style="display:none;text-align:right;">3846</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="06057c54-3c7d-4076-804e-73c94b7d6b7a" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="3539"><td role="gridcell" class="" style="text-align:left;">08/19/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3539">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">3.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">3539</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="51b26dfc-35e1-4da0-800d-502aaf2654f4" class="kendo-data-row" data-aptafund-kendogrid-rowid="3460"><td role="gridcell" class="" style="text-align:left;">07/20/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3460">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">3.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">3460</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="95aa8ac6-53fb-4b40-940e-8241881af132" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="2996"><td role="gridcell" class="" style="text-align:left;">05/27/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2996">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2996</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="ace311fd-d1f3-4b9b-a7b7-b295a8026b08" class="kendo-data-row" data-aptafund-kendogrid-rowid="2907"><td role="gridcell" class="" style="text-align:left;">05/10/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2907">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2907</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="7b88fa3c-8471-40af-808f-415370fb3a7a" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="2476"><td role="gridcell" class="" style="text-align:left;">04/07/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2476">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2476</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="615ba79f-13b9-4cf3-8c89-74bd3d528c0c" class="kendo-data-row" data-aptafund-kendogrid-rowid="2435"><td role="gridcell" class="" style="text-align:left;">04/04/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2435">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2435</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="fe41a9e1-46cb-4ff4-a34a-ff5fc8c24390" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="2388"><td role="gridcell" class="" style="text-align:left;">04/01/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2388">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">3.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2388</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="8c5cee86-8575-4245-9cdb-62a47935e653" class="kendo-data-row" data-aptafund-kendogrid-rowid="2155"><td role="gridcell" class="" style="text-align:left;">03/21/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2155">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">19.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2155</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="ed5cf821-b756-4737-b977-4b1fc32d0165" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="2134"><td role="gridcell" class="" style="text-align:left;">03/17/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=2134">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">3.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">2134</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="da24bd19-c756-449c-9115-539161794f0f" class="kendo-data-row" data-aptafund-kendogrid-rowid="1619"><td role="gridcell" class="" style="text-align:left;">02/09/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1619">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1619</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="57506a4e-1e1e-4e5e-9b00-8d0cce5007e6" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="1405"><td role="gridcell" class="" style="text-align:left;">01/25/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1405">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">1.7500</td><td role="gridcell" class="" style="display:none;text-align:right;">1405</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="2deb7f16-cb47-477a-9999-5292cbbed9f0" class="kendo-data-row" data-aptafund-kendogrid-rowid="1039"><td role="gridcell" class="" style="text-align:left;">12/30/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1039">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">5.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1039</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="d7dbf25f-fadb-42d1-9bd4-07b93035d1ae" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="1035"><td role="gridcell" class="" style="text-align:left;">12/28/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1035">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1035</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="f26275fd-48ff-4a80-82fa-a4cc977131c0" class="kendo-data-row" data-aptafund-kendogrid-rowid="1034"><td role="gridcell" class="" style="text-align:left;">12/21/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1034">Vacation Yrs</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1034</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="d9a099e8-df46-44fb-8e52-593e93d595ae" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="913"><td role="gridcell" class="" style="text-align:left;">12/07/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=913">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">913</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="b50b1916-93f4-4057-b71d-361fd02670c0" class="kendo-data-row" data-aptafund-kendogrid-rowid="748"><td role="gridcell" class="" style="text-align:left;">11/20/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=748">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">2.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">748</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="5ed5bacd-2047-46dc-a011-9ff44fa10a14" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="606"><td role="gridcell" class="" style="text-align:left;">10/29/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=606">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">606</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="f7416a32-742b-44d6-9f2b-9460b5de3b81" class="kendo-data-row" data-aptafund-kendogrid-rowid="171"><td role="gridcell" class="" style="text-align:left;">09/18/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=171">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">171</td><td role="gridcell" class="" style="text-align:left;">n/a</td><td role="gridcell"></td></tr><tr role="row" data-uid="7edc6de9-f4c3-4324-989a-61c18c160de3" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="175"><td role="gridcell" class="" style="text-align:left;">09/18/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=175">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">175</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr></tbody></table></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveRequestDataView").kendoGrid({"dataBound":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"175px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=#= RequestId#\"\u003e${ LeaveTypeName }\u003c/a\u003e","field":"LeaveTypeName","filterable":false,"encoded":true},{"title":"Total","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"LeaveTotal","data-title":"Total"},"width":"80px","field":"LeaveTotal","format":"{0:0.0000}","filterable":false,"encoded":true},{"title":"ID","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestId","data-title":"ID"},"hidden":true,"width":"50px","field":"RequestId","filterable":false,"encoded":true},{"title":"Approval Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovalStatusDescription","data-title":"Approval Status"},"width":"163px","field":"ApprovalStatusDescription","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20108","data":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20108"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20108"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20108"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"desc"}],"filter":[],"error":$('#divDashboardLeaveRequestDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"EmployeeId":{"type":"number"},"CycleId":{"type":"number"},"RequestId":{"editable":false,"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveTypeName":{"editable":false,"type":"string"},"LeaveTotal":{"type":"number"},"ApprovalStatusDescription":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveRequestDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveRequestDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveRequestDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveRequestDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardLeaveRequestDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSearchSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#settingsWindow__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardLeaveRequestDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardLeaveRequestDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView();
+        $('#tbFilterName__DashboardLeaveRequestDataView').val("");
+        $("#searchSettings__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardLeaveRequestDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardLeaveRequestDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardLeaveRequestDataView').html(result);
+                InitializeGrid___DashboardLeaveRequestDataView(false);
+                var function_name = 'DashboardLeaveRequestDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+                }
+                HideGridFooter("DashboardLeaveRequestDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView()
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardLeaveRequestDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardLeaveRequestDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardLeaveRequestDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardLeaveRequestDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardLeaveRequestDataView() {
+        var gridName = 'DashboardLeaveRequestDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardLeaveRequestDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardLeaveRequestDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardLeaveRequestDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardLeaveRequestDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="MyDocumentAcknowledgments">
+                                <a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="DashBoardHeaderLink"> My Documents</a> (acknowledgements required)
+                                <div data-role="AptaDataView" id="divDashboardESSMyDocumentAcknowledgementsDataView">
+    <script>
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardESSMyDocumentAcknowledgementsDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"CycleId":5,"BaseParam":null})
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardESSMyDocumentAcknowledgementsDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:200px" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Document Name" data-index="0" data-field="DocumentName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DocumentName-desc" class="k-link">Document Name<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="1" data-field="EmployeeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=EmployeeName-asc" class="k-link">Employee Name</a></th><th style="text-align:left;" scope="col" data-title="Due Date" data-index="2" data-field="DueDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DueDate-asc" class="k-link">Due Date</a></th><th style="text-align:left;" scope="col" data-title="Actions" data-index="3" data-field="Actions" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;4e9eb5ae-7ad6-46d2-875a-2aed0f7f3b5a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=Actions-asc" class="k-link">Actions</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:200px" class="k-sorted" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardESSMyDocumentAcknowledgementsDataView").kendoGrid({"dataBound":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Document Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DocumentName","data-title":"Document Name"},"width":"200px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/ViewEmployeeDocument/#= Id#\"\u003e${ DocumentName }\u003c/a\u003e","field":"DocumentName","filterable":false,"encoded":true},{"title":"Employee Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"EmployeeName","data-title":"Employee Name"},"width":"140px","field":"EmployeeName","filterable":false,"encoded":true},{"title":"Due Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DueDate","data-title":"Due Date"},"width":"90px","field":"DueDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Actions","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Actions","data-title":"Actions"},"width":"80px","template":"\u003ca href=\"javascript:acknowledgeDocumentFinsWindow(#= Id#)\"\u003e \u003cimg src=\"../../Content/Images/status_ready_48.png\" style=\"width:20px;height:20px;border:0;\" alt=\"Acknowledge\" tooltiptitle=\"Acknowledge\" class=\"tooltipgridcolumn\"\u003e\u003c/a\u003e","field":"Actions","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView","data":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardESSMyDocumentAcknowledgementsDataView"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"DocumentName","dir":"asc"}],"filter":[],"error":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"DocumentName":{"editable":false,"type":"string"},"EmployeeName":{"editable":false,"type":"string"},"DueDate":{"editable":false,"type":"date"},"Actions":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardESSMyDocumentAcknowledgementsDataView" value="true" />
+
+<div id="dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView() {
+        if ($("#dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardESSMyDocumentAcknowledgementsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView() {
+        if ($("#dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardESSMyDocumentAcknowledgementsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#settingsWindow__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $('#tbFilterName__DashboardESSMyDocumentAcknowledgementsDataView').val("");
+        $("#searchSettings__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardESSMyDocumentAcknowledgementsDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardESSMyDocumentAcknowledgementsDataView').html(result);
+                InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(false);
+                var function_name = 'DashboardESSMyDocumentAcknowledgementsDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardESSMyDocumentAcknowledgementsDataView");
+                }
+                HideGridFooter("DashboardESSMyDocumentAcknowledgementsDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView()
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardESSMyDocumentAcknowledgementsDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardESSMyDocumentAcknowledgementsDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardESSMyDocumentAcknowledgementsDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardESSMyDocumentAcknowledgementsDataView() {
+        var gridName = 'DashboardESSMyDocumentAcknowledgementsDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardESSMyDocumentAcknowledgementsDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardESSMyDocumentAcknowledgementsDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardESSMyDocumentAcknowledgementsDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardESSMyDocumentAcknowledgementsDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                </td>
+            </tr>
+        </tbody></table>
+            <div style="clear: both;"></div>
+            <a class="k-button" id="btnConfigure__Index">Configure</a>
+    </div>
+</div>
+
+<script>
+
+    function NavigateToMyPaycheckDetail(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/PaycheckDetails" + "?id=" + Id);
+    }
+
+    function NavigateToNewLeaveRequest() {
+        NavigateTo("/QAAutom/ESS/ESS/CreateLeaveRequest" + "?EmployeeId=" + "108");
+    }
+
+    function NavigateToMyPaychecks() {
+        NavigateTo("/QAAutom/ESS/ESS/ManagePaychecks");
+    }
+
+    function NavigateToMyLeaveRequest(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/EditLeaveRequest" + "?selectedRecord=" + Id);
+    }
+
+    function NavigateToMyLeaveRequests() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveRequests");
+    }
+
+    function NavigateToMyLeaveBalances() {
+        NavigateTo("/QAAutom/ESS/ESS/LeaveDetails");
+    }
+
+    function NavigateToMyLeaveApprovals() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveApprovals");
+    }
+
+    function NavigateToMyYTDTotals() {
+        NavigateTo("/QAAutom/ESS/ESS/YTDTotals");
+    }
+
+    function NavigateToMyDocuments() {
+        NavigateTo("/QAAutom/ESS/ESS/ViewMyDocuments");
+    }
+
+    function NavigateToMyW2Forms() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageW2Forms");
+    }
+
+    function NavigateToNewDatabase() {
+        $('#defaultDatabaseName').click();
+	}
+
+	function EditPurchaseRequisitionPopup(id)
+	{
+		 var data, options;
+		 var aptaDataViewSelection = $("#divDashboardPRApprovalsDataView").data("AptaDataView").GetAptaDataViewSelection();
+        data = { Id: id, origin: 3, aptaDataViewSelection: aptaDataViewSelection, statusType: 3 };
+        options = { url: "/QAAutom/Purchasing/RequisitionApproval/EditMyRequisitionPopup", data: data, type: "POST" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowRequisition")
+       .SetIsModal(true)
+	   .SetContent(options)
+	   .SetonClose(function () { $("#divDashboardPRApprovalsDataView").data("AptaDataView").Refresh();})
+       .SetTitle('Edit Purchase Requisition')
+       .SetWidth(900)
+       .SetHeight("90%")
+        finsWindow.CreateWindow(true);
+	}
+
+    $('#btnConfigure__Index').click(function (e) {
+        e.preventDefault();
+        showConfigurePopup();
+    });
+
+    function showConfigurePopup() {
+
+		var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowConfigure")
+        .SetContent({ url: "/Home/ConfigureHomeScreen?enableGrids=" + 'True' + '~' + 'True' + '~' + 'False' + '~' + 'False' + '~' + 'True' + '~' + 'False'+ '~' + 'True'})
+        .SetWidth('40%')
+        .SetHeight('40%')
+        .SetIsModal(true)
+        .SetTitle('Configure')
+        finsWindow.CreateWindow(true);
+       }
+
+    function acknowledgeDocumentFinsWindow(Id) {        
+        var data = { id: Id };
+        var options = { url: "/ESS/AcknowledgeEmployeeDocument", data: data, type: "POST" };
+        var presenter = new AptaFund.ESS.AcknowledgeDocumentDetailPresenter();
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowAcknowledgeDocument")
+            .SetTitle('Acknowledge Document')
+            .SetContent(options)
+            .SetWidth('40%')
+            .SetHeight('60%')
+            .SetonClose(function () {
+                $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").Refresh();
+            })            
+        finsWindow.SetPresenter(presenter);
+        finsWindow.CreateWindow(true);
+    }
+
+    $(document).ready(function () {
+        var documentId = '';
+        if (documentId !== null &amp;&amp; documentId != '') {
+            var canAcknowlege='';
+            if (canAcknowlege == 'True') {
+                acknowledgeDocumentFinsWindow(documentId);              
+            }
+            else {
+                ShowAjaxMessage('You are not authorized to acknowledge this document or document does not exist.', "Error");
+            }
+        }
+    });   
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2018 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Monday, March 5, 2018 7:53 AM
+                    <br />
+                    AptaFund Version: 2018.3.2.12805
+                    <br />
+                    Last Updated: 3/3/2018 12:02:44 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#03032018000244"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/Home/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="817"></canvas></html>

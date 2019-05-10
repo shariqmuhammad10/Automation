@@ -1,0 +1,44 @@
+<acceptance-test-run title="Verify eidt fixed amount deduction" name="verifyEidtFixedAmountDeduction" steps="12" successful="12" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="253786" timestamp="2018-04-26T21:34:16.787+05:00" session-id="7fdf3fa7-d0e2-4485-a218-3992f2ec0703">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="39846">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11485">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20249">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8653">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="72150">
+    <description>Add manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="18946">
+    <description>Search deduction set</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="35603">
+    <description>Refresh page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5258">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5171">
+    <description>Update comments field</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="18183">
+    <description>Verify employee pay period amount value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14146">
+    <description>Verify employer pay period amount value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="4018">
+    <description>Savededuction</description>
+  </test-step>
+</acceptance-test-run>

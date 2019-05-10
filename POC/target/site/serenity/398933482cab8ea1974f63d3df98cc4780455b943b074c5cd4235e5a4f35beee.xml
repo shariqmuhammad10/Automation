@@ -1,0 +1,29 @@
+<acceptance-test-run title="Create accounts payable voucher form" name="createAccountsPayableVoucherForm" steps="5" successful="4" failures="1" skipped="0" ignored="0" pending="0" annotated-result="FAILURE" result="FAILURE" duration="64557" timestamp="2018-02-28T16:04:56.195+05:00" session-id="df34b25a-f87f-4231-8775-23e7fe41cb46">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13190">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10705">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5256">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7293">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="FAILURE" duration="28046">
+    <screenshots>
+      <screenshot image="497d5bfc2bd2360f4a013837aa2d8baf.png" source="pagesource1067434645167348656.html.txt"/>
+    </screenshots>
+    <description>Create accounts payable voucher form report</description>
+    <error>org.junit.ComparisonFailure: expected:&lt;[No records to display].&gt; but was:&lt;[Your request could not be processed: Incorrect syntax near &apos;,&apos;].&gt;</error>
+    <exception>org.junit.ComparisonFailure:expected:&lt;[No records to display].&gt; but was:&lt;[Your request could not be processed: Incorrect syntax near &apos;,&apos;].&gt;&#xd;
+[com.aptafund.test.pages.Reports.ReportsPage.compareOutputMessage(ReportsPage.java:118), com.aptafund.test.steps.MyAptaFund.ReportSteps.createAccountsPayableVoucherFormReport(ReportSteps.java:65), com.aptafund.test.features.login.Reports.ReportsTest.createAccountsPayableVoucherForm(ReportsTest.java:169)]</exception>
+  </test-step>
+</acceptance-test-run>

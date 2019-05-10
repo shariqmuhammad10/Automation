@@ -1,0 +1,139 @@
+<acceptance-test-run title="Verify add job to register" name="verifyAddJobToRegister" steps="39" successful="18" failures="0" errors="1" skipped="20" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="140051" timestamp="2017-06-16T09:16:40.636+05:00" session-id="57c8ae9c-321a-40a9-9ba2-c2db74fde431">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="11334">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6590">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14199">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8650">
+    <description>Navigate to manage payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2259">
+    <description>Add payroll register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3277">
+    <description>Open payroll cycle</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2144">
+    <description>Select biweekly value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="285">
+    <description>Open payroll period</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9159">
+    <description>Select payroll period value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3207">
+    <description>Open register type</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9132">
+    <description>Select register type value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3189">
+    <description>Set register description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5970">
+    <description>Save add registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="74">
+    <description>Select registor number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19426">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="238">
+    <description>Search registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12418">
+    <description>Select checkbox register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13080">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="ERROR" duration="15346">
+    <screenshots>
+      <screenshot image="dc0da44c7454ffd98d8479eac4e5adef.png" source="pagesource6937173552897186477.html.txt"/>
+    </screenshots>
+    <description>Add job to registor</description>
+    <error>org.openqa.selenium.NoSuchElementException: Timed out after 5 seconds. Element not found
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.NoSuchElementException:Timed out after 5 seconds. Element not found
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.clickAddJobToRegistor(ManagePayrollPage.java:588), com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.addJobToRegistor(ManagePayrollSteps.java:159), com.aptafund.test.features.login.Payroll.ManagePayrollTest.verifyAddJobToRegister(ManagePayrollTest.java:98)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Select employee from add job reg</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Select job from add job reg</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Save add job to registor</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Select check box to select job</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click and set job hours</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Save job edit hours</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search registor</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click submit reg button</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click yes confirm msg</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click approve reg</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click yes confirm msg for approval</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click on more button</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click print payroll check</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click on check box to select regular payment</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click print pay check</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click print PDF</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click verify option</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click close pay check after printing</description>
+  </test-step>
+</acceptance-test-run>

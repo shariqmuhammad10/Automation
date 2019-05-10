@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>Vendor Invoice Detail | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=GZ9zh7CD9vtU2ZH0JLayemAwd5TY3wP-EEYyFf0LAsk1" />
+
+    <script src="/Bundles/framework?v=LOYyWRAT2S9Td7Ei8vUCgV5KqeFmwSM2Odk7pRyDAmQ1"></script>
+
+    <script src="/Bundles/aptafundscript?v=nLS5oZjod-SKurceoCFfvhQgjXk4NgjVscTYAPNiI701"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body class="">
+<input type="hidden" value="/QAAutom/AccountsPayable/VendorInvoice/Manage" name="LayoutParentRedirectUrl" id="LayoutParentRedirectUrl" />    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification" data-role="notification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=FYE%20Employee%20Job%20Allocation%20Export" class="menulink">FYE Employee Job Allocation Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=FYE%20Employee%20Job%20Export" class="menulink">FYE Employee Job Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Header%20Export" class="menulink">FYE Purchase Order Header Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Item%20Allocation%20Export" class="menulink">FYE Purchase Order Item Allocation Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Item%20Export" class="menulink">FYE Purchase Order Item Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20ShipTax%20Export" class="menulink">FYE Purchase Order ShipTax Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">APTAFUND 3.0 Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Accounts Payable -&gt; <a href="/QAAutom/AccountsPayable/VendorInvoice/Manage%20">Vendor Invoice</a>-&gt; Vendor Invoice Detail
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+    <div id="AptaFundUIButtonPanelBuilder_724421a3-f42c-4498-8e26-bb87e71c8ca0"><a onclick="VendorInvoiceDetailsSave()" href="#" id="btnSave__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip">Save</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnSave__VendorInvoiceDetailDataView"));})</script><a accesskey="a" href="#" id="btnSaveAndAdd__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip">Save and Add</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnSaveAndAdd__VendorInvoiceDetailDataView"));})</script><a onclick="ReturntoGrid()" href="#" id="btnCancel__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip">Cancel</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnCancel__VendorInvoiceDetailDataView"));})</script><a href="#" id="btnSubmitForPayment__VendorInvoiceDataView" class="k-button">Submit For Payment</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnSubmitForPayment__VendorInvoiceDataView"));})</script><a class="k-button" href="#" id="btnMoreButtons"><img border="0" alt="" src="/Content/Images/MoreIndicator.png" style="vertical-align: middle; padding-right:5px;" />More</a><div style="display: none; " id="dvMoreButtons">
+<ul class="MoreButtonsList">
+<li><a href="#" id="btnShippingCost__VendorInvoiceDataView" class="k-button">Add Shipping Cost</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnShippingCost__VendorInvoiceDataView"));})</script></li><li><a href="#" id="btnDiscountPremium__VendorInvoiceDataView" class="k-button">Apply Discount/Premium</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnDiscountPremium__VendorInvoiceDataView"));})</script></li><li><a href="#" id="btnApplyTax__VendorInvoiceDataView" class="k-button">Apply Tax</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnApplyTax__VendorInvoiceDataView"));})</script></li><li><a href="#" id="btnAssignAssetNumber__VendorInvoiceDataView" class="k-button">Assign Asset Number</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnAssignAssetNumber__VendorInvoiceDataView"));})</script></li><li><a href="#" id="btnPOBalance__VendorInvoiceDataView" class="k-button">PO Balance</a><script>kendo.syncReady(function(){ FINSUI.FINSUIButton.CreateFINSButton(jQuery("#btnPOBalance__VendorInvoiceDataView"));})</script></li></ul>
+</div>
+</div>
+<script>kendo.syncReady(function(){FINSUI.FINSUIButtonPanel.CreateFINSButtonPanel(jQuery("#AptaFundUIButtonPanelBuilder_724421a3-f42c-4498-8e26-bb87e71c8ca0",{"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":"0"}))
+.AddElementById("btnSave__VendorInvoiceDetailDataView")
+.AddElementById("btnSaveAndAdd__VendorInvoiceDetailDataView")
+.AddElementById("btnSaveAndNext__VendorInvoiceDetailDataView")
+.AddElementById("btnCancel__VendorInvoiceDetailDataView")
+.AddElementById("btnSubmitForPayment__VendorInvoiceDataView")
+.AddElementById("btnShippingCost__VendorInvoiceDataView")
+.AddElementById("btnDiscountPremium__VendorInvoiceDataView")
+.AddElementById("btnApplyTax__VendorInvoiceDataView")
+.AddElementById("btnAssignAssetNumber__VendorInvoiceDataView")
+.AddElementById("btnPOBalance__VendorInvoiceDataView")
+;})</script>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+
+
+
+
+
+<script>
+    var loadTabPODetail = true;
+    var loadTabInvoiceItems = true;
+    function onActivate(e) {
+        if ($("#tabstrip").data("FINSUITabStrip").GetActiveTabText() == 'Invoice Items') {
+            if (loadTabInvoiceItems) {
+                LoadGridOnDemand__VendorInvoiceDetailDataView();
+                var gridPODetails = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+                loadTabInvoiceItems = false;
+                gridPODetails.dataSource.read();
+            }
+            RegisterScreenShortCutKeys("VendorInvoiceDataView", "VendorInvoiceDetailDataView", "VendorInvoiceDetailDataView");
+        }
+        else if ($("#tabstrip").data("FINSUITabStrip").GetActiveTabText() == "PO Detail") {
+
+                if (loadTabPODetail) {
+                    LoadGridOnDemand__PODetailForInvoicesDataView();
+                    var grid = $("#PODetailForInvoicesDataView").data("kendoGrid");
+                    loadTabPODetail = false;
+                    grid.dataSource.read();
+                }
+
+        }
+    }
+</script>
+
+
+
+<div id="VendorInvoiceItemDetailsPopup"></div>
+
+<div id="NavigationPanel">
+    <label class="NavPanelHeader">3689-025003-1723</label>
+
+    <!-- Partial View for navigation header -->
+                 <div class="floatright"><a class="navigationreturnlink" href="/QAAutom/AccountsPayable/VendorInvoice/Manage"> Return to Vendor Invoice(s)</a></div>
+
+
+<script>
+    function PrevNextRecordNavigation(url) {
+        NavigateTo(url);
+    };
+</script>
+</div>
+<div id="detailOuterDiv">
+    <div id="detailInnerDiv">
+        <div id="detailRecordHeader">
+            <style>
+                td {
+                    min-width: 100px;
+                }
+            </style>
+            <table>
+                <tbody><tr>
+                    <td colspan="3">
+                        <label for="Vendor_Name:">Vendor Name:</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px" id="VendorName">3wire.com</label></td>
+                    <td>
+                        <label for="Invoice_Type:">Invoice Type:</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">Direct</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Entered_By:">Entered By:</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">Shariq Muhammad</label>
+                    </td>
+                    <td>
+                        <label for="Entered_Date:">Entered Date:</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">07/27/2017</label>
+                    </td>
+                    <td>
+                        <label for="SubtotalAmount">Invoice Total</label>:
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">$0.00</label>
+                    </td>
+                    <td>
+                        <label for="Invoice_Status:">Invoice Status:</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">New</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="SubmittingUserName">Submitted By</label>:
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px"></label>
+                    </td>
+                    <td>
+                        <label for="VoucherNumber">Voucher No.</label>:
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px"></label>
+                    </td>
+                    <td>
+                        <label for="ORId">Receipt No.</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px"></label>
+                    </td>
+                    <td>
+                        <label for="WarrantNumber">Warrant No.</label>
+                        <label style="font-weight: normal; margin-right: 9px; margin-left: 3px">0</label>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+
+<form method="post" id="FormVendorInvoice" action="/QAAutom/AccountsPayable/VendorInvoice/SaveVendorInvoice" novalidate="novalidate"><input type="hidden" value="U7Nh3PtcegGxWPNB0JyNgooWcv8CSw1I8--OOH8tJcSCFBMWItGke8BKUKmnOydNzidAmDbukWBO4f_2kLDv0ncXdd22hNq2Gyo5nSaOjfBvLGQOsuu-RNEodIsExUOQyoR0729rwChBhXgH3sBiuA2" name="__RequestVerificationToken" />            <div>
+
+                <input type="hidden" value="7746" name="InvoiceId" id="InvoiceId" data-val-number="The field InvoiceId must be a number." data-val="true" />
+                <input type="hidden" value="" name="NextId" id="NextId" />
+
+                <ul id="panelbar" class="k-widget k-panelbar k-reset k-header" data-role="panelbar" tabindex="0" role="menu"><li class="k-item k-state-default k-first k-last k-state-highlight k-state-active" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-1" class="k-link k-header">General<span class="k-icon  k-i-arrow-n k-panelbar-collapse"></span></a><div style="display: block; height: auto; overflow: visible;" id="panelbar-1" class="k-content" role="region" aria-hidden="true"><div id="GeneralTab">
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label for="InvoiceType" class="RequiredLabel FINSLabelForStyle" id="InvoiceType_label">Invoice Type</label>
+<span style="display: none;" class="k-widget k-combobox k-header ElementControlComboBox None k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox None" name="InvoiceType_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="InvoiceType_listbox" aria-labelledby="InvoiceType_label" /><span title="clear" class="k-icon k-clear-value k-i-close" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="InvoiceType_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" value="D" name="InvoiceType" id="InvoiceType" data-val-required="Required." data-val="true" class="ElementControlComboBox None" data-role="combobox" style="display: none;" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#InvoiceType"), 'None', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":[{"Text":"","Value":""},{"Text":"Credit Memo","Value":"C"},{"Text":"Direct","Value":"D"},{"Text":"Employee","Value":"E"},{"Text":"Regular","Value":"R"}],"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {"change":OnInvoiceTypeChange,"text":"Direct"});});
+</script>
+<span style="" data-readonly="InvoiceType" class="FINSControlReadOnlyStyle">Direct</span>
+</div>
+
+
+<div class="FINSControlStyle">
+<label id="poNumberRequired" for="PurchaseOrderNumber" class="FINSLabelStyle">PO Number:</label>
+<span style="width: 20em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-owns="POId_listbox" aria-disabled="false" aria-busy="false" aria-activedescendant="ce04adb7-d28d-491c-925a-9931f449f251"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"></span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="POId" id="POId" data-role="dropdownlist" readonly="readonly" /></span><script>
+	kendo.syncReady(function(){jQuery("\#POId").kendoDropDownList({"change":OnPOChange,"dataSource":[{"Text":"","Value":"","Selected":false},{"Text":"17 - 01835","Value":"4027","Selected":false},{"Text":"17 - 01902","Value":"4091","Selected":false},{"Text":"17 - 01921","Value":"4088","Selected":false},{"Text":"17 - 01922","Value":"4089","Selected":false},{"Text":"18 - 00001","Value":"3969","Selected":false},{"Text":"18 - 00002","Value":"3989","Selected":false},{"Text":"18 - 00003","Value":"4021","Selected":false},{"Text":"18 - 00004","Value":"4022","Selected":false},{"Text":"18 - 00006","Value":"4024","Selected":false},{"Text":"18 - 00007","Value":"4031","Selected":false},{"Text":"18 - 00008","Value":"4032","Selected":false},{"Text":"18 - 00009","Value":"4033","Selected":false},{"Text":"18 - 00010","Value":"4034","Selected":false},{"Text":"18 - 00011","Value":"4035","Selected":false},{"Text":"18 - 00012","Value":"4036","Selected":false},{"Text":"18 - 00013","Value":"4037","Selected":false},{"Text":"18 - 00014","Value":"4038","Selected":false},{"Text":"18 - 00015","Value":"4039","Selected":false},{"Text":"18 - 00017","Value":"4041","Selected":false},{"Text":"18 - 00019","Value":"4043","Selected":false},{"Text":"18 - 00020","Value":"4044","Selected":false},{"Text":"18 - 00021","Value":"4045","Selected":false},{"Text":"18 - 00022","Value":"4046","Selected":false},{"Text":"18 - 00023","Value":"4047","Selected":false},{"Text":"18 - 00024","Value":"4048","Selected":false},{"Text":"18 - 00025","Value":"4049","Selected":false},{"Text":"18 - 00026","Value":"4050","Selected":false},{"Text":"18 - 00027","Value":"4051","Selected":false},{"Text":"18 - 00028","Value":"4052","Selected":false},{"Text":"18 - 00029","Value":"4053","Selected":false},{"Text":"18 - 00030","Value":"4054","Selected":false},{"Text":"18 - 00031","Value":"4055","Selected":false},{"Text":"18 - 00033","Value":"4057","Selected":false},{"Text":"18 - 00034","Value":"4058","Selected":false},{"Text":"18 - 00036","Value":"4060","Selected":false},{"Text":"18 - 00037","Value":"4061","Selected":false},{"Text":"18 - 00038","Value":"4062","Selected":false},{"Text":"18 - 00040","Value":"4065","Selected":false},{"Text":"18 - 00041","Value":"4066","Selected":false},{"Text":"18 - 00042","Value":"4067","Selected":false},{"Text":"18 - 00043","Value":"4069","Selected":false},{"Text":"18 - 00044","Value":"4070","Selected":false},{"Text":"18 - 00045","Value":"4071","Selected":false},{"Text":"18 - 00046","Value":"4072","Selected":false},{"Text":"18 - 00047","Value":"4073","Selected":false},{"Text":"18 - 00048","Value":"4074","Selected":false},{"Text":"18 - 00049","Value":"4077","Selected":false},{"Text":"18 - 00050","Value":"4078","Selected":false},{"Text":"18 - 00051","Value":"4079","Selected":false},{"Text":"18 - 00052","Value":"4080","Selected":false},{"Text":"18 - 00053","Value":"4081","Selected":false},{"Text":"18 - 00054","Value":"4083","Selected":false},{"Text":"18 - 00055","Value":"4084","Selected":false},{"Text":"18 - 00056","Value":"4087","Selected":false},{"Text":"18 - 00057","Value":"4086","Selected":false}],"dataTextField":"Text","dataValueField":"Value"});});
+</script>
+<span data-valmsg-replace="true" data-valmsg-for="POId" class="field-validation-valid"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label for="OrderingVendorId" class="FINSLabelForStyle" id="OrderingVendorId_label">Ordering Vendor</label>
+<span style="" class="k-widget k-combobox k-header ElementControlComboBox VendorComboBoxDataSource k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox VendorComboBoxDataSource valid" name="OrderingVendorId_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="OrderingVendorId_listbox" aria-labelledby="OrderingVendorId_label" /><span title="clear" class="k-icon k-clear-value k-i-close" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="OrderingVendorId_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" value="723" name="OrderingVendorId" id="OrderingVendorId" data-val-number="The field Ordering Vendor must be a number." data-val="true" class="ElementControlComboBox VendorComboBoxDataSource valid" data-role="combobox" style="display: none;" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#OrderingVendorId"), 'VendorComboBoxDataSource', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":null,"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {"change":OnOrderingVendorChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/ComboBox/Read","data":function() { return kendo.ui.ComboBox.requestData(jQuery("#OrderingVendorId")); }},"prefix":""},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"text":"3wire.com"});});
+</script>
+<span style="display:none" data-readonly="OrderingVendorId" class="FINSControlReadOnlyStyle">723</span>
+</div>
+
+
+<div class="FINSControlStyle">
+<label for="EmployeeId" class="FINSLabelForStyle" id="EmployeeId_label" style="display: none;">Employee</label>
+<span style="display: none;" class="k-widget k-combobox k-header ElementControlComboBox EmployeeComboBoxDataSource k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox EmployeeComboBoxDataSource" name="EmployeeId_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="EmployeeId_listbox" aria-labelledby="EmployeeId_label" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="EmployeeId_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" name="EmployeeId" id="EmployeeId" data-val-number="The field Employee must be a number." data-val="true" class="ElementControlComboBox EmployeeComboBoxDataSource" data-role="combobox" style="display: none;" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#EmployeeId"), 'EmployeeComboBoxDataSource', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":null,"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {"dataSource":{"transport":{"read":{"url":"/QAAutom/ComboBox/Read","data":function() { return kendo.ui.ComboBox.requestData(jQuery("#EmployeeId")); }},"prefix":""},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}}});});
+</script>
+<span style="display:none" data-readonly="EmployeeId" class="FINSControlReadOnlyStyle"></span>
+</div>
+
+
+<div class="FINSControlStyle">
+<label for="VendorInvoiceNumber" class="RequiredLabel FINSLabelForStyle">Invoice(s)</label>
+<span class="k-widget k-maskedtextbox ElementControlText" style=""><input value="3689-025003-1723" name="VendorInvoiceNumber" id="VendorInvoiceNumber" data-val-required="Required." data-val="true" class="ElementControlText k-textbox" data-role="maskedtextbox" style="width: 100%;" autocomplete="off" /><span class="k-icon k-i-warning"></span></span><script>
+	kendo.syncReady(function(){FINSUI.FINSUITextInput.CreateFINSUITextInput(jQuery("#VendorInvoiceNumber"),{"ReadOnly":false,"Visible":true,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":"0"},{"rules":{}});});
+</script>
+<span style="display:none" data-readonly="VendorInvoiceNumber" class="FINSControlReadOnlyStyle">3689-025003-1723</span>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label for="PaymentVendorId" class="FINSLabelForStyle" id="PaymentVendorId_label">Payment Vendor</label>
+<span style="" class="k-widget k-combobox k-header ElementControlComboBox VendorComboBoxDataSource k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox VendorComboBoxDataSource" name="PaymentVendorId_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="PaymentVendorId_listbox" aria-labelledby="PaymentVendorId_label" /><span title="clear" class="k-icon k-clear-value k-i-close" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="PaymentVendorId_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" value="723" name="PaymentVendorId" id="PaymentVendorId" data-val-number="The field Payment Vendor must be a number." data-val="true" class="ElementControlComboBox VendorComboBoxDataSource" data-role="combobox" style="display: none;" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#PaymentVendorId"), 'VendorComboBoxDataSource', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":null,"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {"dataSource":{"transport":{"read":{"url":"/QAAutom/ComboBox/Read","data":function() { return kendo.ui.ComboBox.requestData(jQuery("#PaymentVendorId")); }},"prefix":""},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"text":"3wire.com"});});
+</script>
+<span style="display:none" data-readonly="PaymentVendorId" class="FINSControlReadOnlyStyle">723</span>
+</div>
+
+
+<div class="FINSControlStyle">
+<label style="" for="TransactionDate" class="FINSLabelStyle">Transaction Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" value="07/27/2017" style="width: 100%; background-color: White;" name="TransactionDate" id="TransactionDate" data-val-date="The field Transaction Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="TransactionDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="TransactionDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#TransactionDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#TransactionDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('TransactionDate','Date');</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="InvoiceComment" class="FINSLabelStyle">Invoice Comment:</label>
+<textarea style="width: 20em; height: 5em" rows="4" name="InvoiceComment" id="InvoiceComment" cols="20" class="k-textbox k-textbox"></textarea>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="InvoiceDescription" class="FINSLabelStyle">Description:</label>
+<textarea style="width: 20em; height: 5em" rows="4" name="InvoiceDescription" id="InvoiceDescription" cols="20" class="k-textbox k-textbox"></textarea>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="InvoiceDate" class="FINSLabelStyle">Invoice Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" value="07/27/2017" style="width: 100%; background-color: White;" name="InvoiceDate" id="InvoiceDate" data-val-date="The field Invoice Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="InvoiceDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="InvoiceDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#InvoiceDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#InvoiceDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('InvoiceDate','Date');</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="VendorInvoiceDueDate" class="FINSLabelStyle">Due Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" value="07/27/2017" style="width: 100%; background-color: White;" name="VendorInvoiceDueDate" id="VendorInvoiceDueDate" data-val-date="The field Due Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="VendorInvoiceDueDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="VendorInvoiceDueDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoiceDueDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoiceDueDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('VendorInvoiceDueDate','Date');</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="VendorInvoicePaidDate" class="FINSLabelStyle">Paid Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" style="width: 100%; background-color: White;" name="VendorInvoicePaidDate" id="VendorInvoicePaidDate" data-val-date="The field Paid Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="VendorInvoicePaidDate_dateview" aria-disabled="false" readonly="readonly" tabindex="-1" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="VendorInvoicePaidDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoicePaidDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoicePaidDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('VendorInvoicePaidDate','Date');</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="CancelledDate" class="FINSLabelStyle">Cancelled Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" style="width: 100%; background-color: White;" name="CancelledDate" id="CancelledDate" data-val-date="The field Cancelled Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="CancelledDate_dateview" aria-disabled="false" readonly="readonly" tabindex="-1" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="CancelledDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#CancelledDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#CancelledDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('CancelledDate','Date');</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="VendorInvoiceSubmitDate" class="FINSLabelStyle">Submit Date:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" style="width: 100%; background-color: White;" name="VendorInvoiceSubmitDate" id="VendorInvoiceSubmitDate" data-val-date="The field Submit Date must be a date." data-val="true" data-role="datepicker" class="k-input" role="combobox" aria-expanded="false" aria-owns="VendorInvoiceSubmitDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="VendorInvoiceSubmitDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoiceSubmitDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#VendorInvoiceSubmitDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('VendorInvoiceSubmitDate','Date');</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="InvoiceTerms" class="FINSLabelStyle">Terms:</label>
+<textarea style="width: 20em; height: 24px" rows="1" name="InvoiceTerms" id="InvoiceTerms" cols="20" class="k-textbox k-textbox"></textarea>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                            </div></div></li></ul><script>
+	kendo.syncReady(function(){  FINSUI.FINSUICollapsablePanel.CreateFINSUICollapsablePanel(jQuery("#panelbar"),{"expand":onExpand,"collapse":onCollapse,"expandMode":"multiple"});});
+</script>
+            </div>
+</form>        <div id="divVendorInvoiceItem">
+            <div class="k-tabstrip-wrapper" style=""><div id="tabstrip" class="k-widget k-tabstrip k-header k-floatwrap k-tabstrip-top" data-role="tabstrip" tabindex="0" role="tablist" aria-activedescendant="tabstripFINSUITabStripItemInvoiceItems"><ul class="k-reset k-tabstrip-items"><li id="tabstripFINSUITabStripItemInvoiceItems" class="k-item k-state-default k-first k-tab-on-top k-state-active" role="tab" aria-controls="tabstrip-1" aria-selected="true"><span class="k-loading k-complete"></span><span unselectable="on" class="k-link">Invoice Items</span></li><li id="tabstripFINSUITabStripItemPODetail" class="k-item k-state-default k-last" role="tab" aria-controls="tabstrip-2"><span class="k-loading k-complete"></span><span unselectable="on" class="k-link">PO Detail</span></li></ul><div style="display: block;" id="tabstrip-1" class="k-content k-state-active" role="tabpanel" aria-expanded="true"><div>
+                                <div class="grid_action_buttons detail_grid_action_buttons" id="pnlGridOperations__VendorInvoiceDetailDataView">
+                                    <a accesskey="a" href="#" id="btnAdd__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip" style="display: inline-block;"><img border="0" src="/Content/Images/icons/add.gif" class="grid-action-icon" />Add</a>
+<a accesskey="e" href="#" id="btnEdit__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip" style="display: inline-block;"><img border="0" src="/Content/Images/icons/modify.gif" class="grid-action-icon" />Edit</a>
+<a accesskey="e" href="#" id="btnEditAll__VendorInvoiceDetailDataView" class="k-button" style="display: inline-block;"><img border="0" src="/Content/Images/icons/modify.gif" class="grid-action-icon" />Edit All</a>
+<a accesskey="d" href="#" id="btnDelete__VendorInvoiceDetailDataView" class="k-button" data-role="tooltip" style="display: inline-block;"><img border="0" src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Delete</a>
+
+                                </div>
+<div data-role="AptaDataView" id="divVendorInvoiceDetailDataView"><div style="height: 600px;" id="VendorInvoiceDetailDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__VendorInvoiceDetailDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'VendorInvoiceDetailDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__VendorInvoiceDetailDataView" id="SearchText__VendorInvoiceDetailDataView" class="searchBox" data-role="tooltip" /><script>
+	kendo.syncReady(function(){jQuery("\#SearchText__VendorInvoiceDetailDataView").kendoTooltip({"showAfter":500,"content":"Quick Search :\u003cbr /\u003e Units\u003cbr /\u003ePart No.\u003cbr /\u003e1099\u003cbr /\u003eBid No.\u003cbr /\u003eItem Description\u003cbr /\u003eUnit Price\u003cbr /\u003eUse Tax\u003cbr /\u003eTax Rate (%)\u003cbr /\u003eAsset\u003cbr /\u003eItem Total\u003cbr /\u003eAccount Code"});});
+</script></div></div><div class="ElementFilterWrapper">
+</div>
+<script>
+    $(document).ready(function () {
+        pinnedfilter_init('VendorInvoiceDetailDataView');
+    });
+</script><div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__VendorInvoiceDetailDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__VendorInvoiceDetailDataView" style="display:none;" class="GridSettingSelected"></span><div class="GridFilterWrapper"><a id="SearchSettings__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__VendorInvoiceDetailDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><script type="text/javascript">
+
+    var GridSettingGuid = '';
+    var displayButton;
+    var isGridFiltered;
+
+    function ReturnFromPopup__VendorInvoiceDetailDataView(e) {
+        var dataViewSettings = {
+            GridHeight: '600',
+            AdjustGridHeightOnResize: 'False',
+            VerticallyScrollable: 'True',
+            IsGridEditable: 'false'
+        };
+
+        var urls = {
+            ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+            ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+            ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+            GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+            GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+            DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+            SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+            RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+            Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+        };
+
+        var msgs = {
+            Success: "Record saved successfully.",
+            Delete: "Record deleted successfully.",
+            ConfirmDelete: "Confirm Delete",
+            DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+        };
+
+        UserGridSettingsMenuReturn('/Content/Images/filtericons/Gear.png', e, 'VendorInvoiceDetailDataView', urls.GetNamedGridSettings, dataViewSettings, urls.Apply,
+                                    function (e) {
+                                        UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'VendorInvoiceDetailDataView', dataViewSettings, urls, msgs)
+                                    });
+    }
+
+    $(document).ready(function () {
+        UpdataNamedGridSettingsMenu('/Content/Images/filtericons/Gear.png', 'VendorInvoiceDetailDataView', '/QAAutom/GridConfig/GetNamedGridSettings',
+            function (e) {
+                UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'VendorInvoiceDetailDataView',
+                {
+                    GridHeight: '600',
+                    AdjustGridHeightOnResize: 'False',
+                    IsGridEditable: 'false'
+                },
+                {
+                    ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+                    ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+                    ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+                    GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+                    GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+                    DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+                    SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+                    RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+                    Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+                },
+                {
+                    Success: "Record saved successfully.",
+                    Delete: "Record deleted successfully.",
+                    ConfirmDelete: "Confirm Delete",
+                    DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+                })
+            });
+    });
+
+    function LoadPageSetup__VendorInvoiceDetailDataView() {
+        UserGridSettingsMenuLoadPageSetup('VendorInvoiceDetailDataView', '', '/QAAutom/GridConfig/GetUserGridPageSetupView');
+    }
+</script>
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__VendorInvoiceDetailDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__VendorInvoiceDetailDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="true" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__VendorInvoiceDetailDataView button" id="Reset__VendorInvoiceDetailDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__VendorInvoiceDetailDataView button" id="SaveAs__VendorInvoiceDetailDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__VendorInvoiceDetailDataView button" id="PageSetup__VendorInvoiceDetailDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    <script>
+	kendo.syncReady(function(){jQuery("#usergridsettingsWindow__VendorInvoiceDetailDataView").kendoWindow({"close":ReturnFromPopup__VendorInvoiceDetailDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Save Grid Settings","resizable":false,"width":570,"height":380,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#pagesetupWindow__VendorInvoiceDetailDataView").kendoWindow({"refresh":LoadPageSetup__VendorInvoiceDetailDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Report Settings","resizable":false,"width":500,"height":350,"actions":["Close"]});});
+</script>
+
+<script type="text/kendo-ui" id="menu-template__VendorInvoiceDetailDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__VendorInvoiceDetailDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__VendorInvoiceDetailDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__VendorInvoiceDetailDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__VendorInvoiceDetailDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__VendorInvoiceDetailDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__VendorInvoiceDetailDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__VendorInvoiceDetailDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__VendorInvoiceDetailDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:35px" /><col style="width:80px" /><col style="width:90px" /><col style="width:120px" /><col style="width:70px" /><col style="width:80px" /><col style="width:80px" /><col style="width:120px" /><col style="width:80px" /><col style="width:130px" /><col style="width:80px" /><col style="width:160px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__VendorInvoiceDetailDataView" /></th><th style="text-align:right;" scope="col" data-title="Item No." data-index="1" data-field="InvoiceItemSequence" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceItemSequence-desc" class="k-link">Item No.<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Ordered Quantity" data-index="2" data-field="OrderedQty" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=OrderedQty-asc" class="k-link">Ordered Quantity</a></th><th style="text-align:right;" scope="col" data-title="Invoiced Quantity" data-index="3" data-field="InvoiceQty" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceQty-asc" class="k-link">Invoiced Quantity</a></th><th style="text-align:left;" scope="col" data-title="Units" data-index="4" data-field="UnitsOfMeasure" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=UnitsOfMeasure-asc" class="k-link">Units</a></th><th style="text-align:left;" scope="col" data-title="Part No." data-index="5" data-field="VendorPartNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=VendorPartNumber-asc" class="k-link">Part No.</a></th><th style="text-align:left;" scope="col" data-title="1099" data-index="6" data-field="Is1099" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=Is1099-asc" class="k-link">1099</a></th><th style="text-align:left;" scope="col" data-title="Item Description" data-index="7" data-field="InvoiceItemDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceItemDescription-asc" class="k-link">Item Description</a></th><th style="text-align:right;" scope="col" data-title="Unit Price" data-index="8" data-field="InvoiceUnitPrice" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceUnitPrice-asc" class="k-link">Unit Price</a></th><th style="text-align:left;" scope="col" data-title="Account Code" data-index="9" data-field="AccountCode" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=AccountCode-asc" class="k-link">Account Code</a></th><th style="text-align:right;" scope="col" data-title="Item Total" data-index="10" data-field="ItemTotal" data-aggregates="sum" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=ItemTotal-asc" class="k-link">Item Total</a></th><th style="text-align:left;" scope="col" data-title="Account Code Description" data-index="11" data-field="AccountCodeDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=AccountCodeDescription-asc" class="k-link">Account Code Description</a></th><th style="text-align:right;;display:none" scope="col" data-title="Vendor Invoice" data-index="12" data-field="InvoiceId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceId-asc" class="k-link">Vendor Invoice</a></th><th style="text-align:left;;display:none" scope="col" data-title="InvoiceItemType" data-index="13" data-field="InvoiceItemType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView&amp;gridKey=VendorInvoiceDetailDataView&amp;GridHeight=600&amp;AutoAdjustHeight=False&amp;verticallyScrollable=True&amp;dataViewParams=%7B%26quot%3BInvoiceId%26quot%3B%3A7746%2C%26quot%3BCycleId%26quot%3B%3A0%7D&amp;isEditable=false&amp;_=1501167899713&amp;VendorInvoiceDetailDataView-sort=InvoiceItemType-asc" class="k-link">InvoiceItemType</a></th><th scope="col" data-index="14" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 436px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:35px" /><col style="width:80px" class="k-sorted" /><col style="width:90px" /><col style="width:120px" /><col style="width:70px" /><col style="width:80px" /><col style="width:80px" /><col style="width:120px" /><col style="width:80px" /><col style="width:130px" /><col style="width:80px" /><col style="width:160px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 1125px;"></div></div><div class="k-grid-footer" style="padding-right: 17px;" tabindex="-1"><div class="k-grid-footer-wrap"><table><colgroup><col style="width:35px" /><col style="width:80px" /><col style="width:90px" /><col style="width:120px" /><col style="width:70px" /><col style="width:80px" /><col style="width:80px" /><col style="width:120px" /><col style="width:80px" /><col style="width:130px" /><col style="width:80px" /><col style="width:160px" /><col /></colgroup><tbody><tr class="k-footer-template"><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td><div style="text-align: right;">Sum: $0.00</div></td><td> </td><td style="display:none"> </td><td style="display:none"> </td><td> </td></tr></tbody></table></div></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">0</span></li><li><span class="k-state-selected">0</span></li></ul><a title="Go to the next page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="2273426d-1464-4112-8a28-059dac8832f3"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">200</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="200"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="200" selected="selected">200</option></select></span>items per page</span><span class="k-pager-info k-label">No items to display</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#VendorInvoiceDetailDataView").kendoGrid({"dataBound":$('#divVendorInvoiceDetailDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__VendorInvoiceDetailDataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"Item No.","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"InvoiceItemSequence","data-title":"Item No."},"width":"80px","template":"\u003cspan style=\u0027color: blue; text-decoration: underline; cursor: pointer;\u0027 onclick=\"EditVendorInvoiceDetail(#= InvoiceItemSequence#, #= InvoiceId#);\"\u003e${ InvoiceItemSequence }\u003c/span\u003e","field":"InvoiceItemSequence","filterable":false,"encoded":true},{"title":"Ordered Quantity","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"OrderedQty","data-title":"Ordered Quantity"},"width":"90px","template":"\u003cdiv \u003e#= kendo.format(\"{0:0}\", (OrderedQty == null) ? \"\" : kendo.toString(OrderedQty)) #\u003c/div\u003e","field":"OrderedQty","format":"{0:0}","filterable":false,"encoded":true},{"title":"Invoiced Quantity","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"InvoiceQty","data-title":"Invoiced Quantity"},"width":"120px","template":"\u003cdiv \u003e#= kendo.format(\"{0:N4}\", (InvoiceQty == null) ? \"\" : kendo.toString(InvoiceQty)) #\u003c/div\u003e","field":"InvoiceQty","format":"{0:N4}","filterable":false,"encoded":true},{"title":"Units","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"UnitsOfMeasure","data-title":"Units"},"width":"70px","field":"UnitsOfMeasure","filterable":false,"encoded":true},{"title":"Part No.","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"VendorPartNumber","data-title":"Part No."},"width":"80px","field":"VendorPartNumber","filterable":false,"encoded":true},{"title":"1099","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Is1099","data-title":"1099"},"width":"80px","field":"Is1099","filterable":false,"encoded":true},{"title":"Item Description","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"InvoiceItemDescription","data-title":"Item Description"},"width":"120px","field":"InvoiceItemDescription","filterable":false,"encoded":true},{"title":"Unit Price","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"InvoiceUnitPrice","data-title":"Unit Price"},"width":"80px","template":"\u003cdiv \u003e#= kendo.toString(InvoiceUnitPrice, \"C4\") #\u003c/div\u003e","field":"InvoiceUnitPrice","format":"{0:C4}","filterable":false,"encoded":true},{"title":"Account Code","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"AccountCode","data-title":"Account Code"},"width":"130px","field":"AccountCode","filterable":false,"encoded":true},{"title":"Item Total","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"ItemTotal","data-title":"Item Total","data-aggregates":"sum"},"width":"80px","template":"\u003cdiv \u003e#= kendo.toString(ItemTotal, \"C\") #\u003c/div\u003e","footerTemplate":"\u003cdiv style=\"text-align: right;\"\u003eSum: #=sum === null ? \u0027\u0027 : kendo.format(\u0027{0:C}\u0027, sum)#\u003c/div\u003e","field":"ItemTotal","format":"{0:C}","filterable":false,"encoded":true,"aggregates":["sum"]},{"title":"Account Code Description","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"AccountCodeDescription","data-title":"Account Code Description"},"width":"160px","field":"AccountCodeDescription","filterable":false,"encoded":true},{"title":"Vendor Invoice","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"InvoiceId","data-title":"Vendor Invoice"},"hidden":true,"width":"100px","field":"InvoiceId","filterable":false,"encoded":true},{"title":"InvoiceItemType","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"InvoiceItemType","data-title":"InvoiceItemType"},"hidden":true,"width":"80px","field":"InvoiceItemType","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"toolbar":{},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceDetailDataView","data":$('#divVendorInvoiceDetailDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=VendorInvoiceDetailDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=VendorInvoiceDetailDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=VendorInvoiceDetailDataView"}},"pageSize":200,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"InvoiceItemSequence","dir":"asc"}],"aggregate":[{"field":"ItemTotal","aggregate":"sum"}],"filter":[],"error":$('#divVendorInvoiceDetailDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"Id":{"editable":false,"type":"string"},"InvoiceItemSequence":{"editable":false,"type":"number"},"OrderedQty":{"editable":false,"type":"number","defaultValue":null},"ReceivedQaty":{"editable":false,"type":"number","defaultValue":null},"InvoiceQty":{"editable":false,"type":"number","defaultValue":null},"UnitsOfMeasure":{"editable":false,"type":"string"},"VendorPartNumber":{"editable":false,"type":"string"},"Is1099":{"editable":false,"type":"string"},"POBidItemNumber":{"editable":false,"type":"string"},"InvoiceItemDescription":{"editable":false,"type":"string"},"InvoiceUnitPrice":{"editable":false,"type":"number"},"UseTax":{"editable":false,"type":"string"},"InvoiceTaxRate":{"editable":false,"type":"number"},"Asset":{"editable":false,"type":"string"},"ItemTotal":{"editable":false,"type":"number","defaultValue":null},"AccountTypeGroup":{"editable":false,"type":"string"},"AccountCode":{"editable":false,"type":"string"},"AccountCodeDescription":{"editable":false,"type":"string"},"InvoiceId":{"editable":false,"type":"number"},"InvoiceItemType":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_VendorInvoiceDetailDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_VendorInvoiceDetailDataView" value="true" />
+
+<div id="dvGridSettings__VendorInvoiceDetailDataView">
+</div>
+
+<div id="dvGridSearchSettings__VendorInvoiceDetailDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__VendorInvoiceDetailDataView">0 </span> <a href="#" id="UnselectAll__VendorInvoiceDetailDataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divVendorInvoiceDetailDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__VendorInvoiceDetailDataView() {
+        if ($("#dvGridSettings__VendorInvoiceDetailDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'VendorInvoiceDetailDataView', GridHeight: '600', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__VendorInvoiceDetailDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__VendorInvoiceDetailDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__VendorInvoiceDetailDataView() {
+        if ($("#dvGridSearchSettings__VendorInvoiceDetailDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'VendorInvoiceDetailDataView', GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__VendorInvoiceDetailDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__VendorInvoiceDetailDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__VendorInvoiceDetailDataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceDetailDataView();
+        $("#settingsWindow__VendorInvoiceDetailDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__VendorInvoiceDetailDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'VendorInvoiceDetailDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__VendorInvoiceDetailDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__VendorInvoiceDetailDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__VendorInvoiceDetailDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__VendorInvoiceDetailDataView').click(function () {
+        LoadSearchSettingsOnDemand__VendorInvoiceDetailDataView();
+        $('#tbFilterName__VendorInvoiceDetailDataView').val("");
+        $("#searchSettings__VendorInvoiceDetailDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__VendorInvoiceDetailDataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceDetailDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'VendorInvoiceDetailDataView', GridHeight: '600', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_VendorInvoiceDetailDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#VendorInvoiceDetailDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divVendorInvoiceDetailDataView').html(result);
+                InitializeGrid___VendorInvoiceDetailDataView(false);
+                var function_name = 'VendorInvoiceDetailDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_VendorInvoiceDetailDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "VendorInvoiceDetailDataView");
+                }
+                HideGridFooter("VendorInvoiceDetailDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__VendorInvoiceDetailDataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceDetailDataView();
+        $("#divVendorInvoiceDetailDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__VendorInvoiceDetailDataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceDetailDataView();
+        $("#divVendorInvoiceDetailDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__VendorInvoiceDetailDataView').click(function () {
+        LoadSearchSettingsOnDemand__VendorInvoiceDetailDataView()
+        $("#divVendorInvoiceDetailDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__VendorInvoiceDetailDataView').css("padding-top", "0px");
+        $('#divQuickSearch__VendorInvoiceDetailDataView').css("padding-top", "0px");
+        $('#divQuickSearch__VendorInvoiceDetailDataView').css("padding-left", "0px");
+        $('#divOptions__VendorInvoiceDetailDataView').css("margin-top", "0px");
+        $('#divOptions__VendorInvoiceDetailDataView').css("margin-right", "3px");
+        $('#divQuickSearch__VendorInvoiceDetailDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___VendorInvoiceDetailDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("VendorInvoiceDetailDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__VendorInvoiceDetailDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__VendorInvoiceDetailDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__VendorInvoiceDetailDataView() {
+        var gridName = 'VendorInvoiceDetailDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___VendorInvoiceDetailDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_VendorInvoiceDetailDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "VendorInvoiceDetailDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_VendorInvoiceDetailDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__VendorInvoiceDetailDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__VendorInvoiceDetailDataView').click(function (e) {
+        e.preventDefault();
+        $("#divVendorInvoiceDetailDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+    <script>
+        function LoadGridOnDemand__VendorInvoiceDetailDataView() {
+            LoadGridOnDemandGrindInsert('/QAAutom/GridConfig/GridCreate', 'VendorInvoiceDetailDataView', '600', 'False', '', 'True', '{&amp;quot;InvoiceId&amp;quot;:7746,&amp;quot;CycleId&amp;quot;:0}','false');
+        }
+    </script>
+
+                            </div></div><div id="tabstrip-2" class="k-content" role="tabpanel" aria-hidden="true" aria-expanded="false"><div>
+<div data-role="AptaDataView" id="divPODetailForInvoicesDataView">
+    <script>
+        $("#divPODetailForInvoicesDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("PODetailForInvoicesDataView")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"InvoiceId":7746,"CycleId":0})
+            .SetGridHeight(600, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+        <textarea style="width:100%;height:600px">Loading...</textarea>
+</div>
+
+    <script>
+        function LoadGridOnDemand__PODetailForInvoicesDataView() {
+            LoadGridOnDemandGrindInsert('/QAAutom/GridConfig/GridCreate', 'PODetailForInvoicesDataView', '600', 'False', '', 'True', '{&amp;quot;InvoiceId&amp;quot;:7746,&amp;quot;CycleId&amp;quot;:0}','false');
+        }
+    </script>
+
+                            </div></div></div></div><script>
+	kendo.syncReady(function(){  FINSUI.FINSUITabStrip.CreateFINSUITabStrip(jQuery("#tabstrip"),{"activate":onActivate,"animation":false});});
+</script>
+        </div>
+    </div>
+</div>
+
+<div id="popupWindowPOItemDetails"></div>
+
+<div id="popupWindowDiscountPremiumPO"></div>
+<div id="popupWindowShippingCost"></div>
+<div id="popupWindowApplyTax"></div>
+<div id="popupWindowPOBalance"></div>
+<div id="popupWindowAssignAssetNumberDataView"></div>
+<div id="popupWindowAssignAssetNumberDialog"></div>
+<div id="popupWindowApplyCreditDiscountPOLine"></div>
+<script>
+
+    function onExpand(e) {
+        if (e.item.textContent.toString().indexOf("General") &gt; -1) {
+            localStorage.setItem("panelSelectedVIGeneral", "1");
+        }
+    }
+
+    function onCollapse(e) {
+        if (e.item.textContent.toString().indexOf("General") &gt; -1) {
+            localStorage.setItem("panelSelectedVIGeneral", "0");
+        }
+    }
+
+    function ReturntoGrid() {
+        NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/Manage");
+    }
+
+    $("#btnAdd__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        var invoiceId = $("#InvoiceId").val();
+        ShowAjaxMessage("", "");
+
+        ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceItemDetails" + "?itemSequence=" + -1 + "&amp;invoiceId=" + invoiceId + "&amp;vendorId=" + "723");
+    });
+
+    // to validate drop downlist, in kendo UI dropdownlist is not validate untill the following lines:
+    // http://stackoverflow.com/questions/12306737/how-do-you-enable-asp-net-mvc-client-validation-for-kendo-ui-dropdownlist-and-co
+
+    $.validator.setDefaults({
+        ignore: ""
+    });
+
+    var invoiceId = '7746';
+    var invoiceStatus = 'N';
+    var invoiceType = 'D';
+
+    function EditVendorInvoiceDetail(invoiceItemSequence, invoiceId) {
+        if ((invoiceType == "D" || invoiceType == "C" || invoiceType == "E" || invoiceType == "R") &amp;&amp; invoiceStatus == "N") {
+            ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceItemDetails" + "?itemSequence=" + invoiceItemSequence + "&amp;invoiceId=" + invoiceId);
+        }
+        else {
+            if (invoiceStatus != "N") {
+                ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/ViewVendorInvoiceItemDetail" + "?itemsequence=" + invoiceItemSequence + "&amp;invoiceId=" + invoiceId);
+            }
+        }
+    }
+
+    function ShowInvoiceItemPopup(contentURL) {
+        var POItemDetailPopup = $("#popupWindowPOItemDetails").data("FINSWindow");
+        if(POItemDetailPopup != undefined &amp;&amp; POItemDetailPopup != null)
+        {
+            POItemDetailPopup.SetHTMLContent('');
+        }
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("VendorInvoiceItemDetailsPopup")
+                         .SetContent({ type: "POST", url: contentURL, data: $("#divVendorInvoiceDetailDataView").data("AptaDataView").GetAptaDataViewSelection()})
+                         .SetIsModal(true).SetTitle("Invoice Item").SetWidth(800).SetIFrame(false).SetIsResizable(true);
+        finsWindow.CreateWindow(true);
+        RegisterScreenShortCutKeys("VendorInvoiceItemDetails", "VendorInvoiceItemDetails", null);
+    }
+
+    var finspopupwindowCloseInvoicePO = null;
+
+    $(document).ready(function () {
+        _vendorId = $("#OrderingVendorId").data("kendoComboBox").value();
+        var ClosePoResultMessage;
+        finspopupwindowCloseInvoicePO = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowCloseInvoicePO")
+                           .SetContent({ url: "/QAAutom/AccountsPayable/VendorInvoice/ClosePO" }).SetIsModal(true).SetIFrame(true).SetonClose(function(){RefreshView();})
+                           .SetTitle("Close Dollar PO").SetWidth(1000)
+                           .SetonRefresh(function(){if($("#VendorInvoiceClosePODataView").data("kendoGrid")){$("#VendorInvoiceClosePODataView").data("kendoGrid").dataSource.read()}});
+        finspopupwindowCloseInvoicePO.CreateWindow(false);
+
+        RegisterScreenShortCutKeys("VendorInvoiceDataView", "VendorInvoiceDetailDataView", "VendorInvoiceDetailDataView");
+        $("#EmployeeId").closest(".k-widget").hide();
+        $('label[for="EmployeeId"]').hide();
+        $('#btnAdd__VendorInvoiceDetailDataView').hide();
+        $('#btnEdit__VendorInvoiceDetailDataView').hide();
+        $('#btnEditAll__VendorInvoiceDetailDataView').hide();
+        $('#btnDelete__VendorInvoiceDetailDataView').hide();
+        $('#dvSubmitForPayment').hide();
+
+        if (invoiceId &gt; 0) {
+
+            $("#POId").data("kendoDropDownList").readonly();
+            $("#POId").data("kendoDropDownList").wrapper.attr("tabindex", -1);
+
+            $("#InvoiceType").data("FINSComboBox").SetReadOnly(true);
+
+            $("#VendorInvoicePaidDate").data("kendoDatePicker").readonly();
+            $("#VendorInvoicePaidDate").attr("tabindex", -1);
+
+            $("#CancelledDate").data("kendoDatePicker").readonly();
+            $("#CancelledDate").attr("tabindex", -1);
+
+            $("#divVendorInvoiceItem").show();
+            $('#dvSubmitForPayment').show();
+
+            $("#dvInvoiceOperations").show();
+            $("#dvPOBalance").show();
+
+            if ((invoiceType == "D" || invoiceType == "C" || invoiceType == "E") &amp;&amp; invoiceStatus == "N") {
+                $('#btnAdd__VendorInvoiceDetailDataView').show();
+                $('#btnEdit__VendorInvoiceDetailDataView').show();
+                $('#btnEditAll__VendorInvoiceDetailDataView').show();
+                $('#btnDelete__VendorInvoiceDetailDataView').show();
+                if (document.getElementById("btnAdd__VendorInvoiceDetailDataView") != null &amp;&amp; document.getElementById("btnAdd__VendorInvoiceDetailDataView") != 'undefined')
+                    CommandButtonEnterKey("#btnAdd__VendorInvoiceDetailDataView");
+                if (document.getElementById("btnEdit__VendorInvoiceDetailDataView") != null &amp;&amp; document.getElementById("btnEdit__VendorInvoiceDetailDataView") != 'undefined')
+                    CommandButtonEnterKey("#btnEdit__VendorInvoiceDetailDataView");
+                if (document.getElementById("btnDelete__VendorInvoiceDetailDataView") != null &amp;&amp; document.getElementById("btnDelete__VendorInvoiceDetailDataView") != 'undefined')
+                    CommandButtonEnterKey("#btnDelete__VendorInvoiceDetailDataView");
+
+            }
+            if (invoiceType == "R" &amp;&amp; invoiceStatus == "N") {
+                var poId = $("#POId").data("kendoDropDownList").value();
+
+                $('#btnEdit__VendorInvoiceDetailDataView').show();
+                $('#btnEditAll__VendorInvoiceDetailDataView').show();
+                if (document.getElementById("btnEdit__VendorInvoiceDetailDataView") != null &amp;&amp; document.getElementById("btnEdit__VendorInvoiceDetailDataView") != 'undefined')
+                    CommandButtonEnterKey("#btnEdit__VendorInvoiceDetailDataView");
+                if(poId != undefined &amp;&amp; poId != null &amp;&amp; poId.length &gt; 0)
+                {
+                    $('#btnDelete__VendorInvoiceDetailDataView').show();
+                    if (document.getElementById("btnDelete__VendorInvoiceDetailDataView") != null &amp;&amp; document.getElementById("btnDelete__VendorInvoiceDetailDataView") != 'undefined')
+                        CommandButtonEnterKey("#btnDelete__VendorInvoiceDetailDataView");
+                }
+            }
+
+            if (invoiceStatus != "N") {
+                $("#dvInvoiceOperations").hide();
+                $("#dvSubmitForPayment").hide();
+            }
+        }
+        else {
+            OnInvoiceTypeChange();
+            $("#divVendorInvoiceItem").hide();
+            $("#dvInvoiceOperations").hide();
+            $("#dvPOBalance").hide();
+        }
+
+        if (invoiceId != 0 &amp;&amp; invoiceStatus != "N") {
+            $("#btnSave__VendorInvoiceDetailDataView").hide();
+            $("#btnSaveAndAdd__VendorInvoiceDetailDataView").hide();
+            $("#btnSaveAndNext__VendorInvoiceDetailDataView").hide();
+
+            $('#PaymentVendorId').data("FINSComboBox").SetReadOnly(true);
+            $("#InvoiceType").data("FINSComboBox").SetReadOnly(true);
+            if (invoiceType != "E")
+            {
+                $("#OrderingVendorId").data("FINSComboBox").SetReadOnly(true);
+            }
+            if(invoiceType=="E")
+            {
+                $('#EmployeeId').data("FINSComboBox").SetReadOnly(true);
+            }
+        }
+        if (invoiceType == "E") {
+            $("#POId").data("kendoDropDownList").readonly();
+            $("#POId").data("kendoDropDownList").wrapper.attr("tabindex", -1);
+
+            $("#EmployeeId").closest(".k-widget").show();
+            $('label[for="EmployeeId"]').show();
+
+            $("#OrderingVendorId").closest(".k-widget").hide();
+            $('label[for="OrderingVendorId"]').hide();
+            $("#employeeIdRequired").addClass("RequiredLabel");
+            $('#EmployeeId').data("FINSComboBox").SetReadOnly(true);
+        }
+
+        var panelBar = $("#panelbar").data("kendoPanelBar");
+        var panGeneral = localStorage.getItem("panelSelectedVIGeneral");
+
+        if (panGeneral == null) {
+            panelBar.expand($('#panelbar li:nth-child(1)'));
+        }
+        else {
+            if (panGeneral != null &amp;&amp; panGeneral != "0")
+                panelBar.expand($('#panelbar li:nth-child(1)'));
+        }
+        $("#VendorName").text($("#OrderingVendorId").data("kendoComboBox").text());
+    });
+
+    $("#btnDiscountPremium__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowDiscountPremiumPO")
+                            .SetContent({ url:"/QAAutom/AccountsPayable/VendorInvoice/DiscountPremium?"+ "invoiceId=" + '7746' }).SetIsModal(true)
+                            .SetTitle('Apply Discount/Premium').SetonDeactivate(function () { UnRegisterActiveScreen(); });
+        finsWindow.CreateWindow(true);
+        RegisterScreenShortCutKeys(null, "DiscountPremiumVendorInvoice", null);
+    });
+
+    $("#btnShippingCost__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/IsInvoiceStatusNew",
+            data: { invoiceId: '7746' },
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowShippingCost")
+                            .SetContent({url: "/QAAutom/AccountsPayable/VendorInvoice/ApplyShippingCost?" + "invoiceId=" + '7746'}).SetIsModal(true)
+                            .SetTitle('Shipping Cost').SetonDeactivate(function () { UnRegisterActiveScreen(); });
+                    finsWindow.CreateWindow(true);
+                    RegisterScreenShortCutKeys(null, "VendorInvoiceShippingCost", null);
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    });
+
+    $("#btnApplyTax__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/IsInvoiceStatusNew",
+            data: { invoiceId: '7746' },
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowApplyTax")
+                            .SetContent({ url: "/QAAutom/AccountsPayable/VendorInvoice/ApplyTax?" + "invoiceId=" + '7746' }).SetIsModal(true)
+                            .SetTitle('Apply Tax').SetonDeactivate(function () { UnRegisterActiveScreen(); });
+                    finsWindow.CreateWindow(true);
+                    RegisterScreenShortCutKeys(null, "ApplyTaxVendorInvoice", null);
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    });
+
+    $("#btnPOBalance__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+
+        var poId = $("#POId").data("kendoDropDownList").value();
+        var poNumber = $("#POId").data("kendoDropDownList").text();
+        if (poId == "") {
+            poId = 0;
+        }
+        if (poNumber == undefined) {
+            poNumber = "";
+        }
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/OpenPOBalance",
+            data: { poId: poId },
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowPOBalance")
+                            .SetContent({ url: "/QAAutom/AccountsPayable/VendorInvoice/POBalance?" + "poId=" + poId }).SetIsModal(true)
+                            .SetTitle('PO Balance - ' + poNumber).SetonDeactivate(function () { UnRegisterActiveScreen(); });
+                    finsWindow.CreateWindow(true);
+                    RegisterScreenShortCutKeys(null, "VendorInvoicePOBalance", null);
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    });
+
+    $("#btnSaveAndAdd__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        VendorInvoiceDetailsSave(true);
+    });
+
+    $("#btnSaveAndNext__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        VendorInvoiceDetailsSave(false, true);
+    });
+
+    function VendorInvoiceDetailsSave(addAnother, addNext) {
+        ShowAjaxMessage("", "");
+
+        var destinationID = $("#DestinationId").val();
+        var rName = $('#RequestorName').val();
+
+        var validationMessage = '';
+
+        var vendorId = $("#OrderingVendorId").data("kendoComboBox").value();
+        if (isNaN(vendorId)) { vendorId = _vendorId != -1 ? _vendorId: $("#OrderingVendorId").val() }
+        $("#OrderingVendorId").val(vendorId);
+        var paymentVendorId = $("#PaymentVendorId").data("kendoComboBox").value();
+        if (isNaN(paymentVendorId)) { paymentVendorId = $("#OrderingVendorId").val() }
+        $("#PaymentVendorId").val(paymentVendorId);
+
+        var employeeId = $("#EmployeeId").data("kendoComboBox").value();
+        var pOId = $("#POId").data("kendoDropDownList").value();
+        var invoiceType = $("#InvoiceType").data("kendoComboBox").value();
+        var vendorInvoiceNumber = $("#VendorInvoiceNumber").val();
+
+        if (typeof invoiceType == 'undefined' || invoiceType == '') {
+            validationMessage += 'Invoice type required' + '&lt;br /&gt;';
+        }
+
+        if (vendorInvoiceNumber.length &gt; 0) {
+            if ($.trim(vendorInvoiceNumber) == '') {
+                validationMessage += 'Invoice Number required' + '&lt;br /&gt;';
+            }
+        }
+        else {
+            validationMessage += 'Invoice Number required' + '&lt;br /&gt;';
+        }
+
+        switch ($("#InvoiceType").data("kendoComboBox").value()) {
+            case "R":
+                {
+                    if (typeof pOId == 'undefined' || pOId == '') {
+                        validationMessage += 'PO Number required' + '&lt;br /&gt;';
+                    }
+
+                    break;
+                }
+            case "D":
+                {
+                    if (typeof vendorId == 'undefined' || vendorId == '' || vendorId == '-1') {
+                        validationMessage += 'Ordering Vendor required' + '&lt;br /&gt;';
+                    }
+                    break;
+                }
+            case "C":
+                {
+                    if (typeof pOId == 'undefined' || pOId == '') {
+                        if (typeof vendorId == 'undefined' || vendorId == '' || vendorId == '-1') {
+                            validationMessage += 'Ordering Vendor required' + '&lt;br /&gt;';
+                        }
+                    }
+                    break;
+                }
+            case "E":
+                {
+                    if (typeof employeeId == 'undefined' || employeeId == '') {
+                        validationMessage += 'Employee required' + '&lt;br /&gt;';
+                    }
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+
+        if (validationMessage != '') {
+
+            ShowAjaxMessage(validationMessage, "error");
+            return;
+        }
+
+        var form = $("#FormVendorInvoice");
+        $.ajax({
+            type: "POST",
+            url: form.attr('action'),
+            data: form.serialize(),
+            error: function (xhr, status, error) {
+            },
+            success: function (response) {
+                if (response.Success == true) {
+                    if (addAnother) {
+                        NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/CreateInvoice");
+                    }
+                    else if (addNext) {
+                        NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/Detail" + "/" + $("#NextId").val());
+                    }
+                    else
+                        NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/Detail" + "/" + response.InvoiceId);
+                }
+                else {
+                    ShowAjaxMessage(response.Message, "error");
+                }
+            }
+        });
+    }
+    var _vendorId = -1;
+    var fromVendorChange = false;
+
+    function OnPOChange(){
+        var poId = $("#POId").data("kendoDropDownList").value();
+        if(poId != "")
+        {
+            var data = { poId: poId };
+            $.ajax({
+                url: '/QAAutom/AccountsPayable/VendorInvoice/GetPOOrderingVendor',
+                cache: false,
+                dataType: 'JSON',
+                data: data,
+
+                success: function (result) {
+                    if (typeof result !== "undefined" &amp;&amp; result != null) {
+                        var vendorCount = $("#OrderingVendorId").data("kendoComboBox").dataSource.data().length;
+                        if(vendorCount == 0)
+                        {
+                            $("#OrderingVendorId").data("kendoComboBox").dataSource.read();
+                        }
+
+                        _vendorId = result.VendorId;
+                        if($("#OrderingVendorId").data("kendoComboBox").value() == result.VendorId)return;
+                        $("#OrderingVendorId").data("kendoComboBox").text(result.VendorName);
+                        $("#OrderingVendorId").val(result.VendorId);
+                        $("#OrderingVendorId").data("FINSComboBox").LastText = result.VendorName;
+                        fromVendorChange = true;
+                        $("#OrderingVendorId").data("kendoComboBox").trigger("change");
+
+                    }
+                }
+
+            });
+
+        }
+
+    }
+
+    function OnOrderingVendorChange() {
+        var isPOReadOnly = $("#POId").data("kendoDropDownList").element.prop("readonly");
+        if(isPOReadOnly)
+            return;
+
+        var OrderValue = $("#OrderingVendorId").data("kendoComboBox").value();
+
+        if(isNaN(OrderValue))
+            return;
+
+        var vendorId =  $("#OrderingVendorId").data("kendoComboBox").value();
+        if(vendorId === "")
+        {
+            vendorId  = "-1";
+        }
+
+        var data = { vendorId: vendorId };
+
+        $.ajax({
+            url: '/QAAutom/AccountsPayable/VendorInvoice/GetPOList',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (typeof result !== "undefined" &amp;&amp; result != null) {
+                    var ddl = $("#POId").data("kendoDropDownList")
+                    ddl.setDataSource(result);
+                    ddl.refresh();
+                    if(fromVendorChange){
+                        fromVendorChange = false;
+                    }
+                    else
+                    {
+                        ddl.select(0);
+                    }
+                }
+            }
+        });
+    }
+
+    function OnInvoiceTypeChange() {
+        $("#POId").data("kendoDropDownList").select(0);
+        switch ($("#InvoiceType").data("kendoComboBox").value()) {
+            case "R":
+                {
+                    $("#EmployeeId").closest(".k-widget").hide();
+                    $('label[for="EmployeeId"]').hide();
+                    $("#OrderingVendorId").closest(".k-widget").show();
+                    $('label[for="OrderingVendorId"]').show();
+                    $("#OrderingVendorId").data("FINSComboBox").SetReadOnly(false);
+                    $("#POId").data("kendoDropDownList").readonly(false);
+                    $("#poNumberRequired").addClass("RequiredLabel");
+                    $("#vendorIdRequired").removeClass("RequiredLabel");
+                    $("#employeeIdRequired").removeClass("RequiredLabel");
+                    break;
+                }
+            case "D":
+                {
+                    $("#EmployeeId").closest(".k-widget").hide();
+                    $('label[for="EmployeeId"]').hide();
+                    $("#POId").data("kendoDropDownList").readonly();
+                    $("#OrderingVendorId").closest(".k-widget").show();
+                    $('label[for="OrderingVendorId"]').show();
+                    $("#poNumberRequired").removeClass("RequiredLabel");
+                    $("#employeeIdRequired").removeClass("RequiredLabel");
+                    $("#vendorIdRequired").addClass("RequiredLabel");
+                    $("#OrderingVendorId").data("FINSComboBox").SetReadOnly(false);
+                    break;
+                }
+            case "C":
+                {
+                    $("#EmployeeId").closest(".k-widget").hide();
+                    $('label[for="EmployeeId"]').hide();
+                    $("#OrderingVendorId").data("FINSComboBox").SetReadOnly(false);
+                    $("#POId").data("kendoDropDownList").readonly(false);
+                    $("#OrderingVendorId").closest(".k-widget").show();
+                    $('label[for="OrderingVendorId"]').show();
+                    $("#poNumberRequired").removeClass("RequiredLabel");
+                    $("#employeeIdRequired").removeClass("RequiredLabel");
+                    $("#vendorIdRequired").addClass("RequiredLabel");
+                    break;
+                }
+            case "E":
+                {
+                    $("#POId").data("kendoDropDownList").readonly();
+                    $("#EmployeeId").closest(".k-widget").show();
+                    $('label[for="EmployeeId"]').show();
+                    $("#OrderingVendorId").closest(".k-widget").hide();
+                    $('label[for="OrderingVendorId"]').hide();
+                    $("#poNumberRequired").removeClass("RequiredLabel");
+                    $("#vendorIdRequired").removeClass("RequiredLabel");
+                    $("#employeeIdRequired").addClass("RequiredLabel");
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }
+    }
+
+    $("#btnEditAll__VendorInvoiceDetailDataView").click(function () {
+
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+        if (grid.dataSource.data().length &lt;= 0) {
+            ShowOkDialog("Selection", "There are currently no items in the list to Edit.", null);
+            return;
+        }
+        var selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (selectedRowId !== "-1") {
+            $('.selectAll__VendorInvoiceDetailDataView').click();
+        }
+        ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceItemDetails" + "?itemSequence=-2&amp;invoiceId=-1");
+    });
+
+    $("#btnEdit__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        var invoiceId;
+        var invoiceItemSequence;
+        ShowAjaxMessage("", "");
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        var gridData = grid.dataSource.data();
+        selectedRowIds = selectedRowIds + ',';
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (
+                (gridData[i].Id == selectedRowIds)
+                || (selectedRowIds.indexOf(gridData[i].Id + ',') &gt;= 0 &amp;&amp; selectedRowIds.indexOf("-1") &lt; 0)
+                || (selectedRowIds.indexOf(gridData[i].Id + ',') &lt; 0 &amp;&amp; selectedRowIds.indexOf("-1") &gt;= 0)) {
+                invoiceId = gridData[i].InvoiceId;
+                invoiceItemSequence = gridData[i].InvoiceItemSequence;
+                break;
+            }
+        }
+
+        ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceItemDetails" + "?itemSequence=" + invoiceItemSequence + "&amp;invoiceId=" + invoiceId);
+    });
+
+    $("#btnView__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+        //debugger;
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+        var Ids = selectedRowIds.split(",");
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if ($.inArray(gridData[i].Id, Ids) !== -1) {
+                var iDArray = gridData[i].Id.split("~");
+                invoiceId = iDArray[0];
+                invoiceItemSequence = iDArray[1];
+            }
+        }
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        ShowInvoiceItemPopup("/QAAutom/AccountsPayable/VendorInvoice/ViewVendorInvoiceItemDetail" + "?itemsequence=" + invoiceItemSequence + "&amp;invoiceId=" + invoiceId);
+
+    });
+
+    $("#btnDelete__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Invoice Items", "Please select one or more records for this operation.", null);
+            return;
+        }
+        else {
+            if(ValidateRegularInvoiceLineItemDeletion() === false)
+            {
+                ShowOkDialog("Invoice Items", "This line item cannot be deleted because it is part of a Purchase Order.  To remove this line item, please delete this invoice and create a Change Order.", null)
+                return;
+            }
+            ShowYesNoDialog("Confirm Delete", "Are you sure you want to delete the selected item(s)?", DeleteVendorInvoiceItem);
+        }
+    });
+
+    function ValidateRegularInvoiceLineItemDeletion()
+    {
+        var poId = $("#POId").data("kendoDropDownList").value();
+        var invoiceType = $("#InvoiceType").data("kendoComboBox").value();
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+        var Ids = selectedRowIds.split(",");
+
+        if(Ids[0] === "-1" &amp;&amp; Ids.length &gt;= 1)
+        {
+            Ids = new Array();
+            for (var i = 0; i &lt; gridData.length; i++) {
+                Ids.push(gridData[i].Id);
+            }
+        }
+
+        if (typeof invoiceType != 'undefined' || invoiceType != '') {
+            if (invoiceType == "R")
+            {
+                if(poId == undefined || poId == null || poId.length &lt;= 0)
+                    return false;
+                for (var i = 0; i &lt; gridData.length; i++) {
+                    if ($.inArray(gridData[i].Id, Ids) !== -1) {
+                        var unitsOfMeasure = gridData[i].UnitsOfMeasure;
+                        if(unitsOfMeasure != 'Shipping' &amp;&amp; unitsOfMeasure != 'Tax' &amp;&amp; unitsOfMeasure != 'Discount/Premium')
+                            return false;
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    $("#btnApplyCreditDiscountToPOLineItem__VendorInvoiceDetailDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+        //debugger;
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+        var Ids = selectedRowIds.split(",");
+        var invoiceId;
+        var invoiceItemSequence;
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if ($.inArray(gridData[i].Id, Ids) !== -1) {
+                var iDArray = gridData[i].Id.split("~");
+                invoiceId = iDArray[0];
+                invoiceItemSequence = iDArray[1];
+            }
+        }
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        ApplyCreditDiscountToPOLineItem(invoiceId, invoiceItemSequence);
+    });
+
+    function ApplyCreditDiscountToPOLineItem(invoiceId, invoiceItemSequence)
+    {
+        var poId = $("#POId").data("kendoDropDownList").value();
+        var poNumber = $("#POId").data("kendoDropDownList").text();
+
+        setFocusEventForKendoWindow("popupWindowApplyCreditDiscountPOLine");
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowApplyCreditDiscountPOLine")
+                .SetContent({ url:"/QAAutom/AccountsPayable/VendorInvoice/ApplyCreditDiscountToPOLineItem?" + "poId=" + poId+ "&amp;invoiceId=" + invoiceId + "&amp;invoiceItemSequence=" + invoiceItemSequence + "&amp;poNumber=" + poNumber }).SetIsModal(true)
+                .SetTitle('Apply Credit/Discount to PO Line Item').SetonDeactivate(function () { UnRegisterActiveScreen(); });
+        finsWindow.CreateWindow(true);
+
+    }
+
+    function DeleteVendorInvoiceItem() {
+        ShowAjaxMessage("", "");
+
+        $("#divVendorInvoiceDetailDataView").data("AptaDataView").MakeAjaxCall({
+            url: "/QAAutom/AccountsPayable/VendorInvoice/DeleteVendorInvoiceItem",
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    ShowAjaxMessage(result.Message, "success");
+                    var grid = $("#VendorInvoiceDetailDataView").data("kendoGrid");
+                    ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                    NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/Detail?id=7746")
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    $("#btnSubmitForPayment__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+
+        ShowYesNoDialog("Confirm Submit", "Are you sure you want to submit the selected invoice(s)?", CheckForAssociatedOrderReceipt);
+    });
+
+    function CheckForAssociatedOrderReceipt() {
+        var invoiceId = $("#InvoiceId").val();
+
+        var data = { invoiceId: invoiceId };
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/CheckForAssociatedOrderReceipt",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result.Success == true) {
+                    SubmitForPayment();
+                }
+                else
+                {
+                    ShowOkCancelDialog("Vendor Invoice", "This invoice does not have a related Order Receipt for the items being invoiced. This invoice will be placed in the Pending state until an Order Receipt is created and submitted. You can submit this invoice a second time, which will create a Pending Order Receipt in the Receiving module.", SubmitForPayment);
+                }
+
+            }
+        });
+
+    }
+
+    function SubmitForPayment(overBudget) {
+        var invoiceId = $("#InvoiceId").val();
+        var data = { invoiceId: invoiceId, overBudget: overBudget };
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/SubmitForPaymentSingle",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result.Success) {
+                    var bOpened = false
+                    var VendorInvoiceCloseGrid = $("#VendorInvoiceClosePODataView").data("kendoGrid");
+                    VendorInvoiceCloseGrid.dataSource.bind("change", function () {
+                        if (VendorInvoiceCloseGrid.dataSource.data().length &gt; 0) {
+                            if (!bOpened) {
+                                ClosePoResultMessage = result.Message;
+                                finspopupwindowCloseInvoicePO.OpenWindow();
+                                bOpened = true;
+                            }
+                        }
+                        else {
+                            location.reload();
+                        }
+                    });
+                    VendorInvoiceCloseGrid.dataSource.read();
+                }
+                else {
+                    if (result.Message.indexOf("Do you wish to submit for payment anyway?", "error")&gt;=0)
+                    {
+                        if (1 == true)
+                        {
+                            ShowYesNoDialog("Vendor Invoice", result.Message, function (e) { SubmitForPayment(true);});
+                        }
+                        else
+                        {
+                            result.Message = result.Message.replace("The invoice of", "The invoice");
+                            var intStartIndex = result.Message.indexOf("Do you wish to submit for payment anyway?");
+                            var strOverBudgetMessage = result.Message.substring(0, intStartIndex-1);
+                            strOverBudgetMessage += "&amp;nbsp;&amp;nbsp;This Invoice cannot be submitted for payment.";
+                            ShowAjaxMessage(strOverBudgetMessage, "error");
+                        }
+                    }
+                    else
+                    {
+                        ShowAjaxMessage(result.Message, "error");
+                    }
+                }
+            }
+        });
+
+    }
+
+    function RefreshView() {
+
+        NavigateTo("/QAAutom/AccountsPayable/VendorInvoice/Detail" + "/" + '7746');
+
+        ShowAjaxMessage(ClosePoResultMessage, "success");
+    }
+
+    function VendorInvoiceItemDetailsPopupClose(e) {
+        alert("Done.")
+    }
+
+    $("#btnAssignAssetNumber__VendorInvoiceDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowAssignAssetNumberDataView")
+                            .SetContent({ url: "/QAAutom/AccountsPayable/VendorInvoice/AssignAssetNumber?" + "invoiceId=" + '7746' }).SetIsModal(true)
+                            .SetTitle('Assign Asset Number').SetWidth(643).SetHeight(360);
+
+        finsWindow.CreateWindow(true);
+    });
+
+    function AddEdit(opeartion, poid) {
+        var selectedRowId = poid;
+        if (poid &lt;= 0) {
+
+            if (opeartion == "Add") {
+                selectedRowId = -1;
+            }
+            else {
+                var grid = $("#PurchaseOrderDataView").data("kendoGrid");
+                selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+                if (NoItemsSelected(selectedRowId)) {
+                    ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+                    return;
+                }
+                selectedRowId = selectedRowId.split(",")[0]
+            }
+        }
+
+    }
+
+    function EditPurchaseOrder(id)
+    {
+        var invoiceItemDetailPopup = $("#VendorInvoiceItemDetailsPopup").data("FINSWindow");
+        if(invoiceItemDetailPopup != undefined &amp;&amp; invoiceItemDetailPopup != null)
+        {
+            invoiceItemDetailPopup.SetHTMLContent('');
+        }
+        ShowPODetailPopup("/QAAutom/Purchasing/PurchaseOrder/PODetails" + "?id=" + id ,'Purchase Order Details');
+
+    }
+
+    function GotoPurchaseRequisition(PRId) {
+        NavigateTo("/QAAutom/Purchasing/AdminRequisition/MyDetails" + "?id=" + PRId + "~3&amp;statusType=3&amp;ReturnScreen=Manage");
+    }
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Thursday, July 27, 2017 11:02 AM
+                    <br />
+                    AptaFund Version: 2017.7.27.12047
+                    <br />
+                    Last Updated: 7/27/2017 8:01:48 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#07272017080148"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/AccountsPayable/VendorInvoice/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        FINSUI.FINSUINotifications.AppNotification().show(FINSUI.NotificationType.Success, "Record saved successfully.");
+
+        if ('Detail' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-list-container k-popup k-group k-reset" id="InvoiceType-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="InvoiceType_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="POId-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="POId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="ce04adb7-d28d-491c-925a-9931f449f251"></li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">17 - 01835</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">17 - 01902</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">17 - 01921</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">17 - 01922</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00001</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00002</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00003</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00004</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00006</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00007</li><li data-offset-index="11" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00008</li><li data-offset-index="12" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00009</li><li data-offset-index="13" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00010</li><li data-offset-index="14" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00011</li><li data-offset-index="15" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00012</li><li data-offset-index="16" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00013</li><li data-offset-index="17" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00014</li><li data-offset-index="18" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00015</li><li data-offset-index="19" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00017</li><li data-offset-index="20" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00019</li><li data-offset-index="21" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00020</li><li data-offset-index="22" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00021</li><li data-offset-index="23" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00022</li><li data-offset-index="24" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00023</li><li data-offset-index="25" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00024</li><li data-offset-index="26" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00025</li><li data-offset-index="27" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00026</li><li data-offset-index="28" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00027</li><li data-offset-index="29" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00028</li><li data-offset-index="30" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00029</li><li data-offset-index="31" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00030</li><li data-offset-index="32" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00031</li><li data-offset-index="33" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00033</li><li data-offset-index="34" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00034</li><li data-offset-index="35" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00036</li><li data-offset-index="36" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00037</li><li data-offset-index="37" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00038</li><li data-offset-index="38" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00040</li><li data-offset-index="39" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00041</li><li data-offset-index="40" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00042</li><li data-offset-index="41" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00043</li><li data-offset-index="42" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00044</li><li data-offset-index="43" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00045</li><li data-offset-index="44" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00046</li><li data-offset-index="45" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00047</li><li data-offset-index="46" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00048</li><li data-offset-index="47" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00049</li><li data-offset-index="48" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00050</li><li data-offset-index="49" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00051</li><li data-offset-index="50" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00052</li><li data-offset-index="51" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00053</li><li data-offset-index="52" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00054</li><li data-offset-index="53" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00055</li><li data-offset-index="54" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00056</li><li data-offset-index="55" class="k-item" unselectable="on" role="option" tabindex="-1">18 - 00057</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="OrderingVendorId-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="OrderingVendorId_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="EmployeeId-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="EmployeeId_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="PaymentVendorId-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="PaymentVendorId_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="TransactionDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="InvoiceDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="VendorInvoiceDueDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="VendorInvoicePaidDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="CancelledDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="VendorInvoiceSubmitDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 447.65px; left: 1109.53px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__VendorInvoiceDetailDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__VendorInvoiceDetailDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__VendorInvoiceDetailDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 447.65px; left: 1109.53px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__VendorInvoiceDetailDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__VendorInvoiceDetailDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__VendorInvoiceDetailDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="2273426d-1464-4112-8a28-059dac8832f3">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 27px; min-width: 90px; min-height: 50px; width: 1000px; display: none; top: 60px; left: 125.5px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -27px;"> <span class="k-window-title" id="popupwindowCloseInvoicePO_wnd_title">Close Dollar PO</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div id="popupwindowCloseInvoicePO" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="popupwindowCloseInvoicePO_wnd_title">
+<br />
+<label id="topMessage">Submitted Invoice(s) will leave the associated Dollar PO(s) with balances shown below:</label>
+<br />
+
+<div>
+    <div data-role="AptaDataView" id="divVendorInvoiceClosePODataView">
+    <script>
+        $("#divVendorInvoiceClosePODataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("VendorInvoiceClosePODataView")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(350, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 350px;" id="VendorInvoiceClosePODataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:35px" /><col style="width:110px" /><col style="width:125px" /><col style="width:150px" /><col style="width:150px" /><col style="width:150px" /><col style="width:150px" /><col style="width:125px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__VendorInvoiceClosePODataView" /></th><th style="text-align:left;" scope="col" data-title="PO Number" data-index="1" data-field="PONumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=PONumber-asc" class="k-link">PO Number</a></th><th style="text-align:left;" scope="col" data-title="Invoice(s):" data-index="2" data-field="InvoiceNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=InvoiceNumber-asc" class="k-link">Invoice(s):</a></th><th style="text-align:right;" scope="col" data-title="PO Amount" data-index="3" data-field="OrderAmount" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=OrderAmount-desc" class="k-link">PO Amount<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Paid to Date Amount" data-index="4" data-field="PaidToDateAmount" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=PaidToDateAmount-asc" class="k-link">Paid to Date Amount</a></th><th style="text-align:right;" scope="col" data-title="Other Pending Invoice(s)" data-index="5" data-field="OtherPendingAmount" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=OtherPendingAmount-asc" class="k-link">Other Pending Invoice(s)</a></th><th style="text-align:right;" scope="col" data-title="Total Invoice(s)" data-index="6" data-field="ThisInvoiceAmount" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=ThisInvoiceAmount-asc" class="k-link">Total Invoice(s)</a></th><th style="text-align:right;" scope="col" data-title="Balance Amount" data-index="7" data-field="BalanceAmount" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=BalanceAmount-asc" class="k-link">Balance Amount</a></th><th style="text-align:right;;display:none" scope="col" data-title="POID" data-index="8" data-field="POID" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView&amp;gridKey=VendorInvoiceClosePODataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;51ed6702-f340-4bf4-ac67-efe23e26463d=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;_=1501167899714&amp;VendorInvoiceClosePODataView-sort=POID-asc" class="k-link">POID</a></th><th scope="col" data-index="9" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height:200px" class="k-grid-content"><table role="grid"><colgroup><col style="width:35px" /><col style="width:110px" /><col style="width:125px" /><col style="width:150px" class="k-sorted" /><col style="width:150px" /><col style="width:150px" /><col style="width:150px" /><col style="width:125px" /><col /></colgroup><tbody role="rowgroup"></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">0</span></li><li><span class="k-state-selected">0</span></li></ul><a title="Go to the next page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="65f34e17-5165-45cb-9d4c-fc681a7facee"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">No items to display</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#VendorInvoiceClosePODataView").kendoGrid({"dataBound":$('#divVendorInvoiceClosePODataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__VendorInvoiceClosePODataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"PO Number","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PONumber","data-title":"PO Number"},"width":"110px","field":"PONumber","filterable":false,"encoded":true},{"title":"Invoice(s):","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"InvoiceNumber","data-title":"Invoice(s):"},"width":"125px","template":"#= getHtmlNewLinesString(InvoiceNumber)#","encoded":false,"field":"InvoiceNumber","filterable":false},{"title":"PO Amount","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"OrderAmount","data-title":"PO Amount"},"width":"150px","field":"OrderAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"Paid to Date Amount","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"PaidToDateAmount","data-title":"Paid to Date Amount"},"width":"150px","field":"PaidToDateAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"Other Pending Invoice(s)","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"OtherPendingAmount","data-title":"Other Pending Invoice(s)"},"width":"150px","field":"OtherPendingAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"Total Invoice(s)","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"ThisInvoiceAmount","data-title":"Total Invoice(s)"},"width":"150px","field":"ThisInvoiceAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"Balance Amount","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"BalanceAmount","data-title":"Balance Amount"},"width":"125px","field":"BalanceAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"POID","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"POID","data-title":"POID"},"hidden":true,"width":"75px","field":"POID","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=VendorInvoiceClosePODataView","data":$('#divVendorInvoiceClosePODataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=VendorInvoiceClosePODataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=VendorInvoiceClosePODataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=VendorInvoiceClosePODataView"}},"pageSize":25,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"OrderAmount","dir":"asc"}],"filter":[],"error":$('#divVendorInvoiceClosePODataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"Id":{"editable":false,"type":"string"},"PONumber":{"editable":false,"type":"string"},"InvoiceNumber":{"editable":false,"type":"string"},"OrderAmount":{"editable":false,"type":"number"},"PaidToDateAmount":{"editable":false,"type":"number"},"OtherPendingAmount":{"editable":false,"type":"number"},"ThisInvoiceAmount":{"editable":false,"type":"number"},"BalanceAmount":{"editable":false,"type":"number"},"POID":{"editable":false,"type":"number"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_VendorInvoiceClosePODataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_VendorInvoiceClosePODataView" value="true" />
+
+<div id="dvGridSettings__VendorInvoiceClosePODataView">
+</div>
+
+<div id="dvGridSearchSettings__VendorInvoiceClosePODataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__VendorInvoiceClosePODataView">0 </span> <a href="#" id="UnselectAll__VendorInvoiceClosePODataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divVendorInvoiceClosePODataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(false)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__VendorInvoiceClosePODataView() {
+        if ($("#dvGridSettings__VendorInvoiceClosePODataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'VendorInvoiceClosePODataView', GridHeight: '350', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__VendorInvoiceClosePODataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__VendorInvoiceClosePODataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '350', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__VendorInvoiceClosePODataView() {
+        if ($("#dvGridSearchSettings__VendorInvoiceClosePODataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'VendorInvoiceClosePODataView', GridHeight: '350', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__VendorInvoiceClosePODataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__VendorInvoiceClosePODataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__VendorInvoiceClosePODataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceClosePODataView();
+        $("#settingsWindow__VendorInvoiceClosePODataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__VendorInvoiceClosePODataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'VendorInvoiceClosePODataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__VendorInvoiceClosePODataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__VendorInvoiceClosePODataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__VendorInvoiceClosePODataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__VendorInvoiceClosePODataView').click(function () {
+        LoadSearchSettingsOnDemand__VendorInvoiceClosePODataView();
+        $('#tbFilterName__VendorInvoiceClosePODataView').val("");
+        $("#searchSettings__VendorInvoiceClosePODataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__VendorInvoiceClosePODataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceClosePODataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'VendorInvoiceClosePODataView', GridHeight: '350', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_VendorInvoiceClosePODataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#VendorInvoiceClosePODataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divVendorInvoiceClosePODataView').html(result);
+                InitializeGrid___VendorInvoiceClosePODataView(false);
+                var function_name = 'VendorInvoiceClosePODataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_VendorInvoiceClosePODataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "VendorInvoiceClosePODataView");
+                }
+                HideGridFooter("VendorInvoiceClosePODataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__VendorInvoiceClosePODataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceClosePODataView();
+        $("#divVendorInvoiceClosePODataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__VendorInvoiceClosePODataView').click(function () {
+        LoadSettingsOnDemand__VendorInvoiceClosePODataView();
+        $("#divVendorInvoiceClosePODataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__VendorInvoiceClosePODataView').click(function () {
+        LoadSearchSettingsOnDemand__VendorInvoiceClosePODataView()
+        $("#divVendorInvoiceClosePODataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__VendorInvoiceClosePODataView').css("padding-top", "0px");
+        $('#divQuickSearch__VendorInvoiceClosePODataView').css("padding-top", "0px");
+        $('#divQuickSearch__VendorInvoiceClosePODataView').css("padding-left", "0px");
+        $('#divOptions__VendorInvoiceClosePODataView').css("margin-top", "0px");
+        $('#divOptions__VendorInvoiceClosePODataView').css("margin-right", "3px");
+        $('#divQuickSearch__VendorInvoiceClosePODataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___VendorInvoiceClosePODataView(fromPageLoad) {
+        var autoLoad = 'False' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("VendorInvoiceClosePODataView", "1");
+                    GridSetSelectedItemsOn("VendorInvoiceClosePODataView", "");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__VendorInvoiceClosePODataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__VendorInvoiceClosePODataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__VendorInvoiceClosePODataView() {
+        var gridName = 'VendorInvoiceClosePODataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_VendorInvoiceClosePODataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "VendorInvoiceClosePODataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_VendorInvoiceClosePODataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__VendorInvoiceClosePODataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__VendorInvoiceClosePODataView').click(function (e) {
+        e.preventDefault();
+        $("#divVendorInvoiceClosePODataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+</div>
+<br />
+<div>
+    <label id="bottomMessage"><b>Note:</b> PO(s) will be closed once all Pending Invoice(s) are Paid.</label>
+</div>
+<div style="margin-top:10px" id="pnlGridOptions">
+    <a href="#" id="btnClosePO" class="k-button">Close Selected PO(s)</a>
+    <a href="#" id="btnContinueWOClosePO" class="k-button">Continue without Closing PO(s)</a>
+</div>
+
+<script>
+    $("#btnClosePO").click(function () {
+        var grid = $("#VendorInvoiceClosePODataView").data("kendoGrid");
+        var selectedIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (NoItemsSelected(selectedIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        var data = { selectedIds: selectedIds };
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/ClosePO",
+            data: data,
+            dataType: "json",
+            type:"Post",
+            success: function (result) {
+                $('#popupwindowCloseInvoicePO').data("kendoWindow").close();
+            }
+        });
+    });
+
+    $("#btnContinueWOClosePO").click(function () {
+        var grid = $("#VendorInvoiceClosePODataView").data("kendoGrid");
+        var selectedIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        var data = { selectedIds: selectedIds };
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/AccountsPayable/VendorInvoice/ClosePO",
+            data: data,
+        dataType: "json",
+        type:"Post",
+        success: function (result) {
+            $('#popupwindowCloseInvoicePO').data("kendoWindow").close();
+        }
+    });
+    });
+</script></div><div class="k-resize-handle k-resize-n"></div><div class="k-resize-handle k-resize-e"></div><div class="k-resize-handle k-resize-s"></div><div class="k-resize-handle k-resize-w"></div><div class="k-resize-handle k-resize-se"></div><div class="k-resize-handle k-resize-sw"></div><div class="k-resize-handle k-resize-ne"></div><div class="k-resize-handle k-resize-nw"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="65f34e17-5165-45cb-9d4c-fc681a7facee">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="1376"></canvas></html>

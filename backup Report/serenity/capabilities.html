@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Requirements</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
+<![endif]--><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" rel="Stylesheet"/>
+<link type="text/css" href="css/tables.css" rel="stylesheet" />
+
+<script type="text/javascript" src="datatables/1.10.4/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js"></script><!-- jQplot -->
+<!--[if IE]>
+<script language="javascript" type="text/javascript" src="excanvas/3/excanvas.compiled.js"></script>
+<![endif]--><link rel="stylesheet" type="text/css" href="jqplot/1.0.8/jquery.jqplot.min.css"/>
+<script type="text/javascript" src="jqplot/1.0.8/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="jqplot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
+
+
+
+    <script class="code" type="text/javascript">$(document).ready(function () {
+        var plot1 = $.jqplot('coverage_pie_chart', [
+            [
+                ['Passing', 0.566667],
+                ['Pending', 0],
+                ['Ignored', 0.1],
+                ['Failing', 0.033333],
+                ['Errors',  0.3],
+                ['Compromised Tests',  0],
+            ]
+        ], {
+            gridPadding: {top: 0, bottom: 38, left: 0, right: 0},
+            seriesColors: ['#30cb23',
+                
+                '#a2f2f2',
+                
+                '#eeeadd',
+                
+                '#f8001f',
+                
+                '#fc6e1f',
+                'fuchsia'],
+            seriesDefaults: {
+                renderer: $.jqplot.PieRenderer,
+                trendline: {show: false},
+                rendererOptions: {padding: 8, showDataLabels: true}
+            },
+            legend: {
+                show: true,
+                placement: 'outside',
+                rendererOptions: {
+                    numberRows: 3
+                },
+                location: 's',
+                marginTop: '15px'
+            },
+            series: [
+                {label: '56.7% requirements tested successfully'},
+                {label: '10% requirements untested'},
+                {label: '3.3%} requirements failing'},
+                {label: '30%} requirements with errors'},
+                {label: '0%} requirements with compromised tests'}
+            ]
+        });
+        // Results table
+        $('#test-results-table').DataTable({
+            "order": [
+                [ 1, "asc" ]
+            ],
+            "pageLength": 100,
+            "lengthMenu": [ [50, 100, 200, -1] , [50, 100, 200, "All"] ]
+        });
+
+        // Results table
+        $('#req-results-table').DataTable({
+            "order": [
+                [ 1, "asc" ]
+            ],
+            "pageLength": 100,
+            "lengthMenu": [ [50, 100, 200, -1] , [50, 100, 200, "All"] ]
+        });
+
+        $('#examples-table').DataTable({
+            "order": [
+                [2, "asc"]
+            ],
+            "pageLength": 25
+        });
+        $("#tabs").tabs();
+        $("#test-tabs").tabs();
+    })
+    ;
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".read-more-link").click(function () {
+                $(this).nextAll("div.read-more-text").toggle();
+                var isrc = $(this).find("img").attr('src');
+                if (isrc == 'images/plus.png') {
+                    $(this).find("img").attr("src", function () {
+                        return "images/minus.png";
+                    });
+                } else {
+                    $(this).find("img").attr("src", function () {
+                        return "images/plus.png";
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+
+<body class="results-page">
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-bdd-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">AptaFund Automated Test Suite</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+            <a href='index.html'>Home</a>
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li >
+            <a href="index.html"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 16-06-2017 09:31</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+
+                <div id="requirements-summary">
+                    <div id="coverage_pie_chart"
+                         style="margin-top:10px; margin-left:10px; width:250px; height:250px;"></div>
+                    <div id="coverage_summary">
+                        <div>
+                            <h4>Requirements Overview</h4>
+                            <table class="summary-table">
+                                <head>
+                                    <tr>
+                                        <th>Requirement Type</th>
+                                        <th>Total</th>
+                                        <th>Pass&nbsp;<i class="icon-check"></i></th>
+                                        <th>Fail&nbsp;<i class="icon-thumbs-down"></i></th>
+                                        <th>Pending&nbsp;<i class="icon-calendar"></i></th>
+                                        <th>Ignored&nbsp;<i class="icon-ban-circle"></i></th>
+                                        <th>Untested&nbsp;<i class="icon-question"></i></th>
+                                    </tr>
+                                </head>
+                                <body>
+                                <tr>
+                                    <td class="summary-leading-column">Acceptance Criteria (tests)</td>
+                                    <td>30</td>
+                                    <td>17</td>
+                                    <td>10</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td></td>
+                                </tr>
+                                </body>
+                            </table>
+                        </div>
+
+
+
+
+
+<div>
+    <h4>Test Result Summary</h4>
+    <table class="summary-table">
+        <head>
+            <tr>
+                <th>Test Type</th>
+                <th>Total</th>
+                <th>Pass&nbsp;<i class="icon-check"/> </th>
+                <th>Fail&nbsp;<i class="icon-thumbs-down"/></th>
+                <th>Pending&nbsp;<i class="icon-calendar"/></th>
+                <th>Ignored&nbsp;<i class="icon-ban-circle"/></th>
+            </tr>
+        </head>
+        <body>
+        <tr>
+            <td class="summary-leading-column">Automated</td>
+            <td>30</td>
+            <td>17 (57%)</td>
+            <td>10 (33%)</td>
+            <td>0 (0%)</td>
+            <td>3 (10%)</td>
+        </tr>
+        <tr>
+            <td class="summary-leading-column">Manual</td>
+            <td>0</td>
+            <td>0 (0%)</td>
+            <td>0 (0%)</td>
+            <td>0 (0%)</td>
+            <td>0 (0%)</td>
+        </tr>
+        <tr>
+            <td class="summary-leading-column">Total</td>
+            <td>30</td>
+            <td>17 (57%)</td>
+            <td>10 (3%)</td>
+            <td>0 (0%)</td>
+            <td>3 (10%)</td>
+        </tr>
+        <tr>
+            <td class="summary-leading-column">Total Duration</td>
+                <td colspan="5">42 minutes 11 seconds</td>
+        </tr>
+        </body>
+    </table>
+</div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+
+                <div id="tabs">
+<table>
+    <tr>
+        <td>
+            <div><h3>Acceptance Criteria</h3></div>
+            <div id="test_list_tests" class="table">
+                <div class="test-results">
+                    <table id="test-results-table">
+                        <thead>
+                        <tr>
+                            <th width="50" class="test-results-heading">&nbsp;</th>
+                            <th width="%" class="test-results-heading">Tests</th>
+                            <th width="70" class="test-results-heading">Steps</th>
+
+                            <th width="100" class="test-results-heading">Duration<br>(seconds)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="d13ae748640f4daf7d801ecb69e90f4b57b02299f6cf1dae4d12233efca935c9.html" class="ellipsis" title="Web driver exception: Element is not clickable at point (689.0333251953125, 410.6333312988281). Other element would receive the click: (div style='width: 226px; height: 50px; overflow: hidden; display: block; position: absolute; top: 421.983px; z-index: 10015; left: 479.983px;' class='k-animation-container')(/div)">
+                                    Add direct deposit with amount 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">8</td>
+
+
+                                <td class="lightgreentext">109</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="1dc899480de9dfe7f259c1b85c7b0330f0d3ae63c5dee848c14cc9a9b9fb8ecf.html" class="ellipsis" title="Element not visible exception: Timed out after 5 seconds. Element not available">
+                                    Add direct deposit with percentage 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">8</td>
+
+
+                                <td class="lightgreentext">99.93</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="bd6979e809a4b32e35054de8b495fbd70a41dfcdd8aafbc7af978268f1d1c647.html" class="ellipsis" title="">
+                                    Add non variable deduction for percentage 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">8</td>
+
+
+                                <td class="lightgreentext">91.94</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="1c6d88e5ce1bca851e8bf5840cb3d1850a547282dc2a1044f7ac16ef66242192.html" class="ellipsis" title="No such element exception: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@b34832b">
+                                    Delete employee salary job 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">9</td>
+
+
+                                <td class="lightgreentext">138.91</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="6e3af5a362e4b04cfc12d11048224e506085dfdccd4bed6ae32c7bd21f3a14ca.html" class="ellipsis" title="">
+                                    Delete non variable deduction for percentage 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">9</td>
+
+
+                                <td class="lightgreentext">102.47</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="e879609acd6f2875da79477216bfeb064db454add21fee97eed100a2182a8c14.html" class="ellipsis" title="">
+                                    Verify add direct type vendor invoice 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">6</td>
+
+
+                                <td class="lightgreentext">64.27</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="2bb8c83ff66569bff65e08806fbd9c53a8a5b891264849374da50ba852c1236a.html" class="ellipsis" title="">
+                                    Verify add employee hourly job 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">5</td>
+
+
+                                <td class="lightgreentext">92.07</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="548b6486949ff992cb161345aa6484b240c4cfaa0e698fe377e8489a1d394a0f.html" class="ellipsis" title="Element not visible exception: Timed out after 5 seconds. Element not available">
+                                    Verify add employee salary job 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">8</td>
+
+
+                                <td class="lightgreentext">69.84</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="0920593eda202530fe0ab28c3d147f18aa386447ded5c52f25ea6ec2c05fa053.html" class="ellipsis" title="">
+                                    Verify add fixed amount calculation deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">6</td>
+
+
+                                <td class="lightgreentext">131.1</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="0f7d25e96b2f59f215725726915a74472a859ce1ad0d305a2ddea1f4f808876f.html" class="ellipsis" title="">
+                                    Verify add fixed amount deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">5</td>
+
+
+                                <td class="lightgreentext">121.61</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="c5fcc1230e0568f2b65865fb5aa3fab519bdc9883210c09930948e6b7f59e457.html" class="ellipsis" title="No such element exception: Timed out after 5 seconds. Element not found">
+                                    Verify add job to register 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">39</td>
+
+
+                                <td class="lightgreentext">140.05</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="6124748fb9bbeb57232e23bd6449d71b4237d5de64124512c8bcdb8fe444ac1b.html" class="ellipsis" title="Unsupported driver exception: Could not instantiate class org.openqa.selenium.firefox.FirefoxDriver">
+                                    Verify add new employee 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">9</td>
+
+
+                                <td class="lightgreentext">45.29</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="9b47e1901df56dbc32fb99a1e204765e8834c2dd6dfe752c7a5f38eef0652f74.html" class="ellipsis" title="No such element exception: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd">
+                                    Verify add percentage calculation deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">6</td>
+
+
+                                <td class="lightgreentext">89.99</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="2a91ab24b9739ac0940b78448add87760548c30cf49fe9a1683cc572ab45a6b7.html" class="ellipsis" title="">
+                                    Verify add system deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">6</td>
+
+
+                                <td class="lightgreentext">54.15</td>
+                            </tr>
+
+                            <tr class="test-IGNORED">
+                                <td><span class="summary-icon"><i class='fa fa-ban ignored-icon ' title='IGNORED'></i></span>
+                                    
+                                    <span style="display:none">IGNORED</span></td>
+                                <td class="IGNORED-text">
+                                    <div class="ellipsis">
+                                    <a href="cae3391e93f354158c853889be3a13b71cb08f7eda2f7a4a768b99dcb05e22a4.html" class="ellipsis" title="">
+                                    Verify change database 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">0</td>
+
+
+                                <td class="lightgreentext">0</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="6c136384adced60b2a2259c2c027fe8450e82cc7ae2c599775b098bc5f70b6db.html" class="ellipsis" title="Web driver exception: Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: (div style='display: block; z-index: 10004; opacity: 0.5;' class='k-overlay')(/div)">
+                                    Verify disable fixed amount deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">8</td>
+
+
+                                <td class="lightgreentext">139.95</td>
+                            </tr>
+
+                            <tr class="test-FAILURE">
+                                <td><span class="summary-icon"><i class='fa fa-times-circle failure-icon ' title='FAILURE'></i></span>
+                                    
+                                    <span style="display:none">FAILURE</span></td>
+                                <td class="FAILURE-text">
+                                    <div class="ellipsis">
+                                    <a href="73c012732255b950d57e3805be96b315ea506a7cd71f96e55e2d835154fc26b5.html" class="ellipsis" title="Element should be enabled exception: Expected enabled element was not enabledBuild info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'Driver info: driver.version: unknown">
+                                    Verify edit direct type vendor invoice 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">11</td>
+
+
+                                <td class="lightgreentext">91.04</td>
+                            </tr>
+
+                            <tr class="test-ERROR">
+                                <td><span class="summary-icon"><i class='fa fa-exclamation-triangle error-icon ' title='ERROR'></i></span>
+                                    
+                                    <span style="display:none">ERROR</span></td>
+                                <td class="ERROR-text">
+                                    <div class="ellipsis">
+                                    <a href="8dde57b252ce503ae898554b6fb44a950a83c46f2246f3263d4f3339a7f3633d.html" class="ellipsis" title="No such element exception: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@53ed09e8">
+                                    Verify edit employee salary job 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">7</td>
+
+
+                                <td class="lightgreentext">140.79</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="b1f4a990b36d4c839963d1f2637adb48a1a8bdbe2ff5465585d3497f350ad528.html" class="ellipsis" title="">
+                                    Verify edit fixed amount deduction 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">6</td>
+
+
+                                <td class="lightgreentext">130.87</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="588d755b3bf6fd57db8c15cf078f81575c44815fc3c4ad61443aa115e5d02bd8.html" class="ellipsis" title="">
+                                    Verify login into site 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">2</td>
+
+
+                                <td class="lightgreentext">38.13</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="644a32f0f634dec677bdc0315a1adb6f3e0cf28be29264378a6d0c42985d94fa.html" class="ellipsis" title="">
+                                    Verify login page is appearing 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">1</td>
+
+
+                                <td class="lightgreentext">9.09</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="8cd64075c6985fe15cd2416c81a32be0b5503a6dca0700e1be13d1e5aa506e84.html" class="ellipsis" title="">
+                                    Verify logout 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">3</td>
+
+
+                                <td class="lightgreentext">18.47</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="96c09a12ca7c21825dc126d807e16f8416402287fb30f8813a7434b7d7a448fe.html" class="ellipsis" title="">
+                                    Verify navigate to deduction assignment 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">4</td>
+
+
+                                <td class="lightgreentext">33</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="6d0a3b3c3612b00a82a38c756fcf874458baf19ba8c413b1b70a984a1ddd8416.html" class="ellipsis" title="">
+                                    Verify navigate to manage deductions 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">4</td>
+
+
+                                <td class="lightgreentext">34.41</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="d00dd305817e1366af343e745a81f091672a8eedd0f1cc0d0b0a56ecdabd9c67.html" class="ellipsis" title="">
+                                    Verify navigate to manage employee 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">4</td>
+
+
+                                <td class="lightgreentext">38.26</td>
+                            </tr>
+
+                            <tr class="test-IGNORED">
+                                <td><span class="summary-icon"><i class='fa fa-ban ignored-icon ' title='IGNORED'></i></span>
+                                    
+                                    <span style="display:none">IGNORED</span></td>
+                                <td class="IGNORED-text">
+                                    <div class="ellipsis">
+                                    <a href="ba2de392565bce4560b9ec804326c75f5d95b528de427a638dfb397cbfbc0175.html" class="ellipsis" title="">
+                                    Verify navigate to manage payroll 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">0</td>
+
+
+                                <td class="lightgreentext">0</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="b1db78ab173ed18d0c557fe4ca152ce4d141cfccc6320f4f35a7bd0899851141.html" class="ellipsis" title="">
+                                    Verify navigate to payroll 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">3</td>
+
+
+                                <td class="lightgreentext">33.87</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="a7347b79f5c7a0885779e0478d86561e4adef9dd5745a8c545b0c10538f6a957.html" class="ellipsis" title="">
+                                    Verify remove job to register 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">27</td>
+
+
+                                <td class="lightgreentext">180.74</td>
+                            </tr>
+
+                            <tr class="test-IGNORED">
+                                <td><span class="summary-icon"><i class='fa fa-ban ignored-icon ' title='IGNORED'></i></span>
+                                    
+                                    <span style="display:none">IGNORED</span></td>
+                                <td class="IGNORED-text">
+                                    <div class="ellipsis">
+                                    <a href="a0ee3688999a8d265da7c83cf98b40efaa1c8fdff7c7fff63549802297e185d5.html" class="ellipsis" title="">
+                                    Verify submit and print special payroll register 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">0</td>
+
+
+                                <td class="lightgreentext">0</td>
+                            </tr>
+
+                            <tr class="test-SUCCESS">
+                                <td><span class="summary-icon"><i class='fa fa-check-square-o success-icon ' title='SUCCESS'></i></span>
+                                    
+                                    <span style="display:none">SUCCESS</span></td>
+                                <td class="SUCCESS-text">
+                                    <div class="ellipsis">
+                                    <a href="476efb1869f1c42b73e73324289607bc5643b455edbd6c8143d5be36c685ad85.html" class="ellipsis" title="">
+                                    Void register 
+                                    </a></div>
+                                </td>
+
+                                <td class="lightgreentext">35</td>
+
+
+                                <td class="lightgreentext">291.78</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 1.1.36</span>
+</div>
+</body>
+</html>

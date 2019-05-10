@@ -1,0 +1,53 @@
+<acceptance-test-run title="Verify print pay checks" name="verifyPrintPayChecks" steps="9" successful="8" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="65974" timestamp="2017-11-07T17:12:05.870+05:00" session-id="12c8869a-0046-4c87-9eba-6d4608caa1b3">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13137">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7480">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8192">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8479">
+    <description>Navigate to manage payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="322">
+    <description>Search fix register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12433">
+    <description>Select checkbox register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10200">
+    <description>Click on more button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="192">
+    <description>Click print payroll check</description>
+  </test-step>
+  <test-step result="ERROR" duration="5403">
+    <screenshots>
+      <screenshot image="41dc104acf30c7f4cc8556b20c818352.png" source="pagesource6665680433357171195.html.txt"/>
+    </screenshots>
+    <description>Pay check amount verification</description>
+    <error>org.openqa.selenium.WebDriverException: $(...).data(...) is undefined
+Command duration or timeout: 20 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 12c8869a-0046-4c87-9eba-6d4608caa1b3</error>
+    <exception>org.openqa.selenium.WebDriverException:$(...).data(...) is undefined
+Command duration or timeout: 20 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 12c8869a-0046-4c87-9eba-6d4608caa1b3&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.getPayCheckAmount(ManagePayrollPage.java:868), com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.payCheckAmountVerification(ManagePayrollSteps.java:419), com.aptafund.test.features.login.Payroll.ManagePayrollTest.verifyPrintPayChecks(ManagePayrollTest.java:149)]</exception>
+  </test-step>
+</acceptance-test-run>

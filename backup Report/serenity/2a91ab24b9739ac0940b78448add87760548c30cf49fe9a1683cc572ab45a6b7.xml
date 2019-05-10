@@ -1,0 +1,26 @@
+<acceptance-test-run title="Verify add system deduction" name="verifyAddSystemDeduction" steps="6" successful="6" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="54151" timestamp="2017-06-16T09:09:44.256+05:00" session-id="3fc2e37d-ed4d-4975-989f-559656b9ac77">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="8625">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6981">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14193">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7656">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11365">
+    <description>Navigate to system dedcution</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5328">
+    <description>Add system deduction</description>
+  </test-step>
+</acceptance-test-run>

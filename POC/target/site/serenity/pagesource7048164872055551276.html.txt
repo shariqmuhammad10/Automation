@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Dashboard | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=n670ze6eWNBMS3I8maQ010nXmCvugfIemcG9aeGDDy01" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=pV5SL5wBxNZ4YWQKiWsf6EQn5Lz0XPbxmBzxBsHzvh41"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">autoapp1@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(3, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(3, 1);" class="menuheader" id="menuheader1">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(3, 2);" class="menuheader" id="menuheader2">Administration<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 3; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(3);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+ <a href="/QAAutom">Home</a>                                 </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div id="actionbuttons">
+                                    <div style="visibility:visible">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+<div id="divMainDashboard">
+
+    <div></div>
+
+<script>
+</script>
+
+    <div class="aptaDashboardMainDiv" id="divAptaDashboard">
+        <table>
+            <tbody><tr>
+                    <td style="width:175px; vertical-align:top">
+                        <div class="aptaDashboardLeftDiv">
+                                                            <div>
+                                    <label for="Quick_Links" class="quickLinksLabel">Quick Links</label>
+                                    <div id="divMyQuickLinks">
+                                        <ul>
+                                            Employee Self-Service
+
+                                                <li><span onclick="NavigateToNewDatabase();" class="clsMyQuickLinks" id="lnk_navigatetonewdatabase">Change My Location</span></li>                                                                                            <li><span onclick="NavigateToNewLeaveRequest();" class="clsMyQuickLinks" id="lnk_navigatetonewleaverequest">New Leave Request</span></li>                                                                                            <li><span onclick="NavigateToMyPaychecks();" class="clsMyQuickLinks" id="lnk_navigatetomypaychecks">My Paychecks</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveRequests();" class="clsMyQuickLinks" id="lnk_navigatetomyleaverequests">My Leave Requests</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveBalances();" class="clsMyQuickLinks" id="lnk_navigatetomyleavebalances">My Leave Balances</span></li>                                                                                                                                        <li><span onclick="NavigateToMyYTDTotals();" class="clsMyQuickLinks" id="lnk_navigatetomyyeartodatetotals">My Year to Date Totals</span></li>                                                                                            <li><span onclick="NavigateToMyDocuments();" class="clsMyQuickLinks" id="lnk_navigatetomydocuments">My Documents</span></li>                                                                                            <li><span onclick="NavigateToMyW2Forms();" class="clsMyQuickLinks" id="lnk_navigatetomyw2forms">My W-2 Forms</span></li>                                        </ul>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </td>                 <td style="vertical-align:top">
+                            <div class="DashboardWidget" id="divPayCheck">
+                                <a href="/QAAutom/ESS/ESS/ManagePaychecks" class="DashBoardHeaderLink">My Paychecks</a> (most recent)
+                                <div data-role="AptaDataView" id="divDashboardPaycheckDataView">
+    <script>
+        $("#divDashboardPaycheckDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardPaycheckDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardPaycheckDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:125px" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Pay Date" data-index="0" data-field="PayDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=0%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PayDate-asc" class="k-link">Pay Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Check Number" data-index="1" data-field="CheckNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=0%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=CheckNumber-asc" class="k-link">Check Number</a></th><th style="text-align:right;" scope="col" data-title="Net Pay" data-index="2" data-field="NetPay" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=0%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=NetPay-asc" class="k-link">Net Pay</a></th><th style="text-align:left;" scope="col" data-title="Check Type" data-index="3" data-field="PaycheckType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=0%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PaycheckType-asc" class="k-link">Check Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:125px" class="k-sorted" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardPaycheckDataView").kendoGrid({"dataBound":$('#divDashboardPaycheckDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Pay Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayDate","data-title":"Pay Date"},"width":"125px","field":"PayDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Check Number","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"CheckNumber","data-title":"Check Number"},"width":"125px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/#=Id#\"\u003e${ CheckNumber }\u003c/a\u003e","field":"CheckNumber","filterable":false,"encoded":true},{"title":"Net Pay","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"NetPay","data-title":"Net Pay"},"width":"115px","template":"\u003cdiv \u003e#= kendo.toString(NetPay, \"C\") #\u003c/div\u003e","field":"NetPay","format":"{0:C}","filterable":false,"encoded":true},{"title":"Check Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckType","data-title":"Check Type"},"width":"143px","field":"PaycheckType","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView\u0026parentFilter=0~365","data":$('#divDashboardPaycheckDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardPaycheckDataView\u0026parentFilter=0~365"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardPaycheckDataView\u0026parentFilter=0~365"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardPaycheckDataView\u0026parentFilter=0~365"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"PayDate","dir":"desc"}],"filter":[],"error":$('#divDashboardPaycheckDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"PaycheckId":{"editable":false,"type":"number"},"EmployeeId":{"editable":false,"type":"number"},"PayDate":{"editable":false,"type":"date"},"CheckNumber":{"editable":false,"type":"number"},"NetPay":{"editable":false,"type":"number"},"PaycheckType":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardPaycheckDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardPaycheckDataView" value="true" />
+
+<div id="dvGridSettings__DashboardPaycheckDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardPaycheckDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardPaycheckDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSearchSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#settingsWindow__DashboardPaycheckDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardPaycheckDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardPaycheckDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardPaycheckDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView();
+        $('#tbFilterName__DashboardPaycheckDataView').val("");
+        $("#searchSettings__DashboardPaycheckDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardPaycheckDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardPaycheckDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardPaycheckDataView').html(result);
+                InitializeGrid___DashboardPaycheckDataView(false);
+                var function_name = 'DashboardPaycheckDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+                }
+                HideGridFooter("DashboardPaycheckDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView()
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardPaycheckDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardPaycheckDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardPaycheckDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardPaycheckDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardPaycheckDataView() {
+        var gridName = 'DashboardPaycheckDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardPaycheckDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardPaycheckDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardPaycheckDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardPaycheckDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveRequest">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="DashBoardHeaderLink">My Leave Requests</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveRequestDataView">
+    <script>
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveRequestDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveRequestDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align: left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%200&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveStartDate-asc" class="k-link">Start Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align: left;" scope="col" data-title="Leave Type" data-index="1" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%200&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th style="text-align: right;" scope="col" data-title="Total" data-index="2" data-field="LeaveTotal" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%200&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTotal-asc" class="k-link">Total</a></th><th style="text-align: right; display: none;" scope="col" data-title="ID" data-index="3" data-field="RequestId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%200&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=RequestId-asc" class="k-link">ID</a></th><th style="text-align: left;" scope="col" data-title="Approval Status" data-index="4" data-field="ApprovalStatusDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%200&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;877fc09a-e91b-4cb5-b7de-e64a21a561ad=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=ApprovalStatusDescription-asc" class="k-link">Approval Status</a></th><th scope="col" data-index="5" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table><div class="k-resize-handle" style="top: 0px; left: 87px; height: 29px; width: 9px; display: block;"><div class="k-resize-handle-inner"></div></div></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveRequestDataView").kendoGrid({"dataBound":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"175px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=#= RequestId#\"\u003e${ LeaveTypeName }\u003c/a\u003e","field":"LeaveTypeName","filterable":false,"encoded":true},{"title":"Total","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"LeaveTotal","data-title":"Total"},"width":"80px","field":"LeaveTotal","format":"{0:0.0000}","filterable":false,"encoded":true},{"title":"ID","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestId","data-title":"ID"},"hidden":true,"width":"50px","field":"RequestId","filterable":false,"encoded":true},{"title":"Approval Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovalStatusDescription","data-title":"Approval Status"},"width":"163px","field":"ApprovalStatusDescription","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%200","data":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%200"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%200"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%200"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"desc"}],"filter":[],"error":$('#divDashboardLeaveRequestDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"EmployeeId":{"type":"number"},"CycleId":{"type":"number"},"RequestId":{"editable":false,"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveTypeName":{"editable":false,"type":"string"},"LeaveTotal":{"type":"number"},"ApprovalStatusDescription":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveRequestDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveRequestDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveRequestDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveRequestDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardLeaveRequestDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSearchSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#settingsWindow__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardLeaveRequestDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardLeaveRequestDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView();
+        $('#tbFilterName__DashboardLeaveRequestDataView').val("");
+        $("#searchSettings__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardLeaveRequestDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardLeaveRequestDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardLeaveRequestDataView').html(result);
+                InitializeGrid___DashboardLeaveRequestDataView(false);
+                var function_name = 'DashboardLeaveRequestDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+                }
+                HideGridFooter("DashboardLeaveRequestDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView()
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardLeaveRequestDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardLeaveRequestDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardLeaveRequestDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardLeaveRequestDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardLeaveRequestDataView() {
+        var gridName = 'DashboardLeaveRequestDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardLeaveRequestDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardLeaveRequestDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardLeaveRequestDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardLeaveRequestDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                </td>
+            </tr>
+        </tbody></table>
+            <div style="clear: both;"></div>
+            <a class="k-button" id="btnConfigure__Index">Configure</a>
+    </div>
+</div>
+
+<div id="popupWindowConfigure"></div>
+
+<script>
+
+    function NavigateToMyPaycheckDetail(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/PaycheckDetails" + "?id=" + Id);
+    }
+
+    function NavigateToNewLeaveRequest() {
+        NavigateTo("/QAAutom/ESS/ESS/CreateLeaveRequest" + "?EmployeeId=" + "0");
+    }
+
+    function NavigateToMyPaychecks() {
+        NavigateTo("/QAAutom/ESS/ESS/ManagePaychecks");
+    }
+
+    function NavigateToMyLeaveRequest(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/EditLeaveRequest" + "?selectedRecord=" + Id);
+    }
+
+    function NavigateToMyLeaveRequests() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveRequests");
+    }
+
+    function NavigateToMyLeaveBalances() {
+        NavigateTo("/QAAutom/ESS/ESS/LeaveDetails");
+    }
+
+    function NavigateToMyLeaveApprovals() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveApprovals");
+    }
+
+    function NavigateToMyYTDTotals() {
+        NavigateTo("/QAAutom/ESS/ESS/YTDTotals");
+    }
+
+    function NavigateToMyDocuments() {
+        NavigateTo("/QAAutom/ESS/ESS/ViewMyDocuments");
+    }
+
+    function NavigateToMyW2Forms() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageW2Forms");
+    }
+
+    function NavigateToNewDatabase() {
+        $('#defaultDatabaseName').click();
+    }
+
+    $('#btnConfigure__Index').click(function (e) {
+        e.preventDefault();
+        showConfigurePopup();
+    });
+
+    function showConfigurePopup() {
+        var kendoWindow = $("#popupWindowConfigure").kendoWindow({
+            content: { url: "/Home/ConfigureHomeScreen?enableGrids=" + 'True' + '~' + 'True' + '~' + 'False' + '~' + 'False' + '~' + 'True' },
+            modal: true,
+            minWidth: 90,
+            minHeight: 50,
+            refresh: function (e) { e.sender.title('Configure'); e.sender.center(); }
+        });
+
+        kendoWindow.data("kendoWindow").center().open();
+
+    }
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Wednesday, November 29, 2017 6:10 AM
+                    <br />
+                    AptaFund Version: 2017.11.28.12535
+                    <br />
+                    Last Updated: 11/29/2017 12:03:16 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#11292017000316"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/Home/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="721"></canvas></html>

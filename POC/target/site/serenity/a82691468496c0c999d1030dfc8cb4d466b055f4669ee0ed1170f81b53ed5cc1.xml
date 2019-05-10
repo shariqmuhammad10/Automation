@@ -1,0 +1,38 @@
+<acceptance-test-run title="Edit all purchase requisition for admin" name="editAllPurchaseRequisitionForAdmin" steps="10" successful="10" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="93193" timestamp="2018-04-24T18:40:18.198+05:00" session-id="422462b2-a5d2-415d-b105-74f010530f80">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="16714">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10696">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14286">
+    <description>Navigate to admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12543">
+    <description>Navigate to purchase requisition for admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5690">
+    <description>Select all PR records to get total number of PR records</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5153">
+    <description>Get total number of PR records</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="669">
+    <description>Select all PR records to get total number of PR records</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="615">
+    <description>Click edit all button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="26777">
+    <description>Get total number of records in pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="0">
+    <description>Compare total records count</description>
+  </test-step>
+</acceptance-test-run>

@@ -1,0 +1,8 @@
+<acceptance-test-run title="Verify submit and print special payroll register" name="verifySubmitAndPrintSpecialPayrollRegister" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="IGNORED" result="IGNORED" duration="0" timestamp="2017-07-07T12:11:27.508+05:00">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+</acceptance-test-run>

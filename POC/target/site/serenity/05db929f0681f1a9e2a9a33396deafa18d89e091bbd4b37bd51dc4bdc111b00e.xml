@@ -1,0 +1,107 @@
+<acceptance-test-run title="App l2 after app l1 purchase requisition" name="appL2AfterAppL1PurchaseRequisition" steps="33" successful="33" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="375581" timestamp="2018-05-07T18:46:26.145+05:00" session-id="cb18b5e5-97ab-460a-8592-9ed6ae1ae19b">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="18152">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7384">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5280">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9206">
+    <description>Navigate to purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19023">
+    <description>Add purchase requisiton</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13826">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11193">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16252">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="49932">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8694">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3334">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5361">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="139">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1523">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6419">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10308">
+    <description>Submit PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10228">
+    <description>Confirm submit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10634">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="24327">
+    <description>Logout application</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1469">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6701">
+    <description>Login into apta as approver1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="18232">
+    <description>Navigate to my apta fund for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11383">
+    <description>Navigate to my PR approvals</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16362">
+    <description>Search newly created PR for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12837">
+    <description>Apply check for search for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5222">
+    <description>Click approve using app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16193">
+    <description>Logout application</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1606">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6448">
+    <description>Login into apta as approver2</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9197">
+    <description>Navigate to my apta fund for app2</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16384">
+    <description>Search newly created PR for app2</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13131">
+    <description>Apply check for search for app2</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5179">
+    <description>Click approve using app2</description>
+  </test-step>
+</acceptance-test-run>

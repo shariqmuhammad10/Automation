@@ -1,0 +1,44 @@
+<acceptance-test-run title="Verify add employee salary job" name="verifyAddEmployeeSalaryJob" steps="8" successful="4" failures="0" errors="1" skipped="3" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="69841" timestamp="2017-06-16T08:52:20.856+05:00" session-id="26463286-719e-4f75-b5c2-22d3c3fe4b9a">
+  <user-story id="com.aptafund.test.features.login.HumanResource.EmployeeJobsTest" name="Employee jobs test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke Test" type="release"/>
+    <tag name="Employee jobs test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12137">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7496">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14188">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9317">
+    <description>Navigate to employee jobs</description>
+  </test-step>
+  <test-step result="ERROR" duration="26697">
+    <screenshots>
+      <screenshot image="3549a52146e5fa3d1b2d8840f0424013.png" source="pagesource6927927925295837992.html.txt"/>
+    </screenshots>
+    <description>Add new employee job</description>
+    <error>org.openqa.selenium.ElementNotVisibleException: Timed out after 5 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.ElementNotVisibleException:Timed out after 5 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.actions.WaitActions.waitUntilLoaded(WaitActions.java:28), com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.setJobNameDDSelect(EmployeeJobsPage.java:298), com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.addNewEmployeeJob(EmployeeJobsSteps.java:47), com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.verifyAddEmployeeSalaryJob(EmployeeJobsTest.java:52)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Verify salary</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Approve employee job</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="1">
+    <description>Submit job to payroll</description>
+  </test-step>
+</acceptance-test-run>

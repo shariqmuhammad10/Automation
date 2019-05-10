@@ -1,0 +1,35 @@
+<acceptance-test-run title="Create accounts payable voucher form report" name="createAccountsPayableVoucherFormReport" steps="5" successful="4" failures="1" skipped="0" ignored="0" pending="0" annotated-result="FAILURE" result="FAILURE" duration="154874" timestamp="2018-05-04T19:26:20.983+05:00" session-id="8f405fb7-895e-48a2-823c-5b0fd460f1a4">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="52989">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="15171">
+    <description>Login for reports test</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5264">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5192">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="FAILURE" duration="76214">
+    <screenshots>
+      <screenshot image="e47cc7ac75105e05bc888349c6f3c843.png" source="pagesource6040084053123387569.html.txt"/>
+    </screenshots>
+    <description>Create accounts payable voucher form report1</description>
+    <error>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException:Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.Reports.ReportsPage.compareOutputMessage(ReportsPage.java:132), com.aptafund.test.steps.MyAptaFund.ReportSteps.createAccountsPayableVoucherFormReport1(ReportSteps.java:65), com.aptafund.test.features.login.Reports.ReportsTest.createAccountsPayableVoucherFormReport(ReportsTest.java:169)]</exception>
+  </test-step>
+</acceptance-test-run>

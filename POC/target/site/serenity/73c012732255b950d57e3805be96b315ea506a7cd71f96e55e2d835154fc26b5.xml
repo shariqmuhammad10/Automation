@@ -1,0 +1,32 @@
+<acceptance-test-run title="Verify edit direct type vendor invoice" name="verifyEditDirectTypeVendorInvoice" steps="8" successful="8" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="124543" timestamp="2018-04-26T21:55:55.839+05:00" session-id="45de275b-3360-45f9-bdfd-a9973b96e8b0">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" name="Vendor invoice test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Vendor invoice test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="43031">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="15428">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12468">
+    <description>Navigate to purchase and payables</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="4644">
+    <description>Navigate to vendor invoice</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="36545">
+    <description>Click on add button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5789">
+    <description>Click on save button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="664">
+    <description>Provide invoice comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5928">
+    <description>Click on save button</description>
+  </test-step>
+</acceptance-test-run>

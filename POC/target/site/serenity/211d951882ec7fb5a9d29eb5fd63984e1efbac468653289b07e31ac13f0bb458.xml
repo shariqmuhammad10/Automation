@@ -1,0 +1,50 @@
+<acceptance-test-run title="Edit purchase requisition for admin using hyper link" name="editPurchaseRequisitionForAdminUsingHyperLink" steps="14" successful="14" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="210912" timestamp="2018-04-24T18:42:07.811+05:00" session-id="ce68c45e-5bc7-4605-833e-c497f65c28ff">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="16774">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10507">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14239">
+    <description>Navigate to admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12923">
+    <description>Navigate to purchase requisition for admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14300">
+    <description>Add purchase requisiton for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12347">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6422">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9281">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45660">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10779">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13384">
+    <description>Search newly created PR for PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="26750">
+    <description>Click on hyper link to edit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8241">
+    <description>Update quote bit notes through hyper link</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9250">
+    <description>Save purchase requisition</description>
+  </test-step>
+</acceptance-test-run>

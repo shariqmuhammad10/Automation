@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Change database test","Verify change database","IGNORED","2017-06-16T08:49:59.583+05:00","0.0","0.0"
+"Manage payroll test","Verify navigate to manage payroll","IGNORED","2017-06-16T09:20:08.601+05:00","0.0","0.0"
+"Manage payroll test","Verify submit and print special payroll register","IGNORED","2017-06-16T09:23:09.557+05:00","0.0","0.0"

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.commonTest.ChangeDatabaseTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.01 sec - in com.aptafund.test.features.login.commonTest.ChangeDatabaseTest

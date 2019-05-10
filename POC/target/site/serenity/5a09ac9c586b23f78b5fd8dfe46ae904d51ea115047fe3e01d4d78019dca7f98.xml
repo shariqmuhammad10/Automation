@@ -1,0 +1,41 @@
+<acceptance-test-run title="Create account activity by warrant" name="createAccountActivityByWarrant" steps="5" successful="4" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="53306" timestamp="2018-03-05T20:29:47.848+05:00" session-id="e92e7bab-7c5f-4a4a-8190-f5f4764bb34e">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="14438">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8177">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5225">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7481">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="ERROR" duration="17936">
+    <screenshots>
+      <screenshot image="2689269fd523b3ebf6a40bbf8faafcac.png" source="pagesource5041537092873473066.html.txt"/>
+    </screenshots>
+    <description>Create account activity by warrant report</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (260.6999969482422, 555.7666625976562). Other element would receive the click: &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 61 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: e92e7bab-7c5f-4a4a-8190-f5f4764bb34e</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (260.6999969482422, 555.7666625976562). Other element would receive the click: &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 61 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: e92e7bab-7c5f-4a4a-8190-f5f4764bb34e&#xd;
+[com.aptafund.test.pages.Reports.ReportsPage.clickOnReportToXLS(ReportsPage.java:108), com.aptafund.test.steps.MyAptaFund.ReportSteps.createAccountActivityByWarrantReport(ReportSteps.java:54), com.aptafund.test.features.login.Reports.ReportsTest.createAccountActivityByWarrant(ReportsTest.java:148)]</exception>
+  </test-step>
+</acceptance-test-run>

@@ -1,0 +1,56 @@
+<acceptance-test-run title="Verify disable fixed amount deduction" name="verifyDisableFixedAmountDeduction" steps="10" successful="4" failures="0" errors="1" skipped="5" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="58338" timestamp="2017-08-17T14:04:18.840+05:00" session-id="10739a4d-be31-42d3-b357-eab05b1c5bb1">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level-1" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13221">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7775">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14231">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6841">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="ERROR" duration="16037">
+    <screenshots>
+      <screenshot image="27add1ddd0d25fd8599857be4ed085c0.png" source="pagesource6998551593000498503.html.txt"/>
+    </screenshots>
+    <description>Add manage deduction</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (524.4833374023438, 574.9666748046875). Other element would receive the click: &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 131 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 10739a4d-be31-42d3-b357-eab05b1c5bb1</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (524.4833374023438, 574.9666748046875). Other element would receive the click: &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 131 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 10739a4d-be31-42d3-b357-eab05b1c5bb1&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.setComment(ManageDeductionsPage.java:314), com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.addManageDeduction(ManageDeductionSteps.java:37), com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyDisableFixedAmountDeduction(ManageDeductionTest.java:92)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search deduction set to disable</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Enable newly created deduction</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Call confirmation msg</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Disable deduction assignment</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Call confirmation msg1</description>
+  </test-step>
+</acceptance-test-run>

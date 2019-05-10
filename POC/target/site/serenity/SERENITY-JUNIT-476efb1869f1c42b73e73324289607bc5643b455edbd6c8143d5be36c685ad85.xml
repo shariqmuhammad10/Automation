@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="com.aptafund.test.features.login.Payroll.ManagePayrollTest" skipped="0" tests="1" time="256.0" timestamp="2017-09-250 05:09:29"><testcase classname="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Void register"><failure message="&#10;Expected: is &lt;false&gt;&#10;     but: was &quot;Submitted&quot;" type="java.lang.AssertionError">
+Expected: is &lt;false&gt;
+     but: was "Submitted"</failure><system-err>
+Expected: is &lt;false&gt;
+     but: was "Submitted"&#13;
+com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.clickApproveRegister(ManagePayrollPage.java:357)&#13;
+com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.clickApproveReg(ManagePayrollSteps.java:292)&#13;
+com.aptafund.test.features.login.Payroll.ManagePayrollTest.voidRegister(ManagePayrollTest.java:244)&#13;
+</system-err></testcase></testsuite>

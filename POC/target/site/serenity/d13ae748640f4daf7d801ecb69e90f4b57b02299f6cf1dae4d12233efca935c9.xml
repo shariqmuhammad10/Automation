@@ -1,0 +1,32 @@
+<acceptance-test-run title="Add direct deposit with amount" name="AddDirectDepositWithAmount" steps="8" successful="8" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="110578" timestamp="2018-03-08T16:35:47.441+05:00" session-id="b3bf27f8-4c22-46c5-944d-5d61b2854d5d">
+  <user-story id="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Deduction assignment test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Deduction assignment test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13938">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8506">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16254">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9478">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13871">
+    <description>Search new ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="156">
+    <description>Edit ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10631">
+    <description>Click on direct deposit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="37709">
+    <description>Add direct deposit amount</description>
+  </test-step>
+</acceptance-test-run>

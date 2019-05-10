@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
+<![endif]--><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.css" rel="Stylesheet"/>
+<link type="text/css" href="css/tables.css" rel="stylesheet" />
+
+<script type="text/javascript" src="datatables/1.10.4/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.4/media/jqueryui/dataTables.jqueryui.min.js"></script>
+    <script class="code" type="text/javascript">$(document).ready(function () {
+
+        // Results table
+        $('#tag-list-table').DataTable( {
+            "order": [
+                [ 1, "asc" ]
+            ],
+            "pageLength": 25
+        } );
+
+        $("test-list").tabs();
+    });
+    </script>
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-bdd-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">AptaFund Automated Test Suite</span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs"><a href="index.html">Home</a> 
+                > Stories
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 16-06-2017 09:31</span>
+    <br style="clear:left"/>
+</div>
+
+
+
+   <div class="clr"></div>
+    <div id="beforetable"></div>
+    <div id="results-dashboard">
+        <div class="middlb">
+            <div class="table">
+                <table>
+                 <tr>
+                   <td>
+                    <div id="test-list">
+                        <ul>
+                            <li><a href="test-list-1">Stories</a></li>
+                        </ul>
+                    </div>
+                    <div id="test-list-1" class="table">
+                        <div class="test-results">
+                            <table id="tag-list-table">
+                                <thead>
+                                    <tr>
+                                        <th width="30" class="test-results-heading">&nbsp;</th>
+                                        <th width="750" class="test-results-heading">Story</th>
+                                        <th width="70" class="test-results-heading">Tests</th>
+                                        <th width="70" class="test-results-heading">Steps</th>
+                                        <th width="65" class="test-results-heading">Duration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Apta login test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-SUCCESS">
+                                        <td><span class="summary-icon"/><i class='fa fa-check-square-o success-icon fa-2x' title='SUCCESS'></i></span><span style="display:none">SUCCESS</span></td>
+                                        <td class="SUCCESS-text"><a href="ee72f062e39e98542038284ff7e1671811d48fef0d245ccb84adf63b3ae0abf0.html">Apta Login Test</a></td>
+
+                                        <td class="lightgreentext">3</td>
+                                        <td class="lightgreentext">6</td>
+
+                                        <td class="lightgreentext">65.692</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Change database test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-IGNORED">
+                                        <td><span class="summary-icon"/><i class='fa fa-ban ignored-icon fa-2x' title='IGNORED'></i></span><span style="display:none">IGNORED</span></td>
+                                        <td class="IGNORED-text"><a href="62ccad10236784c304523690bd5a80c1aa799fb94f433ca2095b67f9a419c4d2.html">Change Database Test</a></td>
+
+                                        <td class="lightgreentext">1</td>
+                                        <td class="lightgreentext">0</td>
+
+                                        <td class="lightgreentext">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Deduction assignment test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-ERROR">
+                                        <td><span class="summary-icon"/><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></span><span style="display:none">ERROR</span></td>
+                                        <td class="ERROR-text"><a href="3248da4c12a8456cb35d234a79c980363acf7db16fe68e44af6fba13af7e6d2a.html">Deduction Assignment Test</a></td>
+
+                                        <td class="lightgreentext">6</td>
+                                        <td class="lightgreentext">44</td>
+
+                                        <td class="lightgreentext">655.833</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Employee jobs test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-ERROR">
+                                        <td><span class="summary-icon"/><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></span><span style="display:none">ERROR</span></td>
+                                        <td class="ERROR-text"><a href="7eeb331e71cd0feb56ae80bc0f77247cd4ce763bed9f3a77b6a87fe9b703b66e.html">Employee Jobs Test</a></td>
+
+                                        <td class="lightgreentext">4</td>
+                                        <td class="lightgreentext">29</td>
+
+                                        <td class="lightgreentext">441.612</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Manage deduction test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-ERROR">
+                                        <td><span class="summary-icon"/><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></span><span style="display:none">ERROR</span></td>
+                                        <td class="ERROR-text"><a href="eb63268d4eff25a62af2eaec426be4ffcf15b5b365b6dd6fe2670eaf937e7753.html">Manage Deduction Test</a></td>
+
+                                        <td class="lightgreentext">4</td>
+                                        <td class="lightgreentext">26</td>
+
+                                        <td class="lightgreentext">415.181</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Manage employee test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-ERROR">
+                                        <td><span class="summary-icon"/><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></span><span style="display:none">ERROR</span></td>
+                                        <td class="ERROR-text"><a href="102b00d10a4bf32b0081398eb653e5dab9bf836215a10ed9ee9cde4b51fc0010.html">Manage Employee Test</a></td>
+
+                                        <td class="lightgreentext">2</td>
+                                        <td class="lightgreentext">13</td>
+
+                                        <td class="lightgreentext">83.552</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Manage payroll test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-ERROR">
+                                        <td><span class="summary-icon"/><i class='fa fa-exclamation-triangle error-icon fa-2x' title='ERROR'></i></span><span style="display:none">ERROR</span></td>
+                                        <td class="ERROR-text"><a href="2e3ebf94351851f83911a259e74edf08a908b60448f2fdc847a7227a29dc42bb.html">Manage Payroll Test</a></td>
+
+                                        <td class="lightgreentext">7</td>
+                                        <td class="lightgreentext">109</td>
+
+                                        <td class="lightgreentext">679.981</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Payroll home test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-SUCCESS">
+                                        <td><span class="summary-icon"/><i class='fa fa-check-square-o success-icon fa-2x' title='SUCCESS'></i></span><span style="display:none">SUCCESS</span></td>
+                                        <td class="SUCCESS-text"><a href="343b8ae43e871b76746f9bc7bca92be935d09bae882fce5abae5b9f58478f68a.html">Payroll Home Test</a></td>
+
+                                        <td class="lightgreentext">1</td>
+                                        <td class="lightgreentext">3</td>
+
+                                        <td class="lightgreentext">33.866</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><h3>Vendor invoice test</h3></td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr class="test-FAILURE">
+                                        <td><span class="summary-icon"/><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></span><span style="display:none">FAILURE</span></td>
+                                        <td class="FAILURE-text"><a href="02578ae8664334ec5bbe23761ece4f76493a4ea9838fb04a3623fd6f536af1d3.html">Vendor Invoice Test</a></td>
+
+                                        <td class="lightgreentext">2</td>
+                                        <td class="lightgreentext">17</td>
+
+                                        <td class="lightgreentext">155.313</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                   </td>
+                  </tr>
+                 </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter"></div>
+
+</body>
+</html>

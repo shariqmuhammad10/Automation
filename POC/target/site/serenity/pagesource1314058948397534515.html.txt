@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Dashboard | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=n670ze6eWNBMS3I8maQ010nXmCvugfIemcG9aeGDDy01" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=fz9G0sU17K3CWc2j-Sbg_YR3hxmvwoDde-NaKHe5gWM1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/hf18/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/hf18"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">req@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/hf18/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">hotfix_18_CA_Wheatland</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/hf18/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(4, 0);" class="menuheaderrollover" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(4, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(4, 2);" class="menuheader" id="menuheader2">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(4, 3);" class="menuheader" id="menuheader3">Administration<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display: inline; position: absolute; left: 0px; top: 119.5px; width: 1251px;" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/hf18" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/hf18/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/hf18/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/hf18/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/hf18/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/hf18/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/hf18/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/hf18/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/hf18/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/hf18/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/hf18/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/hf18/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/hf18/AccountsPayable/VendorInvoice/VendorInvoiceDetailAllocation" class="menulink">Vendor Invoice Detail Allocation</a></li><li class="menuitem"><a href="/hf18/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/hf18/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/hf18/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/hf18/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/hf18/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 4; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(4);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+ <a href="/hf18">Home</a>                                 </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div id="actionbuttons">
+                                    <div style="visibility:visible">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+<div id="divMainDashboard">
+
+    <div></div>
+
+<script>
+</script>
+
+    <div class="aptaDashboardMainDiv" id="divAptaDashboard">
+        <table>
+            <tbody><tr>
+                    <td style="width:175px; vertical-align:top">
+                        <div class="aptaDashboardLeftDiv">
+                                                            <div>
+                                    <label for="Quick_Links" class="quickLinksLabel">Quick Links</label>
+                                    <div id="divMyQuickLinks">
+                                        <ul>
+                                            Employee Self-Service
+
+                                                <li><span onclick="NavigateToNewDatabase();" class="clsMyQuickLinks" id="lnk_navigatetonewdatabase">Change My Location</span></li>                                                                                                                                                                                                                                                                                                                                                                                                        </ul>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </td>                 <td style="vertical-align:top">
+                </td>
+            </tr>
+        </tbody></table>
+            <div style="clear: both;"></div>
+            <a class="k-button" id="btnConfigure__Index">Configure</a>
+    </div>
+</div>
+
+<div id="popupWindowConfigure"></div>
+
+<script>
+
+    function NavigateToMyPaycheckDetail(Id) {
+        NavigateTo("/hf18/ESS/ESS/PaycheckDetails" + "?id=" + Id);
+    }
+
+    function NavigateToNewLeaveRequest() {
+        NavigateTo("/hf18/ESS/ESS/CreateLeaveRequest" + "?EmployeeId=" + "657");
+    }
+
+    function NavigateToMyPaychecks() {
+        NavigateTo("/hf18/ESS/ESS/ManagePaychecks");
+    }
+
+    function NavigateToMyLeaveRequest(Id) {
+        NavigateTo("/hf18/ESS/ESS/EditLeaveRequest" + "?selectedRecord=" + Id);
+    }
+
+    function NavigateToMyLeaveRequests() {
+        NavigateTo("/hf18/ESS/ESS/ManageLeaveRequests");
+    }
+
+    function NavigateToMyLeaveBalances() {
+        NavigateTo("/hf18/ESS/ESS/LeaveDetails");
+    }
+
+    function NavigateToMyLeaveApprovals() {
+        NavigateTo("/hf18/ESS/ESS/ManageLeaveApprovals");
+    }
+
+    function NavigateToMyYTDTotals() {
+        NavigateTo("/hf18/ESS/ESS/YTDTotals");
+    }
+
+    function NavigateToMyDocuments() {
+        NavigateTo("/hf18/ESS/ESS/ViewMyDocuments");
+    }
+
+    function NavigateToMyW2Forms() {
+        NavigateTo("/hf18/ESS/ESS/ManageW2Forms");
+    }
+
+    function NavigateToNewDatabase() {
+        $('#defaultDatabaseName').click();
+    }
+
+    $('#btnConfigure__Index').click(function (e) {
+        e.preventDefault();
+        showConfigurePopup();
+    });
+
+    function showConfigurePopup() {
+        var kendoWindow = $("#popupWindowConfigure").kendoWindow({
+            content: { url: "/Home/ConfigureHomeScreen?enableGrids=" + 'False' + '~' + 'False' + '~' + 'False' + '~' + 'False' + '~' + 'True' },
+            modal: true,
+            minWidth: 90,
+            minHeight: 50,
+            refresh: function (e) { e.sender.title('Configure'); e.sender.center(); }
+        });
+
+        kendoWindow.data("kendoWindow").center().open();
+
+    }
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2018 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Tuesday, January 30, 2018 7:28 AM
+                    <br />
+                    AptaFund Version: 2018.1.29.12720
+                    <br />
+                    Last Updated: 1/29/2018 4:17:44 PM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#01292018161744"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/hf18/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/Home/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/hf18/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="721"></canvas></html>

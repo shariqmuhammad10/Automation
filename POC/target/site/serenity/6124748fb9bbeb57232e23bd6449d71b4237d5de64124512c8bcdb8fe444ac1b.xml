@@ -1,0 +1,50 @@
+<acceptance-test-run title="Verify add new employee" name="verifyAddNewEmployee" steps="8" successful="5" failures="0" errors="1" skipped="2" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="138192" timestamp="2018-04-24T15:27:59.858+05:00" session-id="b93914ac-e0fd-4e3f-8723-1dcd36bdf790">
+  <user-story id="com.aptafund.test.features.login.HumanResource.ManageEmployeeTest" name="Manage employee test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage employee test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="17122">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12396">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20273">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8136">
+    <description>Navigate to manage employee</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="68518">
+    <description>Add new employee</description>
+  </test-step>
+  <test-step result="ERROR" duration="11648">
+    <screenshots>
+      <screenshot image="66cb37713a4eeec5e25b8b2fcfdfb1e7.png" source="pagesource1330778354391872040.html.txt"/>
+    </screenshots>
+    <description>Close employee popup</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (206.8000030517578, 524.6000061035156). Other element would receive the click: &lt;div class=&quot;k-loading-image&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 3.67 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b93914ac-e0fd-4e3f-8723-1dcd36bdf790</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (206.8000030517578, 524.6000061035156). Other element would receive the click: &lt;div class=&quot;k-loading-image&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 3.67 seconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b93914ac-e0fd-4e3f-8723-1dcd36bdf790&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManageEmployeesPage.closeEmployee(ManageEmployeesPage.java:395), com.aptafund.test.steps.HRPayrollESS.ManageEmplopyeeSteps.closeEmployeePopup(ManageEmplopyeeSteps.java:104), com.aptafund.test.features.login.HumanResource.ManageEmployeeTest.verifyAddNewEmployee(ManageEmployeeTest.java:66)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search newly created employee</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Sort employee</description>
+  </test-step>
+</acceptance-test-run>

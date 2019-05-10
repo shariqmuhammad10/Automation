@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Purchase Requisition Approvals | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=n670ze6eWNBMS3I8maQ010nXmCvugfIemcG9aeGDDy01" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=fAzrNmZTVeAelngU3BiWKrksT1KkImpoyXKKd3ss57s1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body style="height: 359px;">
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap" style="min-height: 668px; height: 668px;">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">autoapp1@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame" style="min-height: 518px; height: 518px;">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(3, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(3, 1);" class="menuheader" id="menuheader1">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(3, 2);" class="menuheader" id="menuheader2">Administration<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 3; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(3);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Purchasing -&gt; My Purchase Requisition Approvals
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="grid_action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+    <a accesskey="e" href="#" id="btnEdit__PRApprovalsDataView" class="k-button" data-role="tooltip"><img border="0" src="/Content/Images/icons/modify.gif" class="grid-action-icon" />Edit</a>
+    <a href="#" id="btnView__PRApprovalsDataView" class="k-button"><img border="0" src="/Content/Images/icons/details.gif" class="grid-action-icon" />View</a>
+    <a href="#" id="btnApprove_PRApprovalsDataView" class="k-button">Approve</a>
+    <a href="#" id="btnDisapprove_PRApprovalsDataView" class="k-button">Disapprove</a>
+    
+    <a href="#" id="btnPrint__PRApprovalsDataView" class="k-button">Print</a>
+<a class="k-button" href="#" id="btnMoreButtons"><img border="0" alt="" src="/Content/Images/MoreIndicator.png" style="vertical-align: middle; padding-right:5px;" />More</a>
+<div style="display:none;" id="dvMoreButtons">
+    <ul class="MoreButtonsList">
+        <li></li>
+    </ul>
+</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody" style="min-height: 359px; height: 359px;">
+
+                
+
+
+
+
+
+
+
+
+
+<div style="min-height: 344px; height: 409px;">
+
+    <div data-role="AptaDataView" id="divPRApprovalsDataView" style="min-height: 344px; height: 409px;">
+    <script>
+        $("#divPRApprovalsDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("PRApprovalsDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"CycleId":5,"BaseParam":null})
+            .SetGridHeight(300, true)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 392px; min-height: 327px;" id="PRApprovalsDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PRApprovalsDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PRApprovalsDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PRApprovalsDataView" id="SearchText__PRApprovalsDataView" class="searchBox" data-role="tooltip" /><script>
+	kendo.syncReady(function(){jQuery("\#SearchText__PRApprovalsDataView").kendoTooltip({"showAfter":500,"content":"Quick Search :\u003cbr /\u003e Request No\u003cbr /\u003eRequisitioner\u003cbr /\u003eShip To\u003cbr /\u003eApproval Status"});});
+</script></div></div><div class="ElementFilterWrapper">
+            <div>
+                <div>
+                    <div onclick="javascript: pinnedfilter_displayPOPupView('PRTypePRApprovalsDataView', 'PRApprovalsDataView');" class="GridFilterButtonView" id="prnt__PRTypePRApprovalsDataView">
+                        <label id="lblHeading__PRTypePRApprovalsDataView" style="display: inline-block;cursor:pointer;">PR Type : ALL</label>
+                        <div style="float: right">
+                            <span class="k-icon k-i-arrow-s"></span>
+                            <img src="/Content/Images/filtericons/pinned.gif" class="ToolBarIcon GridToolBarIcon" title="Unpin" id="prntPinned__182003" />
+                            <script>
+                                $("#prntPinned__182003").click(function (e) {
+                                    
+                                    pinnedfilter_togglepinned('182003', 'PRApprovalsDataView', 'prnt', '/QAAutom/GridConfig/PinUnpin', '/QAAutom/GridConfig/ApplyGridFilter', '')
+                                    
+                                    pinnedfilter_togglepinned('182003', 'PRApprovalsDataView', '', '', '', null)
+                                    e.stopPropagation();
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+
+<script>
+
+    function BoundMultiselect__PRTypePRApprovalsDataView() {
+        if (this.ul){
+            var items = this.ul.find("li");
+            // todo - get rid of the setTimeout() function below.
+            //      once that is complete, we can merge this with:
+            //      CustomScripts.js &gt; StringMultiSelect_MultiSelectChanged()
+            setTimeout(function () {
+                StringMultiSelect_CheckInput(items)
+            });
+        }
+    }
+
+    function OperatorChanged__PRTypePRApprovalsDataView(e) {
+        StringMultiSelect_OperatorChanged('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+
+    function ChangeMultiselect__PRTypePRApprovalsDataView(e) {
+        StringMultiSelect_MultiSelectChanged('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+</script>
+
+
+
+
+<div style="position: absolute; z-index: 1; display: none;" class="divFilterColumn" id="divPRTypePRApprovalsDataView">
+    <form id="frmColumnData__PRTypePRApprovalsDataView" novalidate="novalidate">
+        <input type="hidden" value="PRApprovalsDataView" name="DataViewKey" id="hdnDataViewKey__PRTypePRApprovalsDataView" />
+        <input type="hidden" value="PRType" name="ColumnName" id="hdnColumnName__PRTypePRApprovalsDataView" />
+        <input type="hidden" value="PR Type" name="DisplayColumnName" id="hdnDisplayColumnName__PRTypePRApprovalsDataView" />
+        <input type="hidden" value="182003" name="DataViewFieldId" id="hdnDataViewFieldId__PRTypePRApprovalsDataView" data-val-number="The field DataViewFieldId must be a number." data-val="true" />
+        <input type="hidden" value="1" name="hdnCmbValue__PRTypePRApprovalsDataView" id="hdnCmbValue__PRTypePRApprovalsDataView" />
+        <input type="hidden" value="" name="hdnListValues__PRTypePRApprovalsDataView" id="hdnListValues__PRTypePRApprovalsDataView" />
+
+
+        <div class="FilterPopup_Operation_Label">
+            <label for="Operation">Operation</label>
+            <span style="width: 135px;" class="k-widget k-combobox k-header k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input" name="StringFilterOperatorId__PRTypePRApprovalsDataView_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" placeholder="Select Operation Name" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="StringFilterOperatorId__PRTypePRApprovalsDataView_listbox" aria-busy="false" aria-activedescendant="8e2ac1aa-136c-4272-a362-e44d3893b057" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="StringFilterOperatorId__PRTypePRApprovalsDataView_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 135px; display: none;" name="StringFilterOperatorId__PRTypePRApprovalsDataView" id="StringFilterOperatorId__PRTypePRApprovalsDataView" data-role="combobox" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){jQuery("#StringFilterOperatorId__PRTypePRApprovalsDataView").kendoComboBox({"change":OperatorChanged__PRTypePRApprovalsDataView,"dataSource":[{"Text":"STARTS WITH","Value":"10","Selected":false},{"Text":"ENDS WITH","Value":"9","Selected":false},{"Text":"EQUAL TO","Value":"1","Selected":false},{"Text":"NOT EQUAL TO","Value":"2","Selected":false},{"Text":"CONTAINS","Value":"7","Selected":false},{"Text":"DOES NOT CONTAIN","Value":"8","Selected":false},{"Text":"IS NOT EMPTY","Value":"12","Selected":false},{"Text":"IS EMPTY","Value":"13","Selected":false}],"dataTextField":"Text","filter":"contains","minLength":1,"autoBind":true,"dataValueField":"Value","placeholder":"Select Operation Name"});});
+</script>
+
+            <input type="text" value="" style="width: 300px; margin-right: 2px; display: none;" name="txtValue__PRTypePRApprovalsDataView" id="txtValue__PRTypePRApprovalsDataView" class="k-textbox" maxlength="200" />
+
+            <div deselectable="on" class="k-widget k-multiselect k-header" style="width: 35em;" title=""><div deselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" deselectable="on" role="listbox" id="ListValues__PRTypePRApprovalsDataView_taglist"></ul><input style="width: 135px;" class="k-input k-readonly" accesskey="" autocomplete="off" role="listbox" title="" aria-expanded="false" tabindex="0" aria-owns="ListValues__PRTypePRApprovalsDataView_taglist ListValues__PRTypePRApprovalsDataView_listbox" aria-disabled="false" aria-activedescendant="6207de59-e93f-4ce7-b1dc-7b1fd4434752" aria-busy="false" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" deselectable="on" role="button" tabindex="-1"></span><span class="k-icon k-i-loading k-hidden"></span></div><select style="display: none; width: 35em;" name="ListValues__PRTypePRApprovalsDataView" multiple="multiple" id="ListValues__PRTypePRApprovalsDataView" data-role="multiselect" aria-disabled="false"><option value="Blanket">Blanket</option><option value="Dollar">Dollar</option><option value="Regular">Regular</option></select><span style="font-family: MS Shell Dlg \32 ; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;">Please type to filter</span></div><script>
+	kendo.syncReady(function(){jQuery("#ListValues__PRTypePRApprovalsDataView").kendoMultiSelect({"change":ChangeMultiselect__PRTypePRApprovalsDataView,"dataBound":BoundMultiselect__PRTypePRApprovalsDataView,"dataSource":[{"Text":"Blanket","Value":"Blanket","Selected":false},{"Text":"Dollar","Value":"Dollar","Selected":false},{"Text":"Regular","Value":"Regular","Selected":false}],"dataTextField":"Text","minLength":1,"itemTemplate":"\u003cinput type=\u0027checkbox\u0027\u003e #:data.Text# \u003c/input\u003e","autoClose":false,"dataValueField":"Value","placeholder":"Please type to filter"});});
+</script>
+        </div>
+
+            <div style="padding-top: 5px;padding-bottom:2px;padding-left:5px;">
+                <a class="k-button" href="#" id="btnSaveFilterPopup__PRTypePRApprovalsDataView"><img src="/Content/Images/icons/add.gif" class="grid-action-icon" />Save</a>
+                <a class="k-button" href="#" id="btnClearFilterPopup__PRTypePRApprovalsDataView"><img src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Clear</a>
+                <a class="k-button" href="#" id="btnCloseFilterPopup__PRTypePRApprovalsDataView">Cancel</a>
+            </div>
+    </form>
+</div>
+
+    <script>
+        jwerty.key('esc', function (e) {
+            e.preventDefault();
+            $("#btnCloseFilterPopup__PRTypePRApprovalsDataView").click();
+        });
+
+        $("#btnCloseFilterPopup__PRTypePRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_CloseFilter('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnSaveFilterPopup__PRTypePRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_SaveFilter('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClearFilterPopup__PRTypePRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_ClearFilter('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClassClose__PRTypePRApprovalsDataView").click(function () {
+            StringMultiSelect_ClearFilter('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+    </script>
+
+<script>
+
+    $(document).mouseup(function (e) {
+        StringMultiSelect_FilterMouseUp(e, 'PRType', 'PRApprovalsDataView', '')
+    });
+
+    $(document).ready(function () {
+        StringMultiSelect_DocumentReady('PRType', 'PR Type', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True',
+            '0', '')
+    });
+</script>
+            </div>
+            <div>
+                <div>
+                    <div onclick="javascript: pinnedfilter_displayPOPupView('ApproverPRApprovalsDataView', 'PRApprovalsDataView');" class="GridFilterButtonView" id="prnt__ApproverPRApprovalsDataView">
+                        <label id="lblHeading__ApproverPRApprovalsDataView" style="display: inline-block;cursor:pointer;">My Approvers : ALL</label>
+                        <div style="float: right">
+                            <span class="k-icon k-i-arrow-s"></span>
+                            <img src="/Content/Images/filtericons/pinned.gif" class="ToolBarIcon GridToolBarIcon" title="Unpin" id="prntPinned__182018" />
+                            <script>
+                                $("#prntPinned__182018").click(function (e) {
+                                    
+                                    pinnedfilter_togglepinned('182018', 'PRApprovalsDataView', 'prnt', '/QAAutom/GridConfig/PinUnpin', '/QAAutom/GridConfig/ApplyGridFilter', '')
+                                    
+                                    pinnedfilter_togglepinned('182018', 'PRApprovalsDataView', '', '', '', null)
+                                    e.stopPropagation();
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+
+<script>
+
+    function BoundMultiselect__ApproverPRApprovalsDataView() {
+        if (this.ul){
+            var items = this.ul.find("li");
+            // todo - get rid of the setTimeout() function below.
+            //      once that is complete, we can merge this with:
+            //      CustomScripts.js &gt; StringMultiSelect_MultiSelectChanged()
+            setTimeout(function () {
+                StringMultiSelect_CheckInput(items)
+            });
+        }
+    }
+
+    function OperatorChanged__ApproverPRApprovalsDataView(e) {
+        StringMultiSelect_OperatorChanged('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+
+    function ChangeMultiselect__ApproverPRApprovalsDataView(e) {
+        StringMultiSelect_MultiSelectChanged('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+</script>
+
+
+
+
+<div style="position: absolute; z-index: 1; display: none;" class="divFilterColumn" id="divApproverPRApprovalsDataView">
+    <form id="frmColumnData__ApproverPRApprovalsDataView" novalidate="novalidate">
+        <input type="hidden" value="PRApprovalsDataView" name="DataViewKey" id="hdnDataViewKey__ApproverPRApprovalsDataView" />
+        <input type="hidden" value="Approver" name="ColumnName" id="hdnColumnName__ApproverPRApprovalsDataView" />
+        <input type="hidden" value="My Approvers" name="DisplayColumnName" id="hdnDisplayColumnName__ApproverPRApprovalsDataView" />
+        <input type="hidden" value="182018" name="DataViewFieldId" id="hdnDataViewFieldId__ApproverPRApprovalsDataView" data-val-number="The field DataViewFieldId must be a number." data-val="true" />
+        <input type="hidden" value="1" name="hdnCmbValue__ApproverPRApprovalsDataView" id="hdnCmbValue__ApproverPRApprovalsDataView" />
+        <input type="hidden" value="" name="hdnListValues__ApproverPRApprovalsDataView" id="hdnListValues__ApproverPRApprovalsDataView" />
+
+
+        <div class="FilterPopup_Operation_Label">
+            <label for="Operation">Operation</label>
+            <span style="width: 135px;" class="k-widget k-combobox k-header k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input" name="StringFilterOperatorId__ApproverPRApprovalsDataView_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" placeholder="Select Operation Name" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="StringFilterOperatorId__ApproverPRApprovalsDataView_listbox" aria-busy="false" aria-activedescendant="6b871417-da5b-4d1e-a3de-d25dfdec9233" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="StringFilterOperatorId__ApproverPRApprovalsDataView_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 135px; display: none;" name="StringFilterOperatorId__ApproverPRApprovalsDataView" id="StringFilterOperatorId__ApproverPRApprovalsDataView" data-role="combobox" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){jQuery("#StringFilterOperatorId__ApproverPRApprovalsDataView").kendoComboBox({"change":OperatorChanged__ApproverPRApprovalsDataView,"dataSource":[{"Text":"STARTS WITH","Value":"10","Selected":false},{"Text":"ENDS WITH","Value":"9","Selected":false},{"Text":"EQUAL TO","Value":"1","Selected":false},{"Text":"NOT EQUAL TO","Value":"2","Selected":false},{"Text":"CONTAINS","Value":"7","Selected":false},{"Text":"DOES NOT CONTAIN","Value":"8","Selected":false},{"Text":"IS NOT EMPTY","Value":"12","Selected":false},{"Text":"IS EMPTY","Value":"13","Selected":false}],"dataTextField":"Text","filter":"contains","minLength":1,"autoBind":true,"dataValueField":"Value","placeholder":"Select Operation Name"});});
+</script>
+
+            <input type="text" value="" style="width: 300px; margin-right: 2px; display: none;" name="txtValue__ApproverPRApprovalsDataView" id="txtValue__ApproverPRApprovalsDataView" class="k-textbox" maxlength="200" />
+
+            <div deselectable="on" class="k-widget k-multiselect k-header" style="width: 35em;" title=""><div deselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" deselectable="on" role="listbox" id="ListValues__ApproverPRApprovalsDataView_taglist"></ul><input style="width: 135px;" class="k-input k-readonly" accesskey="" autocomplete="off" role="listbox" title="" aria-expanded="false" tabindex="0" aria-owns="ListValues__ApproverPRApprovalsDataView_taglist ListValues__ApproverPRApprovalsDataView_listbox" aria-disabled="false" aria-activedescendant="eb3ef142-86d5-4c8b-a092-264501cc5ec1" aria-busy="false" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" deselectable="on" role="button" tabindex="-1"></span><span class="k-icon k-i-loading k-hidden"></span></div><select style="display: none; width: 35em;" name="ListValues__ApproverPRApprovalsDataView" multiple="multiple" id="ListValues__ApproverPRApprovalsDataView" data-role="multiselect" aria-disabled="false"><option value="[All backup approvers]">[All backup approvers]</option><option value="[All non-backup approvers]">[All non-backup approvers]</option><option value="CEO/Principal">CEO/Principal</option></select><span style="font-family: MS Shell Dlg \32 ; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;">Please type to filter</span></div><script>
+	kendo.syncReady(function(){jQuery("#ListValues__ApproverPRApprovalsDataView").kendoMultiSelect({"change":ChangeMultiselect__ApproverPRApprovalsDataView,"dataBound":BoundMultiselect__ApproverPRApprovalsDataView,"dataSource":[{"Text":"[All backup approvers]","Value":"[All backup approvers]","Selected":false},{"Text":"[All non-backup approvers]","Value":"[All non-backup approvers]","Selected":false},{"Text":"CEO/Principal","Value":"CEO/Principal","Selected":false}],"dataTextField":"Text","minLength":1,"itemTemplate":"\u003cinput type=\u0027checkbox\u0027\u003e #:data.Text# \u003c/input\u003e","autoClose":false,"dataValueField":"Value","placeholder":"Please type to filter"});});
+</script>
+        </div>
+
+            <div style="padding-top: 5px;padding-bottom:2px;padding-left:5px;">
+                <a class="k-button" href="#" id="btnSaveFilterPopup__ApproverPRApprovalsDataView"><img src="/Content/Images/icons/add.gif" class="grid-action-icon" />Save</a>
+                <a class="k-button" href="#" id="btnClearFilterPopup__ApproverPRApprovalsDataView"><img src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Clear</a>
+                <a class="k-button" href="#" id="btnCloseFilterPopup__ApproverPRApprovalsDataView">Cancel</a>
+            </div>
+    </form>
+</div>
+
+    <script>
+        jwerty.key('esc', function (e) {
+            e.preventDefault();
+            $("#btnCloseFilterPopup__ApproverPRApprovalsDataView").click();
+        });
+
+        $("#btnCloseFilterPopup__ApproverPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_CloseFilter('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnSaveFilterPopup__ApproverPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_SaveFilter('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClearFilterPopup__ApproverPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_ClearFilter('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClassClose__ApproverPRApprovalsDataView").click(function () {
+            StringMultiSelect_ClearFilter('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+    </script>
+
+<script>
+
+    $(document).mouseup(function (e) {
+        StringMultiSelect_FilterMouseUp(e, 'Approver', 'PRApprovalsDataView', '')
+    });
+
+    $(document).ready(function () {
+        StringMultiSelect_DocumentReady('Approver', 'My Approvers', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True',
+            '0', '')
+    });
+</script>
+            </div>
+            <div>
+                <div>
+                    <div onclick="javascript: pinnedfilter_displayPOPupView('RequiresAttentionOfPRApprovalsDataView', 'PRApprovalsDataView');" class="GridFilterButtonView" id="prnt__RequiresAttentionOfPRApprovalsDataView">
+                        <label id="lblHeading__RequiresAttentionOfPRApprovalsDataView" style="display: inline-block;cursor:pointer;">Requires Attention Of : Equals [All non-backup ap...</label>
+                        <div style="float: right">
+                            <span class="k-icon k-i-arrow-s"></span>
+                            <img src="/Content/Images/filtericons/pinned.gif" class="ToolBarIcon GridToolBarIcon" title="Unpin" id="prntPinned__182020" />
+                            <script>
+                                $("#prntPinned__182020").click(function (e) {
+                                    
+                                    pinnedfilter_togglepinned('182020', 'PRApprovalsDataView', 'prnt', '/QAAutom/GridConfig/PinUnpin', '/QAAutom/GridConfig/ApplyGridFilter', '')
+                                    
+                                    pinnedfilter_togglepinned('182020', 'PRApprovalsDataView', '', '', '', null)
+                                    e.stopPropagation();
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+
+<script>
+
+    function BoundMultiselect__RequiresAttentionOfPRApprovalsDataView() {
+        if (this.ul){
+            var items = this.ul.find("li");
+            // todo - get rid of the setTimeout() function below.
+            //      once that is complete, we can merge this with:
+            //      CustomScripts.js &gt; StringMultiSelect_MultiSelectChanged()
+            setTimeout(function () {
+                StringMultiSelect_CheckInput(items)
+            });
+        }
+    }
+
+    function OperatorChanged__RequiresAttentionOfPRApprovalsDataView(e) {
+        StringMultiSelect_OperatorChanged('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+
+    function ChangeMultiselect__RequiresAttentionOfPRApprovalsDataView(e) {
+        StringMultiSelect_MultiSelectChanged('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+    }
+</script>
+
+
+
+
+<div style="position: absolute; z-index: 1; display: none;" class="divFilterColumn" id="divRequiresAttentionOfPRApprovalsDataView">
+    <form id="frmColumnData__RequiresAttentionOfPRApprovalsDataView" novalidate="novalidate">
+        <input type="hidden" value="PRApprovalsDataView" name="DataViewKey" id="hdnDataViewKey__RequiresAttentionOfPRApprovalsDataView" />
+        <input type="hidden" value="RequiresAttentionOf" name="ColumnName" id="hdnColumnName__RequiresAttentionOfPRApprovalsDataView" />
+        <input type="hidden" value="Requires Attention Of" name="DisplayColumnName" id="hdnDisplayColumnName__RequiresAttentionOfPRApprovalsDataView" />
+        <input type="hidden" value="182020" name="DataViewFieldId" id="hdnDataViewFieldId__RequiresAttentionOfPRApprovalsDataView" data-val-number="The field DataViewFieldId must be a number." data-val="true" />
+        <input type="hidden" value="1" name="hdnCmbValue__RequiresAttentionOfPRApprovalsDataView" id="hdnCmbValue__RequiresAttentionOfPRApprovalsDataView" />
+        <input type="hidden" value="[All non-backup approvers]" name="hdnListValues__RequiresAttentionOfPRApprovalsDataView" id="hdnListValues__RequiresAttentionOfPRApprovalsDataView" />
+
+
+        <div class="FilterPopup_Operation_Label">
+            <label for="Operation">Operation</label>
+            <span style="width: 135px;" class="k-widget k-combobox k-header k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input" name="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" placeholder="Select Operation Name" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView_listbox" aria-busy="false" aria-activedescendant="490a7c7c-919f-4f82-948c-168c366621e1" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 135px; display: none;" name="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView" id="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView" data-role="combobox" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){jQuery("#StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView").kendoComboBox({"change":OperatorChanged__RequiresAttentionOfPRApprovalsDataView,"dataSource":[{"Text":"STARTS WITH","Value":"10","Selected":false},{"Text":"ENDS WITH","Value":"9","Selected":false},{"Text":"EQUAL TO","Value":"1","Selected":false},{"Text":"NOT EQUAL TO","Value":"2","Selected":false},{"Text":"CONTAINS","Value":"7","Selected":false},{"Text":"DOES NOT CONTAIN","Value":"8","Selected":false},{"Text":"IS NOT EMPTY","Value":"12","Selected":false},{"Text":"IS EMPTY","Value":"13","Selected":false}],"dataTextField":"Text","filter":"contains","minLength":1,"autoBind":true,"dataValueField":"Value","placeholder":"Select Operation Name"});});
+</script>
+
+            <input type="text" value="[All non-backup approvers]" style="width: 300px; margin-right: 2px; display: none;" name="txtValue__RequiresAttentionOfPRApprovalsDataView" id="txtValue__RequiresAttentionOfPRApprovalsDataView" class="k-textbox" maxlength="200" />
+
+            <div deselectable="on" class="k-widget k-multiselect k-header" style="width: 35em;" title=""><div deselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" deselectable="on" role="listbox" id="ListValues__RequiresAttentionOfPRApprovalsDataView_taglist"><li deselectable="on" class="k-button"><span deselectable="on">[All non-backup approvers]</span><span class="k-select" aria-label="delete" unselectable="on"><span class="k-icon k-i-close"></span></span></li></ul><input style="width: 25px;" class="k-input" accesskey="" autocomplete="off" role="listbox" title="" aria-expanded="false" tabindex="0" aria-owns="ListValues__RequiresAttentionOfPRApprovalsDataView_taglist ListValues__RequiresAttentionOfPRApprovalsDataView_listbox" aria-disabled="false" aria-busy="false" aria-activedescendant="bd6c837d-83c2-48d9-8698-970ded1c940e" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" deselectable="on" role="button" tabindex="-1"></span><span class="k-icon k-i-loading k-hidden"></span></div><select style="display: none; width: 35em;" name="ListValues__RequiresAttentionOfPRApprovalsDataView" multiple="multiple" id="ListValues__RequiresAttentionOfPRApprovalsDataView" data-role="multiselect" aria-disabled="false"><option value="[All backup approvers]">[All backup approvers]</option><option value="[All non-backup approvers]">[All non-backup approvers]</option><option value="CEO/Principal">CEO/Principal</option></select><span style="font-family: MS Shell Dlg \32 ; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;"></span></div><script>
+	kendo.syncReady(function(){jQuery("#ListValues__RequiresAttentionOfPRApprovalsDataView").kendoMultiSelect({"change":ChangeMultiselect__RequiresAttentionOfPRApprovalsDataView,"dataBound":BoundMultiselect__RequiresAttentionOfPRApprovalsDataView,"dataSource":[{"Text":"[All backup approvers]","Value":"[All backup approvers]","Selected":false},{"Text":"[All non-backup approvers]","Value":"[All non-backup approvers]","Selected":false},{"Text":"CEO/Principal","Value":"CEO/Principal","Selected":false}],"dataTextField":"Text","minLength":1,"itemTemplate":"\u003cinput type=\u0027checkbox\u0027\u003e #:data.Text# \u003c/input\u003e","autoClose":false,"dataValueField":"Value","placeholder":"Please type to filter"});});
+</script>
+        </div>
+
+            <div style="padding-top: 5px;padding-bottom:2px;padding-left:5px;">
+                <a class="k-button" href="#" id="btnSaveFilterPopup__RequiresAttentionOfPRApprovalsDataView"><img src="/Content/Images/icons/add.gif" class="grid-action-icon" />Save</a>
+                <a class="k-button" href="#" id="btnClearFilterPopup__RequiresAttentionOfPRApprovalsDataView"><img src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Clear</a>
+                <a class="k-button" href="#" id="btnCloseFilterPopup__RequiresAttentionOfPRApprovalsDataView">Cancel</a>
+            </div>
+    </form>
+</div>
+
+    <script>
+        jwerty.key('esc', function (e) {
+            e.preventDefault();
+            $("#btnCloseFilterPopup__RequiresAttentionOfPRApprovalsDataView").click();
+        });
+
+        $("#btnCloseFilterPopup__RequiresAttentionOfPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_CloseFilter('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnSaveFilterPopup__RequiresAttentionOfPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_SaveFilter('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClearFilterPopup__RequiresAttentionOfPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringMultiSelect_ClearFilter('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+
+        $("#btnClassClose__RequiresAttentionOfPRApprovalsDataView").click(function () {
+            StringMultiSelect_ClearFilter('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+                '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True')
+        });
+    </script>
+
+<script>
+
+    $(document).mouseup(function (e) {
+        StringMultiSelect_FilterMouseUp(e, 'RequiresAttentionOf', 'PRApprovalsDataView', '')
+    });
+
+    $(document).ready(function () {
+        StringMultiSelect_DocumentReady('RequiresAttentionOf', 'Requires Attention Of', 'PRApprovalsDataView', '', 'True' === 'True',
+            '/QAAutom/GridConfig/GridStringMultiSelectColumnUpdate', 'System.String', 'True',
+            '1', '[All non-backup approvers]')
+    });
+</script>
+            </div>
+            <div>
+                <div>
+                    <div onclick="javascript: pinnedfilter_displayPOPupView('FiscalYearPRApprovalsDataView', 'PRApprovalsDataView');" class="GridFilterButtonView" id="prnt__FiscalYearPRApprovalsDataView">
+                        <label id="lblHeading__FiscalYearPRApprovalsDataView" style="display: inline-block;cursor:pointer;">Fiscal Year : ALL</label>
+                        <div style="float: right">
+                            <span class="k-icon k-i-arrow-s"></span>
+                            <img src="/Content/Images/filtericons/pinned.gif" class="ToolBarIcon GridToolBarIcon" title="Unpin" id="prntPinned__182022" />
+                            <script>
+                                $("#prntPinned__182022").click(function (e) {
+                                    
+                                    pinnedfilter_togglepinned('182022', 'PRApprovalsDataView', 'prnt', '/QAAutom/GridConfig/PinUnpin', '/QAAutom/GridConfig/ApplyGridFilter', '')
+                                    
+                                    pinnedfilter_togglepinned('182022', 'PRApprovalsDataView', '', '', '', null)
+                                    e.stopPropagation();
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                
+
+<script>
+    function OperatorChanged__FiscalYearPRApprovalsDataView() {
+        StringFilter_OperatorChanged('FiscalYear', 'Fiscal Year', 'PRApprovalsDataView', '', '/QAAutom/GridConfig/GridStringColumnUpdate')
+    }
+</script>
+
+
+
+
+<div style="position: absolute; z-index: 1; display: none;" class="divFilterColumn" id="divFiscalYearPRApprovalsDataView">
+    <form id="frmColumnData__FiscalYearPRApprovalsDataView" novalidate="novalidate">
+        <input type="hidden" value="PRApprovalsDataView" name="DataViewKey" id="hdnDataViewKey__FiscalYearPRApprovalsDataView" />
+        <input type="hidden" value="FiscalYear" name="ColumnName" id="hdnColumnName__FiscalYearPRApprovalsDataView" />
+        <input type="hidden" value="Fiscal Year" name="DisplayColumnName" id="hdnDisplayColumnName__FiscalYearPRApprovalsDataView" />
+        <input type="hidden" value="182022" name="DataViewFieldId" id="hdnDataViewFieldId__FiscalYearPRApprovalsDataView" data-val-number="The field DataViewFieldId must be a number." data-val="true" />
+        <input type="hidden" value="10" name="hdnCmbValue__FiscalYearPRApprovalsDataView" id="hdnCmbValue__FiscalYearPRApprovalsDataView" />
+        <div class="FilterPopup_Operation_Label">
+            <label for="Operation">Operation</label>
+            <span style="width: 135px;" class="k-widget k-combobox k-header k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input" name="StringFilterOperatorId__FiscalYearPRApprovalsDataView_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" placeholder="Select Operation Name" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="StringFilterOperatorId__FiscalYearPRApprovalsDataView_listbox" aria-busy="false" aria-activedescendant="1594eb84-44fd-4fb9-85dc-fa3d2ac094d0" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="StringFilterOperatorId__FiscalYearPRApprovalsDataView_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 135px; display: none;" name="StringFilterOperatorId__FiscalYearPRApprovalsDataView" id="StringFilterOperatorId__FiscalYearPRApprovalsDataView" data-role="combobox" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){jQuery("#StringFilterOperatorId__FiscalYearPRApprovalsDataView").kendoComboBox({"change":OperatorChanged__FiscalYearPRApprovalsDataView,"dataSource":[{"Text":"STARTS WITH","Value":"10","Selected":false},{"Text":"ENDS WITH","Value":"9","Selected":false},{"Text":"EQUAL TO","Value":"1","Selected":false},{"Text":"NOT EQUAL TO","Value":"2","Selected":false},{"Text":"CONTAINS","Value":"7","Selected":false},{"Text":"DOES NOT CONTAIN","Value":"8","Selected":false},{"Text":"IS NOT EMPTY","Value":"12","Selected":false},{"Text":"IS EMPTY","Value":"13","Selected":false}],"dataTextField":"Text","filter":"contains","minLength":1,"autoBind":true,"dataValueField":"Value","placeholder":"Select Operation Name"});});
+</script>
+            <input type="text" value="" style="width:300px; margin-right:2px" name="txtValue__FiscalYearPRApprovalsDataView" id="txtValue__FiscalYearPRApprovalsDataView" class="k-textbox" maxlength="200" />
+        </div>
+
+            <div style="padding-top: 5px;padding-bottom:2px;padding-left:5px;">
+                <a class="k-button" href="#" id="btnSaveFilterPopup__FiscalYearPRApprovalsDataView"><img src="/Content/Images/icons/add.gif" class="grid-action-icon" />Save</a>
+                <a class="k-button" href="#" id="btnClearFilterPopup__FiscalYearPRApprovalsDataView"><img src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Clear</a>
+                <a class="k-button" href="#" id="btnCloseFilterPopup__FiscalYearPRApprovalsDataView">Cancel</a>
+            </div>
+    </form>
+</div>
+
+    <script>
+        jwerty.key('esc', function (e) {
+            e.preventDefault();
+            $("#btnCloseFilterPopup__FiscalYearPRApprovalsDataView").click();
+        });
+
+        $("#btnClearFilterPopup__FiscalYearPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringFilter_Clear('FiscalYear', 'Fiscal Year', 'PRApprovalsDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridStringColumnUpdate')
+        });
+
+        $("#btnCloseFilterPopup__FiscalYearPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringFilter_Close('FiscalYear', 'PRApprovalsDataView')
+        });
+
+        $("#btnClassClose__FiscalYearPRApprovalsDataView").click(function () {
+            StringFilter_ClassClose('FiscalYear', 'Fiscal Year', 'PRApprovalsDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridStringColumnUpdate')
+        });
+
+        $("#btnSaveFilterPopup__FiscalYearPRApprovalsDataView").click(function (e) {
+            e.preventDefault();
+            StringFilter_SaveFilter('FiscalYear', 'Fiscal Year', 'PRApprovalsDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridStringColumnUpdate');
+        });
+    </script>
+
+<script>
+    $(document).ready(function () {
+        StringFilter_DocumentReady('FiscalYear', 'PRApprovalsDataView', '', '0')
+    });
+
+    $(document).mouseup(function (e) {
+        FilterMouseUp(e, 'FiscalYear', 'PRApprovalsDataView', '')
+    });
+</script>
+            </div>
+</div>
+<script>
+    $(document).ready(function () {
+        pinnedfilter_init('PRApprovalsDataView');
+    });
+</script><div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PRApprovalsDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PRApprovalsDataView" style="display:inline-block;" class="GridFilteredText">System: Requiring my attention</span><div class="GridFilterWrapper"><a id="SearchSettings__PRApprovalsDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PRApprovalsDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PRApprovalsDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PRApprovalsDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PRApprovalsDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PRApprovalsDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><script type="text/javascript">
+
+    var GridSettingGuid = '';
+    var displayButton;
+    var isGridFiltered;
+
+    function ReturnFromPopup__PRApprovalsDataView(e) {
+        var dataViewSettings = {
+            GridHeight: '300',
+            AdjustGridHeightOnResize: 'True',
+            VerticallyScrollable: 'True',
+            IsGridEditable: 'false'
+        };
+
+        var urls = {
+            ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+            ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+            ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+            GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+            GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+            DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+            SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+            RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+            Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+        };
+
+        var msgs = {
+            Success: "Record saved successfully.",
+            Delete: "Record deleted successfully.",
+            ConfirmDelete: "Confirm Delete",
+            DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+        };
+
+        UserGridSettingsMenuReturn('/Content/Images/filtericons/Gear.png', e, 'PRApprovalsDataView', urls.GetNamedGridSettings, dataViewSettings, urls.Apply,
+                                    function (e) {
+                                        UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PRApprovalsDataView', dataViewSettings, urls, msgs)
+                                    });
+    }
+
+    $(document).ready(function () {
+        UpdataNamedGridSettingsMenu('/Content/Images/filtericons/Gear.png', 'PRApprovalsDataView', '/QAAutom/GridConfig/GetNamedGridSettings',
+            function (e) {
+                UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PRApprovalsDataView',
+                {
+                    GridHeight: '300',
+                    AdjustGridHeightOnResize: 'True',
+                    IsGridEditable: 'false'
+                },
+                {
+                    ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+                    ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+                    ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+                    GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+                    GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+                    DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+                    SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+                    RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+                    Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+                },
+                {
+                    Success: "Record saved successfully.",
+                    Delete: "Record deleted successfully.",
+                    ConfirmDelete: "Confirm Delete",
+                    DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+                })
+            });
+    });
+
+    function LoadPageSetup__PRApprovalsDataView() {
+        UserGridSettingsMenuLoadPageSetup('PRApprovalsDataView', '', '/QAAutom/GridConfig/GetUserGridPageSetupView');
+    }
+</script>
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PRApprovalsDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PRApprovalsDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="true" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="systemSetting__PRApprovalsDataView currentSetting__PRApprovalsDataView" id="8b0a5b88-0ac1-4a9e-8121-b974378fae68" style="border-bottom: 2px solid; display: inherit; background-color: rgb(191, 213, 236);">System: Requiring my attention</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PRApprovalsDataView button" id="Reset__PRApprovalsDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PRApprovalsDataView button" id="SaveAs__PRApprovalsDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PRApprovalsDataView button" id="PageSetup__PRApprovalsDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    <script>
+	kendo.syncReady(function(){jQuery("#usergridsettingsWindow__PRApprovalsDataView").kendoWindow({"close":ReturnFromPopup__PRApprovalsDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Save Grid Settings","resizable":false,"width":570,"height":380,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#pagesetupWindow__PRApprovalsDataView").kendoWindow({"refresh":LoadPageSetup__PRApprovalsDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Report Settings","resizable":false,"width":500,"height":350,"actions":["Close"]});});
+</script>
+
+<script type="text/kendo-ui" id="menu-template__PRApprovalsDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PRApprovalsDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PRApprovalsDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PRApprovalsDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PRApprovalsDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PRApprovalsDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PRApprovalsDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PRApprovalsDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PRApprovalsDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget"><div data-dir="asc" data-title="Fiscal Year" data-field="FiscalYear" class="k-group-indicator"><a class="k-link" href="#"><span title="(sorted ascending)" class="k-icon k-i-sort-asc-sm"></span>Fiscal Year</a><a class="k-button k-button-icon k-bare"><span class="k-icon k-i-close"></span></a></div></div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col class="k-group-col" /><col style="width:35px" /><col style="width:100px" /><col style="width:100px" /><col style="width:150px" /><col style="width:200px" /><col style="width:200px" /><col style="width:100px" /><col style="width:200px" /><col style="width:200px" /><col style="width:150px" /><col style="width:150px" /><col style="width:150px" /><col style="width:100px" /><col style="width:100px" /><col style="width:200px" /><col style="width:100px" /><col style="width:100px" /><col style="width:150px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th class="k-group-cell k-header"> </th><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__PRApprovalsDataView" /></th><th style="text-align: left; display: none;" scope="col" data-title="Fiscal Year" data-index="1" data-field="FiscalYear" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=FiscalYear-asc" class="k-link">Fiscal Year</a></th><th style="text-align:right;" scope="col" data-title="Request No" data-index="2" data-field="RequestNo" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=RequestNo-desc" class="k-link">Request No<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Attachment(s)" data-index="3" data-field="Attachments" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=Attachments-asc" class="k-link">Attachment(s)</a></th><th style="text-align:left;" scope="col" data-title="Requisition Type" data-index="4" data-field="RequisitionType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=RequisitionType-asc" class="k-link">Requisition Type</a></th><th style="text-align:left;" scope="col" data-title="PR Type" data-index="5" data-field="PRType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=PRType-asc" class="k-link">PR Type</a></th><th style="text-align:left;" scope="col" data-title="Requisitioner" data-index="6" data-field="Requisitioner" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=Requisitioner-asc" class="k-link">Requisitioner</a></th><th style="text-align:right;" scope="col" data-title="Total Estimate" data-index="7" data-field="TotalEstimate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=TotalEstimate-asc" class="k-link">Total Estimate</a></th><th style="text-align:left;" scope="col" data-title="Request Date" data-index="8" data-field="RequestDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=RequestDate-asc" class="k-link">Request Date</a></th><th style="text-align:left;" scope="col" data-title="Ship To" data-index="9" data-field="ShipTo" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=ShipTo-asc" class="k-link">Ship To</a></th><th style="text-align:left;" scope="col" data-title="Approval Status" data-index="10" data-field="ApprovalStatus" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=ApprovalStatus-asc" class="k-link">Approval Status</a></th><th style="text-align:left;" scope="col" data-title="Next Approval Level" data-index="11" data-field="NextApprovalLevel" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=NextApprovalLevel-asc" class="k-link">Next Approval Level</a></th><th style="text-align:left;" scope="col" data-title="Last Approval Level" data-index="12" data-field="LastApprovalLevel" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=LastApprovalLevel-asc" class="k-link">Last Approval Level</a></th><th style="text-align:left;" scope="col" data-title="Department" data-index="13" data-field="Department" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=Department-asc" class="k-link">Department</a></th><th style="text-align:left;" scope="col" data-title="Comments" data-index="14" data-field="Comments" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=Comments-asc" class="k-link">Comments</a></th><th style="text-align:left;" scope="col" data-title="Suggested Vendor" data-index="15" data-field="SuggestedVendor" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=SuggestedVendor-asc" class="k-link">Suggested Vendor</a></th><th style="text-align:left;" scope="col" data-title="Quote No." data-index="16" data-field="QuoteBidNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=QuoteBidNumber-asc" class="k-link">Quote No.</a></th><th style="text-align:left;" scope="col" data-title="Quote Notes" data-index="17" data-field="QuoteBidNotes" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=QuoteBidNotes-asc" class="k-link">Quote Notes</a></th><th style="text-align:left;" scope="col" data-title="My Approvers" data-index="18" data-field="Approver" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView&amp;gridKey=PRApprovalsDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;67312f38-38dd-4149-b559-e2b6a7569fd9=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;PRApprovalsDataView-sort=Approver-asc" class="k-link">My Approvers</a></th><th scope="col" data-index="19" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 225px; min-height: 160px;" class="k-grid-content"><table role="grid" data-aptafund-kendogrid-selected="0608fa6b-57d3-463a-8a0e-2f01b27a7bfb~Submitted~6ba914b8-383a-42d8-b612-c7e79b166f18~00000000-0000-0000-0000-000000000000~4183"><colgroup><col class="k-group-col" /><col style="width:35px" /><col style="width:100px" /><col style="width:100px" class="k-sorted" /><col style="width:150px" /><col style="width:200px" /><col style="width:200px" /><col style="width:100px" /><col style="width:200px" /><col style="width:200px" /><col style="width:150px" /><col style="width:150px" /><col style="width:150px" /><col style="width:100px" /><col style="width:100px" /><col style="width:200px" /><col style="width:100px" /><col style="width:100px" /><col style="width:150px" /><col /></colgroup><tbody role="rowgroup"><tr class="k-grouping-row" role="row"><td aria-expanded="true" colspan="20"><p class="k-reset"><a aria-label="Collapse" tabindex="-1" href="#" class="k-icon k-i-collapse"></a>Fiscal Year: FY17-18</p></td></tr><tr role="row" data-uid="37916266-6778-4b0d-adc6-930c618481c3" class="kendo-data-row k-state-selected" data-aptafund-kendogrid-rowid="0608fa6b-57d3-463a-8a0e-2f01b27a7bfb~Submitted~6ba914b8-383a-42d8-b612-c7e79b166f18~00000000-0000-0000-0000-000000000000~4183"><td class="k-group-cell"> </td><td role="gridcell"><input type="checkbox" class="check_row__PRApprovalsDataView" /></td><td role="gridcell" style="text-align: left; display: none;">FY17-18</td><td role="gridcell" style="text-align:right;"><span onclick="EditPurchaseRequisitionPopup('0608fa6b-57d3-463a-8a0e-2f01b27a7bfb~Submitted~6ba914b8-383a-42d8-b612-c7e79b166f18~00000000-0000-0000-0000-000000000000~4183');" style="color: blue; text-decoration: underline; cursor: pointer;" id="lnk_EditPurchaseRequisition_0608fa6b-57d3-463a-8a0e-2f01b27a7bfb~Submitted~6ba914b8-383a-42d8-b612-c7e79b166f18~00000000-0000-0000-0000-000000000000~4183">4183</span></td><td role="gridcell" style="text-align:left;">0</td><td role="gridcell" style="text-align:left;">Regular</td><td role="gridcell" style="text-align:left;">Regular</td><td role="gridcell" style="text-align:left;">1Brakus, Automation Malachi</td><td role="gridcell" style="text-align:right;">$2.00</td><td role="gridcell" style="text-align:left;">12/07/2017</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:left;">Pending</td><td role="gridcell" style="text-align:left;">CEO Principal Level</td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="text-align:left;"> </td><td role="gridcell" style="text-align:left;">Create new Purchase Requisition using automation.</td><td role="gridcell" style="text-align:left;">A Bee King</td><td role="gridcell" style="text-align:left;"> </td><td role="gridcell" style="text-align:left;"> </td><td role="gridcell" style="text-align:left;">CEO/Principal</td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li></ul><a title="Go to the next page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="1" class="k-link k-pager-nav k-pager-last k-state-disabled" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="846d0bea-a613-4207-bf4a-290d6068c4b0"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 1 of 1 items</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#PRApprovalsDataView").kendoGrid({"dataBound":$('#divPRApprovalsDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__PRApprovalsDataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"Fiscal Year","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"FiscalYear","data-title":"Fiscal Year"},"width":"100px","field":"FiscalYear","filterable":false,"encoded":true},{"title":"Request No","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestNo","data-title":"Request No"},"width":"100px","template":"\u003cspan id=\u0027lnk_EditPurchaseRequisition_#= Id#\u0027 style=\u0027color: blue; text-decoration: underline; cursor: pointer;\u0027 onclick=\"EditPurchaseRequisitionPopup(\u0027#= Id#\u0027);\"\u003e${ RequestNo }\u003c/span\u003e","field":"RequestNo","filterable":false,"encoded":true},{"title":"Attachment(s)","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Attachments","data-title":"Attachment(s)"},"width":"100px","field":"Attachments","filterable":false,"encoded":true},{"title":"Requisition Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RequisitionType","data-title":"Requisition Type"},"width":"150px","field":"RequisitionType","filterable":false,"encoded":true},{"title":"PR Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PRType","data-title":"PR Type"},"width":"200px","field":"PRType","filterable":false,"encoded":true},{"title":"Requisitioner","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Requisitioner","data-title":"Requisitioner"},"width":"200px","field":"Requisitioner","filterable":false,"encoded":true},{"title":"Total Estimate","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"TotalEstimate","data-title":"Total Estimate"},"width":"100px","field":"TotalEstimate","format":"{0:C}","filterable":false,"encoded":true},{"title":"Request Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RequestDate","data-title":"Request Date"},"width":"200px","field":"RequestDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Ship To","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ShipTo","data-title":"Ship To"},"width":"200px","field":"ShipTo","filterable":false,"encoded":true},{"title":"Approval Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovalStatus","data-title":"Approval Status"},"width":"150px","field":"ApprovalStatus","filterable":false,"encoded":true},{"title":"Next Approval Level","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"NextApprovalLevel","data-title":"Next Approval Level"},"width":"150px","field":"NextApprovalLevel","filterable":false,"encoded":true},{"title":"Last Approval Level","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LastApprovalLevel","data-title":"Last Approval Level"},"width":"150px","field":"LastApprovalLevel","filterable":false,"encoded":true},{"title":"Department","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Department","data-title":"Department"},"width":"100px","field":"Department","filterable":false,"encoded":true},{"title":"Comments","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Comments","data-title":"Comments"},"width":"100px","field":"Comments","filterable":false,"encoded":true},{"title":"Suggested Vendor","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"SuggestedVendor","data-title":"Suggested Vendor"},"width":"200px","field":"SuggestedVendor","filterable":false,"encoded":true},{"title":"Quote No.","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"QuoteBidNumber","data-title":"Quote No."},"width":"100px","field":"QuoteBidNumber","filterable":false,"encoded":true},{"title":"Quote Notes","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"QuoteBidNotes","data-title":"Quote Notes"},"width":"100px","field":"QuoteBidNotes","filterable":false,"encoded":true},{"title":"My Approvers","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Approver","data-title":"My Approvers"},"width":"150px","field":"Approver","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"toolbar":{},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=PRApprovalsDataView","data":$('#divPRApprovalsDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=PRApprovalsDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=PRApprovalsDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=PRApprovalsDataView"}},"pageSize":25,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"RequestNo","dir":"asc"}],"group":[{"field":"FiscalYear","dir":"asc"}],"filter":[],"error":$('#divPRApprovalsDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"FiscalYear":{"editable":false,"type":"string"},"Id":{"editable":false,"type":"string"},"RequestNo":{"editable":false,"type":"number"},"Attachments":{"editable":false,"type":"string"},"RequisitionType":{"editable":false,"type":"string"},"PRType":{"editable":false,"type":"string"},"Requisitioner":{"editable":false,"type":"string"},"TotalEstimate":{"editable":false,"type":"number","defaultValue":null},"RequestDate":{"editable":false,"type":"date"},"ShipTo":{"editable":false,"type":"string"},"ApprovalStatus":{"editable":false,"type":"string"},"NextApprovalLevel":{"editable":false,"type":"string"},"LastApprovalLevel":{"editable":false,"type":"string"},"CycleId":{"editable":false,"type":"number"},"PRStatus":{"editable":false,"type":"string"},"Department":{"editable":false,"type":"string"},"Comments":{"editable":false,"type":"string"},"SuggestedVendor":{"editable":false,"type":"string"},"QuoteBidNumber":{"editable":false,"type":"string"},"QuoteBidNotes":{"editable":false,"type":"string"},"Approver":{"editable":false,"type":"string"},"ApproveAs":{"editable":false,"type":"string"},"RequiresAttentionOf":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PRApprovalsDataView" value="true" />
+<input type="hidden" class="noheight" id="hdnScrollable_PRApprovalsDataView" value="true" />
+
+<div id="dvGridSettings__PRApprovalsDataView">
+</div>
+
+<div id="dvGridSearchSettings__PRApprovalsDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__PRApprovalsDataView">1</span> <a href="#" id="UnselectAll__PRApprovalsDataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divPRApprovalsDataView").data("AptaDataView")
+        .SetFilterColumns('KChSZXF1aXJlc0F0dGVudGlvbk9mID0gIltBbGwgbm9uLWJhY2t1cCBhcHByb3ZlcnNdIiB8fCBSZXF1aXJlc0F0dGVudGlvbk9mID0gIiIgICkp')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__PRApprovalsDataView() {
+        if ($("#dvGridSettings__PRApprovalsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PRApprovalsDataView', GridHeight: '300', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__PRApprovalsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__PRApprovalsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '300', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__PRApprovalsDataView() {
+        if ($("#dvGridSearchSettings__PRApprovalsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PRApprovalsDataView', GridHeight: '300', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__PRApprovalsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__PRApprovalsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__PRApprovalsDataView').click(function () {
+        LoadSettingsOnDemand__PRApprovalsDataView();
+        $("#settingsWindow__PRApprovalsDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__PRApprovalsDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'PRApprovalsDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__PRApprovalsDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__PRApprovalsDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__PRApprovalsDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__PRApprovalsDataView').click(function () {
+        LoadSearchSettingsOnDemand__PRApprovalsDataView();
+        $('#tbFilterName__PRApprovalsDataView').val("");
+        $("#searchSettings__PRApprovalsDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__PRApprovalsDataView').click(function () {
+        LoadSettingsOnDemand__PRApprovalsDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'PRApprovalsDataView', GridHeight: '300', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_PRApprovalsDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#PRApprovalsDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divPRApprovalsDataView').html(result);
+                InitializeGrid___PRApprovalsDataView(false);
+                var function_name = 'PRApprovalsDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_PRApprovalsDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "PRApprovalsDataView");
+                }
+                HideGridFooter("PRApprovalsDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__PRApprovalsDataView').click(function () {
+        LoadSettingsOnDemand__PRApprovalsDataView();
+        $("#divPRApprovalsDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__PRApprovalsDataView').click(function () {
+        LoadSettingsOnDemand__PRApprovalsDataView();
+        $("#divPRApprovalsDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__PRApprovalsDataView').click(function () {
+        LoadSearchSettingsOnDemand__PRApprovalsDataView()
+        $("#divPRApprovalsDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__PRApprovalsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PRApprovalsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PRApprovalsDataView').css("padding-left", "0px");
+        $('#divOptions__PRApprovalsDataView').css("margin-top", "0px");
+        $('#divOptions__PRApprovalsDataView').css("margin-right", "3px");
+        $('#divQuickSearch__PRApprovalsDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___PRApprovalsDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("PRApprovalsDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__PRApprovalsDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__PRApprovalsDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__PRApprovalsDataView() {
+        var gridName = 'PRApprovalsDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___PRApprovalsDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_PRApprovalsDataView');
+
+        if (parseBool("True")) {
+            RegisterGridForAutoHeight("#" + "PRApprovalsDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_PRApprovalsDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__PRApprovalsDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__PRApprovalsDataView').click(function (e) {
+        e.preventDefault();
+        $("#divPRApprovalsDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+
+    <div id="popupwindowDisapproveRequisition"></div>
+</div>
+
+<script>
+
+    $("#btnView__PRApprovalsDataView").click(function () {
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (!OnlyOneItemSelected(selectedRowId)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        NavigateTo("/QAAutom/Purchasing/RequisitionApproval/ViewDetails" + "?id=" + selectedRowId + "&amp;statusType=" + '3');
+
+    });
+
+
+    function OnCheckChange_ApproverList() {
+        OnSelectedIndexChange_ApproverList();
+    }
+
+    function OnSelectedIndexChange_ApproverList() {
+        var isChecked = ($('#chkRequireMyAttention_ApproverList').is(":checked"));
+
+        var approverId = $("#ApproverList").data("kendoDropDownList").value();
+
+        var data = { approverId: approverId, requireMyAttention: isChecked, approvalType: '3' };
+
+        $.ajax({
+            url: '/QAAutom/Purchasing/RequisitionApproval/GetApprovalsByApprover',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (result == "success") {
+                    var grid = $("#PRApprovalsDataView").data("kendoGrid");
+
+                    ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                }
+            }
+        });
+    }
+
+    $("#btnApprove_PRApprovalsDataView").click(function () {
+
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        ApproveDisapprove("Approve");
+    });
+
+    $("#btnDisapprove_PRApprovalsDataView").click(function (e) {
+        e.preventDefault();
+
+        if (!$("#divPRApprovalsDataView").data("AptaDataView").ValidateDataViewGridSelection(false, "Selection", "Please select a single record to perform this operation.")) return;
+
+        ApproveDisapprove("Disapprove");
+
+    });
+
+    function ApproveDisapprove(approveType) {
+        ShowAjaxMessage("", "");
+        //var approvers = $("#ApproverList").data("kendoDropDownList").value();
+        //var appIds = approvers.split('~');
+        var approverId = '';
+
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var isChecked = ($('#chkRequireMyAttention_ApproverList').is(":checked"));
+
+        var arr = selectedRowIds.split('~');
+
+        if (approveType == "Approve") {
+            var data = { approverId: approverId, approvalTrackingId: selectedRowIds, approvalType: '3' };
+
+            $.ajax({
+                url: '/QAAutom/Purchasing/RequisitionApproval/RequisitionApproveAction',
+                cache: false,
+                dataType: 'JSON',
+                data: data,
+                success: function (result) {
+                    var grid = $("#PRApprovalsDataView").data("kendoGrid");
+                    if (result.Success == 1) {
+                        ShowAjaxMessage(result.Message, "success");
+                    }
+                    else if (result.Success == 2) {
+                        ShowAjaxMessage(result.Message, "notice");
+                    }
+                    else {
+                        ShowAjaxMessage(result.Message, "error");
+                    }
+                    ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+        }
+
+        else {
+
+            if (arr[1] != 'Submitted') {
+                ShowAjaxMessage("Cannot disapprove Requisition, not in Sumbit status", "error");
+                return;
+            }
+
+            var data, options;
+
+            data = { approverId: approverId, requireMyAttention: isChecked, approvalTrackingId: selectedRowIds, approvalType: '3', Ismultiple: true };
+            options = { url: "/QAAutom/Purchasing/RequisitionApproval/DisapproveRequisition", data: data, type: "POST" };
+
+            var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowDisapproveRequisition")
+           .SetIsModal(true)
+           .SetContent(options)
+           .SetUnRegisterShortCutKeysOnClose(true)
+           .SetTitle('Disapprove Requisition')
+           .SetWidth(550)
+           .SetHeight(150)
+            finsWindow.CreateWindow(true);
+            RegisterScreenShortCutKeys(null, "RequisitionApproval", null);
+
+        }
+
+    }
+
+    $("#btnEdit__PRApprovalsDataView_Popup").click(function (e) {
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (!OnlyOneItemSelected(selectedRowId)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        $.ajax({
+            url: '/QAAutom/Purchasing/AdminRequisition/SetRequisitionerId',
+            cache: false,
+            dataType: 'JSON',
+            data: { value: selectedRowId + "~" + "" },
+            success: function (result) {
+                if (result == "success") {
+                    var prId = selectedRowId.split("~")[4];
+
+                    NavigateTo("/QAAutom/Purchasing/AdminRequisition/Details" + "?id=" + prId + "~" + "3" +
+                      "&amp;controllerName=RequisitionApproval&amp;urlActionName=" + "My Purchase Requisition Approvals");
+                }
+                else
+                {
+                    ShowAjaxMessage("Cannot edit requisition due to internal error.", "error");
+                }
+            }
+        });
+    });
+
+    $("#btnViewBudget__PRApprovalsDataView").click(function () {
+
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        var recordId = selectedRowIds.split('~');
+
+        var data = { prId: recordId[4] };
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/Purchasing/RequisitionApproval/GetViewBudgetData",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result == "success") {
+
+                    var url;
+                    url = { url: "/QAAutom/Purchasing/RequisitionApproval/ViewBudgetPopup" };
+
+                    var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupViewBudget")
+                     .SetIsModal(true)
+                     .SetContent(url)
+                     .SetWidth(800)
+                     .SetHeight(380)
+                     .SetUnRegisterShortCutKeysOnClose(true)
+                    .SetTitle('View Budget')
+                    finsWindow.CreateWindow(true);
+                    RegisterScreenShortCutKeys(null, "ViewBudgetPurchaseRequisition", null);
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    });
+
+    function onRefreshpopupViewBudgetPopUp(e) {
+        e.sender.title('View Budget');
+        e.sender.center();
+    }
+
+
+    $("#btnEdit__PRApprovalsDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#divPRApprovalsDataView").data("AptaDataView");
+        if (grid.ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) {
+            var aptaDataViewSelection = grid.GetAptaDataViewSelection();
+            EditPurchaseRequisitionFinsWindow("", aptaDataViewSelection);
+        }
+    });
+
+    function EditPurchaseRequisitionPopup(Id) {
+        var aptaDataViewSelection = $("#divPRApprovalsDataView").data("AptaDataView").GetAptaDataViewSelection();
+        EditPurchaseRequisitionFinsWindow(Id, aptaDataViewSelection);
+
+    }
+
+
+    function EditPurchaseRequisitionFinsWindow(id, aptaDataViewSelection) {
+        var data, options;
+
+        data = { Id: id, origin: 3, aptaDataViewSelection: aptaDataViewSelection, statusType: '3' };
+        options = { url: "/QAAutom/Purchasing/RequisitionApproval/EditMyRequisitionPopup", data: data, type: "POST" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowRequisition")
+       .SetIsModal(true)
+       .SetContent(options)
+       .SetonClose(ReturnFromRequisition)
+       .SetUnRegisterShortCutKeysOnClose(true)
+       .SetTitle('Edit Purchase Requisition')
+       .SetWidth(900)
+       .SetHeight("90%")
+        finsWindow.CreateWindow(true);
+        RegisterScreenShortCutKeys(null, "PurchaseRequisitionView", null);
+    }
+
+
+    function ReturnFromRequisitionScreen() {
+        RegisterScreenShortCutKeys(null, null, "PRApprovalsDataView");
+    }
+
+
+    function ReturnFromRequisition() {
+        RegisterScreenShortCutKeys(null, null, "PRApprovalsDataView");
+        var grid = $("#PRApprovalsDataView").data("kendoGrid");
+        ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+    }
+
+    $("#btnPrint__PRApprovalsDataView").click(function () {
+        ShowAjaxMessage("", "");
+        if (!$("#divPRApprovalsDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) return;
+        var selectedRowIds = $("#divPRApprovalsDataView").data("AptaDataView").GetAptaDataViewSelection().SelectedRecords;
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowPrintPRs")
+                    .SetContent({ url: "/QAAutom/Purchasing/RequisitionApproval/PrintPurchaseRequisitionPrintSetup?" + "PRIdList=" + selectedRowIds + "&amp;dataView=PRApprovalsDataView" + "&amp;PrintRequisitionPopup=RequisitionApproval__PrintPurchaseRequisitionPrintSetup" })
+                    .SetIsModal(true)
+                    .SetTitle('Print Purchase Requisition').SetWidth(650).SetHeight(150);
+        finsWindow.CreateWindow(true);
+    });
+
+
+    $(document).ready(function () {
+        RegisterScreenShortCutKeys(null, null, "PRApprovalsDataView");
+    });
+
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Thursday, December 7, 2017 8:16 AM
+                    <br />
+                    AptaFund Version: 2017.12.6.12550
+                    <br />
+                    Last Updated: 12/7/2017 12:03:04 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#12072017000304"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Purchasing/RequisitionApproval/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-list-container k-popup k-group k-reset" id="StringFilterOperatorId__PRTypePRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="StringFilterOperatorId__PRTypePRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">STARTS WITH</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">ENDS WITH</li><li data-offset-index="2" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="8e2ac1aa-136c-4272-a362-e44d3893b057" aria-selected="true">EQUAL TO</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">NOT EQUAL TO</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">CONTAINS</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">DOES NOT CONTAIN</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">IS NOT EMPTY</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">IS EMPTY</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="ListValues__PRTypePRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="ListValues__PRTypePRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused" unselectable="on" role="option" tabindex="-1" id="6207de59-e93f-4ce7-b1dc-7b1fd4434752"><input type="checkbox" /> Blanket </li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> Dollar </li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> Regular </li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="StringFilterOperatorId__ApproverPRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="StringFilterOperatorId__ApproverPRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">STARTS WITH</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">ENDS WITH</li><li data-offset-index="2" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="6b871417-da5b-4d1e-a3de-d25dfdec9233" aria-selected="true">EQUAL TO</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">NOT EQUAL TO</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">CONTAINS</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">DOES NOT CONTAIN</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">IS NOT EMPTY</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">IS EMPTY</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="ListValues__ApproverPRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="ListValues__ApproverPRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused" unselectable="on" role="option" tabindex="-1" id="eb3ef142-86d5-4c8b-a092-264501cc5ec1"><input type="checkbox" /> [All backup approvers] </li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> [All non-backup approvers] </li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> CEO/Principal </li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="StringFilterOperatorId__RequiresAttentionOfPRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">STARTS WITH</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">ENDS WITH</li><li data-offset-index="2" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="490a7c7c-919f-4f82-948c-168c366621e1" aria-selected="true">EQUAL TO</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">NOT EQUAL TO</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">CONTAINS</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">DOES NOT CONTAIN</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">IS NOT EMPTY</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">IS EMPTY</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="ListValues__RequiresAttentionOfPRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="ListValues__RequiresAttentionOfPRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> [All backup approvers] </li><li data-offset-index="1" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="bd6c837d-83c2-48d9-8698-970ded1c940e" aria-selected="true"><input type="checkbox" /> [All non-backup approvers] </li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1"><input type="checkbox" /> CEO/Principal </li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="StringFilterOperatorId__FiscalYearPRApprovalsDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="StringFilterOperatorId__FiscalYearPRApprovalsDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="1594eb84-44fd-4fb9-85dc-fa3d2ac094d0" aria-selected="true">STARTS WITH</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">ENDS WITH</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">EQUAL TO</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">NOT EQUAL TO</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">CONTAINS</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">DOES NOT CONTAIN</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">IS NOT EMPTY</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">IS EMPTY</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 211.5px; left: 1141.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PRApprovalsDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PRApprovalsDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PRApprovalsDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 211.5px; left: 1141.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PRApprovalsDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PRApprovalsDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PRApprovalsDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="846d0bea-a613-4207-bf4a-290d6068c4b0">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-animation-container" style="width: 101px; height: 85px; overflow: hidden; display: none; position: absolute; top: 217.917px; z-index: 10002; left: 85.2px;"><div class="k-widget k-tooltip k-popup k-group k-reset" role="tooltip" data-role="popup" style="display: none; position: absolute; opacity: 0;" aria-hidden="true"><div class="k-tooltip-content">Quick Search :<br /> Request No<br />Requisitioner<br />Ship To<br />Approval Status</div><div class="k-callout k-callout-n" style="left: 44.5px;"></div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="668"></canvas></html>

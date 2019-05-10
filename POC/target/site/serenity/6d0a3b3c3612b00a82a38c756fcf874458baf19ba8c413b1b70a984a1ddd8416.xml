@@ -1,0 +1,20 @@
+<acceptance-test-run title="Verify navigate to manage deductions" name="verifyNavigateToManageDeductions" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="36650" timestamp="2017-07-07T12:09:15.377+05:00" session-id="814e5301-2d1e-4cbb-a109-25d3c4bbf93e">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12655">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7641">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14189">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2150">
+    <description>Navigate to manage deductions</description>
+  </test-step>
+</acceptance-test-run>

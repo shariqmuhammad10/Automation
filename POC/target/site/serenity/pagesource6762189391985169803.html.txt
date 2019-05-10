@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=Xo8N8aJEdXZSza8HmUKNDbwvSC3Khdx_-2Br7_ym1o41" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=aPmSi3fu6lrNLBl4nGLg9AY4Dkyd8mOTz9W8rKHOJkY1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+<input type="hidden" value="/QAAutom/Payroll/PayrollDeduction/Manage" name="LayoutParentRedirectUrl" id="LayoutParentRedirectUrl" />    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr" style="position: fixed; top: 0px; left: 40px; z-index: 11; width: 1171px;"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Payroll -&gt; <a href="/QAAutom/Payroll/PayrollDeduction/Manage">Manage Deductions</a>-&gt; Deduction Details
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper" style="height: 31px;">
+                                <div class="action_buttons" id="actionbuttons" style="position: fixed; top: 10px; right: 48px; z-index: 12; width: 493px;">
+                                    <div style="visibility:visible">
+
+
+    
+<a href="#" id="btnSave__PayrollDeduction" class="k-button">Save</a>    <a href="#" id="btnSaveAndNext__PayrollDeduction" class="k-button">Save and Next</a>    <a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="k-button" id="btnCancel__PayrollDeduction">Cancel</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+
+
+
+
+
+
+
+<div id="NavigationPanel">
+    <label class="NavPanelHeader"></label>
+
+    <!-- Partial View for navigation header -->
+                 <div class="floatright"><a class="navigationreturnlink" href="/QAAutom/Payroll/PayrollDeduction/Manage"> Return to Search</a></div>
+
+
+<script>
+    function PrevNextRecordNavigation(url) {
+        NavigateTo(url);
+    };
+</script>
+</div>
+<div id="detailOuterDiv">
+    <div id="detailInnerDiv">
+        <div style="min-height:72px;" id="detailRecordHeader">
+            <div id="detailRecordHeaderImage">
+                <img alt="No Picture" src="/Content/Images/icons/Deduction.png" class="detailRecordHeaderImage" />
+            </div>
+            <div id="detailRecordHeaderText">
+                <table>
+                    <tbody><tr>
+                        <td style="margin-right: 2em">
+                            <label for="Type:">Type:</label>
+                        </td>
+                        <td>
+                            <label style="font-weight: normal; margin-left: 3px"></label>
+                        </td>
+                        <td style="margin-right: 2em; padding-left: 5em">
+                            <label for="Status:">Status:</label>
+                        </td>
+                        <td>
+                            <label style="font-weight: normal; margin-left: 3px"></label>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="margin-right: 2em">
+                            <label for="Calculation_Method:">Calculation Method:</label>
+                        </td>
+                        <td>
+                            <label style="font-weight: normal; margin-left: 3px"></label>
+                        </td>
+                        <td style="margin-right: 2em; padding-left: 5em">
+                            <label for="Deduct_Order:">Deduct Order:</label>
+                        </td>
+                        <td>
+                            <label style="font-weight: normal; margin-left: 3px"></label>
+                        </td>
+                        <td style="margin-right: 2em; padding-left: 5em">
+                            <label for="Default:">Default:</label>
+                        </td>
+                        <td>
+                            <label style="font-weight: normal; margin-left: 3px"></label>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div id="popupwindowIncludeMasterPosition"></div>
+<form method="post" id="FormPayrollDeduction" action="/QAAutom/Payroll/PayrollDeduction/Save" novalidate="novalidate"><input type="hidden" value="Doj_a6ne1OahP01-GtB_Oi1HjuWgKm3NbZ6HEzdNmksLkwwkFIIjEOoSrC8Zk8mCJcOzyE5zRfueqtckALyk3OSQyAOZb6yOZJFElYphcPYNkzMcX31M2lERmfa4N9WkBr26NWT5cJ6qah7vhGjjQw2" name="__RequestVerificationToken" /><input type="hidden" value="" name="NextId" id="NextId" /><input type="hidden" value="False" name="IsLastRecord" id="IsLastRecord" /><input type="hidden" value="" name="CalculationMethodCode" id="CalculationMethodCode" />            <div class="LabelWidthTwenty FINSClearControlPadding">
+                <ul id="panelbar" class="k-widget k-panelbar k-reset k-header" data-role="panelbar" tabindex="0" role="menu"><li class="k-item k-state-active k-first k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-1" class="k-link k-header">Primary Deduction Information<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-1" class="k-content" role="region" aria-hidden="true" style="display: block;"><div id="PrimaryDeductionInformation">
+                                <div class="editor-label">
+<input type="hidden" value="0" name="DeductionId" id="DeductionId" data-val-number="The field DeductionId must be a number." data-val="true" />
+<input type="hidden" value="True" name="IncludeNewMasterPositions" id="IncludeNewMasterPositions" />
+<input type="hidden" value="" name="MasterPositionIds" id="MasterPositionIds" />
+<input type="hidden" value="Fixed Amount" name="CalcMethod" id="CalcMethod" />
+<input type="hidden" value="Yes (All Pay)" name="IncOT" id="IncOT" />
+<input type="hidden" value="" name="EnabledStatusString" id="EnabledStatusString" />
+<input type="hidden" value="False" name="IsFullDeductionAccountMaskAllowed" id="IsFullDeductionAccountMaskAllowed" />
+                                </div>
+                                <div class="editor-label">
+<div class="FINSControlStyle">
+<label style="" for="DeductionName" class="RequiredLabel FINSLabelStyle">Deduction:</label>
+<input type="text" value="" style="width:400px" name="DeductionName" id="DeductionName" data-val-required="Required." data-val="true" class="k-textbox k-textbox valid" />
+<span data-valmsg-replace="true" data-valmsg-for="DeductionName" class="field-validation-valid"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-label">
+<div class="FINSControlStyle">
+<label style="" for="DeductionType" class="RequiredLabel FINSLabelStyle">Type:</label>
+<input type="radio" value="Deduction" name="DeductionType" id="PayrollDeductionType_Deduction" data-val-required="Required." data-val="true" />Deduction
+<input type="radio" value="Benefit" name="DeductionType" id="PayrollDeductionType_Benefit" />Benefit
+<input type="radio" value="Taxable Benefit" name="DeductionType" id="PayrollDeductionType_TaxableBenefit" />Taxable Benefit
+<input type="radio" value="FTE Benefit" name="DeductionType" id="PayrollDeductionType_FTEBenefit" />FTE Benefit
+
+<span data-valmsg-replace="true" data-valmsg-for="DeductionType" class="field-validation-valid"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="CalculationMethod" class="RequiredLabel FINSLabelStyle">Calculation:</label>
+<input type="radio" value="Fixed Amount" name="CalculationMethod" id="PayrollCalculationMethod_FixedAmount" data-val-required="Required." data-val="true" />Fixed Amount
+<input type="radio" value="Percentage" name="CalculationMethod" id="PayrollCalculationMethod_Percentage" />Percentage
+
+<span data-valmsg-replace="true" data-valmsg-for="CalculationMethod" class="field-validation-valid"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="DeductionOrder" class="RequiredLabel FINSLabelStyle">Deduct Order:</label>
+<input type="radio" value="Pre-Social Security" name="DeductionOrder" id="PayrollDeductionOrder_PreSSN" data-val-required="Required." data-val="true" />Pre-Social Security
+<input type="radio" value="Pre-Tax" name="DeductionOrder" id="PayrollDeductionOrder_PreTax" />Pre Tax
+<input type="radio" value="Post-Tax" name="DeductionOrder" id="PayrollDeductionOrder_PostTax" />Post Tax
+
+<span data-valmsg-replace="true" data-valmsg-for="DeductionOrder" class="field-validation-valid"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+                                        </div>
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="StrDefault" class="FINSLabelStyle">Default:</label>
+<input type="checkbox" value="true" name="Default" id="Default" class="check-box" /><input type="hidden" value="false" name="Default" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="StrVariable" class="FINSLabelStyle">Variable:</label>
+<input type="checkbox" value="true" name="Variable" id="Variable" class="check-box" /><input type="hidden" value="false" name="Variable" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="Priority" class="FINSLabelStyle">Priority:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="Priority" id="Priority" data-val-number="The field Priority must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#Priority").kendoNumericTextBox({"format":"n0","decimals":0});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                        <div class="editor-field">
+<label style="padding-left:124px" for="Is125DeductionBool">Is 125 Deduction</label>
+<input type="checkbox" value="true" name="Is125DeductionBool" id="Is125DeductionBool" /><input type="hidden" value="false" name="Is125DeductionBool" />
+                                        </div>
+                                        <div class="editor-field">
+<label style="padding-left:124px" for="IsHSADeductionBool">Is HSA Deduction:</label>
+<input type="checkbox" value="true" name="IsHSADeductionBool" id="IsHSADeductionBool" /><input type="hidden" value="false" name="IsHSADeductionBool" />
+                                        </div>
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="VendorId" class="FINSLabelStyle" id="VendorId_label">Vendor:</label>
+<span style="width: 20em; background-color: White;" class="k-widget k-combobox k-header k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input valid" name="VendorId_input" style="width: 100%; background-color: White;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="both" aria-owns="VendorId_listbox" aria-labelledby="VendorId_label" aria-busy="false" aria-activedescendant="f156ebf8-ee8e-453a-8ff1-42c088bd5518" /><span title="clear" class="k-icon k-clear-value k-i-close" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="VendorId_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="VendorId" id="VendorId" data-val-number="The field Vendor must be a number." data-val="true" data-role="combobox" aria-disabled="false" class="valid" /></span><script>
+	kendo.syncReady(function(){jQuery("\#VendorId").kendoComboBox({"change":VendorComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetVendorDisplayNameList"},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","filter":"contains","dataValueField":"Value","suggest":true});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="DeductionGroup" class="FINSLabelStyle">Deduction Group:</label>
+<div deselectable="on" class="k-widget k-multiselect k-header" style="width: 20em; background-color: White;" title=""><div deselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" deselectable="on" role="listbox" id="DeductionGroupList_taglist"></ul><input style="width: 25px" class="k-input k-readonly" accesskey="" autocomplete="off" role="listbox" title="" aria-expanded="false" tabindex="0" aria-owns="DeductionGroupList_taglist DeductionGroupList_listbox" aria-disabled="false" aria-busy="false" /><span title="clear" class="k-icon k-clear-value k-i-close" deselectable="on" role="button" tabindex="-1"></span><span class="k-icon k-i-loading k-hidden"></span></div><select style="width: 20em; background-color: White; display: none;" name="DeductionGroupList" multiple="multiple" id="DeductionGroupList" data-role="multiselect" aria-disabled="false"></select><span style="font-family: MS Shell Dlg \32 ; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;"></span></div><script>
+	kendo.syncReady(function(){jQuery("\#DeductionGroupList").kendoMultiSelect({"change":DeductionGroupComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetDeductionGroupList"},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value"});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="Comment" class="FINSLabelStyle">Comment:</label>
+<textarea style="width: 43em; height: 5em;" rows="4" name="Comment" id="Comment" cols="20" class="k-textbox k-textbox valid"></textarea>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                    </div></div></li><li class="k-item k-state-active k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-2" class="k-link k-header k-state-hover">Optional Deduction Information<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-2" class="k-content" role="region" aria-hidden="true" style="display: block;"><div id="OptionalDeductionInformation">
+                                <div class="editor-field">
+                                    <div class="FINSControlStyle">
+<label style="" for="JobList" class="FINSLabelStyle">Jobs/Addenda</label>:
+<input type="text" value="All" style="width:400px" readonly="readOnly" name="JobList" id="JobList" class="k-textbox k-state-disabled k-textbox" />
+                                    </div>
+                                    <div class="FINSControlSeparator">
+                                    </div>
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="AnnualCapType" class="FINSLabelStyle">Annual Cap Type:</label>
+<input type="radio" value="Calendar" name="AnnualCapType" id="PayrollAnnualCapType_Calendar" checked="checked" />Calendar
+<input type="radio" value="Fiscal" name="AnnualCapType" id="PayrollAnnualCapType_Fiscal" />Fiscal
+
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="DeductionCapGroupId" class="FINSLabelStyle" id="DeductionCapGroupId_label">Cap Group Name:</label>
+<span style="width: 15em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="DeductionCapGroupId_listbox" aria-labelledby="DeductionCapGroupId_label" aria-disabled="false" aria-busy="false" aria-activedescendant="1e007772-79bb-4970-822b-464287abbcfd"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 15em; background-color: White; display: none;" name="DeductionCapGroupId" id="DeductionCapGroupId" data-val-number="The field Cap Group Name must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#DeductionCapGroupId").kendoDropDownList({"dataSource":[{"Text":"403(B) TSA","Value":"1","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="IncludeOT" class="FINSLabelStyle">Include OT:</label>
+<input type="radio" value="Yes (All Pay)" name="IncludeOT" id="PayrollIncludeOT_YesAllPay" data-val-requiredif-targetvalue="Fixed Amount" data-val-requiredif-dependentproperty="CalculationMethod" data-val-requiredif="You must enter Include overtime when calculation method is fixed amount." data-val="true" checked="checked" disabled="disabled" />Yes(All Pay)
+<input type="radio" value="Yes (Straight Pay)" name="IncludeOT" id="PayrollIncludeOT_YesStraightPay" disabled="disabled" />Yes(Straight Pay)
+<input type="radio" value="No" name="IncludeOT" id="PayrollIncludeOT_No" disabled="disabled" />No
+
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-label">
+<div class="FINSControlStyle">
+<label style="" for="StrIsRollover" class="FINSLabelStyle">Rollover:</label>
+<input type="checkbox" value="true" name="IsRollover" id="IsRollover" class="check-box" /><input type="hidden" value="false" name="IsRollover" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="StrRetirement" class="FINSLabelStyle">Retirement:</label>
+<input type="checkbox" value="true" name="Retirement" id="Retirement" class="check-box" /><input type="hidden" value="false" name="Retirement" />
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="W2BoxNumber" class="FINSLabelStyle" id="W2BoxNumber_label">W-2 Box No.:</label>
+<span style="width: 30em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="W2BoxNumber_listbox" aria-labelledby="W2BoxNumber_label" aria-disabled="false" aria-busy="false" aria-activedescendant="442928dd-9d18-419a-b7b9-5842f474104a"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 30em; background-color: White; display: none;" name="W2BoxNumber" id="W2BoxNumber" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#W2BoxNumber").kendoDropDownList({"change":W2BoxNumberComboChange,"dataSource":[{"Text":"2 - Federal income tax","Value":"2","Selected":false},{"Text":"4 - Social security tax (FICA)","Value":"4","Selected":false},{"Text":"6 - Medicare tax","Value":"6","Selected":false},{"Text":"9 - EIC payments","Value":"9","Selected":false},{"Text":"10 - Dependent care benefits","Value":"10","Selected":false},{"Text":"11 - Nonqualified plans","Value":"11","Selected":false},{"Text":"12 - Codes","Value":"12","Selected":false},{"Text":"13 - Checkboxes","Value":"13","Selected":false},{"Text":"14 - Other","Value":"14","Selected":false},{"Text":"17 - State income tax","Value":"17","Selected":false},{"Text":"19 - Local income tax","Value":"19","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="SecondaryW2BoxNumber" class="FINSLabelStyle" id="SecondaryW2BoxNumber_label">Secondary W-2 Box No.:</label>
+<span style="width: 30em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="SecondaryW2BoxNumber_listbox" aria-labelledby="SecondaryW2BoxNumber_label" aria-disabled="false" aria-busy="false" aria-activedescendant="9f3483f3-83fc-4408-ad7b-e826a9886f78"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 30em; background-color: White; display: none;" name="SecondaryW2BoxNumber" id="SecondaryW2BoxNumber" data-val-number="The field Secondary W-2 Box No. must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#SecondaryW2BoxNumber").kendoDropDownList({"change":ShowHideDisplayOnW2Control,"dataSource":[{"Text":"12","Value":"12","Selected":false},{"Text":"14","Value":"14","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="W2SubCode" class="FINSLabelStyle" id="W2SubCode_label">W-2 Sub Code:</label>
+<span style="width: 30em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="W2SubCode_listbox" aria-labelledby="W2SubCode_label" aria-disabled="false" aria-busy="false" aria-activedescendant="fa09a462-06eb-4b25-8213-9dd53cd536ac"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 30em; background-color: White; display: none;" name="W2SubCode" id="W2SubCode" data-role="dropdownlist" readonly="readonly" /></span><script>
+	kendo.syncReady(function(){jQuery("\#W2SubCode").kendoDropDownList({"change":ShowHideDisplayOnW2Control,"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="SecondaryW2SubCode" class="FINSLabelStyle" id="SecondaryW2SubCode_label">Secondary W-2 Sub Code:</label>
+<span style="width: 30em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" aria-owns="SecondaryW2SubCode_listbox" aria-labelledby="SecondaryW2SubCode_label" aria-disabled="false" aria-activedescendant="1a90a829-350e-4f5e-a1a1-a0316d792b97" tabindex="0"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 30em; background-color: White; display: none;" name="SecondaryW2SubCode" id="SecondaryW2SubCode" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#SecondaryW2SubCode").kendoDropDownList({"change":ShowHideDisplayOnW2Control,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetSecondaryW2SubCodeList","data":selectedSecondaryW2BoxNumber},"prefix":""},"serverFiltering":true,"filter":[],"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value","optionLabel":" ","cascadeFrom":"SecondaryW2BoxNumber"});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                </div>
+                                    <div id="divW2Display" class="editor-field" style="display: none;">
+<div class="FINSControlStyle">
+<label for="W2Display" class="FINSLabelForStyle" id="W2Display_label">Display on W-2</label>
+<span style="" class="k-widget k-combobox k-header ElementControlComboBox None k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox None" name="W2Display_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="W2Display_listbox" aria-labelledby="W2Display_label" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="W2Display_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style=" ;display:none" name="W2Display" id="W2Display" class="ElementControlComboBox None" data-role="combobox" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#W2Display"), 'None', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":[{"Text":"Employee and Employer Amounts","Value":"B"},{"Text":"Employee Amount Only","Value":"E"},{"Text":"Employer Amount Only","Value":"R"}],"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {});});
+</script>
+<span style="display:none" data-readonly="W2Display" class="FINSControlReadOnlyStyle"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+                                        
+                                    </div>
+                            </div></div></li><li class="k-item k-state-active k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-3" class="k-link k-header">Employee Information<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-3" class="k-content" role="region" aria-hidden="true" style="display: block;"><div id="EmployeeInformation">
+                                    <div class="editor-field">
+<div class="FINSControlStyle">
+<label id="lblEmployeePeriodAmount" for="EmployeePeriodAmount" class="FINSLabelStyle">Pay Period Amount:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="$100.00" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" aria-valuenow="100" /><input type="text" name="EmployeePeriodAmount" id="EmployeePeriodAmount" data-val-number="The field Pay Period Amount must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input valid" aria-disabled="false" aria-valuenow="100" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeePeriodAmount").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label id="lblEmployeePeriodPercent" for="EmployeePeriodPercent" class="FINSLabelStyle" style="display: none;">Pay Period Percent:</label>
+<span style="display: none;" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployeePeriodPercent" id="EmployeePeriodPercent" data-val-number="The field Pay Period Percent must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeePeriodPercent").kendoNumericTextBox({"format":"####.####","decimals":4});});
+</script>
+</div>
+
+
+<div class="FINSControlStyle">
+<label id="lblBasedOn" for="BasedOn" class="FINSLabelStyle" style="display: none;">Based On:</label>
+<span style="width: 20em; background-color: White; display: none;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="BasedOn_listbox" aria-labelledby="lblBasedOn" aria-disabled="false" aria-busy="false" aria-activedescendant="d727ba3a-d102-4a6f-89fb-6d5a9eaed07d"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="BasedOn" id="BasedOn" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#BasedOn").kendoDropDownList({"change":BasedOnComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetBasedOnList","data":GetDeductOrder},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                    </div>
+                                    <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="EmployeeMonthlyCap" class="FINSLabelStyle">Monthly Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployeeMonthlyCap" id="EmployeeMonthlyCap" data-val-number="The field Monthly Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeeMonthlyCap").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployeeYearlyCap" class="FINSLabelStyle">Yearly Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployeeYearlyCap" id="EmployeeYearlyCap" data-val-number="The field Yearly Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeeYearlyCap").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployeeMultiYearCap" class="FINSLabelStyle">Multi-Yearly Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployeeMultiYearCap" id="EmployeeMultiYearCap" data-val-number="The field Multi-Yearly Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeeMultiYearCap").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="PeriodPercentCap" class="FINSLabelStyle">Period % Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="PeriodPercentCap" id="PeriodPercentCap" data-val-number="The field Period % Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#PeriodPercentCap").kendoNumericTextBox({"format":"####.####","decimals":4});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                    </div>
+
+                                    <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="StrIsStateTaxableIncomeAffected" class="FINSLabelStyle">Affects State Taxable Income:</label>
+<input type="checkbox" value="true" name="IsStateTaxableIncomeAffected" id="IsStateTaxableIncomeAffected" class="check-box" /><input type="hidden" value="false" name="IsStateTaxableIncomeAffected" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="StrIsDispIncomeAffected" class="FINSLabelStyle">Affects Disposable Income:</label>
+<input type="checkbox" value="true" name="IsDispIncomeAffected" id="IsDispIncomeAffected" class="check-box" /><input type="hidden" value="false" name="IsDispIncomeAffected" />
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                    </div>
+                                    <div class="editor-label">
+<div class="FINSControlStyle">
+<label style="display: none;" for="EmployeeLiabAccountMask" class="FINSLabelStyle">Liability Account Mask:</label>
+<input type="text" value="" style="width: 200px; display: none;" name="EmployeeLiabAccountMask" id="EmployeeLiabAccountMask" class="k-textbox" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployeeLiabElementValueId" class="FINSLabelStyle" id="EmployeeLiabElementValueId_label">Liability Element Value:</label>
+<span style="width: 20em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="EmployeeLiabElementValueId_listbox" aria-labelledby="EmployeeLiabElementValueId_label" aria-disabled="false" aria-busy="false" aria-activedescendant="9fc62f99-1778-40ed-87bf-196e9f9131ac"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">9500-Liabilities</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="EmployeeLiabElementValueId" id="EmployeeLiabElementValueId" data-val-number="The field Liability Element Value must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployeeLiabElementValueId").kendoDropDownList({"change":EmployeeLiabElementValueComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetEmployeeLiabElementValueList"},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                    </div>
+                                </div></div></li><li class="k-item k-state-active k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-4" class="k-link k-header">Employer Information<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-4" class="k-content" role="region" aria-hidden="true" style="display: block;"><div id="EmployerInformation">
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label id="lblEmployerPeriodAmount" for="EmployerPeriodAmount" class="FINSLabelStyle">Pay Period Amount:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployerPeriodAmount" id="EmployerPeriodAmount" data-val-number="The field Pay Period Amount must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerPeriodAmount").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label id="lblEmployerPeriodPercent" for="EmployerPeriodPercent" class="FINSLabelStyle" style="display: none;">Pay Period Percent:</label>
+<span style="display: none;" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployerPeriodPercent" id="EmployerPeriodPercent" data-val-number="The field Pay Period Percent must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerPeriodPercent").kendoNumericTextBox({"format":"####.####","decimals":4});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="EmployerMonthlyCap" class="FINSLabelStyle">Monthly Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployerMonthlyCap" id="EmployerMonthlyCap" data-val-number="The field Monthly Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerMonthlyCap").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployerYearlyCap" class="FINSLabelStyle">Yearly Cap:</label>
+<span style="" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default expand-padding"><input type="text" class="k-formatted-value k-input" title="" tabindex="0" style="display: inline;" role="spinbutton" aria-disabled="false" /><input type="text" name="EmployerYearlyCap" id="EmployerYearlyCap" data-val-number="The field Yearly Cap must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" style="display: none;" class="k-input" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerYearlyCap").kendoNumericTextBox({"format":"C"});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+
+                                        <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="display: none;" for="EmployerExpAccountMask" class="FINSLabelStyle">Expense Account Mask:</label>
+<input type="text" value="" style="width: 300px; display: none;" name="EmployerExpAccountMask" id="EmployerExpAccountMask" class="k-textbox" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployerExpElementValueId" class="FINSLabelStyle" id="EmployerExpElementValueId_label">Expenditure Element Value:</label>
+<span style="width: 20em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="EmployerExpElementValueId_listbox" aria-labelledby="EmployerExpElementValueId_label" aria-disabled="false" aria-busy="false" aria-activedescendant="c7b94f6a-6330-4710-a14b-a497867fb33d"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="EmployerExpElementValueId" id="EmployerExpElementValueId" data-val-number="The field Expenditure Element Value must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerExpElementValueId").kendoDropDownList({"change":EmployerExpElementValueComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetEmployerExpElementValueList"},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+
+                                        <div class="editor-label">
+<div class="FINSControlStyle">
+<label style="display: none;" for="EmployerLiabAccountMask" class="FINSLabelStyle">Liability Account Mask:</label>
+<input type="text" value="" style="width: 200px; display: none;" name="EmployerLiabAccountMask" id="EmployerLiabAccountMask" class="k-textbox" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="EmployerLiabElementValueId" class="FINSLabelStyle" id="EmployerLiabElementValueId_label">Liability Element Value:</label>
+<span style="width: 20em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="EmployerLiabElementValueId_listbox" aria-labelledby="EmployerLiabElementValueId_label" aria-disabled="false" aria-busy="false" aria-activedescendant="65f11e79-f41c-489c-82eb-0bcdf3f6f29b"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="EmployerLiabElementValueId" id="EmployerLiabElementValueId" data-val-number="The field Liability Element Value must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#EmployerLiabElementValueId").kendoDropDownList({"change":EmployerLiabElementValueComboChange,"dataSource":{"transport":{"read":{"url":"/QAAutom/Payroll/PayrollDeduction/GetEmployerLiabElementValueList"},"prefix":""},"schema":{"errors":"Errors"}},"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                        </div>
+                                    </div></div></li><li class="k-item k-state-active k-last k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-5" class="k-link k-header">Custom Fields<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-5" class="k-content" role="region" aria-hidden="true" style="display: block;"><div class="bdPaddingTop5" id="Custom">
+<div class="FINSControlStyle">
+<label for="STRS_PERS_Retirement" class="FINSLabelForStyle">STRS/PERS Retirement</label>
+<span style="" class="k-widget k-combobox k-header ElementControlComboBox AptaFundCustomColumn k-combobox-clearable"><span class="k-dropdown-wrap k-state-default" unselectable="on" tabindex="-1"><input type="text" autocomplete="off" class="k-input ElementControlComboBox AptaFundCustomColumn" name="Custom1_input" style="width: 100%;" title="" role="combobox" aria-expanded="false" tabindex="0" aria-disabled="false" aria-autocomplete="list" aria-owns="Custom1_listbox" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" unselectable="on" role="button" tabindex="-1"></span><span aria-label="select" class="k-select" unselectable="on" role="button" tabindex="-1" aria-controls="Custom1_listbox"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" name="Custom1" id="Custom1" data-val-requiredif-targetvalue="true" data-val-requiredif-dependentproperty="IsCustom1Required" data-val-requiredif="The field Custom1 is invalid." data-val="true" class="ElementControlComboBox AptaFundCustomColumn" data-role="combobox" style="display: none;" aria-disabled="false" /></span><script>
+	kendo.syncReady(function(){  FINSUI.FINSUIComboBox.CreateFINSUIComboBox(jQuery("#Custom1"), 'AptaFundCustomColumn', {"CycleId":5,"CurrentValue":null,"SearchString":null,"AddBlankValue":false,"CascadeFromFilter":null,"ParamValue":null}, {"Width":null,"DropDownWidth":null,"DropDownExpansionFactor":1.0,"ErrorDiv":null,"CascadeChildComboBox":null,"CascadeDataFunction":null,"ComboBoxData":[{"Text":"","Value":""},{"Text":"No","Value":"No"},{"Text":"STRS DB Normal","Value":"STRS DB Normal"},{"Text":"STRS DB Adjustment","Value":"STRS DB Adjustment"},{"Text":"STRS DB Receivable","Value":"STRS DB Receivable"},{"Text":"STRS DB RWP","Value":"STRS DB RWP"},{"Text":"PERS Normal","Value":"PERS Normal"},{"Text":"PERS Adjustment","Value":"PERS Adjustment"},{"Text":"PERS Receivable","Value":"PERS Receivable"},{"Text":"PERS Survivor","Value":"PERS Survivor"}],"ShowReadOnlyIfOneItemInList":false,"ReadOnly":false,"Visible":false,"MassUpdate":false,"TooltipText":null,"TooltipTextPosition":null}, {});});
+</script>
+<span style="display:none" data-readonly="Custom1" class="FINSControlReadOnlyStyle"></span>
+</div>
+<div class="FINSControlSeparator"></div>
+
+
+
+
+
+
+
+
+
+
+                            </div></div></li></ul><script>
+	kendo.syncReady(function(){jQuery("#panelbar").kendoPanelBar({"expandMode":"multiple"});});
+</script>
+            </div>
+</form>    </div>
+</div>
+
+<script>
+    var isFromLoad = false;
+    function VendorComboChange() { }
+    function DeductionGroupComboChange() { }
+    function W2BoxNumberComboChange() {
+        var W2BoxNumberDropdownlist = $("#W2BoxNumber").data("kendoDropDownList");
+        var W2SubCodeDropdownlist = $("#W2SubCode").data("kendoDropDownList");
+        var W2BoxNumber = $("#W2BoxNumber").val();
+
+        $.ajax({
+            url: '/QAAutom/Payroll/PayrollDeduction/GetW2SubCodeList',
+            cache: false,
+            data: { selectedW2BoxNumber: W2BoxNumber },
+            dataType: 'JSON',
+            success: function (result) {            
+                if (typeof result !== "undefined" &amp;&amp; result != null) {
+                    // updating dropdownlist datasource
+                    W2SubCodeDropdownlist.setDataSource(result);
+                    W2SubCodeDropdownlist.refresh();
+                    ShowHideDisplayOnW2Control();
+
+                }
+            }
+        });
+
+        if (!(W2BoxNumber == '11' || W2BoxNumber == '12' || W2BoxNumber == '13' || W2BoxNumber == '14' || W2BoxNumber == '15')) {
+            W2SubCodeDropdownlist.readonly();
+        }
+        else {
+            W2SubCodeDropdownlist.readonly(false);
+        }
+    }
+    function ShowHideDisplayOnW2Control()
+    {        
+        var W2SubCode = $("#W2SubCode").val();
+        var SecondaryW2BoxNumber = $("#SecondaryW2BoxNumber").val();
+        var SecondaryW2SubCode = $("#SecondaryW2SubCode").val();
+        var CalculationMethodCode = $("#CalculationMethodCode").val();
+        var W2BoxNumber = $("#W2BoxNumber").val();
+        var data = { calculationMethod: CalculationMethodCode, w2BoxNo: W2BoxNumber, w2SubCode: W2SubCode, secondaryW2BoxNo: SecondaryW2BoxNumber, secondaryW2SubCode: SecondaryW2SubCode }
+        $.ajax({
+            url: '/QAAutom/Payroll/PayrollDeduction/ShowW2DisplayBox',
+            cache: false,
+            data: data,
+            dataType: 'JSON',
+            success: function (result) {                
+                if (typeof result !== "undefined" &amp;&amp; result != null) {
+                    var showW2OnDisplay = result.ShowW2DisplayControl;
+                    if(showW2OnDisplay)
+                    {
+                        if ($("#divW2Display").is(":visible") == false) {
+                            $("#W2Display").data("FINSComboBox").SetValue('B');
+                            $("#divW2Display").show();
+                        }
+                        
+                    }
+                    else
+                    {
+                        $("#divW2Display").hide();
+                    }
+
+                }
+            }
+        });
+    }
+    function W2SubCodeComboChange() {
+
+    }
+    function BasedOnComboChange() { }
+    function EmployeeLiabElementValueComboChange() { }
+    function EmployerExpElementValueComboChange() { }
+    function EmployerLiabElementValueComboChange() { }
+
+    function SetIncludeOTDisabled() {
+        $("input:radio[name=IncludeOT]").each(function () {
+            this.disabled = true;
+        });
+    }
+    function SetIncludeOTEnabled() {
+        $("input:radio[name=IncludeOT]").each(function () {
+            this.disabled = false;
+        });
+    }
+    function GetDeductOrder() {
+
+        var deductOrder = "";
+        $("input:radio[name=DeductionOrder]").each(function () {
+            //debugger;
+            if (this.checked)
+                deductOrder = this.value;
+        });
+
+        var data = { deductOrder: deductOrder };
+        return data;
+    }
+    function SetCalculationMethodEnabled() {
+        var deductType = "";
+        $("input:radio[name=DeductionType]").each(function () {
+            // debugger;
+            if (this.checked)
+                deductType = this.value;
+        });
+
+        if (deductType == "FTE Benefit") {
+            //set calculatemethod to fixed and disable all calculation method
+            var calculationMethod = '';
+            $("input:radio[name=CalculationMethod]").each(function () {
+                //debugger;
+                calculationMethod = this.value;
+                if (calculationMethod == "Fixed Amount") {
+                    this.checked = true;
+                    $('#CalcMethod').val('Fixed Amount');
+                }
+                this.disabled = true;
+            });
+        }
+        else {
+            $("input:radio[name=CalculationMethod]").each(function () {
+                this.disabled = false;
+            });
+        }
+    }
+
+    function SetAmountPercentageVisible() {
+        var calculationMethod = '';
+        $("input:radio[name=CalculationMethod]").each(function () {
+            if (this.checked)
+                calculationMethod = this.value;
+        });
+        //debugger;
+        //if calculation method is fixed then hide employee and employer sections period percentage text boxes.
+        if (calculationMethod == "Fixed Amount") {
+            $("#lblEmployeePeriodAmount").show();
+            $("#EmployeePeriodAmount").data("kendoNumericTextBox").wrapper.show();
+            $("#lblEmployerPeriodAmount").show();
+            $("#EmployerPeriodAmount").data("kendoNumericTextBox").wrapper.show();
+
+            $("#lblEmployeePeriodPercent").hide();
+            $("#EmployeePeriodPercent").data("kendoNumericTextBox").wrapper.hide();
+            $("#lblEmployerPeriodPercent").hide();
+            $("#EmployerPeriodPercent").data("kendoNumericTextBox").wrapper.hide();
+
+            // set percentage controls to zero or you will get 50052 sql error when saving.
+            var employeePeriodPercent = $("#EmployeePeriodPercent").data("kendoNumericTextBox").value();
+            if (employeePeriodPercent &gt; 0) {
+                document.getElementById("EmployeePeriodPercent").value = "";
+            }
+            var employerPeriodPercent = $("#EmployerPeriodPercent").data("kendoNumericTextBox").value();
+            if (employerPeriodPercent &gt; 0) {
+                document.getElementById("EmployerPeriodPercent").value = "";
+            }
+
+        }
+        else if (calculationMethod == "Percentage") {
+            //else if calculation method is percentage then hide employee and employer sections period amount text boxes
+
+            $("#lblEmployeePeriodAmount").hide();
+            $("#EmployeePeriodAmount").data("kendoNumericTextBox").wrapper.hide();
+            $("#lblEmployerPeriodAmount").hide();
+            $("#EmployerPeriodAmount").data("kendoNumericTextBox").wrapper.hide();
+
+            $("#lblEmployeePeriodPercent").show();
+            $("#EmployeePeriodPercent").data("kendoNumericTextBox").wrapper.show();
+            $("#lblEmployerPeriodPercent").show();
+            $("#EmployerPeriodPercent").data("kendoNumericTextBox").wrapper.show();
+
+            // set amount to zero or you will get 50052 sql error when saving.
+            var EmployeePeriodAmount = $("#EmployeePeriodAmount").data("kendoNumericTextBox").value();
+            if (EmployeePeriodAmount &gt; 0) {
+                document.getElementById("EmployeePeriodAmount").value = "";
+            }
+            var EmployerPeriodAmount = $("#EmployerPeriodAmount").data("kendoNumericTextBox").value();
+            if (EmployerPeriodAmount &gt; 0) {
+                document.getElementById("EmployerPeriodAmount").value = "";
+            }
+
+        }
+
+    }
+
+    function SetBasedOnVisible() {
+        var calculationMethod = '';
+        $("input:radio[name=CalculationMethod]").each(function () {
+            if (this.checked)
+                calculationMethod = this.value;
+        })
+
+        //if CalculationMethod is Fixed || CalculationMethod is DirectDeposit then hide based on field else show
+        if (calculationMethod == "Fixed Amount" || calculationMethod == "Direct Deposit") {
+            $("#lblBasedOn").hide();
+            $("#BasedOn").data("kendoDropDownList").wrapper.hide();
+        }
+        else {
+            $("#lblBasedOn").show();
+            $("#BasedOn").data("kendoDropDownList").wrapper.show();
+        }
+    }
+
+    function LoadBasedOnCombo() {
+        $.ajax({
+            url: '/QAAutom/Payroll/PayrollDeduction/GetBasedOnList',
+            cache: false,
+            data: GetDeductOrder(),
+            dataType: 'JSON',
+            success: function (result) {
+                //debugger;
+                if (typeof result !== "undefined" &amp;&amp; result != null) {
+                    // updating dropdownlist datasource
+                    var ddl = $("#BasedOn").data("kendoDropDownList");
+                    ddl.setDataSource(result);
+                    ddl.refresh();
+
+                }
+            }
+        });
+    }
+    function OnDeductionTypeSelection() {
+        SetCalculationMethodEnabled();
+        OnCalculationMethodSelection();
+    }
+
+    function OnCalculationMethodSelection() {
+        SetAmountPercentageVisible();
+        SetBasedOnVisible();
+    }
+
+    function OnDeductOrderSelection() {
+        LoadBasedOnCombo();
+        if (!isFromLoad) {
+            if ($("#PayrollDeductionOrder_PreSSN").is(":checked") || $("#PayrollDeductionOrder_PreTax").is(":checked")) {
+                $("#IsStateTaxableIncomeAffected").prop("checked", true);
+            }
+            else if ($("#PayrollDeductionOrder_PostTax").is(":checked")) {
+                $("#IsStateTaxableIncomeAffected").prop("checked", false);
+            }
+
+            if ('0' != '0') {
+                var form = $("#FormPayrollDeduction");
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    success: function (result) {
+                    }
+                });
+            }
+
+        }
+    }
+    function OnDefaultChange() {
+        //debugger;
+        if ($('#Default').is(":checked")) {
+            $('#DeductionGroupList').data("kendoMultiSelect").enable(false);
+        }
+        else {
+            $('#DeductionGroupList').data("kendoMultiSelect").enable(true);
+        }
+    }
+
+    function ReturnFromIncludeMasterPositionPopup() {
+
+    }
+
+    function OpenIncludeMasterPositionpopup() {
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowIncludeMasterPosition")
+                        .SetContent({
+                            url: "/QAAutom/Payroll/PayrollDeduction/IncludeMasterPosition",
+                            type: "POST",
+                            data: $("#FormPayrollDeduction").serialize()
+                        })
+        .SetWidth(690)
+        .SetHeight(400)
+        .SetTitle('Jobs/Addenda')
+        .SetonDeactivate(function () { ReturnFromIncludeMasterPositionPopup(); })
+        finsWindow.CreateWindow(true);
+    }
+    function SetJobsDisabled() {
+        var jobList = $('#JobList');
+        $('#btnOpenMasterPositionList').remove();
+        jobList.val("All");
+    }
+    function OverrideOT() {
+        $('#PayrollIncludeOT_YesAllPay').prop('checked', true);
+        $('#IncOT').val('Yes (All Pay)');
+        SetIncludeOTDisabled();
+    }
+
+    $(document).on('click', '#btnOpenMasterPositionList', function () {
+        if ('' == 'Percentage' || 'False') {
+            OpenIncludeMasterPositionpopup();
+        }
+    });
+    $('#PayrollDeductionType_Deduction').click(function () { OnDeductionTypeSelection(); });
+    $('#PayrollDeductionType_Benefit').click(function () { OnDeductionTypeSelection(); });
+    $('#PayrollDeductionType_TaxableBenefit').click(function () { OnDeductionTypeSelection(); });
+    $('#PayrollDeductionType_FTEBenefit').click(function () {
+        OnDeductionTypeSelection();
+        $('#PayrollCalculationMethod_FixedAmount').prop('checked', true);
+        OverrideOT();
+        SetJobsDisabled();
+    });
+
+    $('#PayrollCalculationMethod_FixedAmount').click(function () {
+        OverrideOT();
+        OnCalculationMethodSelection();
+        $('#CalcMethod').val('Fixed Amount');
+        SetJobsDisabled();
+    });
+    $('#PayrollCalculationMethod_Percentage').click(function () {
+        var includeOTAllPay = $('#PayrollIncludeOT_YesAllPay');
+        OnCalculationMethodSelection();
+        $('#CalcMethod').val('Percentage');
+        SetIncludeOTEnabled();
+        if (!$('#btnOpenMasterPositionList').length) {
+            $('#JobList').after("&lt;a id='btnOpenMasterPositionList' class='k-button'&gt;...&lt;/a&gt;")
+        }
+        includeOTAllPay.prop('checked', true);
+    });
+    $('#PayrollCalculationMethod_Withholding').click(function () {
+        OnCalculationMethodSelection();
+        $('#CalcMethod').val('Withholding');
+        SetIncludeOTDisabled();
+        SetJobsDisabled();
+    });
+    $('#PayrollCalculationMethod_DirectDeposit').click(function () {
+        OnCalculationMethodSelection();
+        $('#CalcMethod').val('Direct Deposit');
+        SetIncludeOTDisabled();
+        SetJobsDisabled();
+    });
+
+    $('#PayrollDeductionOrder_PreSSN').click(function () {
+        isFromLoad = false;
+        OnDeductOrderSelection();
+    });
+    $('#PayrollDeductionOrder_PreTax').click(function () {
+        isFromLoad = false;
+        OnDeductOrderSelection();
+    });
+    $('#PayrollDeductionOrder_Tax').click(function () {
+        isFromLoad = false;
+        OnDeductOrderSelection();
+    });
+    $('#PayrollDeductionOrder_PostTax').click(function () {
+        isFromLoad = false;
+        OnDeductOrderSelection();
+    });
+
+    $("#btnSave__PayrollDeduction").click(function () {
+
+        var W2BoxNumber = $("#W2BoxNumber").val();
+        var W2SubCode = $("#W2SubCode").val();
+        var SecondaryW2BoxNumber = $("#SecondaryW2BoxNumber").val();
+        var SecondaryW2SubCode = $("#SecondaryW2SubCode").val();
+        var validationMessage = '';
+
+        if ((W2BoxNumber == '12' || W2BoxNumber == '13' || W2BoxNumber == '14' || W2BoxNumber == '15') &amp;&amp; (typeof W2SubCode == 'undefined' || W2SubCode == '' || W2SubCode == null)) {
+            validationMessage += 'W-2 Sub Code cannot be blank if the W-2 Box No. is 12, 13, 14, or 15.' + '&lt;br /&gt;' + '&lt;br /&gt;';
+        }
+        if (SecondaryW2BoxNumber != '' &amp;&amp; SecondaryW2SubCode == '') {
+            validationMessage += 'Secondary W-2 Sub Code cannot be blank if the Secondary W-2 Box No. is specified.' + '&lt;br /&gt;';
+        }
+
+        if (W2BoxNumber == "" &amp;&amp; $("#W2Display").data("FINSComboBox").Value != "")
+        {
+            validationMessage += 'Display on W-2 must be blank when W-2 Box Number is blank.' + '&lt;br /&gt;'
+        }
+
+        if (validationMessage != '') {
+            ShowAjaxMessage(validationMessage, "error");
+            return;
+        }
+
+        $('#IsLastRecord').val(true);
+        $("#FormPayrollDeduction").submit();
+
+    });
+
+    $("#btnSaveAndNext__PayrollDeduction").click(function () {
+
+        var W2BoxNumber = $("#W2BoxNumber").val();
+        var W2SubCode = $("#W2SubCode").val();
+        var SecondaryW2BoxNumber = $("#SecondaryW2BoxNumber").val();
+        var SecondaryW2SubCode = $("#SecondaryW2SubCode").val();
+        var validationMessage = '';
+
+        if ((W2BoxNumber == '12' || W2BoxNumber == '13' || W2BoxNumber == '14' || W2BoxNumber == '15') &amp;&amp; (typeof W2SubCode == 'undefined' || W2SubCode == '' || W2SubCode == null)) {
+            validationMessage += 'W-2 Sub Code cannot be blank if the W-2 Box No. is 12, 13, 14, or 15.' + '&lt;br /&gt;' + '&lt;br /&gt;';
+        }
+        if (SecondaryW2BoxNumber != '' &amp;&amp; SecondaryW2SubCode == '') {
+            validationMessage += 'Secondary W-2 Sub Code cannot be blank if the Secondary W-2 Box No. is specified.' + '&lt;br /&gt;';
+        }
+
+        if (W2BoxNumber == "" &amp;&amp; $("#W2Display").data("FINSComboBox").Value != "") {
+            validationMessage += 'Display on W-2 must be blank when W-2 Box Number is blank.' + '&lt;br /&gt;'
+        }
+
+        if (validationMessage != '') {
+            ShowAjaxMessage(validationMessage, "error");
+            return;
+        }
+
+        $("#FormPayrollDeduction").submit();
+
+    });
+
+    $('#Default').on("click", OnDefaultChange);
+
+    $(document).ready(function () {
+        isFromLoad = true;
+        OnDeductionTypeSelection(); OnDeductOrderSelection(); OnDefaultChange();
+        var deductionId = "0";
+        var deductionOrder = '';
+
+        var isFullDeductionAccountMaskAllowed = 'False';
+
+        if ('' === 'F' || '' === 'Enabled') {
+            SetIncludeOTDisabled();
+        }
+
+        if (deductionOrder == "Tax") {
+            $('input[name=DeductionOrder]').attr("disabled", true);
+        }
+        var vendorDropdownlist = $("#VendorId").data("kendoComboBox");
+
+        var prioNumerictextbox = $("#Priority").data("kendoNumericTextBox");
+        var EmployeePeriodAmountText = $("#EmployeePeriodAmount").data("kendoNumericTextBox");
+        var EmployeeMonthlyCapText = $("#EmployeeMonthlyCap").data("kendoNumericTextBox");
+        var EmployeeYearlyCapText = $("#EmployeeYearlyCap").data("kendoNumericTextBox");
+        var EmployeeMultiYearCapText = $("#EmployeeMultiYearCap").data("kendoNumericTextBox");
+        var PeriodPercentCapText = $("#PeriodPercentCap").data("kendoNumericTextBox");
+        var EmployerPeriodAmountText = $("#EmployerPeriodAmount").data("kendoNumericTextBox");
+        var EmployerMonthlyCapText = $("#EmployerMonthlyCap").data("kendoNumericTextBox");
+        var EmployerYearlyCapText = $("#EmployerYearlyCap").data("kendoNumericTextBox");
+
+        //var DGmultiSelect = $("#DeductionGroup").data("kendoMultiSelect");
+        if ('' == "Enabled" || '' == 'W' || '' == 'D') {
+            $('#DeductionName').attr('readonly', true);
+            $('#Comment').attr('readonly', true);
+            $('input[name=DeductionType]').attr("disabled", true);
+            $('input[name=CalculationMethod]').attr("disabled", true);
+            $('input[name=DeductionOrder]').attr("disabled", true);
+            $('input[name=Default]').attr("disabled", true);
+            $('input[name=Is125DeductionBool]').attr("disabled", true);
+            $('input[name=IsHSADeductionBool]').attr("disabled", true);
+            $('input[name=Variable]').attr("disabled", true);
+            $('input[name=AnnualCapType]').attr("disabled", true);
+            $('input[name=Retirement]').attr("disabled", true);
+            vendorDropdownlist.readonly();
+            prioNumerictextbox.readonly();
+            //DGmultiSelect.readonly();
+            $('#EmployeeLiabAccountMask').attr('readonly', true);
+            $('#EmployerExpAccountMask').attr('readonly', true);
+            $('#EmployerLiabAccountMask').attr('readonly', true);
+
+            $('input[name=IsStateTaxableIncomeAffected]').attr("disabled", true);
+            $('input[name=IsDispIncomeAffected]').attr("disabled", true);
+            EmployeePeriodAmountText.readonly();
+            EmployeeMonthlyCapText.readonly();
+            EmployeeYearlyCapText.readonly();
+            EmployeeMultiYearCapText.readonly();
+            PeriodPercentCapText.readonly();
+            EmployerPeriodAmountText.readonly();
+            EmployerMonthlyCapText.readonly();
+            EmployerYearlyCapText.readonly();
+            var EmployerExpDropdownlist = $("#EmployerExpElementValueId").data("kendoDropDownList");
+            var EmployeeLiabElementValueDropdownlist = $("#EmployeeLiabElementValueId").data("kendoDropDownList");
+            var EmployerLiabElementValueDropdownlist = $("#EmployerLiabElementValueId").data("kendoDropDownList");
+            var EmployeePeriodPercentText = $("#EmployeePeriodPercent").data("kendoNumericTextBox");
+            var EmployerPeriodPercentText = $("#EmployerPeriodPercent").data("kendoNumericTextBox");
+            var BasedOnDropdownlist = $("#BasedOn").data("kendoDropDownList");
+            EmployerExpDropdownlist.readonly();
+            EmployeeLiabElementValueDropdownlist.readonly();
+            EmployerLiabElementValueDropdownlist.readonly();
+            EmployeePeriodPercentText.readonly();
+            EmployerPeriodPercentText.readonly();
+            BasedOnDropdownlist.readonly();
+        }
+        else {
+            $('#DeductionName').attr('readonly', false);
+            $('#Comment').attr('readonly', false);
+            $('input[name=DeductionType]').attr("disabled", false);
+            $('input[name=CalculationMethod]').attr("disabled", false);
+            $('input[name=DeductionOrder]').attr("disabled", false);
+            $('input[name=Default]').attr("disabled", false);
+            $('input[name=Is125DeductionBool]').attr("disabled", false);
+            $('input[name=IsHSADeductionBool]').attr("disabled", false);
+            $('input[name=Variable]').attr("disabled", false);
+            $('input[name=AnnualCapType]').attr("disabled", false);
+            $('input[name=Retirement]').attr("disabled", false);
+            vendorDropdownlist.readonly(false);
+            prioNumerictextbox.readonly(false);
+            //DGmultiSelect.readonly(false);
+            $('#EmployeeLiabAccountMask').attr('readonly', false);
+            $('#EmployerExpAccountMask').attr('readonly', false);
+            $('#EmployerLiabAccountMask').attr('readonly', false);
+            $('input[name=IsStateTaxableIncomeAffected]').attr("disabled", false);
+            $('input[name=IsDispIncomeAffected]').attr("disabled", false);
+            EmployeePeriodAmountText.readonly(false);
+            EmployeeMonthlyCapText.readonly(false);
+            EmployeeYearlyCapText.readonly(false);
+            EmployeeMultiYearCapText.readonly(false);
+            PeriodPercentCapText.readonly(false);
+            EmployerPeriodAmountText.readonly(false);
+            EmployerMonthlyCapText.readonly(false);
+            EmployerYearlyCapText.readonly(false);
+            var EmployerExpDropdownlist = $("#EmployerExpElementValueId").data("kendoDropDownList");
+            var EmployeeLiabElementValueDropdownlist = $("#EmployeeLiabElementValueId").data("kendoDropDownList");
+            var EmployerLiabElementValueDropdownlist = $("#EmployerLiabElementValueId").data("kendoDropDownList");
+            EmployerExpDropdownlist.readonly(false);
+            EmployeeLiabElementValueDropdownlist.readonly(false);
+            EmployerLiabElementValueDropdownlist.readonly(false);
+            var EmployeePeriodPercentText = $("#EmployeePeriodPercent").data("kendoNumericTextBox");
+            var EmployerPeriodPercentText = $("#EmployerPeriodPercent").data("kendoNumericTextBox");
+            var BasedOnDropdownlist = $("#BasedOn").data("kendoDropDownList");
+            EmployeePeriodPercentText.readonly(false);
+            EmployerPeriodPercentText.readonly(false);
+            BasedOnDropdownlist.readonly(false);
+        }
+        var W2BoxNumberDropdownlist = $("#W2BoxNumber").data("kendoDropDownList");
+        var SecondaryW2BoxNumberDropdownlist = $("#SecondaryW2BoxNumber").data("kendoDropDownList");
+        var W2SubCodeDropdownlist = $("#W2SubCode").data("kendoDropDownList");
+        var SecondaryW2SubCodeDropdownlist = $("#SecondaryW2SubCode").data("kendoDropDownList");
+
+        if (('' == 'W' || '' == 'D') &amp;&amp; '' == "Disabled") {
+            $('input[name=IsRollover]').attr("disabled", true);
+            W2BoxNumberDropdownlist.readonly();
+            W2SubCodeDropdownlist.readonly();
+            SecondaryW2BoxNumberDropdownlist.readonly();
+            SecondaryW2SubCodeDropdownlist.readonly();
+            vendorDropdownlist.readonly(false);
+            $('#EmployeeLiabAccountMask').attr('readonly', false);
+            $('#EmployerExpAccountMask').attr('readonly', false);
+            $('#EmployerLiabAccountMask').attr('readonly', false);
+            var EmployeeLiabElementValueDropdownlist = $("#EmployeeLiabElementValueId").data("kendoDropDownList");
+            var EmployerLiabElementValueDropdownlist = $("#EmployerLiabElementValueId").data("kendoDropDownList");
+            var EmployerExpElementValueDropDownlist = $("#EmployerExpElementValueId").data("kendoDropDownList");
+            EmployerExpElementValueDropDownlist.readonly(false);
+            EmployeeLiabElementValueDropdownlist.readonly(false);
+            EmployerLiabElementValueDropdownlist.readonly(false);
+        }
+        else {
+            $('input[name=IsRollover]').attr("disabled", false);
+            W2BoxNumberComboChange();
+            SecondaryW2BoxNumberDropdownlist.readonly(false);
+            SecondaryW2SubCodeDropdownlist.readonly(false);
+        }
+
+        //debugger;
+
+        if ('' == "FTE Benefit"){
+            SetCalculationMethodEnabled();
+        }
+        if (isFullDeductionAccountMaskAllowed == 'True') {
+            $("#EmployerExpAccountMask").show();
+            $('label[for="EmployerExpAccountMask"]').show();
+
+            $("#EmployeeLiabAccountMask").show();
+            $('label[for="EmployeeLiabAccountMask"]').show();
+
+            $("#EmployerLiabAccountMask").show();
+            $('label[for="EmployerLiabAccountMask"]').show();
+
+            $("#EmployeeLiabElementValueId").closest(".k-widget").hide();
+            $('label[for="EmployeeLiabElementValueId"]').hide();
+
+            $("#EmployerLiabElementValueId").closest(".k-widget").hide();
+            $('label[for="EmployerLiabElementValueId"]').hide();
+
+            $("#EmployerExpElementValueId").closest(".k-widget").hide();
+            $('label[for="EmployerExpElementValueId"]').hide();
+
+        }
+        else {
+            $("#EmployerExpAccountMask").hide();
+            $('label[for="EmployerExpAccountMask"]').hide();
+
+            $("#EmployeeLiabAccountMask").hide();
+            $('label[for="EmployeeLiabAccountMask"]').hide();
+
+            $("#EmployerLiabAccountMask").hide();
+            $('label[for="EmployerLiabAccountMask"]').hide();
+
+            $("#EmployerLiabElementValueId").closest(".k-widget").show();
+            $('label[for="EmployerLiabElementValueId"]').show();
+
+            $("#EmployeeLiabElementValueId").closest(".k-widget").show();
+            $('label[for="EmployeeLiabElementValueId"]').show();
+
+            $("#EmployerExpElementValueId").closest(".k-widget").show();
+            $('label[for="EmployerExpElementValueId"]').show();
+        }
+
+    });
+
+    function selectedSecondaryW2BoxNumber() {
+        return {
+            selectedSecondaryW2BoxNumber: $("#SecondaryW2BoxNumber").val()
+        }
+
+    }
+
+    function selectedW2BoxNumber() {
+        return {
+            selectedW2BoxNumber: $("#W2BoxNumber").val()
+        }
+
+    }
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Tuesday, September 19, 2017 3:13 AM
+                    <br />
+                    AptaFund Version: 2017.9.18.12246
+                    <br />
+                    Last Updated: 9/19/2017 12:03:12 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#09192017000312"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Payroll/PayrollDeduction/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('Detail' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-animation-container" style="width: 220px; height: 28px; overflow: hidden; display: none; position: absolute; top: 521.65px; z-index: 10002; left: 288.483px;"><div class="k-list-container k-popup k-group k-reset" id="VendorId-list" data-role="popup" style="position: absolute; font-size: 11px; font-family: &quot;Lucida Sans&quot;,&quot;Lucida Sans&quot;; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 15px; width: 214px; min-width: 214px; height: auto; display: none; transform: translateY(-28px);"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller" style="height: auto;"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="VendorId_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="f156ebf8-ee8e-453a-8ff1-42c088bd5518" aria-selected="true">3wire.com</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="DeductionGroupList-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="DeductionGroupList_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="DeductionCapGroupId-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="1e007772-79bb-4970-822b-464287abbcfd"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="DeductionCapGroupId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">403(B) TSA</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="W2BoxNumber-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="442928dd-9d18-419a-b7b9-5842f474104a"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="W2BoxNumber_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">2 - Federal income tax</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">4 - Social security tax (FICA)</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">6 - Medicare tax</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">9 - EIC payments</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">10 - Dependent care benefits</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">11 - Nonqualified plans</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">12 - Codes</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">13 - Checkboxes</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">14 - Other</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">17 - State income tax</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">19 - Local income tax</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="SecondaryW2BoxNumber-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="9f3483f3-83fc-4408-ad7b-e826a9886f78"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="SecondaryW2BoxNumber_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">12</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">14</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="W2SubCode-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="fa09a462-06eb-4b25-8213-9dd53cd536ac"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="W2SubCode_listbox" aria-live="off" data-role="staticlist" role="listbox"></ul></div><div style="" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="SecondaryW2SubCode-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="1a90a829-350e-4f5e-a1a1-a0316d792b97"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="SecondaryW2SubCode_listbox" aria-live="off" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="W2Display-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="W2Display_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div><div class="k-list-container k-popup k-group k-reset" id="BasedOn-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="d727ba3a-d102-4a6f-89fb-6d5a9eaed07d"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="BasedOn_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">Gross Wages</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">Federal Taxable Income</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">State Taxable Income</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">After-Tax Income</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">Medicare Wages</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">FICA Wages</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">Disposable Income</li></ul></div><div style="display: none;" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="EmployeeLiabElementValueId-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="EmployeeLiabElementValueId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="9fc62f99-1778-40ed-87bf-196e9f9131ac" aria-selected="true">9500-Liabilities</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">9501-Accrued Payables</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">9504-Credit Card Payable</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">9509-Accrued Vacation</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">9510-State Disability W/H - Employee</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">9511-Federal Tax Withholding</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">9512-State Tax Withholding</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">9521-Salaries Payable</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">9525-Fringe Benefits - State Unemployment Ins</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">9526-Fringe Benefits - Medicare</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">9527-Fringe Benefits - OASDI</li><li data-offset-index="11" class="k-item" unselectable="on" role="option" tabindex="-1">9528-Fringe Benefits - STRS</li><li data-offset-index="12" class="k-item" unselectable="on" role="option" tabindex="-1">9529-Fringe Benefits - PERS</li><li data-offset-index="13" class="k-item" unselectable="on" role="option" tabindex="-1">9530-Fringe Beneftis - PARS </li><li data-offset-index="14" class="k-item" unselectable="on" role="option" tabindex="-1">9531-Fringe Benefits - Health and Welfare Benefits</li><li data-offset-index="15" class="k-item" unselectable="on" role="option" tabindex="-1">9532-Fringe Benefits - Health and Welfare In-Lieu</li><li data-offset-index="16" class="k-item" unselectable="on" role="option" tabindex="-1">9533-Fringe Benefits - 401K</li><li data-offset-index="17" class="k-item" unselectable="on" role="option" tabindex="-1">9534-Workers' Comp Payable</li><li data-offset-index="18" class="k-item" unselectable="on" role="option" tabindex="-1">9540-Other Voluntary Deductions</li><li data-offset-index="19" class="k-item" unselectable="on" role="option" tabindex="-1">9541-401K - Employee</li><li data-offset-index="20" class="k-item" unselectable="on" role="option" tabindex="-1">9542-403B - Employee</li><li data-offset-index="21" class="k-item" unselectable="on" role="option" tabindex="-1">9543-STRS - Employee</li><li data-offset-index="22" class="k-item" unselectable="on" role="option" tabindex="-1">9544-PERS - Employee</li><li data-offset-index="23" class="k-item" unselectable="on" role="option" tabindex="-1">9545-PARS - Employee</li><li data-offset-index="24" class="k-item" unselectable="on" role="option" tabindex="-1">9546-OASDI - Employee</li><li data-offset-index="25" class="k-item" unselectable="on" role="option" tabindex="-1">9547-Medicare - Employee</li><li data-offset-index="26" class="k-item" unselectable="on" role="option" tabindex="-1">9548-State Unemployment Insurance - Employee</li><li data-offset-index="27" class="k-item" unselectable="on" role="option" tabindex="-1">9549-UTLA - Employee</li><li data-offset-index="28" class="k-item" unselectable="on" role="option" tabindex="-1">9550-Flexible Spending - Employee</li><li data-offset-index="29" class="k-item" unselectable="on" role="option" tabindex="-1">9551-Optional Life - Employee</li><li data-offset-index="30" class="k-item" unselectable="on" role="option" tabindex="-1">9572-Tax Levy</li><li data-offset-index="31" class="k-item" unselectable="on" role="option" tabindex="-1">9574-Garnishment</li><li data-offset-index="32" class="k-item" unselectable="on" role="option" tabindex="-1">9575-Use Tax Payable</li><li data-offset-index="33" class="k-item" unselectable="on" role="option" tabindex="-1">9580-Other Current Liabilities</li><li data-offset-index="34" class="k-item" unselectable="on" role="option" tabindex="-1">9590-Due to Grantor Governments</li><li data-offset-index="35" class="k-item" unselectable="on" role="option" tabindex="-1">9610-Due to Other Funds</li><li data-offset-index="36" class="k-item" unselectable="on" role="option" tabindex="-1">9620-Due to Student Groups/Other Agencies</li><li data-offset-index="37" class="k-item" unselectable="on" role="option" tabindex="-1">9640-Current Loans</li><li data-offset-index="38" class="k-item" unselectable="on" role="option" tabindex="-1">9650-Unearned Revenue</li><li data-offset-index="39" class="k-item" unselectable="on" role="option" tabindex="-1">9660-Long-Term Liabilities</li><li data-offset-index="40" class="k-item" unselectable="on" role="option" tabindex="-1">9661-General Obligation Bonds Payable</li><li data-offset-index="41" class="k-item" unselectable="on" role="option" tabindex="-1">9662-State School Building Loans Payable</li><li data-offset-index="42" class="k-item" unselectable="on" role="option" tabindex="-1">9664-Net OPEB Obligation</li><li data-offset-index="43" class="k-item" unselectable="on" role="option" tabindex="-1">9665-Compensated Absences Payable</li><li data-offset-index="44" class="k-item" unselectable="on" role="option" tabindex="-1">9666-Certificates of Participation (COPs) Payable</li><li data-offset-index="45" class="k-item" unselectable="on" role="option" tabindex="-1">9667-Capital Leases Payable</li><li data-offset-index="46" class="k-item" unselectable="on" role="option" tabindex="-1">9668-Lease Revenue Bonds Payable</li><li data-offset-index="47" class="k-item" unselectable="on" role="option" tabindex="-1">9669-Other General Long-Term Debt</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="EmployerExpElementValueId-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="c7b94f6a-6330-4710-a14b-a497867fb33d"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="EmployerExpElementValueId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">1000-Certificated Personnel Salaries</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">1100-Certificated Teachers’ Salaries</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">1101-Teacher Hourly Sub</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">1102-Teacher Hourly Other</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">1140-Extra Assignment Auxillary</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">1160-Certificated Teacher - Substitute</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">1170-Teacher Miscellaneous Other</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">1190-Teacher Training</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">1195-Teacher Retired</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">1200-Certificated Pupil Support Salaries</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">1270-Certificated Pupil Support - Extra Duty</li><li data-offset-index="11" class="k-item" unselectable="on" role="option" tabindex="-1">1300-Certificated Supervisors' and Administrators' Salaries</li><li data-offset-index="12" class="k-item" unselectable="on" role="option" tabindex="-1">1370-Certificated Supervisor &amp; Admin Salaries Extra Duty</li><li data-offset-index="13" class="k-item" unselectable="on" role="option" tabindex="-1">1900-Other Certificated Salaries (Athletic Director; Athletic Stipends; Athletic Other)</li><li data-offset-index="14" class="k-item" unselectable="on" role="option" tabindex="-1">2000-Classified Personnel Salaries</li><li data-offset-index="15" class="k-item" unselectable="on" role="option" tabindex="-1">2100-Classified Instructional Salaries</li><li data-offset-index="16" class="k-item" unselectable="on" role="option" tabindex="-1">2200-Classified Support Salaries</li><li data-offset-index="17" class="k-item" unselectable="on" role="option" tabindex="-1">2300-Classified Supervisors’ and Administrators’ Salaries</li><li data-offset-index="18" class="k-item" unselectable="on" role="option" tabindex="-1">2400-Clerical, Technical, and Office Staff Salaries</li><li data-offset-index="19" class="k-item" unselectable="on" role="option" tabindex="-1">2900-Other Classified Salaries (Extra Curricular Assignment)</li><li data-offset-index="20" class="k-item" unselectable="on" role="option" tabindex="-1">3000-Employee Benefits</li><li data-offset-index="21" class="k-item" unselectable="on" role="option" tabindex="-1">3101-State Teachers’ Retirement System, certificated positions</li><li data-offset-index="22" class="k-item" unselectable="on" role="option" tabindex="-1">3102-State Teachers’ Retirement System, classified positions</li><li data-offset-index="23" class="k-item" unselectable="on" role="option" tabindex="-1">3201-Public Employees' Retirement System, certificated positions</li><li data-offset-index="24" class="k-item" unselectable="on" role="option" tabindex="-1">3202-Public Employees’ Retirement System, classified positions</li><li data-offset-index="25" class="k-item" unselectable="on" role="option" tabindex="-1">3212-PARS Classified &amp; Certificated</li><li data-offset-index="26" class="k-item" unselectable="on" role="option" tabindex="-1">3301-OASDI/Medicare/Alternative, certificated positions</li><li data-offset-index="27" class="k-item" unselectable="on" role="option" tabindex="-1">3302-Medicare Classified</li><li data-offset-index="28" class="k-item" unselectable="on" role="option" tabindex="-1">3312-FICA/OASDI/SocSec Classified</li><li data-offset-index="29" class="k-item" unselectable="on" role="option" tabindex="-1">3401-Health and Welfare Benefits, certificated positions</li><li data-offset-index="30" class="k-item" unselectable="on" role="option" tabindex="-1">3402-Health and Welfare Benefits, classified positions</li><li data-offset-index="31" class="k-item" unselectable="on" role="option" tabindex="-1">3411-Health/Welfare Stipend Certificated</li><li data-offset-index="32" class="k-item" unselectable="on" role="option" tabindex="-1">3412-Health/Welfare Stipend Classified</li><li data-offset-index="33" class="k-item" unselectable="on" role="option" tabindex="-1">3501-State Unemployment Insurance, certificated positions</li><li data-offset-index="34" class="k-item" unselectable="on" role="option" tabindex="-1">3502-State Unemployment Insurance, classified positions</li><li data-offset-index="35" class="k-item" unselectable="on" role="option" tabindex="-1">3601-Workers’ Compensation Insurance, certificated positions</li><li data-offset-index="36" class="k-item" unselectable="on" role="option" tabindex="-1">3602-Workers’ Compensation Insurance, classified positions</li><li data-offset-index="37" class="k-item" unselectable="on" role="option" tabindex="-1">3901-Other Benefits, certificated positions</li><li data-offset-index="38" class="k-item" unselectable="on" role="option" tabindex="-1">3902-Other Benefits, classified positions</li><li data-offset-index="39" class="k-item" unselectable="on" role="option" tabindex="-1">3931-Other Beneftis 403B Contribution</li><li data-offset-index="40" class="k-item" unselectable="on" role="option" tabindex="-1">3932-Other Benefits 403B Contribution</li><li data-offset-index="41" class="k-item" unselectable="on" role="option" tabindex="-1">4000-Books and Supplies</li><li data-offset-index="42" class="k-item" unselectable="on" role="option" tabindex="-1">4100-Approved Textbooks and Core Curricula Materials</li><li data-offset-index="43" class="k-item" unselectable="on" role="option" tabindex="-1">4200-Books and Other Reference Materials</li><li data-offset-index="44" class="k-item" unselectable="on" role="option" tabindex="-1">4210-Books Other Than Textbooks</li><li data-offset-index="45" class="k-item" unselectable="on" role="option" tabindex="-1">4300-Materials and Supplies</li><li data-offset-index="46" class="k-item" unselectable="on" role="option" tabindex="-1">4312-Student Testing Materials/Supplies</li><li data-offset-index="47" class="k-item" unselectable="on" role="option" tabindex="-1">4315-Student College Textbooks &amp; Instructional Supplies</li><li data-offset-index="48" class="k-item" unselectable="on" role="option" tabindex="-1">4320-Athletic/Activities Supplies, Uniforms and Equipment</li><li data-offset-index="49" class="k-item" unselectable="on" role="option" tabindex="-1">4340-Computer Software and Related Expenses</li><li data-offset-index="50" class="k-item" unselectable="on" role="option" tabindex="-1">4350-Office Supplies</li><li data-offset-index="51" class="k-item" unselectable="on" role="option" tabindex="-1">4360-Technology Supplies</li><li data-offset-index="52" class="k-item" unselectable="on" role="option" tabindex="-1">4370-Custodial/Operation Supplies</li><li data-offset-index="53" class="k-item" unselectable="on" role="option" tabindex="-1">4380-Maintenance Supplies</li><li data-offset-index="54" class="k-item" unselectable="on" role="option" tabindex="-1">4390-Other Supplies</li><li data-offset-index="55" class="k-item" unselectable="on" role="option" tabindex="-1">4400-Noncapitalized Furniture &amp; Equipment ($4999 &amp; under)</li><li data-offset-index="56" class="k-item" unselectable="on" role="option" tabindex="-1">4700-Food</li><li data-offset-index="57" class="k-item" unselectable="on" role="option" tabindex="-1">4710-Food Supplies Expense</li><li data-offset-index="58" class="k-item" unselectable="on" role="option" tabindex="-1">5000-Services and Other Operating Expenditures</li><li data-offset-index="59" class="k-item" unselectable="on" role="option" tabindex="-1">5100-Subagreements for Services</li><li data-offset-index="60" class="k-item" unselectable="on" role="option" tabindex="-1">5200-Travel and Conferences</li><li data-offset-index="61" class="k-item" unselectable="on" role="option" tabindex="-1">5210-Professional Development</li><li data-offset-index="62" class="k-item" unselectable="on" role="option" tabindex="-1">5300-Dues &amp; Memberships</li><li data-offset-index="63" class="k-item" unselectable="on" role="option" tabindex="-1">5310-Dues and Memberships</li><li data-offset-index="64" class="k-item" unselectable="on" role="option" tabindex="-1">5400-Insurance</li><li data-offset-index="65" class="k-item" unselectable="on" role="option" tabindex="-1">5500-Operations and Housekeeping Services</li><li data-offset-index="66" class="k-item" unselectable="on" role="option" tabindex="-1">5600-Rentals, Leases, Repairs, and Noncapitalized Improvements</li><li data-offset-index="67" class="k-item" unselectable="on" role="option" tabindex="-1">5610-Rentals/Leases - Sites and Buildings</li><li data-offset-index="68" class="k-item" unselectable="on" role="option" tabindex="-1">5620-Rentals/Leases - Equipment (Operating Leases)</li><li data-offset-index="69" class="k-item" unselectable="on" role="option" tabindex="-1">5630-Rentals/Leases Repairs</li><li data-offset-index="70" class="k-item" unselectable="on" role="option" tabindex="-1">5700-Transfers of Direct Costs</li><li data-offset-index="71" class="k-item" unselectable="on" role="option" tabindex="-1">5710-LAUSD Services</li><li data-offset-index="72" class="k-item" unselectable="on" role="option" tabindex="-1">5800-Professional/Consulting Services and Operating Expenditures</li><li data-offset-index="73" class="k-item" unselectable="on" role="option" tabindex="-1">5810-Contracted Services</li><li data-offset-index="74" class="k-item" unselectable="on" role="option" tabindex="-1">5811-Athletic Services Officials</li><li data-offset-index="75" class="k-item" unselectable="on" role="option" tabindex="-1">5812-Field Trip Expenses</li><li data-offset-index="76" class="k-item" unselectable="on" role="option" tabindex="-1">5814-Transportation Student</li><li data-offset-index="77" class="k-item" unselectable="on" role="option" tabindex="-1">5815-Transportation Athletic</li><li data-offset-index="78" class="k-item" unselectable="on" role="option" tabindex="-1">5816-Transportation - Field Trips</li><li data-offset-index="79" class="k-item" unselectable="on" role="option" tabindex="-1">5817-Bus Passes Student - Pupil Transportation</li><li data-offset-index="80" class="k-item" unselectable="on" role="option" tabindex="-1">5818-Student College Tuition &amp; Fees</li><li data-offset-index="81" class="k-item" unselectable="on" role="option" tabindex="-1">5820-Audit Services - Business and Human Resources</li><li data-offset-index="82" class="k-item" unselectable="on" role="option" tabindex="-1">5821-Legal Fees - Special Education</li><li data-offset-index="83" class="k-item" unselectable="on" role="option" tabindex="-1">5825-Negotiation Related Expenses - Business and Human Resources</li><li data-offset-index="84" class="k-item" unselectable="on" role="option" tabindex="-1">5830-Advertisement - School Administration</li><li data-offset-index="85" class="k-item" unselectable="on" role="option" tabindex="-1">5831-Advertisement for Personnel - Business and Human Resources</li><li data-offset-index="86" class="k-item" unselectable="on" role="option" tabindex="-1">5840-Computer/Technology Related Services Agreements</li><li data-offset-index="87" class="k-item" unselectable="on" role="option" tabindex="-1">5850-Professional Services Non-Instructional</li><li data-offset-index="88" class="k-item" unselectable="on" role="option" tabindex="-1">5851-Professional Services Instructional</li><li data-offset-index="89" class="k-item" unselectable="on" role="option" tabindex="-1">5852-Instructional Substitute Services</li><li data-offset-index="90" class="k-item" unselectable="on" role="option" tabindex="-1">5860-Fingerprinting/Physicals and Other Employee Costs</li><li data-offset-index="91" class="k-item" unselectable="on" role="option" tabindex="-1">5880-Bank/Credit Card Fees</li><li data-offset-index="92" class="k-item" unselectable="on" role="option" tabindex="-1">5890-Other Charges Fees</li><li data-offset-index="93" class="k-item" unselectable="on" role="option" tabindex="-1">5891-Athletic/Event Fees</li><li data-offset-index="94" class="k-item" unselectable="on" role="option" tabindex="-1">5900-Communications</li><li data-offset-index="95" class="k-item" unselectable="on" role="option" tabindex="-1">5910-Communications- Telephone and Internet</li><li data-offset-index="96" class="k-item" unselectable="on" role="option" tabindex="-1">5920-Postage Stamps/Meters</li><li data-offset-index="97" class="k-item" unselectable="on" role="option" tabindex="-1">5930-UPS/Fed Ex Charges</li><li data-offset-index="98" class="k-item" unselectable="on" role="option" tabindex="-1">6000-Capital Outlay</li><li data-offset-index="99" class="k-item" unselectable="on" role="option" tabindex="-1">6100-Land</li><li data-offset-index="100" class="k-item" unselectable="on" role="option" tabindex="-1">6170-Land Improvements</li><li data-offset-index="101" class="k-item" unselectable="on" role="option" tabindex="-1">6200-Capital Outlay - Sites &amp; Improvement of Sites</li><li data-offset-index="102" class="k-item" unselectable="on" role="option" tabindex="-1">6400-Equipment</li><li data-offset-index="103" class="k-item" unselectable="on" role="option" tabindex="-1">6410-Capital Equipment - ($5000 and over)</li><li data-offset-index="104" class="k-item" unselectable="on" role="option" tabindex="-1">6420-Capital Equipment Furniture ($5000 &amp; over)</li><li data-offset-index="105" class="k-item" unselectable="on" role="option" tabindex="-1">6450-Computers and Other Computer Hardware</li><li data-offset-index="106" class="k-item" unselectable="on" role="option" tabindex="-1">6500-Equipment Replacement</li><li data-offset-index="107" class="k-item" unselectable="on" role="option" tabindex="-1">6900-Depreciation Expense</li><li data-offset-index="108" class="k-item" unselectable="on" role="option" tabindex="-1">7000-Other Outgo</li><li data-offset-index="109" class="k-item" unselectable="on" role="option" tabindex="-1">7100-Tuition</li><li data-offset-index="110" class="k-item" unselectable="on" role="option" tabindex="-1">7141-Special Ed Fair Share - Other Transfer Out</li><li data-offset-index="111" class="k-item" unselectable="on" role="option" tabindex="-1">7200-Interagency Transfers Out</li><li data-offset-index="112" class="k-item" unselectable="on" role="option" tabindex="-1">7299-All Other Transfers Out to All Others</li><li data-offset-index="113" class="k-item" unselectable="on" role="option" tabindex="-1">7430-Debt Service</li><li data-offset-index="114" class="k-item" unselectable="on" role="option" tabindex="-1">7432-State School Building Repayments</li><li data-offset-index="115" class="k-item" unselectable="on" role="option" tabindex="-1">7438-Debt Service-Interest</li><li data-offset-index="116" class="k-item" unselectable="on" role="option" tabindex="-1">7439-Other Debt Service-Principal</li><li data-offset-index="117" class="k-item" unselectable="on" role="option" tabindex="-1">7619-Other Authorized Interfund Transfers Out</li><li data-offset-index="118" class="k-item" unselectable="on" role="option" tabindex="-1">7630-All Other Financing Uses</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="EmployerLiabElementValueId-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="65f11e79-f41c-489c-82eb-0bcdf3f6f29b"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="EmployerLiabElementValueId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">9500-Liabilities</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">9501-Accrued Payables</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">9504-Credit Card Payable</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">9509-Accrued Vacation</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">9510-State Disability W/H - Employee</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">9511-Federal Tax Withholding</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">9512-State Tax Withholding</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">9521-Salaries Payable</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">9525-Fringe Benefits - State Unemployment Ins</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">9526-Fringe Benefits - Medicare</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">9527-Fringe Benefits - OASDI</li><li data-offset-index="11" class="k-item" unselectable="on" role="option" tabindex="-1">9528-Fringe Benefits - STRS</li><li data-offset-index="12" class="k-item" unselectable="on" role="option" tabindex="-1">9529-Fringe Benefits - PERS</li><li data-offset-index="13" class="k-item" unselectable="on" role="option" tabindex="-1">9530-Fringe Beneftis - PARS </li><li data-offset-index="14" class="k-item" unselectable="on" role="option" tabindex="-1">9531-Fringe Benefits - Health and Welfare Benefits</li><li data-offset-index="15" class="k-item" unselectable="on" role="option" tabindex="-1">9532-Fringe Benefits - Health and Welfare In-Lieu</li><li data-offset-index="16" class="k-item" unselectable="on" role="option" tabindex="-1">9533-Fringe Benefits - 401K</li><li data-offset-index="17" class="k-item" unselectable="on" role="option" tabindex="-1">9534-Workers' Comp Payable</li><li data-offset-index="18" class="k-item" unselectable="on" role="option" tabindex="-1">9540-Other Voluntary Deductions</li><li data-offset-index="19" class="k-item" unselectable="on" role="option" tabindex="-1">9541-401K - Employee</li><li data-offset-index="20" class="k-item" unselectable="on" role="option" tabindex="-1">9542-403B - Employee</li><li data-offset-index="21" class="k-item" unselectable="on" role="option" tabindex="-1">9543-STRS - Employee</li><li data-offset-index="22" class="k-item" unselectable="on" role="option" tabindex="-1">9544-PERS - Employee</li><li data-offset-index="23" class="k-item" unselectable="on" role="option" tabindex="-1">9545-PARS - Employee</li><li data-offset-index="24" class="k-item" unselectable="on" role="option" tabindex="-1">9546-OASDI - Employee</li><li data-offset-index="25" class="k-item" unselectable="on" role="option" tabindex="-1">9547-Medicare - Employee</li><li data-offset-index="26" class="k-item" unselectable="on" role="option" tabindex="-1">9548-State Unemployment Insurance - Employee</li><li data-offset-index="27" class="k-item" unselectable="on" role="option" tabindex="-1">9549-UTLA - Employee</li><li data-offset-index="28" class="k-item" unselectable="on" role="option" tabindex="-1">9550-Flexible Spending - Employee</li><li data-offset-index="29" class="k-item" unselectable="on" role="option" tabindex="-1">9551-Optional Life - Employee</li><li data-offset-index="30" class="k-item" unselectable="on" role="option" tabindex="-1">9572-Tax Levy</li><li data-offset-index="31" class="k-item" unselectable="on" role="option" tabindex="-1">9574-Garnishment</li><li data-offset-index="32" class="k-item" unselectable="on" role="option" tabindex="-1">9575-Use Tax Payable</li><li data-offset-index="33" class="k-item" unselectable="on" role="option" tabindex="-1">9580-Other Current Liabilities</li><li data-offset-index="34" class="k-item" unselectable="on" role="option" tabindex="-1">9590-Due to Grantor Governments</li><li data-offset-index="35" class="k-item" unselectable="on" role="option" tabindex="-1">9610-Due to Other Funds</li><li data-offset-index="36" class="k-item" unselectable="on" role="option" tabindex="-1">9620-Due to Student Groups/Other Agencies</li><li data-offset-index="37" class="k-item" unselectable="on" role="option" tabindex="-1">9640-Current Loans</li><li data-offset-index="38" class="k-item" unselectable="on" role="option" tabindex="-1">9650-Unearned Revenue</li><li data-offset-index="39" class="k-item" unselectable="on" role="option" tabindex="-1">9660-Long-Term Liabilities</li><li data-offset-index="40" class="k-item" unselectable="on" role="option" tabindex="-1">9661-General Obligation Bonds Payable</li><li data-offset-index="41" class="k-item" unselectable="on" role="option" tabindex="-1">9662-State School Building Loans Payable</li><li data-offset-index="42" class="k-item" unselectable="on" role="option" tabindex="-1">9664-Net OPEB Obligation</li><li data-offset-index="43" class="k-item" unselectable="on" role="option" tabindex="-1">9665-Compensated Absences Payable</li><li data-offset-index="44" class="k-item" unselectable="on" role="option" tabindex="-1">9666-Certificates of Participation (COPs) Payable</li><li data-offset-index="45" class="k-item" unselectable="on" role="option" tabindex="-1">9667-Capital Leases Payable</li><li data-offset-index="46" class="k-item" unselectable="on" role="option" tabindex="-1">9668-Lease Revenue Bonds Payable</li><li data-offset-index="47" class="k-item" unselectable="on" role="option" tabindex="-1">9669-Other General Long-Term Debt</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="Custom1-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="Custom1_listbox" aria-live="polite" data-role="staticlist" role="listbox"></ul></div><div style="display:none" class="k-nodata"><div></div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="1202"></canvas></html>

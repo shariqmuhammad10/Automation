@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="2" failures="0" name="com.aptafund.test.features.login.Payroll.ManageDeductionTest" skipped="0" tests="4" time="415.18" timestamp="2017-06-167 09:09:44"><testcase classname="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Verify add system deduction"/><testcase classname="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Verify add fixed amount calculation deduction"/><testcase classname="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Verify disable fixed amount deduction"><error message="Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: &lt;div style=&quot;display: block; z-index: 10004; opacity: 0.5;&quot; class=&quot;k-overlay&quot;&gt;&lt;/div&gt;&#10;Command duration or timeout: 62 milliseconds&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#10;Session ID: c49486be-618e-4f67-9af5-56dbfccd791d" type="org.openqa.selenium.WebDriverException">Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: &lt;div style="display: block; z-index: 10004; opacity: 0.5;" class="k-overlay"&gt;&lt;/div&gt;
+Command duration or timeout: 62 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c49486be-618e-4f67-9af5-56dbfccd791d</error><system-err>Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: &lt;div style="display: block; z-index: 10004; opacity: 0.5;" class="k-overlay"&gt;&lt;/div&gt;
+Command duration or timeout: 62 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c49486be-618e-4f67-9af5-56dbfccd791d&#13;
+com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.clickOnSearchBox(ManageDeductionsPage.java:331)&#13;
+com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.searchDeductionSetToDisable(ManageDeductionSteps.java:76)&#13;
+com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyDisableFixedAmountDeduction(ManageDeductionTest.java:94)&#13;
+</system-err></testcase><testcase classname="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Verify add percentage calculation deduction"><error message="Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown</error><system-err>Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown&#13;
+com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.clickonPPP(ManageDeductionsPage.java:361)&#13;
+com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.addManageDeductionUsingPercentageCalculation(ManageDeductionSteps.java:57)&#13;
+com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyAddPercentageCalculationDeduction(ManageDeductionTest.java:73)&#13;
+</system-err></testcase></testsuite>

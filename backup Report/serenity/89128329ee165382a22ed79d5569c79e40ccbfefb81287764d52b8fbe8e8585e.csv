@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Apta login test","Verify login into site","SUCCESS","2017-06-16T08:48:52.262+05:00","0.0","38.13"
+"Apta login test","Verify login page is appearing","SUCCESS","2017-06-16T08:49:49.437+05:00","0.0","9.09"
+"Apta login test","Verify logout","SUCCESS","2017-06-16T08:49:30.756+05:00","0.0","18.47"

@@ -1,0 +1,44 @@
+<acceptance-test-run title="Add direct deposit with percentage" name="AddDirectDepositWithPercentage" steps="8" successful="7" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="99931" timestamp="2017-06-16T08:58:46.578+05:00" session-id="9e32041f-5ce8-4dd0-a64e-d66c76c012e8">
+  <user-story id="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Deduction assignment test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Deduction assignment test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12094">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7188">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14182">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6522">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14163">
+    <description>Search new ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="166">
+    <description>Edit ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12937">
+    <description>Click on direct deposit</description>
+  </test-step>
+  <test-step result="ERROR" duration="32673">
+    <screenshots>
+      <screenshot image="ba55bf31414b1a7a9afdd03e95bee679.png" source="pagesource1645397451700105891.html.txt"/>
+    </screenshots>
+    <description>Add direct deposit percentage</description>
+    <error>org.openqa.selenium.ElementNotVisibleException: Timed out after 5 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.ElementNotVisibleException:Timed out after 5 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.hrPayrollESS.DeductionAssignmentPage.setPreNotification(DeductionAssignmentPage.java:389), com.aptafund.test.steps.HRPayrollESS.DeductionAssignmentSteps.addDirectDepositPercentage(DeductionAssignmentSteps.java:113), com.aptafund.test.features.login.Payroll.DeductionAssignmentTest.AddDirectDepositWithPercentage(DeductionAssignmentTest.java:96)]</exception>
+  </test-step>
+</acceptance-test-run>

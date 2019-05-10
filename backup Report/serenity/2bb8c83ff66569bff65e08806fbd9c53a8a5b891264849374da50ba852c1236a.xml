@@ -1,0 +1,23 @@
+<acceptance-test-run title="Verify add employee hourly job" name="verifyAddEmployeeHourlyJob" steps="5" successful="5" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="92066" timestamp="2017-06-16T08:53:31.052+05:00" session-id="70d000b0-a480-44e1-b2ed-d5d9dd642f50">
+  <user-story id="com.aptafund.test.features.login.HumanResource.EmployeeJobsTest" name="Employee jobs test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Employee jobs test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="10727">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7240">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14202">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8523">
+    <description>Navigate to employee jobs</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="51371">
+    <description>Add new hourly employee job</description>
+  </test-step>
+</acceptance-test-run>

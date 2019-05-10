@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="com.aptafund.test.features.login.Payroll.ManagePayrollTest" skipped="0" tests="1" time="65.97" timestamp="2017-11-311 05:12:05"><testcase classname="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Verify print pay checks"><error message="$(...).data(...) is undefined&#10;Command duration or timeout: 20 milliseconds&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#10;Session ID: 12c8869a-0046-4c87-9eba-6d4608caa1b3" type="org.openqa.selenium.WebDriverException">$(...).data(...) is undefined
+Command duration or timeout: 20 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 12c8869a-0046-4c87-9eba-6d4608caa1b3</error><system-err>$(...).data(...) is undefined
+Command duration or timeout: 20 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 12c8869a-0046-4c87-9eba-6d4608caa1b3&#13;
+com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.getPayCheckAmount(ManagePayrollPage.java:868)&#13;
+com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.payCheckAmountVerification(ManagePayrollSteps.java:419)&#13;
+com.aptafund.test.features.login.Payroll.ManagePayrollTest.verifyPrintPayChecks(ManagePayrollTest.java:149)&#13;
+</system-err></testcase></testsuite>

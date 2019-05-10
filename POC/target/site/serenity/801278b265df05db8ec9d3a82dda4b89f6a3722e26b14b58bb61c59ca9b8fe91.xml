@@ -1,0 +1,80 @@
+<acceptance-test-run title="Cancel purchase requisition" name="cancelPurchaseRequisition" steps="24" successful="24" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="240692" timestamp="2018-04-24T19:24:52.117+05:00" session-id="3b1178b2-e8e0-4dc5-a21d-afc676d68e85">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13672">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9670">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5354">
+    <description>Navigate to purchase and payable for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12468">
+    <description>Navigate to purchase requisition for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14320">
+    <description>Add purchase requisiton for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12361">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6365">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9210">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45505">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10274">
+    <description>Add req num in terms</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8812">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2601">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="4775">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="131">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1401">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6291">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10212">
+    <description>Submit PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10226">
+    <description>Confirm submit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10605">
+    <description>Close purchase requisition popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13401">
+    <description>Search newly created PR for PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="22589">
+    <description>Apply check for search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="169">
+    <description>Click on more button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="184">
+    <description>Cancel submitted PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10061">
+    <description>Confirm cancel submit</description>
+  </test-step>
+</acceptance-test-run>

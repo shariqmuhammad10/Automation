@@ -1,0 +1,68 @@
+<acceptance-test-run title="Verify add normal register" name="verifyAddNormalRegister" steps="20" successful="20" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="187934" timestamp="2018-04-19T18:42:37.333+05:00" session-id="a877fd9b-26c6-4b6d-8d9d-d51c4f42de6a">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13545">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="24560">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20257">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8861">
+    <description>Navigate to manage payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7625">
+    <description>Add payroll register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3373">
+    <description>Open payroll cycle</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2134">
+    <description>Select biweekly value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="269">
+    <description>Open payroll period</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9193">
+    <description>Select payroll period value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="25371">
+    <description>Add normal register number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3373">
+    <description>Open register type</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9141">
+    <description>Select nor register type value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3188">
+    <description>Set nor register description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10126">
+    <description>Save add register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="46">
+    <description>Select nor register number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="23612">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="300">
+    <description>Search nor register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12551">
+    <description>Select checkbox register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5171">
+    <description>Delete register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5143">
+    <description>Delete confirm message</description>
+  </test-step>
+</acceptance-test-run>

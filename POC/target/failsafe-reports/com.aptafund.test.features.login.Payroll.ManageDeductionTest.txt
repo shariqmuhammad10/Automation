@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.Payroll.ManageDeductionTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 488.812 sec <<< FAILURE! - in com.aptafund.test.features.login.Payroll.ManageDeductionTest
+verifyDisableFixedAmountDeduction(com.aptafund.test.features.login.Payroll.ManageDeductionTest)  Time elapsed: 160.179 sec  <<< ERROR!
+org.openqa.selenium.WebDriverException: Element is not clickable at point (1105.0833740234375, 136.46665954589844). Other element would receive the click: <div style="display: block; z-index: 10004; opacity: 0.5;" class="k-overlay"></div>
+Command duration or timeout: 78 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 79f38e2f-4f93-4053-9641-91348e6111be
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.disableDeductionSet(ManageDeductionsPage.java:360)
+	at com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.disableDeductionAssignment(ManageDeductionSteps.java:84)
+	at com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyDisableFixedAmountDeduction(ManageDeductionTest.java:95)
+
+verifyAddPercentageCalculationDeduction(com.aptafund.test.features.login.Payroll.ManageDeductionTest)  Time elapsed: 132.148 sec  <<< ERROR!
+org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for com.aptafund.test.actions.WaitActions$1@11c50812
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: net.thucydides.core.webdriver.WebDriverFacade
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.actions.WaitActions.waitUntilLoaded(WaitActions.java:28)
+	at com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.clickonPPP(ManageDeductionsPage.java:365)
+	at com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.addManageDeductionUsingPercentageCalculation(ManageDeductionSteps.java:57)
+	at com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyAddPercentageCalculationDeduction(ManageDeductionTest.java:73)
+

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>Manage Deduction | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=Xo8N8aJEdXZSza8HmUKNDbwvSC3Khdx_-2Br7_ym1o41" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=OsUpzu8Q9qV6VUzfRbGEamYruVAAg9SAJFDNsrNvcpo1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body style="height: 609px;" class="k-state-border-down">
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap" style="min-height: 637px; height: 637px;">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame" style="min-height: 487px; height: 487px;">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Payroll -&gt; Manage Deductions
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="grid_action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+    <a accesskey="a" href="#" id="btnAdd__PayrollDeductionManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/add.gif" class="grid-action-icon" />Add</a>
+    <a accesskey="e" href="#" id="btnEdit__PayrollDeductionManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/modify.gif" class="grid-action-icon" />Edit</a>
+    <a accesskey="d" href="#" id="btnDelete__PayrollDeductionManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Delete</a>
+    <a href="#" id="btnEnableDeduction__PayrollDeductionManagementDataView" class="k-button">Enable Deduction</a>
+    <a href="#" id="btnDisableDeduction__PayrollDeductionManagementDataView" class="k-button">Disable Deduction</a>
+    <a class="k-button" href="#" id="btnMoreButtons"><img border="0" alt="" src="/Content/Images/MoreIndicator.png" style="vertical-align: middle; padding-right:5px;" />More</a>
+    <div style="display:none;" id="dvMoreButtons">
+        <ul class="MoreButtonsList">
+            <li><a href="#" id="btnCopyDeduction__PayrollDeductionManagementDataView" class="k-button">Copy</a></li>
+            <li><a href="#" id="btnSystemDeduction__PayrollDeductionManagementDataView" class="k-button">Create System Deduction</a></li>
+            <li><a href="#" id="btnRolloverDeduction__PayrollDeductionManagementDataView" class="k-button">Rollover Deductions</a></li>
+            
+        </ul>
+    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody" style="min-height: 328px; height: 328px;">
+
+                
+
+
+
+
+
+
+
+
+
+<div data-role="AptaDataView" id="divPayrollDeductionManagementDataView" style="min-height: 313px; height: 378px;">
+    <script>
+        $("#divPayrollDeductionManagementDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("PayrollDeductionManagementDataView")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(600, true)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 361px; min-height: 296px;" id="PayrollDeductionManagementDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PayrollDeductionManagementDataView"><input value="1 Deduction for Myrl" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PayrollDeductionManagementDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PayrollDeductionManagementDataView" id="SearchText__PayrollDeductionManagementDataView" class="searchBox" data-role="tooltip" /><script>
+	kendo.syncReady(function(){jQuery("\#SearchText__PayrollDeductionManagementDataView").kendoTooltip({"showAfter":500,"content":"Quick Search :\u003cbr /\u003e Deduction\u003cbr /\u003eVendor\u003cbr /\u003eType\u003cbr /\u003eDeduct Order\u003cbr /\u003eCalculation\u003cbr /\u003ePriority\u003cbr /\u003eJobs/Addenda\u003cbr /\u003eDisplay on W-2\u003cbr /\u003eAnnual Cap Type\u003cbr /\u003eDeduction Group"});});
+</script></div></div><div class="ElementFilterWrapper">
+</div>
+<script>
+    $(document).ready(function () {
+        pinnedfilter_init('PayrollDeductionManagementDataView');
+    });
+</script><div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PayrollDeductionManagementDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PayrollDeductionManagementDataView" style="display:inline-block;" class="GridFilteredText">Filtered</span><div class="GridFilterWrapper"><a id="SearchSettings__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PayrollDeductionManagementDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><script type="text/javascript">
+
+    var GridSettingGuid = '';
+    var displayButton;
+    var isGridFiltered;
+
+    function ReturnFromPopup__PayrollDeductionManagementDataView(e) {
+        var dataViewSettings = {
+            GridHeight: '600',
+            AdjustGridHeightOnResize: 'True',
+            VerticallyScrollable: 'True',
+            IsGridEditable: 'false'
+        };
+
+        var urls = {
+            ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+            ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+            ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+            GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+            GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+            DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+            SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+            RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+            Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+        };
+
+        var msgs = {
+            Success: "Record saved successfully.",
+            Delete: "Record deleted successfully.",
+            ConfirmDelete: "Confirm Delete",
+            DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+        };
+
+        UserGridSettingsMenuReturn('/Content/Images/filtericons/Gear.png', e, 'PayrollDeductionManagementDataView', urls.GetNamedGridSettings, dataViewSettings, urls.Apply,
+                                    function (e) {
+                                        UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollDeductionManagementDataView', dataViewSettings, urls, msgs)
+                                    });
+    }
+
+    $(document).ready(function () {
+        UpdataNamedGridSettingsMenu('/Content/Images/filtericons/Gear.png', 'PayrollDeductionManagementDataView', '/QAAutom/GridConfig/GetNamedGridSettings',
+            function (e) {
+                UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollDeductionManagementDataView',
+                {
+                    GridHeight: '600',
+                    AdjustGridHeightOnResize: 'True',
+                    IsGridEditable: 'false'
+                },
+                {
+                    ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+                    ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+                    ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+                    GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+                    GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+                    DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+                    SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+                    RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+                    Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+                },
+                {
+                    Success: "Record saved successfully.",
+                    Delete: "Record deleted successfully.",
+                    ConfirmDelete: "Confirm Delete",
+                    DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+                })
+            });
+    });
+
+    function LoadPageSetup__PayrollDeductionManagementDataView() {
+        UserGridSettingsMenuLoadPageSetup('PayrollDeductionManagementDataView', '', '/QAAutom/GridConfig/GetUserGridPageSetupView');
+    }
+</script>
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PayrollDeductionManagementDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PayrollDeductionManagementDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="true" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__PayrollDeductionManagementDataView button" id="Reset__PayrollDeductionManagementDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollDeductionManagementDataView button" id="SaveAs__PayrollDeductionManagementDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PayrollDeductionManagementDataView button" id="PageSetup__PayrollDeductionManagementDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    <script>
+	kendo.syncReady(function(){jQuery("#usergridsettingsWindow__PayrollDeductionManagementDataView").kendoWindow({"close":ReturnFromPopup__PayrollDeductionManagementDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Save Grid Settings","resizable":false,"width":570,"height":380,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#pagesetupWindow__PayrollDeductionManagementDataView").kendoWindow({"refresh":LoadPageSetup__PayrollDeductionManagementDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Report Settings","resizable":false,"width":500,"height":350,"actions":["Close"]});});
+</script>
+
+<script type="text/kendo-ui" id="menu-template__PayrollDeductionManagementDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PayrollDeductionManagementDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PayrollDeductionManagementDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PayrollDeductionManagementDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PayrollDeductionManagementDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PayrollDeductionManagementDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PayrollDeductionManagementDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PayrollDeductionManagementDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PayrollDeductionManagementDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:35px" /><col style="width:75px" /><col style="width:220px" /><col style="width:220px" /><col style="width:125px" /><col style="width:175px" /><col style="width:140px" /><col style="width:71px" /><col style="width:100px" /><col style="width:67px" /><col style="width:74px" /><col style="width:140px" /><col style="width:120px" /><col style="width:100px" /><col style="width:100px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__PayrollDeductionManagementDataView" /></th><th style="text-align: left; display: none;" scope="col" data-title="Id" data-index="1" data-field="Id" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=Id-asc" class="k-link">Id</a></th><th style="text-align: left;" scope="col" data-title="Enabled Status" data-index="2" data-field="EnabledStatusString" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=EnabledStatusString-asc" class="k-link">Enabled Status</a></th><th style="text-align: left; display: none;" scope="col" data-title="DeductionId" data-index="3" data-field="DeductionId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=DeductionId-asc" class="k-link">DeductionId</a></th><th style="text-align: left;" scope="col" data-title="Deduction" data-index="4" data-field="DeductionName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=DeductionName-desc" class="k-link">Deduction<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align: left; display: none;" scope="col" data-title="CycleId" data-index="5" data-field="CycleId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=CycleId-asc" class="k-link">CycleId</a></th><th style="text-align: left;" scope="col" data-title="Vendor" data-index="6" data-field="VendorName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=VendorName-asc" class="k-link">Vendor</a></th><th style="text-align: left;" scope="col" data-title="Type" data-index="7" data-field="DeductionType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=DeductionType-asc" class="k-link">Type</a></th><th style="text-align: left;" scope="col" data-title="Deduct Order" data-index="8" data-field="DeductionOrder" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=DeductionOrder-asc" class="k-link">Deduct Order</a></th><th style="text-align: left;" scope="col" data-title="Calculation" data-index="9" data-field="CalculationMethod" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=CalculationMethod-asc" class="k-link">Calculation</a></th><th style="text-align: left;" scope="col" data-title="Affects State Taxable Income" data-index="10" data-field="AffectsStateTaxableIncome" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=AffectsStateTaxableIncome-asc" class="k-link">Affects State Taxable Income</a></th><th style="text-align: left;" scope="col" data-title="Variable" data-index="11" data-field="IsVariable" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=IsVariable-asc" class="k-link">Variable</a></th><th style="text-align: left;" scope="col" data-title="Rollover" data-index="12" data-field="RolloverAssignments" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=RolloverAssignments-asc" class="k-link">Rollover</a></th><th style="text-align: left;" scope="col" data-title="W-2 Box No." data-index="13" data-field="W2BoxNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=W2BoxNumber-asc" class="k-link">W-2 Box No.</a></th><th style="text-align: left;" scope="col" data-title="W-2 Sub Code" data-index="14" data-field="W2SubCode" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=W2SubCode-asc" class="k-link">W-2 Sub Code</a></th><th style="text-align: left; display: none;" scope="col" data-title="Affects Disp. Income" data-index="15" data-field="AffectsDispIncome" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=AffectsDispIncome-asc" class="k-link">Affects Disp. Income</a></th><th style="text-align: left;" scope="col" data-title="System Deduction" data-index="16" data-field="SystemDeduction" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=SystemDeduction-asc" class="k-link">System Deduction</a></th><th style="text-align: left;" scope="col" data-title="HSA" data-index="17" data-field="IsHSA" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=IsHSA-asc" class="k-link">HSA</a></th><th style="text-align: left;" scope="col" data-title="Display on W-2" data-index="18" data-field="W2Display" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=W2Display-asc" class="k-link">Display on W-2</a></th><th style="text-align: left; display: none;" scope="col" data-title="Ordering Vendor" data-index="19" data-field="VendorId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=VendorId-asc" class="k-link">Ordering Vendor</a></th><th style="text-align: left; display: none;" scope="col" data-title="Jobs/Addenda" data-index="20" data-field="JobList" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=JobList-asc" class="k-link">Jobs/Addenda</a></th><th style="text-align: left; display: none;" scope="col" data-title="WitholdingType" data-index="21" data-field="WitholdingType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView&amp;parentFilter=CycleId%20%3D%205&amp;gridKey=PayrollDeductionManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;575b0886-cf55-412f-a924-035500af0eb3=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollDeductionManagementDataView-sort=WitholdingType-asc" class="k-link">WitholdingType</a></th><th scope="col" data-index="22" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table><div class="k-resize-handle" style="top: 0px; left: 987px; height: 32px; width: 9px; display: none;"><div class="k-resize-handle-inner"></div></div></div></div><div style="height: 225px; min-height: 160px;" class="k-grid-content"><table role="grid" data-aptafund-kendogrid-selected="804"><colgroup><col style="width:35px" /><col style="width:75px" /><col style="width:220px" /><col style="width:220px" /><col style="width:125px" class="k-sorted" /><col style="width:175px" /><col style="width:140px" /><col style="width:71px" /><col style="width:100px" /><col style="width:67px" /><col style="width:74px" /><col style="width:140px" /><col style="width:120px" /><col style="width:100px" /><col style="width:100px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="be2e06c2-64ea-40cd-b425-6b2c5239b67c" class="kendo-data-row k-state-selected" data-aptafund-kendogrid-rowid="804"><td role="gridcell"><input type="checkbox" class="check_row__PayrollDeductionManagementDataView" checked="checked" /></td><td role="gridcell" style="display:none;text-align:left;">804</td><td role="gridcell" style="text-align:left;">Enabled</td><td role="gridcell" style="display:none;text-align:left;">804</td><td role="gridcell" style="text-align:left;"><a href="Details/804">1 Deduction for Myrl</a></td><td role="gridcell" style="display:none;text-align:left;">5</td><td role="gridcell" style="text-align:left;">3wire.com</td><td role="gridcell" style="text-align:left;">Deduction</td><td role="gridcell" style="text-align:left;">Post-Tax</td><td role="gridcell" style="text-align:left;">Fixed Amount</td><td role="gridcell" style="text-align:left;">No</td><td role="gridcell" style="text-align:left;">No</td><td role="gridcell" style="text-align:left;">No</td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="display:none;text-align:left;">No</td><td role="gridcell" style="text-align:left;">No</td><td role="gridcell" style="text-align:left;">No</td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="display:none;text-align:left;">723</td><td role="gridcell" style="display:none;text-align:left;">All</td><td role="gridcell" style="display:none;text-align:left;"></td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li></ul><a title="Go to the next page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="34894450-dae9-42b3-aab6-f7a6541743d6"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">200</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="200"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="200" selected="selected">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 1 of 1 items</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#PayrollDeductionManagementDataView").kendoGrid({"dataBound":$('#divPayrollDeductionManagementDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__PayrollDeductionManagementDataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"Id","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Id","data-title":"Id"},"hidden":true,"width":"75px","field":"Id","filterable":false,"encoded":true},{"title":"Enabled Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"EnabledStatusString","data-title":"Enabled Status"},"width":"75px","field":"EnabledStatusString","filterable":false,"encoded":true},{"title":"DeductionId","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DeductionId","data-title":"DeductionId"},"hidden":true,"width":"75px","field":"DeductionId","filterable":false,"encoded":true},{"title":"Deduction","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DeductionName","data-title":"Deduction"},"width":"220px","template":"\u003ca href=\u0027Details/#= DeductionId#\u0027\u003e${ DeductionName }\u003c/a\u003e","field":"DeductionName","filterable":false,"encoded":true},{"title":"CycleId","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"CycleId","data-title":"CycleId"},"hidden":true,"width":"75px","field":"CycleId","filterable":false,"encoded":true},{"title":"Vendor","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"VendorName","data-title":"Vendor"},"width":"220px","field":"VendorName","filterable":false,"encoded":true},{"title":"Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DeductionType","data-title":"Type"},"width":"125px","field":"DeductionType","filterable":false,"encoded":true},{"title":"Deduct Order","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DeductionOrder","data-title":"Deduct Order"},"width":"175px","field":"DeductionOrder","filterable":false,"encoded":true},{"title":"Calculation","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"CalculationMethod","data-title":"Calculation"},"width":"140px","field":"CalculationMethod","filterable":false,"encoded":true},{"title":"Affects State Taxable Income","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"AffectsStateTaxableIncome","data-title":"Affects State Taxable Income"},"width":"71px","field":"AffectsStateTaxableIncome","filterable":false,"encoded":true},{"title":"Variable","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"IsVariable","data-title":"Variable"},"width":"100px","field":"IsVariable","filterable":false,"encoded":true},{"title":"Rollover","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RolloverAssignments","data-title":"Rollover"},"width":"67px","field":"RolloverAssignments","filterable":false,"encoded":true},{"title":"W-2 Box No.","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"W2BoxNumber","data-title":"W-2 Box No."},"width":"74px","field":"W2BoxNumber","filterable":false,"encoded":true},{"title":"W-2 Sub Code","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"W2SubCode","data-title":"W-2 Sub Code"},"width":"140px","field":"W2SubCode","filterable":false,"encoded":true},{"title":"Affects Disp. Income","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"AffectsDispIncome","data-title":"Affects Disp. Income"},"hidden":true,"width":"120px","field":"AffectsDispIncome","filterable":false,"encoded":true},{"title":"System Deduction","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"SystemDeduction","data-title":"System Deduction"},"width":"120px","field":"SystemDeduction","filterable":false,"encoded":true},{"title":"HSA","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"IsHSA","data-title":"HSA"},"width":"100px","field":"IsHSA","filterable":false,"encoded":true},{"title":"Display on W-2","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"W2Display","data-title":"Display on W-2"},"width":"100px","field":"W2Display","filterable":false,"encoded":true},{"title":"Ordering Vendor","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"VendorId","data-title":"Ordering Vendor"},"hidden":true,"width":"125px","field":"VendorId","filterable":false,"encoded":true},{"title":"Jobs/Addenda","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"JobList","data-title":"Jobs/Addenda"},"hidden":true,"width":"175px","field":"JobList","filterable":false,"encoded":true},{"title":"WitholdingType","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"WitholdingType","data-title":"WitholdingType"},"hidden":true,"width":"150px","field":"WitholdingType","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"toolbar":{},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=PayrollDeductionManagementDataView\u0026parentFilter=CycleId%20%3D%205","data":$('#divPayrollDeductionManagementDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=PayrollDeductionManagementDataView\u0026parentFilter=CycleId%20%3D%205"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=PayrollDeductionManagementDataView\u0026parentFilter=CycleId%20%3D%205"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=PayrollDeductionManagementDataView\u0026parentFilter=CycleId%20%3D%205"}},"pageSize":200,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"DeductionName","dir":"asc"}],"filter":[],"error":$('#divPayrollDeductionManagementDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"Id":{"editable":false,"type":"string"},"DeductionId":{"editable":false,"type":"string"},"CycleId":{"editable":false,"type":"string"},"EnabledStatusString":{"editable":false,"type":"string"},"DeductionName":{"editable":false,"type":"string"},"VendorName":{"editable":false,"type":"string"},"DeductionType":{"editable":false,"type":"string"},"DeductionOrder":{"editable":false,"type":"string"},"CalculationMethod":{"editable":false,"type":"string"},"AffectsStateTaxableIncome":{"editable":false,"type":"string"},"IsDefault":{"editable":false,"type":"string"},"IsVariable":{"editable":false,"type":"string"},"AffectsDispIncome":{"editable":false,"type":"string"},"RolloverAssignments":{"editable":false,"type":"string"},"Priority":{"editable":false,"type":"number","defaultValue":null},"W2BoxNumber":{"editable":false,"type":"string"},"W2SubCode":{"editable":false,"type":"string"},"IncludeOT":{"editable":false,"type":"string"},"SecondaryW2BoxNumber":{"editable":false,"type":"number","defaultValue":null},"SecondaryW2SubCode":{"editable":false,"type":"string"},"Comment":{"editable":false,"type":"string"},"VendorId":{"editable":false,"type":"string"},"SystemDeduction":{"editable":false,"type":"string"},"ActiveStatusString":{"editable":false,"type":"string"},"ActiveStatus":{"editable":false,"type":"string"},"IsHSA":{"editable":false,"type":"string"},"JobList":{"editable":false,"type":"string"},"EnabledStatus":{"editable":false,"type":"string"},"W2Display":{"editable":false,"type":"string"},"IncludeNewMasterPositions":{"editable":false,"type":"string"},"WitholdingType":{"editable":false,"type":"string"},"AnnualCapType":{"editable":false,"type":"string"},"DeductionGroup":{"editable":false,"type":"string"},"IsRetirement":{"editable":false,"type":"string"},"Custom1":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PayrollDeductionManagementDataView" value="true" />
+<input type="hidden" class="noheight" id="hdnScrollable_PayrollDeductionManagementDataView" value="true" />
+
+<div id="dvGridSettings__PayrollDeductionManagementDataView">
+</div>
+
+<div id="dvGridSearchSettings__PayrollDeductionManagementDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__PayrollDeductionManagementDataView">1</span> <a href="#" id="UnselectAll__PayrollDeductionManagementDataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divPayrollDeductionManagementDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__PayrollDeductionManagementDataView() {
+        if ($("#dvGridSettings__PayrollDeductionManagementDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollDeductionManagementDataView', GridHeight: '600', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__PayrollDeductionManagementDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__PayrollDeductionManagementDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__PayrollDeductionManagementDataView() {
+        if ($("#dvGridSearchSettings__PayrollDeductionManagementDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollDeductionManagementDataView', GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__PayrollDeductionManagementDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__PayrollDeductionManagementDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__PayrollDeductionManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollDeductionManagementDataView();
+        $("#settingsWindow__PayrollDeductionManagementDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__PayrollDeductionManagementDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'PayrollDeductionManagementDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__PayrollDeductionManagementDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__PayrollDeductionManagementDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__PayrollDeductionManagementDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__PayrollDeductionManagementDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollDeductionManagementDataView();
+        $('#tbFilterName__PayrollDeductionManagementDataView').val("");
+        $("#searchSettings__PayrollDeductionManagementDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__PayrollDeductionManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollDeductionManagementDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'PayrollDeductionManagementDataView', GridHeight: '600', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_PayrollDeductionManagementDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#PayrollDeductionManagementDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divPayrollDeductionManagementDataView').html(result);
+                InitializeGrid___PayrollDeductionManagementDataView(false);
+                var function_name = 'PayrollDeductionManagementDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_PayrollDeductionManagementDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "PayrollDeductionManagementDataView");
+                }
+                HideGridFooter("PayrollDeductionManagementDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__PayrollDeductionManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollDeductionManagementDataView();
+        $("#divPayrollDeductionManagementDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__PayrollDeductionManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollDeductionManagementDataView();
+        $("#divPayrollDeductionManagementDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__PayrollDeductionManagementDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollDeductionManagementDataView()
+        $("#divPayrollDeductionManagementDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__PayrollDeductionManagementDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollDeductionManagementDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollDeductionManagementDataView').css("padding-left", "0px");
+        $('#divOptions__PayrollDeductionManagementDataView').css("margin-top", "0px");
+        $('#divOptions__PayrollDeductionManagementDataView').css("margin-right", "3px");
+        $('#divQuickSearch__PayrollDeductionManagementDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___PayrollDeductionManagementDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("PayrollDeductionManagementDataView", "1");
+                    GridSetSelectedItemsOn("PayrollDeductionManagementDataView", "804");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__PayrollDeductionManagementDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__PayrollDeductionManagementDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__PayrollDeductionManagementDataView() {
+        var gridName = 'PayrollDeductionManagementDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___PayrollDeductionManagementDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_PayrollDeductionManagementDataView');
+
+        if (parseBool("True")) {
+            RegisterGridForAutoHeight("#" + "PayrollDeductionManagementDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_PayrollDeductionManagementDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__PayrollDeductionManagementDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__PayrollDeductionManagementDataView').click(function (e) {
+        e.preventDefault();
+        $("#divPayrollDeductionManagementDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+
+<div style="text-align: center" id="popupwindowSystemDeduction"></div>
+<div>
+    <script>
+	kendo.syncReady(function(){jQuery("#popupwindowMassUpdateResult__PayrollDeductionManagement").kendoWindow({"close":ReloadResultPopup__PayrollDeductionManagement,"modal":true,"iframe":true,"draggable":true,"scrollable":true,"pinned":false,"title":"Result","resizable":false,"width":600,"height":500,"actions":["Close"]});});
+</script>
+</div>
+
+<script type="text/javascript">
+
+    $("#btnPreviewNetPay__EmployeePayrollDeductionAssignmentDataView").click(function () {
+
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        var data = { deductionId: selectedRowIds };
+
+        $.ajax({
+            url: '/QAAutom/Payroll/PayrollDeduction/GetDataForPreviewNetPayByDeduction',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (typeof result !== "undefined" &amp;&amp; result != null) {
+                    window.location.href = "/QAAutom/Payroll/PayrollEmployeeDeduction/PreviewNetPayDeduction" + "?id=" + result.Data;
+                }
+            }
+        });
+    });
+
+    $("#btnRolloverDeduction__PayrollDeductionManagementDataView").click(function () {
+
+        var selectedRowIds = GetGridSelectedId("PayrollDeductionManagementDataView");
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        options = { url: "/QAAutom/Payroll/PayrollDeduction/Rollover" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject('popupwindowRolloverDeduction')
+                                  .SetContent(options)
+                                  .SetHeight('20%')
+                                  .SetWidth(550)
+                                  .SetIsModal(true)
+                                  .SetTitle('Rollover Deductions')
+
+        finsWindow.CreateWindow(true);
+
+    });
+
+    $("#btnSystemDeduction__PayrollDeductionManagementDataView").click(function () {
+        var kendoWindow = $("#popupwindowSystemDeduction").kendoWindow({
+            content: { url: "/QAAutom/Payroll/PayrollDeduction/SystemDeduction" },
+            title: "Create System Deduction",
+            modal: true,
+            refresh: function (e) { e.sender.center(); }
+        });
+
+        kendoWindow.data("kendoWindow").setOptions({
+            width: 500,
+            height: 480
+        });
+
+        kendoWindow.data("kendoWindow").center().open();
+    });
+
+    $("#btnCopyDeduction__PayrollDeductionManagementDataView").click(function () {
+
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        ShowYesNoDialog("Confirm", "Are you sure you want to copy the selected deduction?", function () {
+            window.location.href = "/QAAutom/Payroll/PayrollDeduction/CopyDeduction" + "/" + selectedRowIds;
+        });
+
+    });
+
+    function IsEnabled() {
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+                var EnabledStatus = gridData[i].EnabledStatus;
+
+                if (EnabledStatus) {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
+    }
+
+    function EnableDisableDeductions(operation) {
+        var selectedRowIds = $("#divPayrollDeductionManagementDataView").data("AptaDataView").GetAptaDataViewSelection();
+        var data = { aptaDataViewSelection: selectedRowIds };
+        var url = operation == "Enable" ? '/QAAutom/Payroll/PayrollDeduction/EnableDeduction' : '/QAAutom/Payroll/PayrollDeduction/DisableDeduction';
+        var title = operation == "Enable" ? 'Enable Deduction' : 'Disable Deduction';
+        $.ajax({
+            url: url,
+            cache: false,
+            dataType: 'JSON',
+            type: "POST",
+            data: data,
+            success: function (result) {
+                if (result.Success) {
+                    if (result.HasException)
+                        showExceptionpopup(selectedRowIds);
+                    else {
+                        StartJobQueueNotifications();
+                        ShowAjaxMessage((operation == "Enable" ? 'Enable Deduction' : 'Disable Deduction') + " - " + "Your process has been started and is now in the job queue. You will be notified when it is complete.", "success");
+                    }
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                    if (result.HasException)
+                        showExceptionpopup(selectedRowIds);
+                }
+            }
+        });
+
+    }
+
+    $("#btnEnableDeduction__PayrollDeductionManagementDataView").click(function () {
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!$("#divPayrollDeductionManagementDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation."))
+            return;
+        ShowYesNoDialog("Confirm", "Are you sure you want to enable the selected deduction(s)?", function () {
+            EnableDisableDeductions('Enable');
+        });
+    });
+
+    $("#btnDisableDeduction__PayrollDeductionManagementDataView").click(function () {
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!$("#divPayrollDeductionManagementDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation."))
+            return;
+
+        ShowYesNoDialog("Confirm", "Are you sure you want to disable the selected deduction(s)?", function () {
+            EnableDisableDeductions('Disable');
+        });
+    });
+
+    $("#btnDelete__PayrollDeductionManagementDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        var gridData = grid.dataSource.data();
+        var deductionStatus;
+        var deductionEnableStatus;
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+                deductionStatus = gridData[i].ActiveStatus;
+                deductionEnableStatus = gridData[i].EnabledStatusString;
+                break;
+            }
+        }
+        if (deductionStatus == 'Active' || deductionEnableStatus == 'Enabled') {
+            ShowOkDialog("Delete Deduction", "Only disabled inactive deduction can be deleted.");
+        }
+        else {
+            ShowYesNoDialog("Confirm Delete", "Are you sure you want to delete the selected deduction?", DeleteDeduction);
+        }
+
+    });
+
+    function DeleteDeduction() {
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+        window.location.href = "/QAAutom/Payroll/PayrollDeduction/DeleteDeduction" + "/" + selectedRowIds;
+    }
+
+    $("#btnAdd__PayrollDeductionManagementDataView").click(function () {
+        window.location.href = "/QAAutom/Payroll/PayrollDeduction/Create";
+    });
+
+    $("#btnEdit__PayrollDeductionManagementDataView").click(function () {
+
+        var grid = $("#PayrollDeductionManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        //post the selected items and the selected value
+        $.ajax({
+            type: "POST",
+            url: "/QAAutom/Payroll/PayrollDeduction/MultipleEdit",
+            dataType: "json",
+            success: function (returnData) {
+                if (returnData) {
+                    window.location.href = "/QAAutom/Payroll/PayrollDeduction/Details/" + returnData.DeductionId;
+                }
+            }
+        });
+
+    });
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Wednesday, September 20, 2017 3:14 AM
+                    <br />
+                    AptaFund Version: 2017.9.19.12248
+                    <br />
+                    Last Updated: 9/20/2017 12:02:26 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification" data-role="notification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#09202017000226"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Payroll/PayrollDeduction/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+            setTimeout(function() { StartJobQueueNotifications();}, 1000);
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 219.917px; left: 1077.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollDeductionManagementDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollDeductionManagementDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollDeductionManagementDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 219.917px; left: 1077.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollDeductionManagementDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollDeductionManagementDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollDeductionManagementDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="34894450-dae9-42b3-aab6-f7a6541743d6">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 600px; height: 500px; display: none; top: 555.5px; left: 28px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="popupwindowMassUpdateResult__PayrollDeductionManagement_wnd_title">Result</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="popupwindowMassUpdateResult__PayrollDeductionManagement" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="popupwindowMassUpdateResult__PayrollDeductionManagement_wnd_title"><div>
+
+
+
+<div class="PopupFormWrapper">
+    <div class="PopupFormWrapperContents">
+        <div class="PopupInnerDiv">
+            <div id="detailRecordHeader">
+            </div>
+            <div class="editor-field MassActionResultPopUpMax" id="dvmassUpdateResult__PayrollDeductionManagement">
+                <input type="hidden" value="24760bc7-0a5d-42fc-9d2f-28c3bc2a2129" name="FilterGuid" id="FilterGuid" />
+                <div data-role="AptaDataView" id="divMassOperationResultDataView">
+    
+        <textarea style="width:100%;height:400px">Loading...</textarea>
+</div>
+
+    
+
+            </div>
+        </div>
+    </div>
+    <div class="PopupButtonOuterWrapper">
+        <div class="PopupButtonInnerWrapper">
+            <div id="dvmassUpdateResultClose__PayrollDeductionManagement">
+                <a href="#" id="massOperationResultClose__PayrollDeductionManagement" class="k-button">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+                </div></div></div><div class="k-overlay" style="display: none; z-index: 10002; opacity: 0;"></div><div class="k-widget k-window k-state-focused" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 400px; display: none; top: 238.5px; left: 425.5px; z-index: 10003; transform: scale(0.7);" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title">Selection</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div data-role="window" style="display: block;" class="k-window-content k-content" tabindex="0"><div class="PopupFormWrapper"><div class="PopupFormWrapperContents"><div class="PopupInnerDiv"><p class="delete-message">Please select one or more records for this operation.</p></div></div><div class="PopupButtonOuterWrapper"><div class="PopupButtonInnerWrapper"><a class="delete-confirm k-button">OK</a></div></div></div></div></div><div class="k-animation-container _5464094a-443f-4589-88d6-2507c00e24db notificationWindow" style="width: 453px; height: 91px; overflow: visible; display: block; position: fixed; top: 511px; z-index: 10050; left: 795px; margin: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;"><div class="k-widget k-notification k-notification-jobqueue k-popup k-group k-reset k-state-border-up" data-role="alert" style="display: block; position: absolute; font-size: 11px; font-family: &quot;Lucida Sans&quot;,&quot;Lucida Sans&quot;; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 15px; opacity: 1;"><div class="notificationContainer success"><div class="notificationContent"><div class="message"><b>Deduction(s) enabled</b>  <br /><br /><a href='javascript:ShowJobResultPopupWindow("584cdcb0-cb07-4d52-9d3a-5b18537f51f4","/QAAutom/My/MyJobQueue/ShowJobResultPopup" )' class="bread_crumb">View Results</a>  | <a href="/QAAutom/My/MyJobQueue/Manage" class="bread_crumb">My Job Queue</a></div><div class="close"><a onclick="DismissJobQueueNotification('584cdcb0-cb07-4d52-9d3a-5b18537f51f4 ');" class="closeImage"></a></div></div></div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="637"></canvas></html>

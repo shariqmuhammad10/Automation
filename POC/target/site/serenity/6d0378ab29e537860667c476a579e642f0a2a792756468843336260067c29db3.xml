@@ -1,0 +1,23 @@
+<acceptance-test-run title="Create check report" name="createCheckReport" steps="5" successful="5" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="77347" timestamp="2018-04-23T13:01:26.785+05:00" session-id="602751e9-bd5c-49f0-8244-82abb4f5783a">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13113">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11664">
+    <description>Login for reports test</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5291">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8324">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="38920">
+    <description>Create check report</description>
+  </test-step>
+</acceptance-test-run>

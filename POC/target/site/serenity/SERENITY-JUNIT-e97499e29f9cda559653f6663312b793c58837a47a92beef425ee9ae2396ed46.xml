@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" skipped="0" tests="1" time="188.55" timestamp="2018-05-127 06:35:17"><testcase classname="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="App l2 purchase requisition without level1 approval"><error message="Timed out after 15 seconds. Element not available&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.ElementNotVisibleException">Timed out after 15 seconds. Element not available
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown</error><system-err>Timed out after 15 seconds. Element not available
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown&#13;
+com.aptafund.test.pages.PurchasingAndPayables.PurchaseRequisitionPage.setUnitPrice(PurchaseRequisitionPage.java:599)&#13;
+com.aptafund.test.steps.PurchasingAndPayables.PurchaseRequisitionSteps.setUnitPriceForLineItem(PurchaseRequisitionSteps.java:213)&#13;
+com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest.appL2PurchaseRequisitionWithoutLevel1Approval(PurchaseRequisitionTest.java:982)&#13;
+</system-err></testcase></testsuite>

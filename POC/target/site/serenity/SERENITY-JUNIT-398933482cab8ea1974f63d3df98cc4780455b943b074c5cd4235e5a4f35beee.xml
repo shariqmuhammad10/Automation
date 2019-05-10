@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="com.aptafund.test.features.login.Reports.ReportsTest" skipped="0" tests="1" time="64.56" timestamp="2018-02-59 04:04:56"><testcase classname="com.aptafund.test.features.login.Reports.ReportsTest" name="Create accounts payable voucher form"><failure message="expected:&lt;[No records to display].&gt; but was:&lt;[Your request could not be processed: Incorrect syntax near ','].&gt;" type="org.junit.ComparisonFailure">expected:&lt;[No records to display].&gt; but was:&lt;[Your request could not be processed: Incorrect syntax near ','].&gt;</failure><system-err>expected:&lt;[No records to display].&gt; but was:&lt;[Your request could not be processed: Incorrect syntax near ','].&gt;&#13;
+com.aptafund.test.pages.Reports.ReportsPage.compareOutputMessage(ReportsPage.java:118)&#13;
+com.aptafund.test.steps.MyAptaFund.ReportSteps.createAccountsPayableVoucherFormReport(ReportSteps.java:65)&#13;
+com.aptafund.test.features.login.Reports.ReportsTest.createAccountsPayableVoucherForm(ReportsTest.java:169)&#13;
+</system-err></testcase></testsuite>

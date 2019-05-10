@@ -1,0 +1,113 @@
+<acceptance-test-run title="Void register" name="voidRegister" steps="35" successful="35" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="291775" timestamp="2017-06-16T09:23:09.862+05:00" session-id="c746df51-189f-4b0b-aa0a-75a0d7da3102">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="9191">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5953">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14173">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8397">
+    <description>Navigate to manage payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2196">
+    <description>Add payroll register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3357">
+    <description>Open payroll cycle</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2125">
+    <description>Select biweekly value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="204">
+    <description>Open payroll period</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9155">
+    <description>Select payroll period value for void</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3241">
+    <description>Open register type</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9145">
+    <description>Select register type value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3194">
+    <description>Set register description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8165">
+    <description>Save add registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="98">
+    <description>Select registor number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16679">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3281">
+    <description>Search registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12418">
+    <description>Select checkbox register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11900">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5130">
+    <description>Add job to registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14500">
+    <description>Select employee from add job reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16027">
+    <description>Select job from add job reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5232">
+    <description>Save add job to registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5409">
+    <description>Select check box to select job</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10194">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3972">
+    <description>Click and set job hours</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5132">
+    <description>Save job edit hours</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20888">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="254">
+    <description>Search registor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13164">
+    <description>Click submit reg button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="30265">
+    <description>Click yes confirm msg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9220">
+    <description>Click approve reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14130">
+    <description>Click yes confirm msg for approval</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10154">
+    <description>Click on more button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="167">
+    <description>Click void register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5048">
+    <description>Click yes confirm msg to void</description>
+  </test-step>
+</acceptance-test-run>

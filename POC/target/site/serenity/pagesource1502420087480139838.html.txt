@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=n670ze6eWNBMS3I8maQ010nXmCvugfIemcG9aeGDDy01" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=SEqa5qM76g7fsHF2GCPRpna2h11oqzIOkagSJrsbclk1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceDetailAllocation" class="menulink">Vendor Invoice Detail Allocation</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/AllUsersSecurity" class="menulink">User Permissions</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Metadata</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/Metadata/Metadata/sysDataViewFields" class="menulink">sysDataViewFields</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">secRolePermissions</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Payroll -&gt; <a href="/QAAutom/Payroll/Payroll/Manage">Manage Payroll</a>-&gt; Register Details
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+<a onclick="btnSave__PayrollRegister()" href="#" id="btnSave__PayrollRegister" class="k-button" data-role="tooltip">Save</a>    <a href="/QAAutom/Payroll/Payroll/Manage" class="k-button" id="btnCancel__PayrollRegister" data-role="tooltip">Cancel</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+
+
+
+
+
+
+
+<div id="NavigationPanel">
+    <label class="NavPanelHeader"></label>
+
+    <!-- Partial View for navigation header -->
+                 <div class="floatright"><a class="navigationreturnlink" href="/QAAutom/Payroll/Payroll/Manage"> Return to Search</a></div>
+
+
+<script>
+    function PrevNextRecordNavigation(url) {
+        NavigateTo(url);
+    };
+</script>
+</div>
+
+<div id="detailOuterDiv">
+    <div id="detailInnerDiv">
+        <div id="detailRecordHeader">
+            <table>
+                <tbody><tr>
+                    <td style="margin-right: 2em">
+                        <label for="Submitted_By:">Submitted By:</label>
+                    </td>
+                    <td style="text-align:left;">
+                        <label style="font-weight: normal; margin-left: 3px; margin-right: 100px"></label>
+                    </td>
+                    <td style="margin-right: 2em; padding-left: 5em">
+                        <label for="Submitted_Date:">Submitted Date:</label>
+                    </td>
+                    <td style="text-align:left;">
+                        <label style="font-weight: normal; margin-left: 3px; margin-right: 100px">
+
+                        </label>
+                    </td>
+                    <td><label for="Gross_Amount:">Gross Amount:</label></td>
+                    <td><label style="font-weight: normal; margin-left: 3px; margin-right: 100px"></label></td>
+                    <td style="margin-right: 2em">
+                        <label for="Register_Number:">Register Number:</label>
+                    </td>
+                    <td style="text-align:left;">
+                        <label style="font-weight: normal; margin-left: 3px; margin-right: 100px"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-right: 2em">
+                        <label for="Approved_By:">Approved By:</label>
+                    </td>
+                    <td style="text-align:left;">
+                        <label style="font-weight: normal; margin-left: 3px; margin-right: 100px"></label>
+                    </td>
+                    <td style="margin-right: 2em; padding-left: 5em">
+                        <label for="Approved_Date:">Approved Date:</label>
+                    </td>
+                    <td style="text-align:left;">
+                        <label style="font-weight: normal; margin-left: 3px; margin-right: 100px">
+
+                        </label>
+                    </td>
+                    <td><label for="Register_Status:">Register Status:</label></td>
+                    <td><label style="font-weight: normal; margin-left: 3px; margin-right: 100px"></label></td>
+                </tr>
+            </tbody></table>
+        </div>
+
+<form method="post" id="FormPayrollRegister" action="/QAAutom/Payroll/Payroll/Save" novalidate="novalidate"><input type="hidden" value="iUYodq9V7JbjK0dyAnorSzLQp46Bu4SqXU3JIB9wfP_VWCqDOmiKcfVtyTPt0odHRhw3BgO9zzhXUznqPnAZmV3I-FMoZUVxgutBsclwCB9PFc2-XlZCWCkHdStqriLDdynumIORt4jSleDl6tSK3w2" name="__RequestVerificationToken" />            <div>
+                <div class="editor-label">
+                    <input type="hidden" value="0" name="PayrollRegisterId" id="PayrollRegisterId" data-val-number="The field PayrollRegisterId must be a number." data-val="true" />
+                    <input type="hidden" value="" name="GrossAmount" id="GrossAmount" data-val-number="The field Gross Amount must be a number." data-val="true" />
+                    <input type="hidden" value="" name="SubmittingUserName" id="SubmittingUserName" />
+                    <input type="hidden" value="" name="SubmitDate" id="SubmitDate" data-val-date="The field Submitted Date must be a date." data-val="true" />
+                    <input type="hidden" value="" name="ApprovedDate" id="ApprovedDate" data-val-date="The field Approved Date must be a date." data-val="true" />
+                    <input type="hidden" value="" name="ApprovingUserName" id="ApprovingUserName" />
+                    <input type="hidden" value="" name="RegisterStatus" id="RegisterStatus" />
+                    <input type="hidden" value="" name="PayrollPeriodName" id="PayrollPeriodName" />
+                    <input type="hidden" value="0" name="PayableDays" id="PayableDays" data-val-number="The field Payable Days must be a number." data-val="true" />
+                    <input type="hidden" value="False" name="UseSupplementalTaxRateOld" id="UseSupplementalTaxRateOld" />
+                    <input type="hidden" value="False" name="ShowIncludeExcludeDeductionDialog" id="ShowIncludeExcludeDeductionDialog" />
+                </div>
+
+                <ul id="panelbar" class="k-widget k-panelbar k-reset k-header" data-role="panelbar" tabindex="0" role="menu"><li class="k-item k-state-active k-first k-last k-state-highlight" role="menuitem" aria-expanded="true" aria-hidden="false"><a href="#panelbar-1" class="k-link k-header">Payroll Period Information<span class="k-icon  k-panelbar-collapse k-i-arrow-n"></span></a><div id="panelbar-1" class="k-content" role="region" aria-hidden="true" style="display: block;"><div>
+
+                                                    <div class="editor-field">
+                                                        <div class="FINSControlStyle">
+<label for="Payroll_Cycle" class="FINSLabelStyle">Payroll Cycle</label>:
+<span style="width: 22em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="PayrollCycleList_listbox" aria-disabled="false" aria-busy="false" aria-activedescendant="c7ef7089-9985-4b37-9fe4-7ba1673eab66"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">Semi-Monthly</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 22em; background-color: White; display: none;" name="PayrollCycleList" id="PayrollCycleList" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("#PayrollCycleList").kendoDropDownList({"change":PayrollCycleChange,"dataSource":[{"Text":"Monthly","Value":"6","Selected":false},{"Text":"Semi-Monthly","Value":"5","Selected":false},{"Text":"Weekly","Value":"10","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":"All"});});
+</script>
+                                                        </div>
+                                                        <div class="FINSControlSeparator">
+                                                        </div>
+                                                    </div>
+                                                <div class="editor-field">
+
+<div class="FINSControlStyle">
+<label style="" for="PayrollPeriodId" class="RequiredLabel FINSLabelStyle" id="PayrollPeriodId_label">Payroll Period:</label>
+<span style="width: 22em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="PayrollPeriodId_listbox" aria-labelledby="PayrollPeriodId_label" aria-disabled="false" aria-busy="false" aria-activedescendant="a898656c-e18e-47a4-8c5e-90e4515b714d"><span class="k-dropdown-wrap k-state-default k-state-focused" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" value="0" style="width: 22em; background-color: White; display: none;" name="PayrollPeriodId" id="PayrollPeriodId" data-val-required="The Payroll Period field is required." data-val-number="The field Payroll Period must be a number." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#PayrollPeriodId").kendoDropDownList({"change":PeriodChange,"dataSource":[{"Text":"07/14/2017 (07/01/2017-07/11/2017)","Value":"121","Selected":false},{"Text":"07/31/2017 (07/12/2017-07/25/2017)","Value":"122","Selected":false},{"Text":"08/15/2017 (07/26/2017-08/10/2017)","Value":"123","Selected":false},{"Text":"08/31/2017 (08/11/2017-08/25/2017)","Value":"124","Selected":false},{"Text":"09/15/2017 (08/26/2017-09/11/2017)","Value":"125","Selected":false},{"Text":"09/29/2017 (09/12/2017-09/25/2017)","Value":"126","Selected":false},{"Text":"10/13/2017 (09/26/2017-10/09/2017)","Value":"127","Selected":false},{"Text":"10/31/2017 (10/10/2017-10/25/2017)","Value":"128","Selected":false},{"Text":"11/15/2017 (10/26/2017-11/09/2017)","Value":"129","Selected":false},{"Text":"11/30/2017 (11/10/2017-11/24/2017)","Value":"130","Selected":false},{"Text":"12/15/2017 (11/25/2017-12/11/2017)","Value":"131","Selected":false},{"Text":"12/28/2017 (12/12/2017-12/31/2017)","Value":"132","Selected":false},{"Text":"01/12/2018 (01/01/2018-01/10/2018)","Value":"133","Selected":false},{"Text":"01/31/2018 (01/11/2018-01/25/2018)","Value":"134","Selected":false},{"Text":"02/15/2018 (01/26/2018-02/09/2018)","Value":"135","Selected":false},{"Text":"02/28/2018 (02/10/2018-02/23/2018)","Value":"136","Selected":false},{"Text":"03/15/2018 (02/24/2018-03/09/2018)","Value":"137","Selected":false},{"Text":"03/30/2018 (03/10/2018-03/26/2018)","Value":"138","Selected":false},{"Text":"04/13/2018 (03/27/2018-04/09/2018)","Value":"139","Selected":false},{"Text":"04/30/2018 (04/10/2018-04/25/2018)","Value":"140","Selected":false},{"Text":"05/15/2018 (04/26/2018-05/10/2018)","Value":"141","Selected":false},{"Text":"05/31/2018 (05/11/2018-05/25/2018)","Value":"142","Selected":false},{"Text":"06/15/2018 (05/26/2018-06/11/2018)","Value":"143","Selected":false},{"Text":"06/29/2018 (06/12/2018-06/30/2018)","Value":"144","Selected":false},{"Text":"07/31/2017 (07/01/2017-07/31/2017)","Value":"157","Selected":false},{"Text":"08/31/2017 (08/01/2017-08/31/2017)","Value":"158","Selected":false},{"Text":"09/27/2017 (09/01/2017-09/30/2017)","Value":"159","Selected":false},{"Text":"10/31/2017 (10/01/2017-10/31/2017)","Value":"160","Selected":false},{"Text":"11/30/2017 (11/01/2017-11/30/2017)","Value":"161","Selected":false},{"Text":"12/28/2017 (12/01/2017-12/31/2017)","Value":"162","Selected":false},{"Text":"01/31/2018 (01/01/2018-01/31/2018)","Value":"163","Selected":false},{"Text":"02/28/2018 (02/01/2018-02/28/2018)","Value":"164","Selected":false},{"Text":"03/30/2018 (03/01/2018-03/31/2018)","Value":"165","Selected":false},{"Text":"04/30/2018 (04/01/2018-04/30/2018)","Value":"166","Selected":false},{"Text":"05/31/2018 (05/01/2018-05/31/2018)","Value":"167","Selected":false},{"Text":"06/29/2018 (06/01/2018-06/30/2018)","Value":"168","Selected":false},{"Text":"Period 01 (08/01/2017-08/07/2017)","Value":"169","Selected":false},{"Text":"Period 02 (08/08/2017-08/14/2017)","Value":"170","Selected":false},{"Text":"Period 03 (08/15/2017-08/21/2017)","Value":"171","Selected":false},{"Text":"Period 04 (08/22/2017-08/28/2017)","Value":"172","Selected":false},{"Text":"Period 05 (08/29/2017-09/04/2017)","Value":"173","Selected":false},{"Text":"Period 06 (09/05/2017-09/11/2017)","Value":"174","Selected":false},{"Text":"Period 07 (09/12/2017-09/18/2017)","Value":"175","Selected":false},{"Text":"Period 08 (09/19/2017-09/25/2017)","Value":"176","Selected":false},{"Text":"Period 09 (09/26/2017-10/02/2017)","Value":"177","Selected":false},{"Text":"Period 10 (10/03/2017-10/09/2017)","Value":"178","Selected":false},{"Text":"Period 11 (10/10/2017-10/16/2017)","Value":"179","Selected":false},{"Text":"Period 12 (10/17/2017-10/23/2017)","Value":"180","Selected":false},{"Text":"Period 13 (10/24/2017-10/30/2017)","Value":"181","Selected":false},{"Text":"Period 14 (10/31/2017-11/06/2017)","Value":"182","Selected":false},{"Text":"Period 15 (11/07/2017-11/13/2017)","Value":"183","Selected":false},{"Text":"Period 16 (11/14/2017-11/20/2017)","Value":"184","Selected":false},{"Text":"Period 17 (11/21/2017-11/27/2017)","Value":"185","Selected":false},{"Text":"Period 18 (11/28/2017-12/04/2017)","Value":"186","Selected":false},{"Text":"Period 19 (12/05/2017-12/11/2017)","Value":"187","Selected":false},{"Text":"Period 20 (12/12/2017-12/18/2017)","Value":"188","Selected":false},{"Text":"Period 21 (12/19/2017-12/25/2017)","Value":"189","Selected":false},{"Text":"Period 22 (12/26/2017-01/01/2018)","Value":"190","Selected":false},{"Text":"Period 23 (01/02/2018-01/08/2018)","Value":"191","Selected":false},{"Text":"Period 24 (01/09/2018-01/15/2018)","Value":"192","Selected":false},{"Text":"Period 25 (01/16/2018-01/22/2018)","Value":"193","Selected":false},{"Text":"Period 26 (01/23/2018-01/29/2018)","Value":"194","Selected":false},{"Text":"Period 27 (01/30/2018-02/05/2018)","Value":"195","Selected":false},{"Text":"Period 28 (02/06/2018-02/12/2018)","Value":"196","Selected":false},{"Text":"Period 29 (02/13/2018-02/19/2018)","Value":"197","Selected":false},{"Text":"Period 30 (02/20/2018-02/26/2018)","Value":"198","Selected":false},{"Text":"Period 31 (02/27/2018-03/05/2018)","Value":"199","Selected":false},{"Text":"Period 32 (03/06/2018-03/12/2018)","Value":"200","Selected":false},{"Text":"Period 33 (03/13/2018-03/19/2018)","Value":"201","Selected":false},{"Text":"Period 34 (03/20/2018-03/26/2018)","Value":"202","Selected":false},{"Text":"Period 35 (03/27/2018-04/02/2018)","Value":"203","Selected":false},{"Text":"Period 36 (04/03/2018-04/09/2018)","Value":"204","Selected":false},{"Text":"Period 37 (04/10/2018-04/16/2018)","Value":"205","Selected":false},{"Text":"Period 38 (04/17/2018-04/23/2018)","Value":"206","Selected":false},{"Text":"Period 39 (04/24/2018-04/30/2018)","Value":"207","Selected":false},{"Text":"Period 40 (05/01/2018-05/07/2018)","Value":"208","Selected":false},{"Text":"Period 41 (05/08/2018-05/14/2018)","Value":"209","Selected":false},{"Text":"Period 42 (05/15/2018-05/21/2018)","Value":"210","Selected":false},{"Text":"Period 43 (05/22/2018-05/28/2018)","Value":"211","Selected":false},{"Text":"Period 44 (05/29/2018-06/04/2018)","Value":"212","Selected":false},{"Text":"Period 45 (06/05/2018-06/11/2018)","Value":"213","Selected":false},{"Text":"Period 46 (06/12/2018-06/18/2018)","Value":"214","Selected":false},{"Text":"Period 47 (06/19/2018-06/25/2018)","Value":"215","Selected":false},{"Text":"Period 48 (06/26/2018-06/30/2018)","Value":"216","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="RegisterNumber" class="FINSLabelStyle">Number:</label>
+<input type="text" value="" style="width:135px" name="RegisterNumber" id="RegisterNumber" class="k-textbox k-textbox" />
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="TransactionDate" class="RequiredLabel FINSLabelStyle">Transaction Date:</label>
+<span style="" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" name="TransactionDate" id="TransactionDate" data-val-required="The Transaction Date field is required." data-val-date="The field Transaction Date must be a date." data-val="true" data-role="datepicker" style="width: 100%;" class="k-input" role="combobox" aria-expanded="false" aria-owns="TransactionDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="TransactionDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#TransactionDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#TransactionDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('TransactionDate','Date');</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="PayDate" class="RequiredLabel FINSLabelStyle">Pay Date:</label>
+<span style="" class="k-widget k-datepicker k-header"><span class="k-picker-wrap k-state-default"><input type="text" name="PayDate" id="PayDate" data-val-required="The Pay Date field is required." data-val-date="The field Pay Date must be a date." data-val="true" data-role="datepicker" style="width: 100%;" class="k-input" role="combobox" aria-expanded="false" aria-owns="PayDate_dateview" aria-disabled="false" /><span aria-label="select" class="k-select" unselectable="on" role="button" aria-controls="PayDate_dateview"><span class="k-icon k-i-calendar"></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("\#PayDate").kendoDatePicker({"format":"MM/dd/yyyy","parseFormats":["MM/dd/yyyy","MM/dd/yy","MMddyyyy","MMddyy","yyyy-MM-ddTHH:mm:ss"],"min":new Date(1900,0,1,0,0,0,0),"max":new Date(2099,11,31,0,0,0,0)});});
+</script><script>
+	kendo.syncReady(function(){jQuery("\#PayDate").kendoTooltip({"showAfter":500,"content":"Today (T)\u003cbr /\u003eForward One Day (+)\u003cbr /\u003eBack One Day (-)\u003cbr /\u003eForward One Week (K)\u003cbr /\u003eBack One Week (W)\u003cbr /\u003eFirst Day Of Month (M)\u003cbr /\u003eLast Day Of Month (H)\u003cbr /\u003eFirst Day Of Calendar Year (Y)\u003cbr /\u003eLast Day Of Calendar Year (R)\u003cbr /\u003eFirst Day Of Fiscal Year (F)\u003cbr /\u003eLast Day Of Fiscal Year (L)\u003cbr /\u003e"});});
+</script><script>CheckCustomKeyRegister('PayDate','Date');</script>
+</div>
+
+<div class="FINSControlStyle">
+<label style="" for="RegisterType" class="RequiredLabel FINSLabelStyle" id="RegisterType_label">Register Type:</label>
+<span style="width: 12.5em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="RegisterType_listbox" aria-labelledby="RegisterType_label" aria-disabled="false" aria-busy="false" aria-activedescendant="c052f162-efee-4a2a-8c3e-66e28e75a851"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"> </span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 12.5em; background-color: White; display: none;" name="RegisterType" id="RegisterType" data-val-required="The Register Type field is required." data-val="true" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#RegisterType").kendoDropDownList({"dataSource":[{"Text":"Normal","Value":"Normal","Selected":false},{"Text":"Special","Value":"Special","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+<div class="FINSControlStyle">
+<label style="" for="PayInCycle" class="FINSLabelStyle" id="PayInCycle_label">Cycle:</label>
+<span style="background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="PayInCycle_listbox" aria-labelledby="PayInCycle_label" aria-disabled="false" aria-busy="false" aria-activedescendant="4dd1660c-a1ca-4187-a14c-c1aef76d749b"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">Current</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="background-color: White; display: none;" name="PayInCycle" id="PayInCycle" data-role="dropdownlist" /></span><script>
+	kendo.syncReady(function(){jQuery("\#PayInCycle").kendoDropDownList({"dataSource":[{"Text":"Current","Value":"C","Selected":false},{"Text":"Next","Value":"N","Selected":false}],"dataTextField":"Text","dataValueField":"Value","optionLabel":" "});});
+</script>
+</div>
+
+
+<div class="FINSControlStyle">
+<label style="" for="RegisterDescription" class="FINSLabelStyle">Description:</label>
+<textarea style="width: 38em; height: 5em;" rows="4" name="RegisterDescription" id="RegisterDescription" cols="20" class="k-textbox k-textbox"></textarea>
+</div>
+<div class="FINSControlSeparator"></div>
+
+                                                </div>
+                                                <div class="editor-field">
+                                                    <div class="FINSControlStyle">
+<input type="checkbox" value="true" style="margin-left: 11em;" name="UseSupplementalTaxRate" id="UseSupplementalTaxRate" /><input type="hidden" value="false" name="UseSupplementalTaxRate" />
+<label style="" for="StrUseSupplementalTaxRate" class="FINSLabelStyle">Use Supplemental Tax Rate</label>
+                                                    </div>
+                                                    <div class="FINSControlSeparator">
+                                                    </div>
+                                                </div>
+                                            </div></div></li></ul><script>
+	kendo.syncReady(function(){jQuery("#panelbar").kendoPanelBar({"expandMode":"multiple"});});
+</script>
+                <br />
+
+            </div>
+</form>
+        <div id="popupPayrollMassDaysHours"></div>
+        <div id="popupIncludeExcludeDeductions"></div>
+        <div id="popupWindowJobEdit"></div>
+        <div id="popupWindowJobOTDetails"></div>
+        <div id="popupWindow__RegisterOTItemAllocation"></div>
+        <div id="popupUpdateOTHourlyRate"></div>
+        <div id="popupWindowJobAdd"></div>
+    </div>
+</div>
+
+<script>
+
+    function onCloseJobOTDetailsPopup() {
+        $("#divPayrollJobsAddendaDataView").data("AptaDataView").MakeAjaxCall({
+            url: "/QAAutom/Payroll/Payroll/GetPayrollRegisterJobDC",
+            dataType: 'JSON',
+            success: function (result) {
+                $('#tbAccountCodeEdit_PRItemDetailsacTextBox').val(result.dc.AccountCode);
+                $('#tbAccountCodeEdit_PROTItemDetailsacTextBox').val(result.dc.AccountCodeOTAddenda);
+                $('#GrossPay').data("kendoNumericTextBox").value(result.dc.GrossPay);
+                $('#OT').data("kendoNumericTextBox").value(result.dc.OT);
+                $('#GrossPaySalary').data("kendoNumericTextBox").value(result.dc.GrossPay);
+                var textbox = $("#tbAccountCodeEdit_PROTItemDetailsacTextBox");
+                if (result.dc.MultipleOTRecords) {
+                    $('#OT').data("kendoNumericTextBox").enable(false);
+                    textbox.attr("disabled", "disabled");
+                }
+                else {
+                    $('#OT').data("kendoNumericTextBox").enable();
+                    textbox.removeAttr("disabled");
+                }
+            }
+        });
+    }
+
+    RegisterScreenShortCutKeys(null, "PayrollRegister", "PayrollManagementDataView");
+
+    function PayrollJobsAddenda_OnJobTypeChanged(jobType) {
+        var btnBatchEdit = $("#btnBatchEdit__PayrollManagementDataView");
+        var btnBatchEditGrid = $("#btnBatchEditGrid__PayrollManagementDataView");
+
+        if (btnBatchEdit != null) {
+            var batchEditDisabled = true;
+            if (jobType.indexOf("Hourly") &gt;= 0) {
+                batchEditDisabled = false;
+            }
+            else if (jobType == "Daily") {
+                batchEditDisabled = false;
+            }
+            if (batchEditDisabled) {
+                btnBatchEdit.addClass("k-state-disabled").prop("disabled", batchEditDisabled);
+                btnBatchEdit.attr("disabled", "disabled");
+            }
+            else {
+                btnBatchEdit.removeClass("k-state-disabled").prop("disabled", batchEditDisabled);
+                btnBatchEdit.removeAttr("disabled");
+            }
+        }
+
+        if (btnBatchEditGrid != null) {
+            var batchEditGridDisabled = true;
+            if (jobType.indexOf("Hourly") &gt;= 0) {
+                batchEditGridDisabled = false;
+            }
+            else if (jobType == "Daily") {
+                batchEditGridDisabled = false;
+            }
+            if (batchEditDisabled) {
+                btnBatchEditGrid.addClass("k-state-disabled").prop("disabled", batchEditGridDisabled);
+                btnBatchEditGrid.attr("disabled", "disabled");
+            }
+            else {
+                btnBatchEditGrid.removeClass("k-state-disabled").prop("disabled", batchEditGridDisabled);
+                btnBatchEditGrid.removeAttr("disabled");
+            }
+        }
+    }
+
+    function onActivateJobOTDetailsPopup(e) {
+        LoadGridOnDemand__PayrollOverTimeAllocationDataview();
+        e.sender.title("OT Details");
+    }
+
+    function onCloseJobEditPopup() {
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function RemoveJob() {
+        ShowAjaxMessage("", "");
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateMassActionWindowObject({ url: "/QAAutom/Payroll/Payroll/MassActionResults" }).SetonRefresh(RefreshOnRemoveJob)
+        finsWindow.CreateWindow(false);
+    }
+
+    function RefreshOnRemoveJob() {
+        var aptaDV = $("#divPayrollJobsAddendaDataView").data("AptaDataView");
+        var massOperationId = GetMassActionId();
+        $("#divPayrollJobsAddendaDataView").data("AptaDataView").ExecuteMassOperation('/QAAutom/Payroll/Payroll/RemoveJobFromRegister',
+                 { aptaDataViewSelection: aptaDV.GetAptaDataViewSelection(), massOperationId: massOperationId },
+                '', function (result) {
+                    var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+                    ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                }, "popupwindowMassActionResults");
+
+    }
+
+    $("#btnDelete__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+
+        if ($("#divPayrollJobsAddendaDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) {
+            ShowYesNoDialog("Confirm", "Are you sure you want to remove the selected job(s) from payroll?", RemoveJob);
+        }
+    });
+
+    function ReturnFromPopupMassDaysHours() {
+
+    }
+    $("#btnMassDaysHours__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (NoItemsSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select one or more records for this operation.", null);
+            return;
+        }
+        var aptaDV = $("#divPayrollJobsAddendaDataView").data("AptaDataView");
+        var data = { aptaDataViewSelection: aptaDV.GetAptaDataViewSelection() };
+        var JobType = '';
+
+        aptaDV.MakeAjaxCall({
+            url: "/QAAutom/Payroll/Payroll/CanMassUpdate",
+            data: data,
+            dataType: "json",
+            error: function (xhr, status, error) {
+                alert(error);
+            },
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success == 0) {
+
+                    ShowOkDialog("Notice", "Please select only one type of job (Daily or Hourly) to update.", null);
+                }
+                else if (result.Success == 2) {
+                    ShowOkDialog("Notice", "Please only select Salary Time Sheet or Daily or Hourly type jobs to set mass days/hours.", null);
+                }
+                else {
+                    setFocusEventForKendoWindow("popupPayrollMassDaysHours");
+                    var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupPayrollMassDaysHours")
+                    .SetContent({ url: "/QAAutom/Payroll/Payroll/MassDaysHours?" + "JobType=" + JobType + "&amp;PayrollRegisterId=0" })
+                    .SetIsModal(true)
+                    .SetTitle("Set Mass Days/Hours")
+                    .SetonRefresh(function (e) { setFocusToFirstEditCtrl("popupPayrollMassDaysHours", false); });
+
+                    finsWindow.CreateWindow(true);
+                }
+            }
+        });
+
+    });
+
+    $("#btnPreviewNetPay__PayrollJobsAddendaDataView").click(function (e) {
+        e.preventDefault();
+
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!$("#divPayrollJobsAddendaDataView").data("AptaDataView").ValidateDataViewGridSelection(false, "Selection", "Please select a single record to perform this operation.")) return;
+
+        var options = { url: "/QAAutom/Payroll/Payroll/PreviewJobNetPay", data: { id : 0 }, type: "POST" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject('popupPayrollPreviewNetPay')
+       .SetContent(options)
+       .SetHeight('90%')
+       .SetWidth(1170)
+       .SetUnRegisterShortCutKeysOnClose(true)
+       .SetIsModal(true)
+       .SetTitle('Preview Net Pay')
+
+        finsWindow.CreateWindow(true);
+
+    });
+
+    $("#btnRegisterJobDetail__PayrollJobsAddendaDataView").click(function () {
+
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        window.location.href = "/QAAutom/Payroll/Payroll/JobDetail/" + selectedRowIds;
+
+    });
+
+    $("#btnBatchEdit__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        var disabled = $(this).attr('disabled');
+        if (disabled !== 'disabled') {
+            var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+            var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+            if (!$("#divPayrollJobsAddendaDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) return;
+            OpenJobBatchEditPopup();
+        }
+    });
+
+    $("#btnBatchEditGrid__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        var disabled = $(this).attr('disabled');
+        if (disabled !== 'disabled') {
+            var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+            var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+            if (!$("#divPayrollJobsAddendaDataView").data("AptaDataView").ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) return;
+            OpenJobBatchEditPopupGrid();
+        }
+    });
+
+    $('#btnEditAll__PayrollManagementDataView').click(function (e) {
+        e.preventDefault();
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+        if (grid.dataSource.data().length &lt;= 0) {
+            ShowOkDialog("Selection", "There are currently no items in the list to Edit.", null);
+            return;
+        }
+        var selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (selectedRowId !== "-1") {
+            $('.selectAll__PayrollJobsAddendaDataView').click();
+        }
+        $('#btnEdit__PayrollManagementDataView').click();
+    });
+
+    function EditPayrollRegisterJob(PayrollRegisterId, EmployeeId, CycleId, JobSequence, ItemSequence) {
+
+        var id = PayrollRegisterId + '~' + EmployeeId + '~' + CycleId + '~' + ItemSequence + "~" + JobSequence;
+
+        var aptaDataViewSelection = $("#divPayrollJobsAddendaDataView").data("AptaDataView").GetAptaDataViewSelection();
+
+        EditPayrollRegisterJobFinsWindow(id, aptaDataViewSelection);
+    }
+
+    function EditPayrollRegisterJobFinsWindow(id, aptaDataViewSelection) {
+        var data;
+
+        data = { id: id, aptaDataViewSelection: aptaDataViewSelection };
+
+        var finsWindow = $("#popupWindowJobEdit").data("FINSWindow");
+
+        if (finsWindow == null) {
+            finsWindow =
+                FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowJobEdit")
+                    .SetContent({ type: "POST", url: "/QAAutom/Payroll/Payroll/RegisterJobEdit", data: data })
+        .SetIsModal(true)
+        .SetIsResizable(true)
+        .SetWidth(770)
+        .SetHeight('50%')
+        .SetTitle("Job Edit")
+        .SetonClose(onCloseJobEditPopup)
+        .SetonDeactivate(function () { destroyACMultipleAllocationWindows("PRItemDetails"); destroyACMultipleAllocationWindows("PROTItemDetails"); })
+        .SetClearWindowOnClose(true)
+        .SetUnRegisterShortCutKeysOnClose(true);
+            finsWindow.CreateWindow(true);
+        }
+        else {
+
+            finsWindow.SetTitle("Job Edit").UpdateContent({ url: "/QAAutom/Payroll/Payroll/RegisterJobEdit", data: data, type: "POST" });
+            finsWindow.OpenWindow();
+        }
+        RegisterScreenShortCutKeys("PayrolRegisterJobEditDataView", "PayrolRegisterJobEditDataView", null);
+
+    }
+
+    $("#btnEdit__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+        var dv = $("#divPayrollJobsAddendaDataView").data("AptaDataView");
+        if (!dv.ValidateDataViewGridSelection(true, "Selection", "Please select one or more records for this operation.")) {
+            return;
+        }
+
+        EditPayrollRegisterJobFinsWindow("", dv.GetAptaDataViewSelection());
+
+    });
+
+    $("#btnAppliedDeduction__PayrollManagementDataView").click(function () {
+
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        window.location.href = "/QAAutom/Payroll/Payroll/AppliedDeduction" + "?PayrollRegisterId=0";
+    });
+
+    $("#btnAdd__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollJobsAddendaDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var data;
+        if (!$("#divPayrollJobsAddendaDataView").data("AptaDataView").OnlyOneItemSelected()) {
+            data = { id: "0~0" };
+        }
+        else {
+            data = { id: '0' + "~" + selectedRowIds.split('~')[1] };
+        }
+        var finsWindow = $("#popupWindowJobAdd").data("FINSWindow");
+
+        if (finsWindow == null) {
+            finsWindow =
+                FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowJobAdd")
+                    .SetContent({ type: "POST", url: "/QAAutom/Payroll/Payroll/RegisterJob", data: data })
+        .SetIsModal(true)
+        .SetIsResizable(true)
+        .SetWidth(770)
+        .SetHeight('90%')
+        .SetTitle("Add Job To Register")
+        .SetonClose(onCloseJobEditPopup)
+        .SetonDeactivate(function () { destroyACMultipleAllocationWindows("PRItemDetails"); destroyACMultipleAllocationWindows("PROTItemDetails"); destroyACMultipleAllocationWindows("PayrollAddJob"); })
+        .SetClearWindowOnClose(true)
+        .SetUnRegisterShortCutKeysOnClose(true);
+            finsWindow.CreateWindow(true);
+        }
+        else {
+            finsWindow.SetTitle('Add Job To Register').UpdateContent({ url: "/QAAutom/Payroll/Payroll/RegisterJob", data: data, type: "POST" });
+            finsWindow.OpenWindow();
+        }
+        RegisterScreenShortCutKeys("PayrolRegisterJobEditDataView", "PayrolRegisterJobEditDataView", null);
+    });
+
+    function SaveRegister() {
+
+        var PayrollPeriodId = $("#PayrollPeriodId").val();
+        var TransactionDate = $("#TransactionDate").val();
+        var PayDate = $("#PayDate").val();
+        var RegisterType = $("#RegisterType").val();
+
+        var validationMessage = '';
+
+        if (typeof PayrollPeriodId == 'undefined' || PayrollPeriodId == '')
+            validationMessage += 'Payroll Period is required.' + '&lt;br /&gt;';
+
+        if (typeof TransactionDate == 'undefined' || TransactionDate == '')
+            validationMessage += 'Transaction Date is required.' + '&lt;br /&gt;';
+
+        if (typeof PayDate == 'undefined' || PayDate == '')
+            validationMessage += 'Pay Date is required.' + '&lt;br /&gt;';
+
+        if (typeof RegisterType == 'undefined' || RegisterType == '')
+            validationMessage += 'Register Type is required.' + '&lt;br /&gt;';
+
+        if (validationMessage != '') {
+
+            ShowAjaxMessage(validationMessage, "error");
+            return;
+        }
+
+        var form = $("#FormPayrollRegister");
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            cache: false,
+            url: "/QAAutom/Payroll/Payroll/Save",
+            data: form.serialize(),
+            success: function (result) {
+                if (result.Success === true) {
+                    ShowAjaxMessage("", "");
+                    ShowAjaxMessage(result.Message, "success");
+                    if (result.NewRegister) {
+                        window.location.href = "/QAAutom/Payroll/Payroll/RegisterDetails" + "?id=" + result.PayrollRegisterId + "&amp;addMode=" + result.NewRegister;
+                    }
+                    else {
+                        window.location.href = "/QAAutom/Payroll/Payroll/RegisterDetails" + "?id=" + result.PayrollRegisterId;
+                    }
+                }
+                else {
+                    ShowAjaxMessage("", "");
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
+    function btnSave__PayrollRegister() {
+
+        var useSupplementalTaxRateOld = $("#UseSupplementalTaxRateOld").val();
+        var useSupplementalTaxRate = $("#UseSupplementalTaxRate").is(':checked');
+        if (useSupplementalTaxRate) {
+            if (useSupplementalTaxRate.toString().toUpperCase() !== useSupplementalTaxRateOld.toUpperCase()) {
+                ShowYesNoCancelDialog("Confirm", "You have chosen this register to use the Supplemental Tax Rate for Federal and State Withholding Tax (if applicable). This will charge tax at the Supplemental rate, and not at the rate of the employees’ deduction sets.&amp;#160; Are you sure you wish to continue this register with the Supplemental Tax Rate?"
+                    , function () {
+                        SaveRegister();
+                    }
+                    , function () {
+                        $("#UseSupplementalTaxRate").prop('checked', false);
+                        SaveRegister();
+                    });
+            }
+            else {
+                SaveRegister();
+            }
+        }
+        else {
+            SaveRegister();
+        }
+    }
+
+    function PayrollCycleChange() {
+        //ajax call with period id to get transaction data(period end date) and pay date(from periodpaydate field)
+
+        var pcid = $("#PayrollCycleList").val();
+
+        if (pcid == "") {
+            pcid = -1;
+        }
+
+        var data = {
+            PayrollCycleId: pcid
+        };
+
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/GetPayrollPeriodsByPayrollCycle',
+            cache: false,
+            data: data,
+            dataType: 'JSON',
+            success: function (result) {
+                //debugger;
+                if (result != null) {
+                    var dropdownlist = $("#PayrollPeriodId").data("kendoDropDownList");
+                    dropdownlist.setDataSource(result);
+                    dropdownlist.refresh();
+                }
+            }
+        });
+    }
+
+    function PeriodChange() {
+        //ajax call with period id to get transaction data(period end date) and pay date(from periodpaydate field)
+        var data = {
+            PayrollPeriodId: $("#PayrollPeriodId").val()
+        };
+
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/GetDataByPeriodId',
+            cache: false,
+            data: data,
+            dataType: 'JSON',
+            success: function (result) {
+
+                if (result != null) {
+                    //debugger;
+                    //TransactionDate
+                    if (result.TransactionDate != null &amp;&amp; result.TransactionDate != '')
+                        $("#TransactionDate").data("kendoDatePicker").value(result.TransactionDate);
+                    //PayDate
+                    if (result.PayDate != null &amp;&amp; result.PayDate != '')
+                        $("#PayDate").data("kendoDatePicker").value(result.PayDate);
+
+                }
+            }
+        });
+    }
+
+    var payrollRegisterId = "0";
+    if (payrollRegisterId &gt; 0) {
+        var registerStatus = "";
+        if (registerStatus != "" &amp;&amp; registerStatus != "New") {
+            $('#RegisterType').disable();
+            $('#PayrollPeriodId').disable();
+            $('#RegisterNumber').disable();
+            $('#RegisterDescription').disable();
+            $('#PayDate').disable();
+            $('#TransactionDate').disable();
+
+        }
+
+        if (!(registerStatus == "Paid" || registerStatus == "Void" || registerStatus == "New")) {
+            $('#btnSave__PayrollRegister').hide();
+        }
+
+        if (registerStatus == "Paid" || registerStatus == "Void") {
+            $("#PayInCycle").disable();
+        }
+    }
+
+    $(document).ready(function () {
+
+        if ($("#ShowIncludeExcludeDeductionDialog").val() == 'True') {
+            ShowIncludeExcludeDeductions();
+            $("#ShowIncludeExcludeDeductionDialog").val('False');
+        }
+
+        if ('0' &lt;= 0) {
+            var dropdownlist = $("#PayInCycle").data("kendoDropDownList");
+            dropdownlist.select(1);
+        }
+        if ('0' &gt; 0) {
+            $("#PayrollPeriodId").data("kendoDropDownList").readonly();
+            $("#PayrollPeriodId").data("kendoDropDownList").wrapper.attr("tabindex", -1);
+        }
+        else {
+            $("#PayrollPeriodId").data("kendoDropDownList").readonly(false);
+        }
+        if ('' != null &amp;&amp; '' != '')
+            $("#TransactionDate").data("kendoDatePicker").value('');
+
+        if ('' != null &amp;&amp; '' != '')
+            $("#PayDate").data("kendoDatePicker").value('');
+
+    });
+
+    function ShowIncludeExcludeDeductions() {
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupIncludeExcludeDeductions")
+                            .SetContent({ url: "/QAAutom/Payroll/Payroll/IncludeExcludeDeductions?" + "PayrollRegisterId=0" })
+                            .SetIsModal(true)
+                            .SetTitle("Deduction Selector")
+                            .SetIsResizable(false)
+                            .SetonRefresh(function (e) { setFocusToFirstEditCtrl("popupIncludeExcludeDeductions", false); })
+                            .SetWidth(530)
+                            .SetHeight(485);
+
+        finsWindow.CreateWindow(true);
+    }
+
+    $("#btnIncludeExcludeDeductions__PayrollManagementDataView").click(function () {
+        ShowIncludeExcludeDeductions();
+    });
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Monday, November 6, 2017 8:43 AM
+                    <br />
+                    AptaFund Version: 2017.11.3.12439
+                    <br />
+                    Last Updated: 11/4/2017 12:03:16 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#11042017000316"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Payroll/Payroll/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('Detail' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-animation-container" style="width: 242px; height: 93px; display: none; box-sizing: content-box; overflow: hidden; position: absolute; top: 335.233px; z-index: 10002; left: 236.967px;"><div class="k-list-container k-popup k-group k-reset" id="PayrollCycleList-list" data-role="popup" style="position: absolute; font-size: 11px; font-family: &quot;Lucida Sans&quot;,&quot;Lucida Sans&quot;; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 15px; width: 236px; min-width: 236px; height: auto; display: none; transform: translateY(-93px);"><div class="k-list-optionlabel">All</div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller" style="height: auto;"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="PayrollCycleList_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">Monthly</li><li data-offset-index="1" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="c7ef7089-9985-4b37-9fe4-7ba1673eab66" aria-selected="true">Semi-Monthly</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">Weekly</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></div><div class="k-animation-container" style="width: 242px; height: 206px; display: none; box-sizing: content-box; overflow: hidden; position: absolute; top: 364.283px; z-index: 10002; left: 233.483px;"><div class="k-list-container k-popup k-group k-reset" id="PayrollPeriodId-list" data-role="popup" style="position: absolute; font-size: 11px; font-family: &quot;Lucida Sans&quot;,&quot;Lucida Sans&quot;; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 15px; width: 236px; min-width: 236px; height: 200px; display: none; transform: translateY(-206px);"><div class="k-list-optionlabel k-state-selected k-state-focused" id="a898656c-e18e-47a4-8c5e-90e4515b714d"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller" style="height: 178px;"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="PayrollPeriodId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">07/14/2017 (07/01/2017-07/11/2017)</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">07/31/2017 (07/12/2017-07/25/2017)</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">08/15/2017 (07/26/2017-08/10/2017)</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">08/31/2017 (08/11/2017-08/25/2017)</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">09/15/2017 (08/26/2017-09/11/2017)</li><li data-offset-index="5" class="k-item" unselectable="on" role="option" tabindex="-1">09/29/2017 (09/12/2017-09/25/2017)</li><li data-offset-index="6" class="k-item" unselectable="on" role="option" tabindex="-1">10/13/2017 (09/26/2017-10/09/2017)</li><li data-offset-index="7" class="k-item" unselectable="on" role="option" tabindex="-1">10/31/2017 (10/10/2017-10/25/2017)</li><li data-offset-index="8" class="k-item" unselectable="on" role="option" tabindex="-1">11/15/2017 (10/26/2017-11/09/2017)</li><li data-offset-index="9" class="k-item" unselectable="on" role="option" tabindex="-1">11/30/2017 (11/10/2017-11/24/2017)</li><li data-offset-index="10" class="k-item" unselectable="on" role="option" tabindex="-1">12/15/2017 (11/25/2017-12/11/2017)</li><li data-offset-index="11" class="k-item" unselectable="on" role="option" tabindex="-1">12/28/2017 (12/12/2017-12/31/2017)</li><li data-offset-index="12" class="k-item" unselectable="on" role="option" tabindex="-1">01/12/2018 (01/01/2018-01/10/2018)</li><li data-offset-index="13" class="k-item" unselectable="on" role="option" tabindex="-1">01/31/2018 (01/11/2018-01/25/2018)</li><li data-offset-index="14" class="k-item" unselectable="on" role="option" tabindex="-1">02/15/2018 (01/26/2018-02/09/2018)</li><li data-offset-index="15" class="k-item" unselectable="on" role="option" tabindex="-1">02/28/2018 (02/10/2018-02/23/2018)</li><li data-offset-index="16" class="k-item" unselectable="on" role="option" tabindex="-1">03/15/2018 (02/24/2018-03/09/2018)</li><li data-offset-index="17" class="k-item" unselectable="on" role="option" tabindex="-1">03/30/2018 (03/10/2018-03/26/2018)</li><li data-offset-index="18" class="k-item" unselectable="on" role="option" tabindex="-1">04/13/2018 (03/27/2018-04/09/2018)</li><li data-offset-index="19" class="k-item" unselectable="on" role="option" tabindex="-1">04/30/2018 (04/10/2018-04/25/2018)</li><li data-offset-index="20" class="k-item" unselectable="on" role="option" tabindex="-1">05/15/2018 (04/26/2018-05/10/2018)</li><li data-offset-index="21" class="k-item" unselectable="on" role="option" tabindex="-1">05/31/2018 (05/11/2018-05/25/2018)</li><li data-offset-index="22" class="k-item" unselectable="on" role="option" tabindex="-1">06/15/2018 (05/26/2018-06/11/2018)</li><li data-offset-index="23" class="k-item" unselectable="on" role="option" tabindex="-1">06/29/2018 (06/12/2018-06/30/2018)</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="TransactionDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div aria-hidden="true" class="k-calendar-container k-popup k-group k-reset" id="PayDate_dateview" data-role="popup" style="display: none; position: absolute;"></div><div class="k-list-container k-popup k-group k-reset" id="RegisterType-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel k-state-selected k-state-focused" id="c052f162-efee-4a2a-8c3e-66e28e75a851"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="RegisterType_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">Normal</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">Special</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="PayInCycle-list" data-role="popup" style="display: none; position: absolute;"><div class="k-list-optionlabel"> </div><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="PayInCycle_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused k-state-selected" unselectable="on" role="option" tabindex="-1" id="4dd1660c-a1ca-4187-a14c-c1aef76d749b" aria-selected="true">Current</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">Next</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="738"></canvas></html>

@@ -1,0 +1,32 @@
+<acceptance-test-run title="Add non variable deduction for percentage" name="AddNonVariableDeductionForPercentage" steps="8" successful="8" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="91941" timestamp="2017-06-16T09:04:39.892+05:00" session-id="69dd2984-e811-4d97-9744-5463d9ce4301">
+  <user-story id="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Deduction assignment test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Deduction assignment test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12324">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6485">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14184">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6390">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14134">
+    <description>Search new ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="174">
+    <description>Edit ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12231">
+    <description>Click on percentage</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="26012">
+    <description>Add percentage</description>
+  </test-step>
+</acceptance-test-run>

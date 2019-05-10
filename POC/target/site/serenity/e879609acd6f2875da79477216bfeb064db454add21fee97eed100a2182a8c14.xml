@@ -1,0 +1,26 @@
+<acceptance-test-run title="Verify add direct type vendor invoice" name="verifyAddDirectTypeVendorInvoice" steps="6" successful="6" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="118316" timestamp="2018-05-03T16:12:05.640+05:00" session-id="99374506-c8ac-47af-876b-842ae3954e23">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" name="Vendor invoice test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Vendor invoice test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="22681">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="37157">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12438">
+    <description>Navigate to purchase and payables</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3454">
+    <description>Navigate to vendor invoice</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="36469">
+    <description>Click on add button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6078">
+    <description>Click on save button</description>
+  </test-step>
+</acceptance-test-run>

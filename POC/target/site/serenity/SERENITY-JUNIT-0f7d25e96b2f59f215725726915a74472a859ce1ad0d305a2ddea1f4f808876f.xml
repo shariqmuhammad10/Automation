@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" skipped="0" tests="1" time="132.15" timestamp="2018-04-92 10:30:16"><testcase classname="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Verify add fixed amount deduction"/></testsuite>

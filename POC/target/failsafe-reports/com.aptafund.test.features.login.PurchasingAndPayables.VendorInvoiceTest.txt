@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 142.989 sec - in com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest

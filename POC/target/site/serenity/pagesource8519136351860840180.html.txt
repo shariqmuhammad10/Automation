@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Dashboard | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.3.1026.545/kendocss?v=9b3Pb8L0Sh843zHN4fSyt6LB87OXGtjN4-E-XTmlUUk1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=ZE9OeKGd1ptfm8cWXtxoL7HmDW-0N_hm1IiLYzsbrSI1" />
+
+    <script src="/Bundles/framework?v=Mh1woxRtbybvOSxP_SrOKPxJTxWtEti3TGb9AQLcLYw1"></script>
+
+    <script src="/Bundles/aptafundscript?v=itZE6sfVQHFsVPnsb7yuMDLlxVRDWSX5EtAi8l0O3II1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        var urlSubMenus = '/QAAutom/Home/SubMenus';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">admin@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(7, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="subMenu">    <div class="menudropdown" id="menudropdown0"><div><ul><li>My Reports</li><li class="grayColor">(Add favorites from the Reports screen)</li></ul><ul><li>User</li><li><a href="/QAAutom">My Dashboard</a></li><li><a href="/QAAutom/Administration/Security/Security/UserChangePassword">Change Password</a></li><li><a href="/QAAutom/Administration/Security/Security/SecurityQuestion">Security Question</a></li><li><a href="/QAAutom/My/MyJobQueue/Manage">My Job Queue</a></li></ul><ul><li>Help</li><li><a target="_blank" href="/WebHelp/AptaFund_Overview.htm">User Guide</a></li></ul></div><div><ul><li>Employee Self-Service</li><li><a href="/QAAutom/ESS/ESS/LeaveDetails">My Leave Balances</a></li><li><a href="/QAAutom/ESS/ESS/ManageLeaveRequests">My Leave Requests</a></li><li><a href="/QAAutom/ESS/ESS/ManagePaychecks">My Paychecks</a></li><li><a href="/QAAutom/ESS/ESS/ManageW2Forms">My W-2 Forms</a></li><li><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections">My W-2 Consent Elections</a></li><li><a href="/QAAutom/ESS/ESS/YTDTotals">My Year to Date Totals</a></li><li><a href="/QAAutom/ESS/ESS/ViewMyDocuments">My Documents</a></li></ul><ul><li>Purchasing</li><li><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget">My Budget Accounts</a></li><li><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR">My Purchase Requisitions</a></li></ul></div><div><ul><li>My Approvals</li><li><a href="/QAAutom/Purchasing/RequisitionApproval/Manage">My Purchase Requisition Approvals</a></li><li><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals">My Leave Request Approvals</a></li></ul><ul><li>Reports</li><li><a href="/QAAutom/Reports/DBReports/Select">Reports</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports">Exports</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown1"><div><ul><li>Budget</li><li><a href="/QAAutom/Budget/BudgetManagement/Manage">Budget Management</a></li><li><a href="/QAAutom/Budget/BudgetDevelopment/Details">Budget Development</a></li></ul></div><div><ul><li>General Ledger</li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal">General Ledger - Normal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation">General Ledger - Aggregation</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal">Actual - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal">Actual - Account Journal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal">Encumbrance - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal">Encumbrance - Account Journal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal">Budget - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal">Budget - Account Journal</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown2"><div><ul><li>Banking</li><li><a href="/QAAutom/Banking/BankingManagement/ManageBank">Bank Account Management</a></li><li><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts">Banking Cash Accounts</a></li><li><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister">Bank Account Register</a></li></ul></div><div><ul><li>Chart of Accounts</li><li><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage">Structure Maintenance</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage">Element Value Maintenance</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage">Accounting Cycle</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage">Chart of Accounts</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage">Account Mapping</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown3"><div><ul><li>Purchasing</li><li><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration">Purchasing Configuration</a></li><li><a href="/QAAutom/Purchasing/AdminRequisition/Manage">Purchase Requisition</a></li><li><a href="/QAAutom/Purchasing/PurchaseOrder/Manage">Purchase Order</a></li><li><a href="/QAAutom/Receiving/OrderReceipt/Manage">Order Receipt</a></li><li><a href="/QAAutom/Purchasing/AdminPOCopies/Manage">Manage PO Copies</a></li></ul></div><div><ul><li>Accounts Payable</li><li><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage">Vendor Invoice</a></li><li><a href="/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceDetailAllocation">Vendor Invoice Detail Allocation</a></li><li><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage">Payment Management</a></li></ul><ul><li>Vendor</li><li><a href="/QAAutom/Vendor/Vendor/Manage">Vendor Management</a></li><li><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage">Vendor 1099 Adjustment</a></li></ul></div><div><ul><li>Capital Assets</li><li><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage">Capital Assets Configuration</a></li><li><a href="/QAAutom/CapitalAssets/AssetManagement/Manage">Asset Management</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown4"><div><ul><li>Cash Receipts</li><li><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage">Cash Receipts Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage">Cash Receipts</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage">Cash Receipts Details</a></li></ul></div><div><ul><li>Accounts Receivable</li><li><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage">Accounts Receivable Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage">A/R Records</a></li><li><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage">Bill Schedules</a></li><li><a href="/QAAutom/AccountsReceivable/BillItems/Manage">Bill Items</a></li><li><a href="/QAAutom/AccountsReceivable/Category/Manage">Categories</a></li><li><a href="/QAAutom/AccountsReceivable/EventJobs/Manage">Event/Jobs</a></li><li><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage">Recurring Billing Items</a></li></ul></div><div><ul><li>Customers</li><li><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage">Customer Management</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown5"><div><ul><li>Human Resources</li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage">Human Resources Configuration</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search">Manage Employees</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs">Employee Jobs</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation">Employee Jobs Account Allocation</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search">Master Position Management</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage">Position Management</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage">Employee Contracts</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage">Civil Service</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage">Tenure Areas</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage">Position Classifications</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage">Appointment Types</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage">Appointment Categories</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage">Termination Reason</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage">State Termination Reason</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage">Bargaining Unit</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage">Evaluation Types</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage">Longevity Schedules</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage">Employee Certificates</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail">Employee Leave Detail</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail">Position Management Detail</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage">Salary Schedules</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage">Employee Assignments</a></li></ul></div><div><ul><li>Payroll</li><li><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration">Payroll Configuration</a></li><li><a href="/QAAutom/Payroll/PayrollDeduction/Manage">Manage Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage">Deduction Assignment</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions">Fixed Amount Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions">Percentage Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions">Direct Deposit Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployee/Manage">Employee Payroll Information</a></li><li><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs">Employee Payroll Jobs</a></li><li><a href="/QAAutom/Payroll/Payroll/Manage">Manage Payroll</a></li><li><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage">Manage Payroll Vouchers</a></li><li><a href="/QAAutom/Payroll/PayrollLiabilities/Manage">Payroll Liabilities</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage">Employee W-2 Information</a></li></ul></div><div><ul><li>Affordable Care Act</li><li><a href="/QAAutom/ACA/ACAConfiguration/Manage">Affordable Care Act Configuration</a></li><li><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage">Manage Employee Health Coverage</a></li><li><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage">Manage Dependent Health Coverage</a></li><li><a href="/QAAutom/ACA/ACA/ManageReportingPeriod">Manage Reporting Periods</a></li><li><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod">Manage Coverage Periods</a></li><li><a href="/QAAutom/Benefits/Benefits/ManageDependents">Manage Dependents</a></li><li><a href="/QAAutom/ACA/ACA/ManageACAExport">Manage Export</a></li></ul></div><div><ul><li>Employee Self-Service</li><li><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests">Leave Requests</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage">Employee Group Leave Details</a></li><li><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments">Manage Employee Documents</a></li><li><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory">Manage Document Categories</a></li><li><a href="/QAAutom/ESS/ESS/ManageScreenInstructions">Screen Instructions</a></li><li><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests">Approved Leave Requests</a></li><li><a href="/QAAutom/ESS/ESS/EmployeeDocumentAcknowledgements">Employee Document Acknowledgements</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown6"><div><ul><li>Security</li><li><a href="/QAAutom/Administration/Security/Security/Search">Manage Users</a></li><li><a href="/QAAutom/Administration/Security/Security/AllUsersSecurity">User Permissions</a></li><li><a href="/QAAutom/Administration/Security/Role/Search">Manage Security Templates</a></li><li><a href="/QAAutom/Administration/Configuration/AccountCodeSecurity/Manage">Account Code Security</a></li><li><a href="/QAAutom/Administration/Security/Security/UserAccountCodeManage">User Account Code Security</a></li><li><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage">Manage Requisitioners</a></li></ul><ul><li>Configuration</li><li><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage">System Configuration</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage">Accounting Cycle</a></li><li><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration">Purchasing Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage">Cash Receipts Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage">Accounts Receivable Configuration</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage">Human Resources Configuration</a></li><li><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration">Payroll Configuration</a></li><li><a href="/QAAutom/ACA/ACAConfiguration/Manage">Affordable Care Act Configuration</a></li><li><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage">Capital Assets Configuration</a></li><li><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage">Scheduled Jobs</a></li><li><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage">Manage Signatures</a></li><li><a href="/QAAutom/Administration/ManageLogos/Logos/Manage">Manage Logos</a></li><li><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index">Dashboard Custom Text</a></li><li><a href="/QAAutom/Administration/SysTags/SysTags/Manage">Manage System Tags</a></li></ul></div><div><ul><li>Fiscal Year End</li><li><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard">Rollover Dashboard</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export">Calendar Export</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export">Element Value Export</a></li></ul><ul><li>Approval Process</li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage">Approvers</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage">Approval Levels</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage">Approval Process</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary">Approval Processes - Summary</a></li></ul></div><div><ul><li>Importing</li><li><a href="/QAAutom/DataImport/DataImport/Manage">Data Import</a></li></ul></div></div>
+</div>
+
+<script>
+    loadSubMenus('3407a814-ebae-461d-a328-efe8b833c2d3');
+
+    $(document).click(function (event) {
+        documentMenuClickHandler(event, 7);
+    });
+</script>
+            </div>
+            <div id="menuhr"></div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+ <a href="/QAAutom">Home</a>                                 </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div id="actionbuttons">
+                                    <div style="visibility:visible">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+<div id="divMainDashboard">
+
+    <div></div>
+
+<script>
+</script>
+
+    <div class="aptaDashboardMainDiv" id="divAptaDashboard">
+        <table>
+            <tbody><tr>
+                    <td style="width:175px; vertical-align:top">
+                        <div class="aptaDashboardLeftDiv">
+                                                            <div>
+                                    <label for="Quick_Links" class="quickLinksLabel">Quick Links</label>
+                                    <div id="divMyQuickLinks">
+                                        <ul>
+                                            Employee Self-Service
+
+                                                                                            <li><span onclick="NavigateToNewLeaveRequest();" class="clsMyQuickLinks" id="lnk_navigatetonewleaverequest">New Leave Request</span></li>                                                                                            <li><span onclick="NavigateToMyPaychecks();" class="clsMyQuickLinks" id="lnk_navigatetomypaychecks">My Paychecks</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveRequests();" class="clsMyQuickLinks" id="lnk_navigatetomyleaverequests">My Leave Requests</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveBalances();" class="clsMyQuickLinks" id="lnk_navigatetomyleavebalances">My Leave Balances</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveApprovals();" class="clsMyQuickLinks" id="lnk_navigatetomyleaveapprovals">My Leave Approvals</span></li>                                                                                            <li><span onclick="NavigateToMyYTDTotals();" class="clsMyQuickLinks" id="lnk_navigatetomyyeartodatetotals">My Year to Date Totals</span></li>                                                                                            <li><span onclick="NavigateToMyDocuments();" class="clsMyQuickLinks" id="lnk_navigatetomydocuments">My Documents</span></li>                                                                                            <li><span onclick="NavigateToMyW2Forms();" class="clsMyQuickLinks" id="lnk_navigatetomyw2forms">My W-2 Forms</span></li>                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </td>                <td style="vertical-align:top">
+                            <div class="DashboardWidget" id="divPayCheck">
+                                <a href="/QAAutom/ESS/ESS/ManagePaychecks" class="DashBoardHeaderLink">My Paychecks</a> (most recent)
+                                <div data-role="AptaDataView" id="divDashboardPaycheckDataView">
+    <script>
+        $("#divDashboardPaycheckDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardPaycheckDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardPaycheckDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:125px" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Pay Date" data-index="0" data-field="PayDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=309%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PayDate-asc" class="k-link">Pay Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Check Number" data-index="1" data-field="CheckNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=309%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=CheckNumber-asc" class="k-link">Check Number</a></th><th style="text-align:right;" scope="col" data-title="Net Pay" data-index="2" data-field="NetPay" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=309%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=NetPay-asc" class="k-link">Net Pay</a></th><th style="text-align:left;" scope="col" data-title="Check Type" data-index="3" data-field="PaycheckType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=309%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PaycheckType-asc" class="k-link">Check Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:125px" class="k-sorted" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="ff9e991b-af1b-4027-aa5f-b1f5ab63d0ba" class="kendo-data-row" data-aptafund-kendogrid-rowid="30026"><td role="gridcell" class="" style="text-align:left;">12/27/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/30026">9909524</a></td><td role="gridcell" class="" style="text-align:right;"><div>$5,678.73</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="93ec4702-966a-4080-b1e3-3789668248ec" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="29368"><td role="gridcell" class="" style="text-align:left;">11/29/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/29368">9909175</a></td><td role="gridcell" class="" style="text-align:right;"><div>$5,643.53</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="021c528e-6f62-4047-8971-6a27fedc51eb" class="kendo-data-row" data-aptafund-kendogrid-rowid="26745"><td role="gridcell" class="" style="text-align:left;">10/30/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/26745">9908923</a></td><td role="gridcell" class="" style="text-align:right;"><div>$5,703.73</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr><tr role="row" data-uid="842a0b50-f992-47aa-a738-71ca9a38f27b" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="28686"><td role="gridcell" class="" style="text-align:left;">10/30/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/28686">1003166</a></td><td role="gridcell" class="" style="text-align:right;"><div>$500.28</div></td><td role="gridcell" class="" style="text-align:left;">Check</td><td role="gridcell"></td></tr><tr role="row" data-uid="c30c4f44-ae43-401c-9167-da591eae6a0f" class="kendo-data-row" data-aptafund-kendogrid-rowid="25929"><td role="gridcell" class="" style="text-align:left;">09/28/2017</td><td role="gridcell" class="" style="text-align:right;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/25929">9908575</a></td><td role="gridcell" class="" style="text-align:right;"><div>$5,703.73</div></td><td role="gridcell" class="" style="text-align:left;">Direct Deposit</td><td role="gridcell"></td></tr></tbody></table></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardPaycheckDataView").kendoGrid({"dataBound":$('#divDashboardPaycheckDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Pay Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayDate","data-title":"Pay Date"},"width":"125px","field":"PayDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Check Number","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"CheckNumber","data-title":"Check Number"},"width":"125px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/#=Id#\"\u003e${ CheckNumber }\u003c/a\u003e","field":"CheckNumber","filterable":false,"encoded":true},{"title":"Net Pay","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"NetPay","data-title":"Net Pay"},"width":"115px","template":"\u003cdiv \u003e#= kendo.toString(NetPay, \"C\") #\u003c/div\u003e","field":"NetPay","format":"{0:C}","filterable":false,"encoded":true},{"title":"Check Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckType","data-title":"Check Type"},"width":"143px","field":"PaycheckType","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView\u0026parentFilter=309~365","data":$('#divDashboardPaycheckDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardPaycheckDataView\u0026parentFilter=309~365"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardPaycheckDataView\u0026parentFilter=309~365"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardPaycheckDataView\u0026parentFilter=309~365"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"PayDate","dir":"desc"}],"filter":[],"error":$('#divDashboardPaycheckDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"PaycheckId":{"editable":false,"type":"number"},"EmployeeId":{"editable":false,"type":"number"},"PayDate":{"editable":false,"type":"date"},"CheckNumber":{"editable":false,"type":"number"},"NetPay":{"editable":false,"type":"number"},"PaycheckType":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardPaycheckDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardPaycheckDataView" value="true" />
+
+<div id="dvGridSettings__DashboardPaycheckDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardPaycheckDataView">
+</div>
+
+
+<script>
+
+    GetDataView('DashboardPaycheckDataView')
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+        .SetPageNumber('1')
+        .SetSelectedItems('');
+
+    $(document).ready(function () {
+        GetDataView('DashboardPaycheckDataView').InitializeControls();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveRequest">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="DashBoardHeaderLink">My Leave Requests</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveRequestDataView">
+    <script>
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveRequestDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveRequestDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20309&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveStartDate-asc" class="k-link">Start Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Leave Type" data-index="1" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20309&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th style="text-align:right;" scope="col" data-title="Total" data-index="2" data-field="LeaveTotal" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20309&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTotal-asc" class="k-link">Total</a></th><th style="text-align:right;;display:none" scope="col" data-title="ID" data-index="3" data-field="RequestId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20309&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=RequestId-asc" class="k-link">ID</a></th><th style="text-align:left;" scope="col" data-title="Approval Status" data-index="4" data-field="ApprovalStatusDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20309&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=ApprovalStatusDescription-asc" class="k-link">Approval Status</a></th><th scope="col" data-index="5" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="1ee97f4c-fadc-4703-9d8a-1ef0c2b1382f" class="kendo-data-row" data-aptafund-kendogrid-rowid="8265"><td role="gridcell" class="" style="text-align:left;">09/15/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=8265">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">8265</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="290a4f1c-3558-4ae7-ba4d-08cfb307da3b" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7875"><td role="gridcell" class="" style="text-align:left;">08/31/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7875">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7875</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="11c7b8c3-715b-4dfb-a880-e87c0abcb52b" class="kendo-data-row" data-aptafund-kendogrid-rowid="7639"><td role="gridcell" class="" style="text-align:left;">06/19/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7639">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7639</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="29c21bee-7ae2-42b8-884f-203fefded4fa" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7638"><td role="gridcell" class="" style="text-align:left;">06/15/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=7638">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">7638</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="a8712e53-cc0b-4a2b-9b1a-3441024f43c8" class="kendo-data-row" data-aptafund-kendogrid-rowid="6988"><td role="gridcell" class="" style="text-align:left;">04/28/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6988">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6988</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="aff0c213-b3b3-4402-aa15-ced6e751dd2a" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="6684"><td role="gridcell" class="" style="text-align:left;">03/30/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6684">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6684</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="9b36880c-e47e-44d6-9bfb-f2cae570bc54" class="kendo-data-row" data-aptafund-kendogrid-rowid="6592"><td role="gridcell" class="" style="text-align:left;">03/23/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6592">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">1.5000</td><td role="gridcell" class="" style="display:none;text-align:right;">6592</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="28c0edd8-c0d8-4066-8383-45678ce57464" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="6472"><td role="gridcell" class="" style="text-align:left;">03/13/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6472">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6472</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="77ce74d1-9647-47bf-86ca-e8cdeb3f625d" class="kendo-data-row" data-aptafund-kendogrid-rowid="6465"><td role="gridcell" class="" style="text-align:left;">02/22/2017</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=6465">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">6465</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="9025cd0b-480d-4ecd-bdc5-e619f7cc6e86" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4993"><td role="gridcell" class="" style="text-align:left;">12/27/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4993">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4993</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="166337b3-2471-4a19-a579-99ef662ad6d3" class="kendo-data-row" data-aptafund-kendogrid-rowid="4991"><td role="gridcell" class="" style="text-align:left;">12/23/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4991">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4991</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="592f15a7-d209-4b90-8e8a-ba5e6e15beef" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="5105"><td role="gridcell" class="" style="text-align:left;">12/01/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=5105">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">5105</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="d3284d21-b506-4140-b7d4-31251f93b8d0" class="kendo-data-row" data-aptafund-kendogrid-rowid="4391"><td role="gridcell" class="" style="text-align:left;">10/12/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4391">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">18.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4391</td><td role="gridcell" class="" style="text-align:left;">n/a</td><td role="gridcell"></td></tr><tr role="row" data-uid="9a7493a1-c494-4a35-8523-0090d555f3d7" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="4392"><td role="gridcell" class="" style="text-align:left;">10/12/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=4392">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">24.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">4392</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="eb51e533-0be6-4c88-8e8f-157d24a6f3c5" class="kendo-data-row" data-aptafund-kendogrid-rowid="3586"><td role="gridcell" class="" style="text-align:left;">09/01/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3586">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">3586</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="2a3850d6-c7db-4013-bbce-be18060a9300" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="3585"><td role="gridcell" class="" style="text-align:left;">08/31/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3585">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">3585</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="4b3cafe8-f58d-49fe-b15b-57c787a19b0f" class="kendo-data-row" data-aptafund-kendogrid-rowid="3584"><td role="gridcell" class="" style="text-align:left;">08/16/2016</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=3584">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">3.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">3584</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="c2fc5ae1-157d-4fcb-9025-0ada1b0a3113" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="1182"><td role="gridcell" class="" style="text-align:left;">12/28/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1182">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1182</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="6a726a3a-a4d9-4a16-8513-2a7c0822aa11" class="kendo-data-row" data-aptafund-kendogrid-rowid="1181"><td role="gridcell" class="" style="text-align:left;">12/24/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=1181">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">1181</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="b7b6b6d0-65aa-48b3-ad09-210f56a932ce" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="761"><td role="gridcell" class="" style="text-align:left;">11/23/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=761">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">761</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="2d7e7b42-35ce-4a6a-8992-7ebde4b96382" class="kendo-data-row" data-aptafund-kendogrid-rowid="760"><td role="gridcell" class="" style="text-align:left;">11/20/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=760">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">760</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="803fca56-25c9-4dcf-98d7-7f251ed53410" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="579"><td role="gridcell" class="" style="text-align:left;">10/20/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=579">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">579</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="2f911fb3-261f-4775-b91b-47936a56e45f" class="kendo-data-row" data-aptafund-kendogrid-rowid="578"><td role="gridcell" class="" style="text-align:left;">10/13/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=578">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">578</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="e059d653-78e0-4ad8-9bce-ca43cea0d905" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="577"><td role="gridcell" class="" style="text-align:left;">10/06/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=577">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">577</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="8db142a3-1b85-4923-8f41-3929d2823518" class="kendo-data-row" data-aptafund-kendogrid-rowid="332"><td role="gridcell" class="" style="text-align:left;">09/29/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=332">Professional Development</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">332</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="258bc3d3-dc72-4e78-8c15-b6d1cd95e9a9" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="333"><td role="gridcell" class="" style="text-align:left;">09/11/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=333">SICK/PERSONAL</a></td><td role="gridcell" class="" style="text-align:right;">4.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">333</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr><tr role="row" data-uid="7adffbeb-5673-4de7-96fc-02fcfef1c9b5" class="kendo-data-row" data-aptafund-kendogrid-rowid="17"><td role="gridcell" class="" style="text-align:left;">09/03/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=17">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">8.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">17</td><td role="gridcell" class="" style="text-align:left;">n/a</td><td role="gridcell"></td></tr><tr role="row" data-uid="d3705b5d-18db-4c25-8b22-050d76ae5ac0" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="18"><td role="gridcell" class="" style="text-align:left;">09/03/2015</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=18">Vacation Admin</a></td><td role="gridcell" class="" style="text-align:right;">16.0000</td><td role="gridcell" class="" style="display:none;text-align:right;">18</td><td role="gridcell" class="" style="text-align:left;">Approved</td><td role="gridcell"></td></tr></tbody></table></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveRequestDataView").kendoGrid({"dataBound":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"175px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=#= RequestId#\"\u003e${ LeaveTypeName }\u003c/a\u003e","field":"LeaveTypeName","filterable":false,"encoded":true},{"title":"Total","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"LeaveTotal","data-title":"Total"},"width":"80px","field":"LeaveTotal","format":"{0:0.0000}","filterable":false,"encoded":true},{"title":"ID","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestId","data-title":"ID"},"hidden":true,"width":"50px","field":"RequestId","filterable":false,"encoded":true},{"title":"Approval Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovalStatusDescription","data-title":"Approval Status"},"width":"163px","field":"ApprovalStatusDescription","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20309","data":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20309"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20309"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20309"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"desc"}],"filter":[],"error":$('#divDashboardLeaveRequestDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"EmployeeId":{"type":"number"},"CycleId":{"type":"number"},"RequestId":{"editable":false,"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveTypeName":{"editable":false,"type":"string"},"LeaveTotal":{"type":"number"},"ApprovalStatusDescription":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveRequestDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveRequestDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveRequestDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveRequestDataView">
+</div>
+
+
+<script>
+
+    GetDataView('DashboardLeaveRequestDataView')
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+        .SetPageNumber('1')
+        .SetSelectedItems('');
+
+    $(document).ready(function () {
+        GetDataView('DashboardLeaveRequestDataView').InitializeControls();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveApproval">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="DashBoardHeaderLink">My Leave Approvals</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveApprovalDataView">
+    <script>
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveApprovalDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveApprovalDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:90px" /><col style="width:200px" /><col style="width:128px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveStartDate-desc" class="k-link">Start Date<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="End Date" data-index="1" data-field="LeaveEndDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveEndDate-asc" class="k-link">End Date</a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="2" data-field="DisplayName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=DisplayName-asc" class="k-link">Employee Name</a></th><th style="text-align:left;" scope="col" data-title="Leave Type" data-index="3" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57%7Efd86b554-4b57-4e9d-9dd4-9e96b4e7164a&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:90px" /><col style="width:200px" /><col style="width:128px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="297e940f-18e9-4e30-8ae9-8f2c8afe4a85" class="kendo-data-row" data-aptafund-kendogrid-rowid="c4248710-f08c-433d-98db-0354006a2420~9716~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/01/2018</td><td role="gridcell" class="" style="text-align:left;">01/04/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Jefferson, Anna Z</a></td><td role="gridcell" class="" style="text-align:left;">Vacation Yrs</td><td role="gridcell"></td></tr><tr role="row" data-uid="875de8df-33b3-4bfb-a2ba-fda2e2563816" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="e9d2513d-b0b7-48fa-9ecf-965fa83104a8~9722~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/01/2018</td><td role="gridcell" class="" style="text-align:left;">01/09/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Bradley, Ed Z</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="f49e2480-5459-4115-9f1c-efaf2c523dd7" class="kendo-data-row" data-aptafund-kendogrid-rowid="6b51c5ba-989e-4bba-9f6c-83a968f00e8e~9712~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/07/2018</td><td role="gridcell" class="" style="text-align:left;">01/07/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Evans, Karen Z</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="b92266d6-5f4d-423e-9f84-af001c9d6ae9" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="7008f1b6-9283-42ac-91bd-de364c23626e~9743~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/11/2018</td><td role="gridcell" class="" style="text-align:left;">01/11/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Clark, Flo Z</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="16238c67-696b-4ffe-a352-0b119eb86f7b" class="kendo-data-row" data-aptafund-kendogrid-rowid="993db3aa-08a2-4f4a-9afc-16e557a1be39~9763~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/11/2018</td><td role="gridcell" class="" style="text-align:left;">01/11/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Crabtree, Debbie Z</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="b294f2a4-a11e-4776-99ca-585d50e9ec5b" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="f39bc1c9-f474-4472-a370-7536b04df14e~9721~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/17/2018</td><td role="gridcell" class="" style="text-align:left;">01/17/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Watkins, Esther Z</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="e556b88e-e6ba-4363-8201-554f1180112e" class="kendo-data-row" data-aptafund-kendogrid-rowid="954ea365-4965-4d01-a9d0-6b5a41b7c4da~9715~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">01/30/2018</td><td role="gridcell" class="" style="text-align:left;">02/01/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Evans, Karen Z</a></td><td role="gridcell" class="" style="text-align:left;">School Business</td><td role="gridcell"></td></tr><tr role="row" data-uid="1d34447d-fd0b-4d12-8627-3b0c28c3eb4f" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="38cc5939-24b6-4a69-bbce-d38b2d6dcb31~9656~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">04/01/2018</td><td role="gridcell" class="" style="text-align:left;">04/05/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Wagner, Mel S</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr><tr role="row" data-uid="14fcbfeb-aa5b-46c6-b4d1-83ccaa83192c" class="kendo-data-row" data-aptafund-kendogrid-rowid="f67b33dd-471e-4be9-9f4e-f72de32ac782~9706~d80393d1-cb1a-40b2-8795-10ae28db360e~00000000-0000-0000-0000-000000000000"><td role="gridcell" class="" style="text-align:left;">04/12/2018</td><td role="gridcell" class="" style="text-align:left;">04/15/2018</td><td role="gridcell" class="" style="text-align:left;"><a href="https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals">Delker, Tad O</a></td><td role="gridcell" class="" style="text-align:left;">SICK/PERSONAL</td><td role="gridcell"></td></tr></tbody></table></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveApprovalDataView").kendoGrid({"dataBound":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"End Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveEndDate","data-title":"End Date"},"width":"90px","field":"LeaveEndDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Employee Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DisplayName","data-title":"Employee Name"},"width":"200px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals\"\u003e${ DisplayName }\u003c/a\u003e","field":"DisplayName","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"128px","field":"LeaveTypeName","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView\u0026parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a","data":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveApprovalDataView\u0026parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveApprovalDataView\u0026parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveApprovalDataView\u0026parentFilter=d80393d1-cb1a-40b2-8795-10ae28db360e~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C5da3580d-c536-47e1-9c60-c422a3e4d2a5~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C6ba914b8-383a-42d8-b612-c7e79b166f18~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cebda0d1a-dfed-495e-a5c8-def4b65d25fd~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C17837333-b737-4592-ae63-89c45433b0c1~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C7c7e52dc-9d22-47e1-968a-052f7c68dcc7~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C3f104af8-9d9e-4a18-b3d5-920236db8bbc~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2Cb518cbf6-a509-4c03-b44c-304ca8df67b8~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a%2C8d3cbe9a-3363-4e8c-9b79-2b7ec4403f57~fd86b554-4b57-4e9d-9dd4-9e96b4e7164a"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"asc"}],"filter":[],"error":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"RequestId":{"editable":false,"type":"number"},"EmployeeId":{"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveEndDate":{"type":"date"},"DisplayName":{"editable":false,"type":"string"},"LeaveTypeName":{"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveApprovalDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveApprovalDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveApprovalDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveApprovalDataView">
+</div>
+
+
+<script>
+
+    GetDataView('DashboardLeaveApprovalDataView')
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+        .SetPageNumber('1')
+        .SetSelectedItems('');
+
+    $(document).ready(function () {
+        GetDataView('DashboardLeaveApprovalDataView').InitializeControls();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="MyPRPanel">
+                                <a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="DashBoardHeaderLink">My Purchase Requisition Approvals</a>
+                                <div data-role="AptaDataView" id="divDashboardPRApprovalsDataView">
+    <script>
+        $("#divDashboardPRApprovalsDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardPRApprovalsDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"CycleId":5,"BaseParam":null})
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardPRApprovalsDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:100px" /><col style="width:200px" /><col style="width:100px" /><col style="width:200px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:right;" scope="col" data-title="Request No" data-index="0" data-field="RequestNo" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPRApprovalsDataView&amp;gridKey=DashboardPRApprovalsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardPRApprovalsDataView-sort=RequestNo-desc" class="k-link">Request No<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Requisitioner" data-index="1" data-field="Requisitioner" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPRApprovalsDataView&amp;gridKey=DashboardPRApprovalsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardPRApprovalsDataView-sort=Requisitioner-asc" class="k-link">Requisitioner</a></th><th style="text-align:right;" scope="col" data-title="Total Estimate" data-index="2" data-field="TotalEstimate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPRApprovalsDataView&amp;gridKey=DashboardPRApprovalsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardPRApprovalsDataView-sort=TotalEstimate-asc" class="k-link">Total Estimate</a></th><th style="text-align:left;" scope="col" data-title="Suggested Vendor" data-index="3" data-field="SuggestedVendor" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPRApprovalsDataView&amp;gridKey=DashboardPRApprovalsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardPRApprovalsDataView-sort=SuggestedVendor-asc" class="k-link">Suggested Vendor</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:100px" class="k-sorted" /><col style="width:200px" /><col style="width:100px" /><col style="width:200px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 600px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardPRApprovalsDataView").kendoGrid({"dataBound":$('#divDashboardPRApprovalsDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Request No","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestNo","data-title":"Request No"},"width":"100px","template":"\u003cspan id=\u0027lnk_EditPurchaseRequisition_#= Id#\u0027 style=\u0027color: blue; text-decoration: underline; cursor: pointer;\u0027 onclick=\"EditPurchaseRequisitionPopup(\u0027#= Id#\u0027);\"\u003e${ RequestNo }\u003c/span\u003e","field":"RequestNo","filterable":false,"encoded":true},{"title":"Requisitioner","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Requisitioner","data-title":"Requisitioner"},"width":"200px","field":"Requisitioner","filterable":false,"encoded":true},{"title":"Total Estimate","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"TotalEstimate","data-title":"Total Estimate"},"width":"100px","field":"TotalEstimate","format":"{0:C}","filterable":false,"encoded":true},{"title":"Suggested Vendor","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"SuggestedVendor","data-title":"Suggested Vendor"},"width":"200px","field":"SuggestedVendor","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardPRApprovalsDataView","data":$('#divDashboardPRApprovalsDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardPRApprovalsDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardPRApprovalsDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardPRApprovalsDataView"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"RequestNo","dir":"asc"}],"filter":[],"error":$('#divDashboardPRApprovalsDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"RequestNo":{"editable":false,"type":"number"},"Requisitioner":{"editable":false,"type":"string"},"TotalEstimate":{"editable":false,"type":"number","defaultValue":null},"PRStatus":{"editable":false,"type":"string"},"SuggestedVendor":{"editable":false,"type":"string"},"ApproveAs":{"editable":false,"type":"string"},"RequiresAttentionOf":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardPRApprovalsDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardPRApprovalsDataView" value="true" />
+
+<div id="dvGridSettings__DashboardPRApprovalsDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardPRApprovalsDataView">
+</div>
+
+
+<script>
+
+    GetDataView('DashboardPRApprovalsDataView')
+        .SetFilterColumns('KChSZXF1aXJlc0F0dGVudGlvbk9mID0gIltBbGwgbm9uLWJhY2t1cCBhcHByb3ZlcnNdIiB8fCBSZXF1aXJlc0F0dGVudGlvbk9mID0gIiIgICkp')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+        .SetPageNumber('1')
+        .SetSelectedItems('');
+
+    $(document).ready(function () {
+        GetDataView('DashboardPRApprovalsDataView').InitializeControls();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="MyDocumentAcknowledgments">
+                                <a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="DashBoardHeaderLink"> My Documents</a> (acknowledgements required)
+                                <div data-role="AptaDataView" id="divDashboardESSMyDocumentAcknowledgementsDataView">
+    <script>
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardESSMyDocumentAcknowledgementsDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"CycleId":5,"BaseParam":null})
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardESSMyDocumentAcknowledgementsDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:200px" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Document Name" data-index="0" data-field="DocumentName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DocumentName-desc" class="k-link">Document Name<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="1" data-field="EmployeeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=EmployeeName-asc" class="k-link">Employee Name</a></th><th style="text-align:left;" scope="col" data-title="Due Date" data-index="2" data-field="DueDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DueDate-asc" class="k-link">Due Date</a></th><th style="text-align:left;" scope="col" data-title="Actions" data-index="3" data-field="Actions" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;3791967e-01f1-4397-9f5b-793db905833a=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=Actions-asc" class="k-link">Actions</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:200px" class="k-sorted" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardESSMyDocumentAcknowledgementsDataView").kendoGrid({"dataBound":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Document Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DocumentName","data-title":"Document Name"},"width":"200px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/ViewEmployeeDocument/#= Id#\"\u003e${ DocumentName }\u003c/a\u003e","field":"DocumentName","filterable":false,"encoded":true},{"title":"Employee Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"EmployeeName","data-title":"Employee Name"},"width":"140px","field":"EmployeeName","filterable":false,"encoded":true},{"title":"Due Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DueDate","data-title":"Due Date"},"width":"90px","field":"DueDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Actions","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Actions","data-title":"Actions"},"width":"80px","template":"\u003ca href=\"javascript:acknowledgeDocumentFinsWindow(#= Id#)\"\u003e \u003cimg src=\"../../Content/Images/status_ready_48.png\" style=\"width:20px;height:20px;border:0;\" alt=\"Acknowledge\" tooltiptitle=\"Acknowledge\" class=\"tooltipgridcolumn\"\u003e\u003c/a\u003e","field":"Actions","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView","data":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardESSMyDocumentAcknowledgementsDataView"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"DocumentName","dir":"asc"}],"filter":[],"error":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"DocumentName":{"editable":false,"type":"string"},"EmployeeName":{"editable":false,"type":"string"},"DueDate":{"editable":false,"type":"date"},"Actions":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardESSMyDocumentAcknowledgementsDataView" value="true" />
+
+<div id="dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+
+<script>
+
+    GetDataView('DashboardESSMyDocumentAcknowledgementsDataView')
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+        .SetPageNumber('1')
+        .SetSelectedItems('');
+
+    $(document).ready(function () {
+        GetDataView('DashboardESSMyDocumentAcknowledgementsDataView').InitializeControls();
+    });
+</script></div>
+
+
+                            </div>
+                </td>
+            </tr>
+        </tbody></table>
+            <div style="clear: both;"></div>
+            <a class="k-button" id="btnConfigure__Index">Configure</a>
+    </div>
+</div>
+
+<script>
+
+    function NavigateToMyPaycheckDetail(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/PaycheckDetails" + "?id=" + Id);
+    }
+
+    function NavigateToNewLeaveRequest() {
+        NavigateTo("/QAAutom/ESS/ESS/CreateLeaveRequest" + "?EmployeeId=" + "309");
+    }
+
+    function NavigateToMyPaychecks() {
+        NavigateTo("/QAAutom/ESS/ESS/ManagePaychecks");
+    }
+
+    function NavigateToMyLeaveRequest(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/EditLeaveRequest" + "?selectedRecord=" + Id);
+    }
+
+    function NavigateToMyLeaveRequests() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveRequests");
+    }
+
+    function NavigateToMyLeaveBalances() {
+        NavigateTo("/QAAutom/ESS/ESS/LeaveDetails");
+    }
+
+    function NavigateToMyLeaveApprovals() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveApprovals");
+    }
+
+    function NavigateToMyYTDTotals() {
+        NavigateTo("/QAAutom/ESS/ESS/YTDTotals");
+    }
+
+    function NavigateToMyDocuments() {
+        NavigateTo("/QAAutom/ESS/ESS/ViewMyDocuments");
+    }
+
+    function NavigateToMyW2Forms() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageW2Forms");
+    }
+
+    function NavigateToNewDatabase() {
+        $('#defaultDatabaseName').click();
+	}
+
+	function EditPurchaseRequisitionPopup(id)
+	{
+		 var data, options;
+		 var aptaDataViewSelection = $("#divDashboardPRApprovalsDataView").data("AptaDataView").GetAptaDataViewSelection();
+        data = { Id: id, origin: 3, aptaDataViewSelection: aptaDataViewSelection, statusType: 3 };
+        options = { url: "/QAAutom/Purchasing/RequisitionApproval/EditMyRequisitionPopup", data: data, type: "POST" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowRequisition")
+       .SetIsModal(true)
+	   .SetContent(options)
+	   .SetonClose(function () { $("#divDashboardPRApprovalsDataView").data("AptaDataView").Refresh();})
+       .SetTitle('Edit Purchase Requisition')
+       .SetWidth(900)
+       .SetHeight("90%")
+        finsWindow.CreateWindow(true);
+	}
+
+    $('#btnConfigure__Index').click(function (e) {
+        e.preventDefault();
+        showConfigurePopup();
+    });
+
+    function showConfigurePopup() {
+
+		var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowConfigure")
+        .SetContent({ url: "/Home/ConfigureHomeScreen?enableGrids=" + 'True' + '~' + 'True' + '~' + 'True' + '~' + 'False' + '~' + 'True' + '~' + 'True'+ '~' + 'True'})
+        .SetWidth('40%')
+        .SetHeight('40%')
+        .SetIsModal(true)
+        .SetTitle('Configure')
+        finsWindow.CreateWindow(true);
+       }
+
+    function acknowledgeDocumentFinsWindow(Id) {        
+        var data = { id: Id };
+        var options = { url: "/ESS/AcknowledgeEmployeeDocument", data: data, type: "POST" };
+        var presenter = new AptaFund.ESS.AcknowledgeDocumentDetailPresenter();
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowAcknowledgeDocument")
+            .SetTitle('Acknowledge Document')
+            .SetContent(options)
+            .SetWidth('40%')
+            .SetHeight('60%')
+            .SetonClose(function () {
+                $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").Refresh();
+            })            
+        finsWindow.SetPresenter(presenter);
+        finsWindow.CreateWindow(true);
+    }
+
+    $(document).ready(function () {
+        var documentId = '';
+        if (documentId !== null &amp;&amp; documentId != '') {
+            var canAcknowlege='';
+            if (canAcknowlege == 'True') {
+                acknowledgeDocumentFinsWindow(documentId);              
+            }
+            else {
+                ShowAjaxMessage('You are not authorized to acknowledge this document or document does not exist.', "Error");
+            }
+        }
+    });   
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2018 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Thursday, April 19, 2018 7:08 AM
+                    <br />
+                    AptaFund Version: 2018.4.17.12996
+                    <br />
+                    Last Updated: 4/18/2018 12:03:02 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#04182018000302"></script>
+    <script type="text/javascript">
+        $(document).click(function (event) {
+            documentMoreButtonClickHandler(event);
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/Home/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="1184"></canvas></html>

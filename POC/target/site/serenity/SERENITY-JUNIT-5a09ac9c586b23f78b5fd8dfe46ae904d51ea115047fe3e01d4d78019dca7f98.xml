@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="com.aptafund.test.features.login.Reports.ReportsTest" skipped="0" tests="1" time="53.31" timestamp="2018-03-64 08:29:47"><testcase classname="com.aptafund.test.features.login.Reports.ReportsTest" name="Create account activity by warrant"><error message="Element is not clickable at point (260.6999969482422, 555.7666625976562). Other element would receive the click: &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;&#10;Command duration or timeout: 61 milliseconds&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]&#10;Session ID: e92e7bab-7c5f-4a4a-8190-f5f4764bb34e" type="org.openqa.selenium.WebDriverException">Element is not clickable at point (260.6999969482422, 555.7666625976562). Other element would receive the click: &lt;div id="footer"&gt;&lt;/div&gt;
+Command duration or timeout: 61 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: e92e7bab-7c5f-4a4a-8190-f5f4764bb34e</error><system-err>Element is not clickable at point (260.6999969482422, 555.7666625976562). Other element would receive the click: &lt;div id="footer"&gt;&lt;/div&gt;
+Command duration or timeout: 61 milliseconds
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: e92e7bab-7c5f-4a4a-8190-f5f4764bb34e&#13;
+com.aptafund.test.pages.Reports.ReportsPage.clickOnReportToXLS(ReportsPage.java:108)&#13;
+com.aptafund.test.steps.MyAptaFund.ReportSteps.createAccountActivityByWarrantReport(ReportSteps.java:54)&#13;
+com.aptafund.test.features.login.Reports.ReportsTest.createAccountActivityByWarrant(ReportsTest.java:148)&#13;
+</system-err></testcase></testsuite>

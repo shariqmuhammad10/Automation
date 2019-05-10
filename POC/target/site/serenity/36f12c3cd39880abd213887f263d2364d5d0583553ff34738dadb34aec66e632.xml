@@ -1,0 +1,35 @@
+<acceptance-test-run title="Create purchase order inquiry" name="createPurchaseOrderInquiry" steps="5" successful="4" failures="1" skipped="0" ignored="0" pending="0" annotated-result="FAILURE" result="FAILURE" duration="89080" timestamp="2018-03-08T16:09:39.128+05:00" session-id="409d4751-df1d-4625-9da2-26bf71c34609">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="10540">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7564">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5251">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7386">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="FAILURE" duration="58297">
+    <screenshots>
+      <screenshot image="5a8ba35ed052c802f6acc57af373a37f.png" source="pagesource5732160290433019573.html.txt"/>
+    </screenshots>
+    <description>Create purchase order inquiry report</description>
+    <error>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException:Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.Reports.ReportsPage.compareOutputMessage(ReportsPage.java:128), com.aptafund.test.steps.MyAptaFund.ReportSteps.createPurchaseOrderInquiryReport(ReportSteps.java:103), com.aptafund.test.features.login.Reports.ReportsTest.createPurchaseOrderInquiry(ReportsTest.java:250)]</exception>
+  </test-step>
+</acceptance-test-run>

@@ -1,0 +1,23 @@
+<acceptance-test-run title="Verify navigate to purchase requisition" name="verifyNavigateToPurchaseRequisition" steps="5" successful="5" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="46859" timestamp="2018-02-27T16:31:53.460+05:00" session-id="6be99548-76dd-407c-a4d2-be3b21d7571d">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12787">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10884">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5363">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7360">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10418">
+    <description>Create report</description>
+  </test-step>
+</acceptance-test-run>

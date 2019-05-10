@@ -1,0 +1,35 @@
+<acceptance-test-run title="Delete employee salary job" name="deleteEmployeeSalaryJob" steps="9" successful="9" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="156820" timestamp="2018-01-22T15:16:37.590+05:00" session-id="356c79e9-9f4d-48e9-a088-1c1137853113">
+  <user-story id="com.aptafund.test.features.login.HumanResource.EmployeeJobsTest" name="Employee jobs test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Employee jobs test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="9639">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7405">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11209">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8819">
+    <description>Navigate to employee jobs</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="80670">
+    <description>Add new employee job</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8096">
+    <description>Verify salary</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="231">
+    <description>Click on cancel button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20277">
+    <description>Click sort job status</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10429">
+    <description>Click delete button</description>
+  </test-step>
+</acceptance-test-run>

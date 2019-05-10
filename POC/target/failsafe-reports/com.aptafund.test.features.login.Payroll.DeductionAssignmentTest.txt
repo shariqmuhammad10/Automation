@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.Payroll.DeductionAssignmentTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 656.243 sec - in com.aptafund.test.features.login.Payroll.DeductionAssignmentTest

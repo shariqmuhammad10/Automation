@@ -1,0 +1,55 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.HumanResource.EmployeeJobsTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 514.964 sec <<< FAILURE! - in com.aptafund.test.features.login.HumanResource.EmployeeJobsTest
+verifyEditEmployeeSalaryJob(com.aptafund.test.features.login.HumanResource.EmployeeJobsTest)  Time elapsed: 140.952 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@7fd8c559
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.getCycleSalary(EmployeeJobsPage.java:139)
+	at com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.verifySalary(EmployeeJobsSteps.java:76)
+	at com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.verifyEditEmployeeSalaryJob(EmployeeJobsTest.java:75)
+
+verifyAddEmployeeSalaryJob(com.aptafund.test.features.login.HumanResource.EmployeeJobsTest)  Time elapsed: 141.991 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@10c72a6f
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.getCycleSalary(EmployeeJobsPage.java:139)
+	at com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.verifySalary(EmployeeJobsSteps.java:76)
+	at com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.verifyAddEmployeeSalaryJob(EmployeeJobsTest.java:53)
+
+deleteEmployeeSalaryJob(com.aptafund.test.features.login.HumanResource.EmployeeJobsTest)  Time elapsed: 138.131 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@403c3a01
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.getCycleSalary(EmployeeJobsPage.java:139)
+	at com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.verifySalary(EmployeeJobsSteps.java:76)
+	at com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.deleteEmployeeSalaryJob(EmployeeJobsTest.java:94)
+

@@ -1,0 +1,10 @@
+<acceptance-test-run title="Verify login page is appearing" name="verifyLoginPageIsAppearing" steps="1" successful="1" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="12708" timestamp="2017-07-07T11:34:40.185+05:00" session-id="e35d38b6-4917-4137-8f02-fddf82465cbf">
+  <user-story id="com.aptafund.test.features.login.commonTest.AptaLoginTest" name="Apta login test" path="com.aptafund.test.features.login.commonTest"/>
+  <tags>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Apta login test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12707">
+    <description>Navigate to login page</description>
+  </test-step>
+</acceptance-test-run>

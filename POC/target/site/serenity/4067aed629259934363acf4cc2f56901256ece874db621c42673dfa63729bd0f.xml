@@ -1,0 +1,94 @@
+<acceptance-test-run title="Withdraw my purchase requisition using dollar PR type" name="withdrawMyPurchaseRequisitionUsingDollarPRType" steps="23" successful="17" failures="0" errors="1" skipped="5" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="207978" timestamp="2018-03-20T22:55:47.556+05:00" session-id="a58a7eec-4f9b-49fb-a1c6-c91d1467e3c3">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="39065">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9775">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5216">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13952">
+    <description>Navigate to purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11296">
+    <description>Add purchase requisiton</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="18383">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6276">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6050">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45330">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8677">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3177">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5921">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="137">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1252">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6355">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10321">
+    <description>Submit PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11039">
+    <description>Confirm submit</description>
+  </test-step>
+  <test-step result="ERROR" duration="5684">
+    <screenshots>
+      <screenshot image="18c439a0384be56e698ac39fdc06725e.png" source="pagesource7394314132559669946.html.txt"/>
+    </screenshots>
+    <description>Close PR pop up</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (952.0166625976562, 569.5999755859375). Other element would receive the click: &lt;div class=&quot;k-loading-image&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 78 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: a58a7eec-4f9b-49fb-a1c6-c91d1467e3c3</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (952.0166625976562, 569.5999755859375). Other element would receive the click: &lt;div class=&quot;k-loading-image&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 78 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: a58a7eec-4f9b-49fb-a1c6-c91d1467e3c3&#xd;
+[com.aptafund.test.pages.PurchasingAndPayables.PurchaseRequisitionPage.closePurchaseReqPopup(PurchaseRequisitionPage.java:385), com.aptafund.test.steps.PurchasingAndPayables.PurchaseRequisitionSteps.closePRPopUp(PurchaseRequisitionSteps.java:235), com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest.withdrawMyPurchaseRequisitionUsingDollarPRType(PurchaseRequisitionTest.java:581)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search new records only</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Sort request no</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Apply check for search</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Withdraw purchase requisition</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Withdraw PR confirm message</description>
+  </test-step>
+</acceptance-test-run>

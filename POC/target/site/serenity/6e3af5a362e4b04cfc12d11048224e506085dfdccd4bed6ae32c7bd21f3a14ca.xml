@@ -1,0 +1,35 @@
+<acceptance-test-run title="Delete non variable deduction for percentage" name="deleteNonVariableDeductionForPercentage" steps="9" successful="9" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="130382" timestamp="2018-04-19T16:46:54.577+05:00" session-id="5ae39b84-43a6-48dc-951e-b91b99d328f1">
+  <user-story id="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Deduction assignment test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Deduction assignment test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13369">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="22734">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20190">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9886">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14067">
+    <description>Search new ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="238">
+    <description>Edit ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11936">
+    <description>Click on percentage</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="26910">
+    <description>Add percentage to delete</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11013">
+    <description>Delete percetage</description>
+  </test-step>
+</acceptance-test-run>

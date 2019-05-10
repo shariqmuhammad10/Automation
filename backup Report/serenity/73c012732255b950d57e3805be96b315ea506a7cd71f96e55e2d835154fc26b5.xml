@@ -1,0 +1,53 @@
+<acceptance-test-run title="Verify edit direct type vendor invoice" name="verifyEditDirectTypeVendorInvoice" steps="11" successful="7" failures="1" skipped="3" ignored="0" pending="0" annotated-result="FAILURE" result="FAILURE" duration="91044" timestamp="2017-06-16T09:29:40.639+05:00" session-id="d4391145-bc45-4cf0-b878-b5c5262968f6">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" name="Vendor invoice test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Vendor invoice test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="10747">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6043">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9169">
+    <description>Navigate to purchase and payables</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2455">
+    <description>Navigate to vendor invoice</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="26340">
+    <description>Click on add button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5189">
+    <description>Click on save button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="317">
+    <description>Click on return to invoice</description>
+  </test-step>
+  <test-step result="FAILURE" duration="30705">
+    <screenshots>
+      <screenshot image="6053a924362a1cf39e935a95ff011319.png" source="pagesource5575691153389477176.html.txt"/>
+    </screenshots>
+    <description>Search vendor invoice</description>
+    <error>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException:Expected enabled element was not enabled
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.PurchasingAndPayables.VendorInvoicePage.clickAndSearchVendorInvoice(VendorInvoicePage.java:105), com.aptafund.test.steps.PurchasingAndPayables.VendorInvoiceSteps.searchVendorInvoice(VendorInvoiceSteps.java:53), com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest.verifyEditDirectTypeVendorInvoice(VendorInvoiceTest.java:77)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Provide invoice comments</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click on save button</description>
+  </test-step>
+</acceptance-test-run>

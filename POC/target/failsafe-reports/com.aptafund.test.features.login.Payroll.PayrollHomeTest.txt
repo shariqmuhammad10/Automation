@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.Payroll.PayrollHomeTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.107 sec - in com.aptafund.test.features.login.Payroll.PayrollHomeTest

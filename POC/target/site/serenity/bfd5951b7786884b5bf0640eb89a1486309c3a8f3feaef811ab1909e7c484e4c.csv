@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Employee jobs test","Delete employee salary job","ERROR","2017-07-07T11:41:20.558+05:00","0.0","138.13"
+"Employee jobs test","Verify add employee hourly job","SUCCESS","2017-07-07T11:39:47.824+05:00","0.0","92.48"
+"Employee jobs test","Verify add employee salary job","ERROR","2017-07-07T11:37:25.518+05:00","0.0","141.99"
+"Employee jobs test","Verify edit employee salary job","ERROR","2017-07-07T11:35:04.197+05:00","0.0","140.95"

@@ -1,0 +1,50 @@
+<acceptance-test-run title="Verify disable fixed amount deduction" name="verifyDisableFixedAmountDeduction" steps="8" successful="6" failures="0" errors="1" skipped="1" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="139949" timestamp="2017-06-16T09:12:49.989+05:00" session-id="c49486be-618e-4f67-9af5-56dbfccd791d">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level-1" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="9735">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7322">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14180">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7333">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="62870">
+    <description>Add manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="29162">
+    <description>Search deduction set</description>
+  </test-step>
+  <test-step result="ERROR" duration="9292">
+    <screenshots>
+      <screenshot image="f54667b25c5a2db45fa071de4abd9ee5.png" source="pagesource7624932128570173180.html.txt"/>
+    </screenshots>
+    <description>Search deduction set to disable</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: &lt;div style=&quot;display: block; z-index: 10004; opacity: 0.5;&quot; class=&quot;k-overlay&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 62 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c49486be-618e-4f67-9af5-56dbfccd791d</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (135.1999969482422, 203.88333129882812). Other element would receive the click: &lt;div style=&quot;display: block; z-index: 10004; opacity: 0.5;&quot; class=&quot;k-overlay&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 62 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: c49486be-618e-4f67-9af5-56dbfccd791d&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.clickOnSearchBox(ManageDeductionsPage.java:331), com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.searchDeductionSetToDisable(ManageDeductionSteps.java:76), com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyDisableFixedAmountDeduction(ManageDeductionTest.java:94)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Disable deduction assignment</description>
+  </test-step>
+</acceptance-test-run>

@@ -1,0 +1,49 @@
+<acceptance-test-run title="Verify edit employee salary job" name="verifyEditEmployeeSalaryJob" steps="7" successful="5" failures="0" errors="1" skipped="1" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="140794" timestamp="2017-06-16T08:49:59.631+05:00" session-id="3322f19a-304d-4e63-bc27-616881418f76">
+  <user-story id="com.aptafund.test.features.login.HumanResource.EmployeeJobsTest" name="Employee jobs test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Employee jobs test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12569">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6640">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14189">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8935">
+    <description>Navigate to employee jobs</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="64617">
+    <description>Add new employee job</description>
+  </test-step>
+  <test-step result="ERROR" duration="33830">
+    <screenshots>
+      <screenshot image="92c86382a3c179843e9c41e43b0949a7.png" source="pagesource100663168396460492.html.txt"/>
+    </screenshots>
+    <description>Verify salary</description>
+    <error>org.openqa.selenium.NoSuchElementException: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@53ed09e8
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.NoSuchElementException:Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@53ed09e8
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.getCycleSalary(EmployeeJobsPage.java:139), com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.verifySalary(EmployeeJobsSteps.java:76), com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.verifyEditEmployeeSalaryJob(EmployeeJobsTest.java:75)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Edit comments</description>
+  </test-step>
+</acceptance-test-run>

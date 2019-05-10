@@ -1,0 +1,20 @@
+<acceptance-test-run title="View purchase requisition" name="viewPurchaseRequisition" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="35116" timestamp="2018-04-04T17:04:31.946+05:00" session-id="827828c5-fe5b-4602-b1d5-32e59a693c3a">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13286">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7051">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5220">
+    <description>Navigate to admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9526">
+    <description>Navigate to purchase requisition for admin</description>
+  </test-step>
+</acceptance-test-run>

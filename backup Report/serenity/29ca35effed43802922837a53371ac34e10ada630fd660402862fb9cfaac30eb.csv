@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Manage payroll test","Verify add job to register","ERROR","2017-06-16T09:16:40.636+05:00","0.0","140.05"
+"Manage payroll test","Verify navigate to deduction assignment","SUCCESS","2017-06-16T09:19:00.936+05:00","0.0","33.0"
+"Manage payroll test","Verify navigate to manage deductions","SUCCESS","2017-06-16T09:19:34.186+05:00","0.0","34.41"
+"Manage payroll test","Verify navigate to manage payroll","IGNORED","2017-06-16T09:20:08.601+05:00","0.0","0.0"
+"Manage payroll test","Verify remove job to register","SUCCESS","2017-06-16T09:20:08.820+05:00","0.0","180.74"
+"Manage payroll test","Verify submit and print special payroll register","IGNORED","2017-06-16T09:23:09.557+05:00","0.0","0.0"
+"Manage payroll test","Void register","SUCCESS","2017-06-16T09:23:09.862+05:00","0.0","291.78"

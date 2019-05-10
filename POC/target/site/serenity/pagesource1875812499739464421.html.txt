@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>Manage Payroll | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=LrMp0XoRkEzCnExVkhaV6jlrIiUDCAB5N6vOsWlAFnA1" />
+
+    <script src="/Bundles/framework?v=LOYyWRAT2S9Td7Ei8vUCgV5KqeFmwSM2Odk7pRyDAmQ1"></script>
+
+    <script src="/Bundles/aptafundscript?v=tmtl56_oNe1kD6aMnVWRlmapl9DmPFz7MfCpfDJFmP01"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body style="height: 609px;" class="k-state-border-down">
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap" style="min-height: 642px; height: 642px;">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification" data-role="notification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame" style="min-height: 546px; height: 546px;">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=FYE%20Employee%20Job%20Allocation%20Export" class="menulink">FYE Employee Job Allocation Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=FYE%20Employee%20Job%20Export" class="menulink">FYE Employee Job Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Header%20Export" class="menulink">FYE Purchase Order Header Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Item%20Allocation%20Export" class="menulink">FYE Purchase Order Item Allocation Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20Item%20Export" class="menulink">FYE Purchase Order Item Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Purchasing&amp;Report=FYE%20Purchase%20Order%20ShipTax%20Export" class="menulink">FYE Purchase Order ShipTax Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Payroll -&gt; Manage Payroll
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="grid_action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+    <a accesskey="a" href="#" id="btnAdd__PayrollManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/add.gif" class="grid-action-icon" />Add</a>
+    <a accesskey="e" href="#" id="btnEdit__PayrollManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/modify.gif" class="grid-action-icon" />Edit</a>
+    <a accesskey="d" href="#" id="btnDelete__PayrollManagementDataView" class="k-button"><img border="0" src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Delete</a>
+    <a onclick="showSpinner();" href="#" id="btnSubmitRegister__PayrollManagementDataView" class="k-button">Submit Register</a>
+    <a href="#" id="btnUndoSubmitRegister__PayrollManagementDataView" class="k-button">Undo Submit Register</a>
+    <a href="#" id="btnApproveRegister__PayrollManagementDataView" class="k-button">Approve Register</a>
+    <a class="k-button" href="#" id="btnMoreButtons"><img border="0" alt="" src="/Content/Images/MoreIndicator.png" style="vertical-align: middle; padding-right:5px;" />More</a>
+    <div style="display:none;" id="dvMoreButtons">
+        <ul class="MoreButtonsList">
+
+            <li><a href="#" id="btnVoidRegister__PayrollManagementDataView" class="k-button">Void Register</a></li>
+            <li><a href="#" id="btnDisplayExceptions__PayrollManagementDataView" class="k-button">Display Exceptions</a></li>
+            <li><a href="#" id="btnLeaveDetails__PayrollManagementDataView" class="k-button">Leave Details</a></li>
+            <li><a href="#" id="btnLeaveTotal__PayrollManagementDataView" class="k-button">Leave Total</a></li>
+            <li><a href="#" id="btnPrintPayrollChecks__PayrollManagementDataView" class="k-button">Print Payroll Checks</a></li>
+        </ul>
+    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody" style="min-height: 338px; height: 338px;">
+
+                
+
+
+
+
+
+
+
+
+
+<div data-role="AptaDataView" id="divPayrollManagementDataView" style="min-height: 323px; height: 388px;">
+    <script>
+        $("#divPayrollManagementDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("PayrollManagementDataView")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(600, true)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 371px; min-height: 306px;" id="PayrollManagementDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PayrollManagementDataView"><input value="AutoReg-5247" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PayrollManagementDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PayrollManagementDataView" id="SearchText__PayrollManagementDataView" class="searchBox" data-role="tooltip" /><script>
+	kendo.syncReady(function(){jQuery("\#SearchText__PayrollManagementDataView").kendoTooltip({"showAfter":500,"content":"Quick Search :\u003cbr /\u003e Register\u003cbr /\u003ePayroll Period\u003cbr /\u003ePayroll Cycle\u003cbr /\u003eRegister Type\u003cbr /\u003eDescription\u003cbr /\u003eSubmitted By\u003cbr /\u003eApproved By"});});
+</script></div></div><div class="ElementFilterWrapper">
+            <div>
+                <div>
+                    <div onclick="javascript: pinnedfilter_displayPOPupView('PayrollCycleNamePayrollManagementDataView', 'PayrollManagementDataView');" class="GridFilterButtonView" id="prnt__PayrollCycleNamePayrollManagementDataView">
+                        <label id="lblHeading__PayrollCycleNamePayrollManagementDataView" style="display: inline-block;cursor:pointer;">Payroll Cycle : ALL</label>
+                        <div style="float: right">
+                            <span class="k-icon k-i-arrow-s"></span>
+                            <img src="/Content/Images/filtericons/pinned.gif" class="ToolBarIcon GridToolBarIcon" title="Unpin" id="prntPinned__18018" />
+                            <script>
+                                $("#prntPinned__18018").click(function (e) {
+                                    
+                                    pinnedfilter_togglepinned('18018', 'PayrollManagementDataView', 'prnt', '/QAAutom/GridConfig/PinUnpin', '/QAAutom/GridConfig/ApplyGridFilter', '')
+                                    
+                                    pinnedfilter_togglepinned('18018', 'PayrollManagementDataView', '', '', '', null)
+                                    e.stopPropagation();
+                                })
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                    <div style="position: absolute; z-index: 1; width: 41%; display: none;" class="divFilterColumn" id="divPayrollCycleNamePayrollManagementDataView">
+        <script>
+            jwerty.key('esc', function (e) {
+                e.preventDefault();
+                $("#btnCloseFilterPopup__PayrollCycleNamePayrollManagementDataView").click();
+            });
+        </script>
+        <form id="frmColumnData__PayrollCycleNamePayrollManagementDataView" novalidate="novalidate">
+            <input type="hidden" value="PayrollManagementDataView" name="DataViewKey" id="hdnDataViewKey__PayrollCycleNamePayrollManagementDataView" />
+            <input type="hidden" value="PayrollCycleName" name="ColumnName" id="hdnColumnName__PayrollCycleNamePayrollManagementDataView" />
+            <input type="hidden" value="Payroll Cycle" name="DisplayColumnName" id="hdnDisplayColumnName__PayrollCycleNamePayrollManagementDataView" />
+            <input type="hidden" value="18018" name="DataViewFieldId" id="hdnDataViewFieldId__PayrollCycleNamePayrollManagementDataView" data-val-number="The field DataViewFieldId must be a number." data-val="true" />
+            <input type="hidden" value="" name="hdnListValues__PayrollCycleNamePayrollManagementDataView" id="hdnListValues__PayrollCycleNamePayrollManagementDataView" />
+            <div style="padding-top:2px">
+                <div deselectable="on" class="k-widget k-multiselect k-header" style="width: 45em;" title=""><div deselectable="on" class="k-multiselect-wrap k-floatwrap"><ul class="k-reset" deselectable="on" role="listbox" id="ListValues__PayrollCycleNamePayrollManagementDataView_taglist"></ul><input style="width: 25px" class="k-input k-readonly" accesskey="" autocomplete="off" role="listbox" title="" aria-expanded="false" tabindex="0" aria-owns="ListValues__PayrollCycleNamePayrollManagementDataView_taglist ListValues__PayrollCycleNamePayrollManagementDataView_listbox" aria-disabled="false" aria-activedescendant="124ab30c-4716-452a-bb61-80aeea34f326" aria-busy="false" /><span title="clear" class="k-icon k-clear-value k-i-close k-hidden" deselectable="on" role="button" tabindex="-1"></span><span class="k-icon k-i-loading k-hidden"></span></div><select style="display: none; width: 45em;" name="ListValues__PayrollCycleNamePayrollManagementDataView" multiple="multiple" id="ListValues__PayrollCycleNamePayrollManagementDataView" data-role="multiselect" aria-disabled="false"><option value="6">Monthly</option><option value="5">Semi-Monthly</option></select><span style="font-family: MS Shell Dlg \32 ; font-size: 13.3333px; font-stretch: normal; font-style: normal; font-weight: 400; letter-spacing: normal; text-transform: none; line-height: 17.4667px; position: absolute; visibility: hidden; top: -3333px; left: -3333px;"></span></div><script>
+	kendo.syncReady(function(){jQuery("#ListValues__PayrollCycleNamePayrollManagementDataView").kendoMultiSelect({"dataSource":[{"Text":"Monthly","Value":"6","Selected":false},{"Text":"Semi-Monthly","Value":"5","Selected":false}],"dataTextField":"Text","dataValueField":"Value"});});
+</script>
+            </div>
+            <div style="height: 24px; padding-top: 10px;padding-bottom:2px;">
+                <div style="float:right">
+                    <a class="k-button" style="float: left; margin-left: 5px; " href="#" id="btnSaveFilterPopup__PayrollCycleNamePayrollManagementDataView"><img src="/Content/Images/icons/add.gif" class="grid-action-icon" />Save</a>
+                    <a class="k-button" style="float: left; margin-left: 5px;" href="#" id="btnClearFilterPopup__PayrollCycleNamePayrollManagementDataView"><img src="/Content/Images/icons/delete.gif" class="grid-action-icon" />Clear</a>
+                    <a class="k-button" style="float:left; margin-left:2px;" href="#" id="btnCloseFilterPopup__PayrollCycleNamePayrollManagementDataView">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $("#frmColumnData__PayrollCycleNamePayrollManagementDataView").submit(function (e) {
+            e.preventDefault();
+            $("#btnSaveFilterPopup__PayrollCycleNamePayrollManagementDataView").click();
+        });
+        $("#btnCloseFilterPopup__PayrollCycleNamePayrollManagementDataView").click(function (e) {
+            e.preventDefault();
+            MultiSelectCloseFilterPopup('PayrollCycleName', 'PayrollManagementDataView');
+        });
+
+        $("#btnClassClose__PayrollCycleNamePayrollManagementDataView").click(function () {
+            MultiSelectClassCloseFilter('PayrollCycleName', 'Payroll Cycle', 'PayrollManagementDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridMultiSelectColumnUpdate', 'False', 'System.String');
+        });
+
+        $("#btnClearFilterPopup__PayrollCycleNamePayrollManagementDataView").click(function (e) {
+            e.preventDefault();
+            MultiSelectClearFilterPopup('PayrollCycleName', 'Payroll Cycle', 'PayrollManagementDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridMultiSelectColumnUpdate', 'False', 'System.String');
+        });
+
+        $("#btnSaveFilterPopup__PayrollCycleNamePayrollManagementDataView").click(function (e) {
+            e.preventDefault();
+            MultiSelectSaveFilterPopup('PayrollCycleName', 'Payroll Cycle', 'PayrollManagementDataView', '', 'True' === 'True', '/QAAutom/GridConfig/GridMultiSelectColumnUpdate', 'False', 'System.String');
+        });
+
+        $(document).ready(function () {
+            MultiSelectDocumentReady('PayrollCycleName', 'PayrollManagementDataView', '')
+        });
+
+        $(document).mouseup(function (e) {
+            FilterMouseUp(e, 'PayrollCycleName', 'PayrollManagementDataView', '')
+        });
+    </script>
+
+            </div>
+</div>
+<script>
+    $(document).ready(function () {
+        pinnedfilter_init('PayrollManagementDataView');
+    });
+</script><div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PayrollManagementDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PayrollManagementDataView" style="display:inline-block;" class="GridFilteredText">Filtered</span><div class="GridFilterWrapper"><a id="SearchSettings__PayrollManagementDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PayrollManagementDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PayrollManagementDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PayrollManagementDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PayrollManagementDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PayrollManagementDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><script type="text/javascript">
+
+    var GridSettingGuid = '';
+    var displayButton;
+    var isGridFiltered;
+
+    function ReturnFromPopup__PayrollManagementDataView(e) {
+        var dataViewSettings = {
+            GridHeight: '600',
+            AdjustGridHeightOnResize: 'True',
+            VerticallyScrollable: 'True',
+            IsGridEditable: 'false'
+        };
+
+        var urls = {
+            ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+            ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+            ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+            GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+            GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+            DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+            SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+            RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+            Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+        };
+
+        var msgs = {
+            Success: "Record saved successfully.",
+            Delete: "Record deleted successfully.",
+            ConfirmDelete: "Confirm Delete",
+            DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+        };
+
+        UserGridSettingsMenuReturn('/Content/Images/filtericons/Gear.png', e, 'PayrollManagementDataView', urls.GetNamedGridSettings, dataViewSettings, urls.Apply,
+                                    function (e) {
+                                        UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollManagementDataView', dataViewSettings, urls, msgs)
+                                    });
+    }
+
+    $(document).ready(function () {
+        UpdataNamedGridSettingsMenu('/Content/Images/filtericons/Gear.png', 'PayrollManagementDataView', '/QAAutom/GridConfig/GetNamedGridSettings',
+            function (e) {
+                UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollManagementDataView',
+                {
+                    GridHeight: '600',
+                    AdjustGridHeightOnResize: 'True',
+                    IsGridEditable: 'false'
+                },
+                {
+                    ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+                    ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+                    ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+                    GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+                    GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+                    DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+                    SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+                    RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+                    Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+                },
+                {
+                    Success: "Record saved successfully.",
+                    Delete: "Record deleted successfully.",
+                    ConfirmDelete: "Confirm Delete",
+                    DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+                })
+            });
+    });
+
+    function LoadPageSetup__PayrollManagementDataView() {
+        UserGridSettingsMenuLoadPageSetup('PayrollManagementDataView', '', '/QAAutom/GridConfig/GetUserGridPageSetupView');
+    }
+</script>
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PayrollManagementDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PayrollManagementDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="true" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="publicSetting__PayrollManagementDataView button" id="656b48d0-16e8-4b54-bf25-9a35cd618acb">Private: Reg Status App</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="publicSetting__PayrollManagementDataView button" id="072bea59-fd14-48da-83f8-1f416c382c2c" style="border-bottom: 2px solid; display: inherit;">Private: Register Status New</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollManagementDataView button" id="Reset__PayrollManagementDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollManagementDataView button" id="SaveAs__PayrollManagementDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PayrollManagementDataView button" id="PageSetup__PayrollManagementDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    <script>
+	kendo.syncReady(function(){jQuery("#usergridsettingsWindow__PayrollManagementDataView").kendoWindow({"close":ReturnFromPopup__PayrollManagementDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Save Grid Settings","resizable":false,"width":570,"height":380,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#pagesetupWindow__PayrollManagementDataView").kendoWindow({"refresh":LoadPageSetup__PayrollManagementDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Report Settings","resizable":false,"width":500,"height":350,"actions":["Close"]});});
+</script>
+
+<script type="text/kendo-ui" id="menu-template__PayrollManagementDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PayrollManagementDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PayrollManagementDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PayrollManagementDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PayrollManagementDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PayrollManagementDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PayrollManagementDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PayrollManagementDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PayrollManagementDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:35px" /><col style="width:120px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:120px" /><col style="width:180px" /><col style="width:120px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:120px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__PayrollManagementDataView" /></th><th style="text-align:left;;display:none" scope="col" data-title="Id" data-index="1" data-field="Id" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=Id-asc" class="k-link">Id</a></th><th style="text-align:left;" scope="col" data-title="Register Status" data-index="2" data-field="RegisterStatus" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=RegisterStatus-asc" class="k-link">Register Status</a></th><th style="text-align:left;;display:none" scope="col" data-title="PayrollRegisterId" data-index="3" data-field="PayrollRegisterId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=PayrollRegisterId-asc" class="k-link">PayrollRegisterId</a></th><th style="text-align:left;" scope="col" data-title="Register" data-index="4" data-field="RegisterNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=RegisterNumber-asc" class="k-link">Register</a></th><th style="text-align:left;" scope="col" data-title="Payroll Period" data-index="5" data-field="PayrollPeriodName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=PayrollPeriodName-asc" class="k-link">Payroll Period</a></th><th style="text-align:left;" scope="col" data-title="Pay Date" data-index="6" data-field="PayDate" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=PayDate-desc" class="k-link">Pay Date<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Transaction Date" data-index="7" data-field="TransactionDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=TransactionDate-asc" class="k-link">Transaction Date</a></th><th style="text-align:right;" scope="col" data-title="Gross Amount" data-index="8" data-field="GrossAmount" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=GrossAmount-asc" class="k-link">Gross Amount</a></th><th style="text-align:left;" scope="col" data-title="Payroll Cycle" data-index="9" data-field="PayrollCycleName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=PayrollCycleName-asc" class="k-link">Payroll Cycle</a></th><th style="text-align:left;" scope="col" data-title="Register Type" data-index="10" data-field="RegisterType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=RegisterType-asc" class="k-link">Register Type</a></th><th style="text-align:left;" scope="col" data-title="Description" data-index="11" data-field="RegisterDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=RegisterDescription-asc" class="k-link">Description</a></th><th style="text-align:left;" scope="col" data-title="Approved By" data-index="12" data-field="ApprovingUserName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=ApprovingUserName-asc" class="k-link">Approved By</a></th><th style="text-align:left;" scope="col" data-title="Submitted Date" data-index="13" data-field="SubmitDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=SubmitDate-asc" class="k-link">Submitted Date</a></th><th style="text-align:left;" scope="col" data-title="Approved Date" data-index="14" data-field="ApprovedDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=ApprovedDate-asc" class="k-link">Approved Date</a></th><th style="text-align:left;" scope="col" data-title="Payable Days" data-index="15" data-field="PayableDays" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView&amp;parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206&amp;gridKey=PayrollManagementDataView&amp;gridHeight=600&amp;filter=&amp;AdjustGridHeightOnResize=True&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollManagementDataView-sort=PayableDays-asc" class="k-link">Payable Days</a></th><th scope="col" data-index="16" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 234px; min-height: 160px;" class="k-grid-content"><table role="grid" data-aptafund-kendogrid-selected="353"><colgroup><col style="width:35px" /><col style="width:120px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:120px" /><col style="width:180px" class="k-sorted" /><col style="width:120px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:180px" /><col style="width:120px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="3fd60fbc-e3fb-4927-ba63-0dc2f5a6554f" class="kendo-data-row k-state-selected" data-aptafund-kendogrid-rowid="353"><td role="gridcell"><input type="checkbox" class="check_row__PayrollManagementDataView" checked="checked" /></td><td role="gridcell" style="display:none;text-align:left;">353</td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="display:none;text-align:left;">353</td><td role="gridcell" style="text-align:left;"><a href="RegisterDetails/353">AutoReg-5247</a></td><td role="gridcell" style="text-align:left;">08/15/2017</td><td role="gridcell" style="text-align:left;">08/15/2017</td><td role="gridcell" style="text-align:left;">08/15/2017</td><td role="gridcell" style="text-align:right;">$0.00</td><td role="gridcell" style="text-align:left;">Semi-Monthly</td><td role="gridcell" style="text-align:left;">Special</td><td role="gridcell" style="text-align:left;">This is Auto generated Special Register using Automated scripts</td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="text-align:left;"></td><td role="gridcell" style="text-align:left;">12</td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li></ul><a title="Go to the next page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="6c15cfe6-86c2-4858-bfdc-644a1f0ec072"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 1 of 1 items</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#PayrollManagementDataView").kendoGrid({"dataBound":$('#divPayrollManagementDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__PayrollManagementDataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"Id","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Id","data-title":"Id"},"hidden":true,"width":"75px","field":"Id","filterable":false,"encoded":true},{"title":"Register Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RegisterStatus","data-title":"Register Status"},"width":"120px","field":"RegisterStatus","filterable":false,"encoded":true},{"title":"PayrollRegisterId","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayrollRegisterId","data-title":"PayrollRegisterId"},"hidden":true,"width":"75px","field":"PayrollRegisterId","filterable":false,"encoded":true},{"title":"Register","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RegisterNumber","data-title":"Register"},"width":"180px","template":"\u003ca href=\u0027RegisterDetails/#= Id#\u0027\u003e${ RegisterNumber }\u003c/a\u003e","field":"RegisterNumber","filterable":false,"encoded":true},{"title":"Payroll Period","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayrollPeriodName","data-title":"Payroll Period"},"width":"180px","field":"PayrollPeriodName","filterable":false,"encoded":true},{"title":"Pay Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayDate","data-title":"Pay Date"},"width":"180px","field":"PayDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Transaction Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"TransactionDate","data-title":"Transaction Date"},"width":"120px","field":"TransactionDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Gross Amount","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"GrossAmount","data-title":"Gross Amount"},"width":"180px","field":"GrossAmount","format":"{0:C}","filterable":false,"encoded":true},{"title":"Payroll Cycle","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayrollCycleName","data-title":"Payroll Cycle"},"width":"120px","field":"PayrollCycleName","filterable":false,"encoded":true},{"title":"Register Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RegisterType","data-title":"Register Type"},"width":"180px","field":"RegisterType","filterable":false,"encoded":true},{"title":"Description","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"RegisterDescription","data-title":"Description"},"width":"180px","field":"RegisterDescription","filterable":false,"encoded":true},{"title":"Approved By","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovingUserName","data-title":"Approved By"},"width":"180px","field":"ApprovingUserName","filterable":false,"encoded":true},{"title":"Submitted Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"SubmitDate","data-title":"Submitted Date"},"width":"180px","field":"SubmitDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Approved Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovedDate","data-title":"Approved Date"},"width":"180px","field":"ApprovedDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Payable Days","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayableDays","data-title":"Payable Days"},"width":"120px","field":"PayableDays","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"toolbar":{},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=PayrollManagementDataView\u0026parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206","data":$('#divPayrollManagementDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=PayrollManagementDataView\u0026parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=PayrollManagementDataView\u0026parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=PayrollManagementDataView\u0026parentFilter=PayrollCycleId%20%3D%205%20or%20PayrollCycleId%20%3D%206"}},"pageSize":25,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"PayDate","dir":"asc"}],"filter":[],"error":$('#divPayrollManagementDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"Id":{"editable":false,"type":"string"},"RegisterStatus":{"editable":false,"type":"string"},"PayrollRegisterId":{"editable":false,"type":"string"},"RegisterNumber":{"editable":false,"type":"string"},"PayrollCycleId":{"editable":false,"type":"string"},"PayrollPeriodName":{"editable":false,"type":"string"},"PayDate":{"editable":false,"type":"date"},"TransactionDate":{"editable":false,"type":"date"},"GrossAmount":{"editable":false,"type":"number"},"PayrollCycleName":{"editable":false,"type":"string"},"RegisterType":{"editable":false,"type":"string"},"RegisterDescription":{"editable":false,"type":"string"},"SubmittingUserName":{"editable":false,"type":"string"},"ApprovingUserName":{"editable":false,"type":"string"},"SubmitDate":{"editable":false,"type":"date"},"ApprovedDate":{"editable":false,"type":"date"},"PayableDays":{"editable":false,"type":"string"},"PayrollPeriodId":{"editable":false,"type":"string"},"PayInCycle":{"editable":false,"type":"string"},"UseSupplementalTaxRate":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PayrollManagementDataView" value="true" />
+<input type="hidden" class="noheight" id="hdnScrollable_PayrollManagementDataView" value="true" />
+
+<div id="dvGridSettings__PayrollManagementDataView">
+</div>
+
+<div id="dvGridSearchSettings__PayrollManagementDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__PayrollManagementDataView">1</span> <a href="#" id="UnselectAll__PayrollManagementDataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divPayrollManagementDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__PayrollManagementDataView() {
+        if ($("#dvGridSettings__PayrollManagementDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollManagementDataView', GridHeight: '600', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__PayrollManagementDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__PayrollManagementDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__PayrollManagementDataView() {
+        if ($("#dvGridSearchSettings__PayrollManagementDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollManagementDataView', GridHeight: '600', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__PayrollManagementDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__PayrollManagementDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__PayrollManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollManagementDataView();
+        $("#settingsWindow__PayrollManagementDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__PayrollManagementDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'PayrollManagementDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__PayrollManagementDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__PayrollManagementDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__PayrollManagementDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__PayrollManagementDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollManagementDataView();
+        $('#tbFilterName__PayrollManagementDataView').val("");
+        $("#searchSettings__PayrollManagementDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__PayrollManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollManagementDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'PayrollManagementDataView', GridHeight: '600', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_PayrollManagementDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#PayrollManagementDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divPayrollManagementDataView').html(result);
+                InitializeGrid___PayrollManagementDataView(false);
+                var function_name = 'PayrollManagementDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_PayrollManagementDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "PayrollManagementDataView");
+                }
+                HideGridFooter("PayrollManagementDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__PayrollManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollManagementDataView();
+        $("#divPayrollManagementDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__PayrollManagementDataView').click(function () {
+        LoadSettingsOnDemand__PayrollManagementDataView();
+        $("#divPayrollManagementDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__PayrollManagementDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollManagementDataView()
+        $("#divPayrollManagementDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__PayrollManagementDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollManagementDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollManagementDataView').css("padding-left", "0px");
+        $('#divOptions__PayrollManagementDataView').css("margin-top", "0px");
+        $('#divOptions__PayrollManagementDataView').css("margin-right", "3px");
+        $('#divQuickSearch__PayrollManagementDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___PayrollManagementDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("PayrollManagementDataView", "1");
+                    GridSetSelectedItemsOn("PayrollManagementDataView", "353");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__PayrollManagementDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__PayrollManagementDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__PayrollManagementDataView() {
+        var gridName = 'PayrollManagementDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___PayrollManagementDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_PayrollManagementDataView');
+
+        if (parseBool("True")) {
+            RegisterGridForAutoHeight("#" + "PayrollManagementDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_PayrollManagementDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__PayrollManagementDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__PayrollManagementDataView').click(function (e) {
+        e.preventDefault();
+        $("#divPayrollManagementDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+
+<div id="popupWindowCheckPrinting"></div>
+
+<div>
+    <script>
+	kendo.syncReady(function(){jQuery("#popupCheckPrintingGrid").kendoWindow({"refresh":onRefreshCheckPrintingGridPopup,"modal":true,"iframe":true,"draggable":true,"scrollable":true,"pinned":false,"title":null,"resizable":false,"width":950,"height":500,"actions":["Close"]});});
+</script>
+</div>
+
+<div>
+    <script>
+	kendo.syncReady(function(){jQuery("#popupRegisterException").kendoWindow({"refresh":onRefreshRegisterExceptionPopup,"modal":true,"iframe":true,"draggable":true,"scrollable":true,"pinned":false,"title":null,"resizable":false,"width":750,"height":400,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#popupWindowClosedJobs").kendoWindow({"refresh":onRefreshpopupWindowClosedJobs,"deactivate":ReturnFrompopupWindowClosedJobs,"modal":true,"iframe":true,"draggable":true,"scrollable":true,"pinned":false,"title":null,"resizable":false,"width":850,"height":500,"actions":["Close"]});});
+</script>
+</div>
+
+<script type="text/javascript">
+
+    function onRefreshpopupWindowClosedJobs(e) {
+        e.sender.title("Submit Register With Closed Jobs");
+    }
+
+    function ReturnFrompopupWindowClosedJobs() {
+        var grid = $("#PayrollClosedJobsEmployeesDataView").data("kendoGrid");
+        ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+    }
+
+    $("#btnPrintPayrollChecks__PayrollManagementDataView").click(function () {
+
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        var selectedRowId = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowId)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        // Validation: Only For Apprved, Pending or Printed Regsiters
+
+        if (!IsApprovedPendingPrinted()) {
+            ShowOkDialog("Notice", "You have selected Register that is not in the Approved, Pending or Printed state.  This process cannot proceed.", null);
+            return;
+        }
+
+        NavigateTo("/QAAutom/Payroll/PayrollPaycheck/PaycheckShowMainDialog" + "?registerId=" + selectedRowId);
+
+    });
+
+    $("#btnPrintPayrollChecks__PayrollManagementDataView_original").click(function () {
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        var paycheck = "D";
+        var data = { payrollRegisterId: selectedRowIds, payCheckType: paycheck };
+
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/Payroll/Payroll/CheckPrinting",
+            data: data,
+            dataType: "json",
+            type: "POST",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    showpopup();
+                    $('#RegisterNumber').val(result.Model["RegisterNumber"]);
+                    $('#BankAccountNumber').val(result.Model["BankAccountNumber"]);
+                    $('#FirstCheckNumber').val(result.Model["FirstCheckNumber"]);
+                    $('#PayrollRegisterId').val(result.Model["PayrollRegisterId"]);
+                    var bankAccountNumber = $("#BankAccountNumber").data("kendoDropDownList");
+                    //debugger;
+                    //bankAccountNumber.dataSource(result.Model["AccountsString"]);
+                    //set the datasource of the combo
+                    bankAccountNumber.dataSource.data(result.Model["AccountsList"]);
+                    //requery the drop down so it shows the new data
+                    bankAccountNumber.dataSource.query();
+                    //reset the selected value
+                    bankAccountNumber.value("");
+                }
+                else {
+                    ShowOkDialog("Selection", result.Message);
+                }
+            }
+        });
+    });
+
+    function showpopup() {
+        var grid = $("#CheckPrintingDataView").data("kendoGrid");
+        ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+        $('#popupCheckPrintingGrid').data("kendoWindow").center().open();
+        $('#popupCheckPrintingGrid').data("kendoWindow").refresh();
+
+    }
+
+    function showExceptionpopup(registerId) {
+        //debugger;
+        var data = { id: registerId };
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/PerparePayrollRegisterExceptions',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                var grid = $("#PayrollRegisterExceptionDataView").data("kendoGrid");
+                grid.dataSource.read();
+                $('#popupRegisterException').data("kendoWindow").center().open();
+                $('#popupRegisterException').data("kendoWindow").refresh();
+            }
+        });
+
+    }
+
+    function onRefreshCheckPrintingGridPopup(e) {
+        e.sender.title("Check Printing");
+    }
+
+    function onRefreshRegisterExceptionPopup(e) {
+        e.sender.title("Exceptions");
+    }
+
+    function checkStatus(statusType) {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+
+                var RegisterStatus = gridData[i].RegisterStatus;
+
+                if (RegisterStatus == statusType) {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
+    }
+
+    function IsVoid() {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+
+                var RegisterStatus = gridData[i].RegisterStatus;
+
+                if (RegisterStatus == "Void") {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
+    }
+
+    function IsApprovedPendingPrinted() {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+
+                var RegisterStatus = gridData[i].RegisterStatus;
+
+                if (RegisterStatus == "Approved" || RegisterStatus == "Pending" || RegisterStatus == "Printed") {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
+    }
+
+    function IsApproved() {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        var gridData = grid.dataSource.data();
+
+        for (var i = 0; i &lt; gridData.length; i++) {
+            if (gridData[i].Id == selectedRowIds) {
+
+                var RegisterStatus = gridData[i].RegisterStatus;
+
+                if (RegisterStatus == "Approved") {
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
+    }
+
+    $("#btnLeaveTotal__PayrollManagementDataView").click(function () {
+
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        window.location.href = "/QAAutom/Payroll/Payroll/LeaveTotal" + "/" + selectedRowIds;
+    });
+
+    $("#btnLeaveDetails__PayrollManagementDataView").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        window.location.href = "/QAAutom/Payroll/Payroll/LeaveDetails";
+    });
+
+    $("#btnAdd__PayrollManagementDataView").click(function () {
+        window.location.href = "/QAAutom/Payroll/Payroll/CreateRegister";
+    });
+
+    $("#btnDisplayExceptions__PayrollManagementDataView").click(function () {
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        window.location.href = "/QAAutom/Payroll/Payroll/DisplayException" + "/" + selectedRowIds;
+
+    });
+
+    $("#btnEdit__PayrollManagementDataView").click(function () {
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        window.location.href = "/QAAutom/Payroll/Payroll/RegisterDetails" + "/" + selectedRowIds;
+
+    });
+
+    $("#btnDelete__PayrollManagementDataView").click(function () {
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        ShowYesNoDialog("Confirm Delete", "Are you sure you want to delete the selected register?", DeleteRegister);
+
+    });
+
+    $("#btnSubmitRegister__PayrollManagementDataView").click(function () {
+        _queueJob = true;
+        ProcessSubmitRegister()
+    });
+
+    function ProcessSubmitRegister() {
+        ShowAjaxMessage("", "");
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        if (!checkStatus("New")) {
+            ShowOkDialog("Notice", "Register is already submitted.", null);
+            return;
+        }
+
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/GetIfSubmittedPaymentRequestsExist',
+            cache: false,
+            dataType: 'JSON',
+            success: function (result) {
+                if (result.Exists) {
+                    ShowYesNoDialog("Confirm", "There are submitted Payment Requests that can be added to this register. Do you want to cancel submitting this register, so you can go back and add the Payment Requests?", function () {
+                        return;
+                    }, EmployeeWithNegativeGrossPay(selectedRowIds));
+                }
+                else {
+                    EmployeeWithNegativeGrossPay(selectedRowIds);
+                }
+            }
+        });
+    }
+
+    function EmployeeWithNegativeGrossPay(selectedRowIds) {
+        var data = { id: selectedRowIds };
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/GetIfEmployeesWithNegativeGrossPayExist',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (result.Exists) {
+                    ShowYesNoDialog("Confirm", "The employees listed below have negative gross pay, and will be removed from this register if you continue. Cancel Submit Register?", function () {
+                        return;
+                    }, function () { PayrollRegisterWithClosedJobs(selectedRowIds) });
+                }
+                else {
+                    PayrollRegisterWithClosedJobs(selectedRowIds);
+                }
+            }
+        });
+    }
+
+    function PayrollRegisterWithClosedJobs(selectedRowIds) {
+        var data = { id: selectedRowIds };
+        ShowYesNoDialog("Confirm", "Are you sure you want to submit the selected register?", function () {
+            $.ajax({
+                url: '/QAAutom/Payroll/Payroll/GetIfPayrollRegisterWithClosedJobsExists',
+                cache: false,
+                dataType: 'JSON',
+                data: data,
+                success: function (result) {
+                    if (result.Exists) {
+                        $.ajax({
+                            cache: false,
+                            url: "/QAAutom/Payroll/Payroll/GetPayrollRegisterWithClosedJobsData",
+                            data: { id: selectedRowIds },
+                            dataType: "json",
+                            success: function (result) {
+                                if (result != null &amp;&amp; result.Success) {
+                                    if (result.dc != null) {
+                                        $('#RegisterNumberClosedJobs').text(result.dc.RegisterNumber);
+                                        $('#PayrollPeriodName').text(result.dc.PayrollPeriodName);
+                                        $('#RegisterDescription').text(result.dc.RegisterDescription);
+                                        $('#selectedRowIds').val(selectedRowIds);
+                                    }
+
+                                    $('#popupWindowClosedJobs').data("kendoWindow").center().open();
+                                    $('#popupWindowClosedJobs').data("kendoWindow").refresh();
+
+                                    var grid = $("#PayrollClosedJobsEmployeesDataView").data("kendoGrid");
+                                    ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                                }
+                                else {
+                                    ShowAjaxMessage(result.Message, "error");
+                                }
+                            }
+                        });
+                    }
+                    else {
+
+                        SubmitRegister(selectedRowIds);
+                    }
+                }
+            });
+        });
+    }
+
+    var _queueJob = true;
+    function SubmitRegister(selectedRowIds) {
+        var data = { id: selectedRowIds, jobQueue: _queueJob };
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/SubmitRegister',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (result.Success) {
+                    if (result.HasException)
+                        showExceptionpopup(selectedRowIds);
+                    else {
+                        if (_queueJob) {
+                            StartJobQueueNotifications();
+                            ShowOkDialog("Submit Register", "Your process has been started and is now in the job queue. You will be notified when it is complete.", null);
+                        }
+                        else
+                            ShowAjaxMessage(result.Message, "success");
+                    }
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                    if (result.HasException)
+                        showExceptionpopup(selectedRowIds);
+                }
+                var grid = $("#PayrollManagementDataView").data("kendoGrid");
+                grid.dataSource.read();
+            }
+        });
+    }
+
+    $("#btnUndoSubmitRegister__PayrollManagementDataView").click(function () {
+
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        if (!checkStatus("Submitted")) {
+            ShowOkDialog("Notice", "Register is not in submitted status.", null);
+            return;
+        }
+        ShowYesNoDialog("Confirm", "Are you sure you want to undo submit the selected register?", function () {
+            window.location.href = "/QAAutom/Payroll/Payroll/UndoSubmitRegister" + "/" + selectedRowIds;
+        });
+
+    });
+
+    $("#btnVoidRegister__PayrollManagementDataView").click(function (e) {
+        e.preventDefault();
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        if (IsVoid()) {
+            ShowOkDialog("Notice", "Register is already in void status.", null);
+            return;
+        }
+
+        ShowYesNoDialog("Confirm", "Are you sure you want to void the selected register?", function () {
+            var data = { id: selectedRowIds };
+            $.ajax({
+                url: '/QAAutom/Payroll/Payroll/VoidRegister',
+                cache: false,
+                dataType: 'JSON',
+                data: data,
+                success: function (result) {
+                    if (result.Success) {
+                        ShowAjaxMessage("", "");
+                        ShowAjaxMessage(result.Message, "success");
+                        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+                        grid.dataSource.read();
+                    }
+                    else {
+                        ShowAjaxMessage(result.Message, "error");
+                    }
+
+                }
+            });
+
+        });
+
+    });
+
+    $("#btnApproveRegister__PayrollManagementDataView").click(function () {
+
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+
+        if (IsApproved()) {
+            ShowOkDialog("Notice", "Register is already in approved status.", null);
+            return;
+        }
+        ShowYesNoDialog("Confirm Approve Register", "Are you sure you want to approve the selected register?", function () {
+
+            var data = { id: selectedRowIds };
+            $.ajax({
+                url: '/QAAutom/Payroll/Payroll/ApproveRegister',
+                cache: false,
+                dataType: 'JSON',
+                data: data,
+                success: function (result) {
+                    if (result.Success) {
+                        ShowAjaxMessage("", "");
+                        ShowAjaxMessage(result.Message, "success");
+                        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+                        grid.dataSource.read();
+                    }
+                    else {
+                        ShowAjaxMessage(result.Message, "error");
+                    }
+
+                }
+            });
+        });
+
+    });
+
+    function DeleteRegister() {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        //
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        var data = { id: selectedRowIds };
+        $.ajax({
+            url: '/QAAutom/Payroll/Payroll/DeleteRegister',
+            cache: false,
+            dataType: 'JSON',
+            data: data,
+            success: function (result) {
+                if (result.Success) {
+
+                    ShowAjaxMessage(result.Message, "success");
+                    var grid = $("#PayrollManagementDataView").data("kendoGrid");
+                    grid.dataSource.read();
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+
+            }
+        });
+
+    }
+
+    $("#btnViewJobsAddenda__PayrollManagementDataView").click(function () {
+        var grid = $("#PayrollManagementDataView").data("kendoGrid");
+        var selectedRowIds = grid.table.attr("data-AptaFund-KendoGrid-selected");
+
+        if (!OnlyOneItemSelected(selectedRowIds)) {
+            ShowOkDialog("Selection", "Please select a single record to perform this operation.", null);
+            return;
+        }
+        window.location.href = "/QAAutom/Payroll/Payroll/JobsAddenda";
+    });
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Wednesday, August 9, 2017 8:14 AM
+                    <br />
+                    AptaFund Version: 2017.8.8.12088
+                    <br />
+                    Last Updated: 8/9/2017 12:02:24 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#08092017000224"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Payroll/Payroll/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+            setTimeout(function() { StartJobQueueNotifications();}, 1000);
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-list-container k-popup k-group k-reset" id="ListValues__PayrollCycleNamePayrollManagementDataView-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="ListValues__PayrollCycleNamePayrollManagementDataView_listbox" aria-live="polite" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item k-state-focused" unselectable="on" role="option" tabindex="-1" id="124ab30c-4716-452a-bb61-80aeea34f326">Monthly</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">Semi-Monthly</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 215.417px; left: 1077.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollManagementDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollManagementDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollManagementDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 215.417px; left: 1077.8px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollManagementDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollManagementDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollManagementDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="6c15cfe6-86c2-4858-bfdc-644a1f0ec072">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-list-container k-popup k-group k-reset" id="BankAccountNumber-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="BankAccountNumber_listbox" aria-live="off" data-role="staticlist" role="listbox"></ul></div><div style="" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__CheckPrintingDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__CheckPrintingDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__CheckPrintingDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__CheckPrintingDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__CheckPrintingDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__CheckPrintingDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="21bcea90-f2f5-440f-ada8-f1ecdbded2a3">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 950px; height: 500px; display: none; top: 571px; left: 28px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="popupCheckPrintingGrid_wnd_title">null</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="popupCheckPrintingGrid" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="popupCheckPrintingGrid_wnd_title"><div>
+<div style="text-align: center" id="popupwindowCheckPrintingAssistant_"></div>
+<div style="border: 1px solid; border-radius: 5px; margin-top: 10px; padding: 10px; text-align: left;" id="divMultipleCheckPrintingGrid_">
+    <div id="divInfoMultipleAccountGrid_"></div>
+    <div class="editor-field">
+
+        <input type="hidden" value="1" name="PayrollRegisterId" id="PayrollRegisterId" />
+        <label style="width: 8em;text-align: right" for="RegisterNumber">Register</label>:
+        <input type="text" value="" style="display: inline-block; width: 15em" name="RegisterNumber" id="RegisterNumber" class="k-textbox k-textbox" />
+
+        <label style="width: 10em;text-align: right" for="BankAccountNumber" id="BankAccountNumber_label">Bank Account No.</label>:
+        <span style="width: 20em; background-color: White;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="BankAccountNumber_listbox" aria-labelledby="BankAccountNumber_label" aria-disabled="false" aria-busy="false"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on"></span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" style="width: 20em; background-color: White; display: none;" name="BankAccountNumber" id="BankAccountNumber" data-role="dropdownlist" /></span>
+       
+
+        <label style="display: inline-block;width: 10em;text-align: right" for="FirstCheckNumber" class="RequiredLabel">First Check No.</label>:
+        <input type="text" value="0" style="display: inline-block; width: 12em" name="FirstCheckNumber" id="FirstCheckNumber" data-val-number="The field First Check No. must be a number." data-val="true" class="k-textbox" />
+        <br />
+        <label style="display: inline-block;width: 10em;text-align:right" for="PayCheckType">Paycheck Type</label>:
+        <input type="radio" value="R" style="width: 1em;text-align:right" name="PayCheckType" id="paycheckTypeR" checked="checked" />Regular
+        <input type="radio" value="D" style="display: inline-block;width: 1em;text-align:right" name="PayCheckType" id="paycheckTypeD" checked="checked" />Direct Deposit
+
+        <br /><br />
+        <div hidden="hidden" id="divPrintMessage">Check is printing please wait.</div>
+    </div>
+    <div data-role="AptaDataView" id="divCheckPrintingDataView">
+    
+<div style="height: 350px;" id="CheckPrintingDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__CheckPrintingDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'CheckPrintingDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__CheckPrintingDataView" id="SearchText__CheckPrintingDataView" class="searchBox" data-role="tooltip" /></div></div><div class="ElementFilterWrapper">
+</div>
+<div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__CheckPrintingDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__CheckPrintingDataView" style="display:none;" class="GridSettingSelected"></span><div class="GridFilterWrapper"><a id="SearchSettings__CheckPrintingDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__CheckPrintingDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__CheckPrintingDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__CheckPrintingDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__CheckPrintingDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__CheckPrintingDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" />
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__CheckPrintingDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__CheckPrintingDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="false" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__CheckPrintingDataView button" id="Reset__CheckPrintingDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__CheckPrintingDataView button" id="SaveAs__CheckPrintingDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__CheckPrintingDataView button" id="PageSetup__CheckPrintingDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    
+
+    
+
+<script type="text/kendo-ui" id="menu-template__CheckPrintingDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__CheckPrintingDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__CheckPrintingDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__CheckPrintingDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__CheckPrintingDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__CheckPrintingDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__CheckPrintingDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__CheckPrintingDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__CheckPrintingDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:35px" /><col style="width:100px" /><col style="width:120px" /><col style="width:170px" /><col style="width:150px" /><col style="width:150px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__CheckPrintingDataView" /></th><th style="text-align:left;" scope="col" data-title="Status" data-index="1" data-field="PaycheckStatus" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=CheckPrintingDataView&amp;gridKey=CheckPrintingDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;dataView=CheckPrintingDataView&amp;payrollRegisterId=1&amp;accountNumber=&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;CheckPrintingDataView-sort=PaycheckStatus-asc" class="k-link">Status</a></th><th style="text-align:right;" scope="col" data-title="Check Number" data-index="2" data-field="CheckNumber" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=CheckPrintingDataView&amp;gridKey=CheckPrintingDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;dataView=CheckPrintingDataView&amp;payrollRegisterId=1&amp;accountNumber=&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;CheckPrintingDataView-sort=CheckNumber-desc" class="k-link">Check Number<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Display Name" data-index="3" data-field="DisplayName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=CheckPrintingDataView&amp;gridKey=CheckPrintingDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;dataView=CheckPrintingDataView&amp;payrollRegisterId=1&amp;accountNumber=&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;CheckPrintingDataView-sort=DisplayName-desc" class="k-link">Display Name<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Paycheck Site" data-index="4" data-field="PaycheckSite" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=CheckPrintingDataView&amp;gridKey=CheckPrintingDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;dataView=CheckPrintingDataView&amp;payrollRegisterId=1&amp;accountNumber=&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;CheckPrintingDataView-sort=PaycheckSite-asc" class="k-link">Paycheck Site</a></th><th style="text-align:right;" scope="col" data-title="Amount Paid" data-index="5" data-field="AmountPaid" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=CheckPrintingDataView&amp;gridKey=CheckPrintingDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;dataView=CheckPrintingDataView&amp;payrollRegisterId=1&amp;accountNumber=&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;CheckPrintingDataView-sort=AmountPaid-asc" class="k-link">Amount Paid</a></th><th scope="col" data-index="6" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height:200px" class="k-grid-content"><table role="grid"><colgroup><col style="width:35px" /><col style="width:100px" /><col style="width:120px" class="k-sorted" /><col style="width:170px" class="k-sorted" /><col style="width:150px" /><col style="width:150px" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="99f11ea1-1824-446e-9ed1-d5f68a08d1d7" class="kendo-data-row" data-aptafund-kendogrid-rowid="24501"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$23.60</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="39a4aa77-3096-46a6-b355-08a8d25fb5fb" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="24504"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$91.93</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="3852ce00-f103-4db5-a61b-ce540d9c491a" class="kendo-data-row" data-aptafund-kendogrid-rowid="24512"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$76.95</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="897fcaf6-e09f-4feb-9174-db15a79139ae" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="24513"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$91.93</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="8f5a8c35-5cb0-4d51-a053-59a9f3e81c23" class="kendo-data-row" data-aptafund-kendogrid-rowid="24508"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$48.16</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="0c416f58-6081-4143-929b-08697c9ed45c" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="24485"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$48.16</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="5b38c268-494f-4e91-b7a4-c76ef33f054d" class="kendo-data-row" data-aptafund-kendogrid-rowid="24487"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$48.16</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="752281fd-8a16-4480-8053-32c3736ff25d" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="24489"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$91.93</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="25a8871a-c5ad-4f64-aaac-a2b67b3d6a23" class="kendo-data-row" data-aptafund-kendogrid-rowid="24493"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$19.66</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="6f67c777-a11d-4555-9692-1d8ad1eb0f52" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="24500"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Hyatt, Automation Presley</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$48.16</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="a55e25e3-097b-4c0f-bfb6-a1bb31e4ec62" class="kendo-data-row" data-aptafund-kendogrid-rowid="3909"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="27ba7df1-124f-47c0-b041-0cc8b49e0f75" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="3184"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="c2b44477-2dff-4c56-9bef-512cbecdf2ba" class="kendo-data-row" data-aptafund-kendogrid-rowid="1001"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="5d89981b-6b39-4c50-8500-d7634cbd6834" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="1205"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="63639c74-f985-422b-ab03-1365ec349299" class="kendo-data-row" data-aptafund-kendogrid-rowid="12392"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="37d70b09-edc0-4c93-ab75-5beef09a2694" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="12929"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="9a8c11fe-1a27-422e-b776-965d5f82f01c" class="kendo-data-row" data-aptafund-kendogrid-rowid="13826"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Julie Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="0477fddb-50cc-4785-81ab-f70d3c9212ff" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="13816"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Marge Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="856285cd-2d22-4a5a-8692-eca249db59ed" class="kendo-data-row" data-aptafund-kendogrid-rowid="12919"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Marge Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="0a4a21be-7b15-4b2e-991d-fdf6f72f4829" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="1193"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Marge Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="d49baae0-3306-472b-aa30-b6612c3da006" class="kendo-data-row" data-aptafund-kendogrid-rowid="988"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Marge Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="381166a1-0b58-4887-881f-af0fa5302f7c" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="23705"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Andrews, Marge Z</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="0c08da4d-333b-435c-81a7-80b1e245757b" class="kendo-data-row" data-aptafund-kendogrid-rowid="24443"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Asher, Michele E</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="0a59d401-7413-4a90-87a5-6f3318fcdf82" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="12979"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Asher, Michele E</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr><tr role="row" data-uid="6fb8c83e-20b2-4c87-afe6-a056bd97643c" class="kendo-data-row" data-aptafund-kendogrid-rowid="13878"><td role="gridcell"><input type="checkbox" class="check_row__CheckPrintingDataView" /></td><td role="gridcell" style="text-align:left;">Printed</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">Asher, Michele E</td><td role="gridcell" style="text-align:left;">BCCHS</td><td role="gridcell" style="text-align:right;"><div>$0.00</div></td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li><li><a data-page="2" class="k-link" href="#" tabindex="-1">2</a></li><li><a data-page="3" class="k-link" href="#" tabindex="-1">3</a></li><li><a data-page="4" class="k-link" href="#" tabindex="-1">4</a></li><li><a data-page="5" class="k-link" href="#" tabindex="-1">5</a></li><li><a data-page="6" class="k-link" href="#" tabindex="-1">6</a></li><li><a data-page="7" class="k-link" href="#" tabindex="-1">7</a></li><li><a data-page="8" class="k-link" href="#" tabindex="-1">8</a></li><li><a data-page="9" class="k-link" href="#" tabindex="-1">9</a></li><li><a data-page="10" class="k-link" href="#" tabindex="-1">10</a></li><li><a title="More pages" data-page="11" class="k-link" href="#" tabindex="-1">...</a></li></ul><a title="Go to the next page" href="#" data-page="2" class="k-link k-pager-nav" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="433" class="k-link k-pager-nav k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="21bcea90-f2f5-440f-ada8-f1ecdbded2a3"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 25 of 10824 items</span></div></div>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_CheckPrintingDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_CheckPrintingDataView" value="true" />
+
+<div id="dvGridSettings__CheckPrintingDataView">
+</div>
+
+<div id="dvGridSearchSettings__CheckPrintingDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__CheckPrintingDataView">0 </span> <a href="#" id="UnselectAll__CheckPrintingDataView">(Unselect All)</a> </div>
+
+</div>
+
+
+
+    <a class="k-button" id="btnPrintCheckPrintingGrid">
+        Print
+    </a>
+    <a class="k-button" id="btnRePrintCheckPrintingGrid">
+        Reprint
+    </a>
+    <a class="k-button" id="btnCloseCheckPrintingGrid_">
+        Close
+    </a>
+</div>
+<div id="dvReportParameters"></div>
+
+
+                </div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollRegisterExceptionDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollRegisterExceptionDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollRegisterExceptionDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollRegisterExceptionDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollRegisterExceptionDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollRegisterExceptionDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="0e75a137-4126-4e28-b463-54447b2e6106">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 750px; height: 400px; display: none; top: 561px; left: 28px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="popupRegisterException_wnd_title">null</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="popupRegisterException" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="popupRegisterException_wnd_title"><div>
+
+<div>
+    <div>
+        <div data-role="AptaDataView" id="divPayrollRegisterExceptionDataView">
+    
+<div style="height: 350px;" id="PayrollRegisterExceptionDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PayrollRegisterExceptionDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PayrollRegisterExceptionDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PayrollRegisterExceptionDataView" id="SearchText__PayrollRegisterExceptionDataView" class="searchBox" data-role="tooltip" /></div></div><div class="ElementFilterWrapper">
+</div>
+<div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PayrollRegisterExceptionDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PayrollRegisterExceptionDataView" style="display:none;" class="GridSettingSelected"></span><div class="GridFilterWrapper"><a id="SearchSettings__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PayrollRegisterExceptionDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" />
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PayrollRegisterExceptionDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PayrollRegisterExceptionDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="false" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__PayrollRegisterExceptionDataView button" id="Reset__PayrollRegisterExceptionDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollRegisterExceptionDataView button" id="SaveAs__PayrollRegisterExceptionDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PayrollRegisterExceptionDataView button" id="PageSetup__PayrollRegisterExceptionDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    
+
+    
+
+<script type="text/kendo-ui" id="menu-template__PayrollRegisterExceptionDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PayrollRegisterExceptionDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PayrollRegisterExceptionDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PayrollRegisterExceptionDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PayrollRegisterExceptionDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PayrollRegisterExceptionDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PayrollRegisterExceptionDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PayrollRegisterExceptionDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PayrollRegisterExceptionDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:150px" /><col style="width:120px" /><col style="width:100px" /><col style="width:350px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:right;;display:none" scope="col" data-title="PayrollRegisterId" data-index="0" data-field="PayrollRegisterId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=PayrollRegisterId-asc" class="k-link">PayrollRegisterId</a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="1" data-field="EmployeeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=EmployeeName-asc" class="k-link">Employee Name</a></th><th style="text-align:right;;display:none" scope="col" data-title="Employee Id" data-index="2" data-field="EmployeeId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=EmployeeId-asc" class="k-link">Employee Id</a></th><th style="text-align:left;" scope="col" data-title="Exception Date" data-index="3" data-field="ExceptionDate" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=ExceptionDate-desc" class="k-link">Exception Date<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Operation" data-index="4" data-field="Operation" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=Operation-asc" class="k-link">Operation</a></th><th style="text-align:left;" scope="col" data-title="Messsage" data-index="5" data-field="ExceptionDetail" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollRegisterExceptionDataView&amp;gridKey=PayrollRegisterExceptionDataView&amp;gridHeight=350&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollRegisterExceptionDataView-sort=ExceptionDetail-asc" class="k-link">Messsage</a></th><th scope="col" data-index="6" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height:200px" class="k-grid-content"><table role="grid"><colgroup><col style="width:150px" /><col style="width:120px" /><col style="width:100px" /><col style="width:350px" class="k-sorted" /><col /></colgroup><tbody role="rowgroup"><tr role="row" data-uid="034c2fa6-9a0c-4a38-8866-623c3955172b" class="kendo-data-row" data-aptafund-kendogrid-rowid="74"><td role="gridcell" style="display:none;text-align:right;">74</td><td role="gridcell" style="text-align:left;">Marian, Sharon Z</td><td role="gridcell" style="display:none;text-align:right;">136</td><td role="gridcell" style="text-align:left;">12/21/2015</td><td role="gridcell" style="text-align:left;">Submit Register</td><td role="gridcell" style="text-align:left;">Employee removed from Register: Deduction State Withholding for 150.00 was the last deduction calculated</td><td role="gridcell"></td></tr><tr role="row" data-uid="443d2d54-638f-4197-8e52-9ced0e59aeca" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="77"><td role="gridcell" style="display:none;text-align:right;">77</td><td role="gridcell" style="text-align:left;">Griswald, Lorie A</td><td role="gridcell" style="display:none;text-align:right;">318</td><td role="gridcell" style="text-align:left;">12/28/2015</td><td role="gridcell" style="text-align:left;">Submit Register</td><td role="gridcell" style="text-align:left;">Employee removed from Register: Deduction BCBS H-PPO CE EE New for 103.12 was the last deduction calculated</td><td role="gridcell"></td></tr><tr role="row" data-uid="aa8a555d-9c9d-49b6-bbe9-403930b2f5c2" class="kendo-data-row" data-aptafund-kendogrid-rowid="217"><td role="gridcell" style="display:none;text-align:right;">217</td><td role="gridcell" style="text-align:left;">Carter, David Z</td><td role="gridcell" style="display:none;text-align:right;">161</td><td role="gridcell" style="text-align:left;">01/19/2017</td><td role="gridcell" style="text-align:left;">Submit Register</td><td role="gridcell" style="text-align:left;">Employee removed from Register: Deduction Federal Withholding for 10.00 was the last deduction calculated</td><td role="gridcell"></td></tr><tr role="row" data-uid="3fd0fdff-b0a5-4269-acc6-2ea2a50e485b" class="k-alt kendo-data-row" data-aptafund-kendogrid-rowid="225"><td role="gridcell" style="display:none;text-align:right;">225</td><td role="gridcell" style="text-align:left;">Carlton, Cathrene Z</td><td role="gridcell" style="display:none;text-align:right;">252</td><td role="gridcell" style="text-align:left;">01/27/2017</td><td role="gridcell" style="text-align:left;">Submit Register</td><td role="gridcell" style="text-align:left;">Employee removed from Register: Deduction Flexible Spending for 100.00 was the last deduction calculated</td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li></ul><a title="Go to the next page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="0e75a137-4126-4e28-b463-54447b2e6106"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 4 of 4 items</span></div></div>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PayrollRegisterExceptionDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_PayrollRegisterExceptionDataView" value="true" />
+
+<div id="dvGridSettings__PayrollRegisterExceptionDataView">
+</div>
+
+<div id="dvGridSearchSettings__PayrollRegisterExceptionDataView">
+</div>
+
+
+</div>
+
+
+    </div>
+</div>
+        </div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollClosedJobsEmployeesDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollClosedJobsEmployeesDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollClosedJobsEmployeesDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 0px; left: 0px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollClosedJobsEmployeesDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollClosedJobsEmployeesDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollClosedJobsEmployeesDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="c48680f0-1340-4c81-82e4-dcda4dc09d72">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 850px; height: 500px; display: none; top: 561px; left: 28px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="popupWindowClosedJobs_wnd_title">null</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="popupWindowClosedJobs" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="popupWindowClosedJobs_wnd_title"><div>
+<div style="border:1px;border-bottom-color:black">
+    <div style="padding-bottom: 5px; padding-top: 5px" class="editor-field">
+        <fieldset style="border-color:black;">
+            <legend style="display:block">Payroll Register Information</legend>
+            <div style="padding-bottom: 10px;" class="editor-field">
+                <label style="display: inline-block;width: 14em;text-align: right" for="RegisterNumber">Register</label>:
+                <label style="font-weight: normal; margin-left: 3px; margin-right: 100px" id="RegisterNumberClosedJobs"></label>
+
+                <label style="display: inline-block;width: 14em;text-align: right" for="PayrollPeriodName">Payroll Period</label>:
+                <label style="font-weight: normal; margin-left: 3px; margin-right: 100px" id="PayrollPeriodName"></label>
+            </div>
+            <div class="editor-field">
+                <label style="display: inline-block;width: 14em;text-align: right" for="RegisterDescription">Description</label>:
+                <label style="font-weight: normal; margin-left: 3px; margin-right: 100px" id="RegisterDescription"></label>
+            </div>
+        </fieldset>
+    </div>
+    <div>
+        <label style="text-emphasis:inherit"> The Following employees have jobs that are closed in Employee Management, but are still on this register. Please verify if these employees are still supposed to be paid. If so, click OK, to continue submitting the register. If not, click Cancel and remove those employees from the register.</label>
+    </div>
+    <input type="hidden" id="selectedRowIds" />
+    <div>
+        <div data-role="AptaDataView" id="divPayrollClosedJobsEmployeesDataView">
+    
+<div style="height: 300px;" id="PayrollClosedJobsEmployeesDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PayrollClosedJobsEmployeesDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PayrollClosedJobsEmployeesDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PayrollClosedJobsEmployeesDataView" id="SearchText__PayrollClosedJobsEmployeesDataView" class="searchBox" data-role="tooltip" /></div></div><div class="ElementFilterWrapper">
+</div>
+<div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PayrollClosedJobsEmployeesDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PayrollClosedJobsEmployeesDataView" style="display:none;" class="GridSettingSelected"></span><div class="GridFilterWrapper"><a id="SearchSettings__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PayrollClosedJobsEmployeesDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" />
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PayrollClosedJobsEmployeesDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PayrollClosedJobsEmployeesDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="false" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__PayrollClosedJobsEmployeesDataView button" id="Reset__PayrollClosedJobsEmployeesDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollClosedJobsEmployeesDataView button" id="SaveAs__PayrollClosedJobsEmployeesDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PayrollClosedJobsEmployeesDataView button" id="PageSetup__PayrollClosedJobsEmployeesDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    
+
+    
+
+<script type="text/kendo-ui" id="menu-template__PayrollClosedJobsEmployeesDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PayrollClosedJobsEmployeesDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PayrollClosedJobsEmployeesDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PayrollClosedJobsEmployeesDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PayrollClosedJobsEmployeesDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PayrollClosedJobsEmployeesDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PayrollClosedJobsEmployeesDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PayrollClosedJobsEmployeesDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PayrollClosedJobsEmployeesDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget">Drag a column header and drop it here to group by that column</div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:106px" /><col style="width:200px" /><col style="width:200px" /><col style="width:200px" /><col style="width:122px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Customer Name" data-index="0" data-field="CustomerDisplayName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollClosedJobsEmployeesDataView&amp;gridKey=PayrollClosedJobsEmployeesDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollClosedJobsEmployeesDataView-sort=CustomerDisplayName-desc" class="k-link">Customer Name<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Employee Number" data-index="1" data-field="EmployeeNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollClosedJobsEmployeesDataView&amp;gridKey=PayrollClosedJobsEmployeesDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollClosedJobsEmployeesDataView-sort=EmployeeNumber-asc" class="k-link">Employee Number</a></th><th style="text-align:left;" scope="col" data-title="Job Name" data-index="2" data-field="JobName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollClosedJobsEmployeesDataView&amp;gridKey=PayrollClosedJobsEmployeesDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollClosedJobsEmployeesDataView-sort=JobName-asc" class="k-link">Job Name</a></th><th style="text-align:left;" scope="col" data-title="Job Type" data-index="3" data-field="JobType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollClosedJobsEmployeesDataView&amp;gridKey=PayrollClosedJobsEmployeesDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollClosedJobsEmployeesDataView-sort=JobType-asc" class="k-link">Job Type</a></th><th style="text-align:right;" scope="col" data-title="Gross Pay" data-index="4" data-field="GrossPay" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollClosedJobsEmployeesDataView&amp;gridKey=PayrollClosedJobsEmployeesDataView&amp;gridHeight=300&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;8fbac031-7edb-444c-9153-2f2adf9b9836=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;PayrollClosedJobsEmployeesDataView-sort=GrossPay-asc" class="k-link">Gross Pay</a></th><th scope="col" data-index="5" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height:200px" class="k-grid-content"><table role="grid"><colgroup><col style="width:106px" class="k-sorted" /><col style="width:200px" /><col style="width:200px" /><col style="width:200px" /><col style="width:122px" /><col /></colgroup><tbody role="rowgroup"></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">0</span></li><li><span class="k-state-selected">0</span></li></ul><a title="Go to the next page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="0" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="c48680f0-1340-4c81-82e4-dcda4dc09d72"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">No items to display</span></div></div>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PayrollClosedJobsEmployeesDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_PayrollClosedJobsEmployeesDataView" value="true" />
+
+<div id="dvGridSettings__PayrollClosedJobsEmployeesDataView">
+</div>
+
+<div id="dvGridSearchSettings__PayrollClosedJobsEmployeesDataView">
+</div>
+
+
+</div>
+
+
+    </div>
+    <div style="padding-top: 5px; padding-bottom:5px" id="pnlGridOperations__PayrollClosedJobsEmployeesDataView">
+        <a class="k-button" id="btnOk__PayrollClosedJobsEmployeesDataView">
+            OK
+        </a>
+        <a class="k-button" id="btnCancel__PayrollClosedJobsEmployeesDataView">
+            Cancel
+        </a>
+    </div>
+</div>
+
+            </div></div></div><div class="k-overlay" style="display: none; z-index: 10002; opacity: 0.5;"></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 400px; display: none; top: 238.5px; left: 425.5px; z-index: 10003; transform: scale(0.7);" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title">Confirm Approve Register</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div data-role="window" style="display: block;" class="k-window-content k-content" tabindex="0"><div class="PopupFormWrapper"><div class="PopupFormWrapperContents"><div class="PopupInnerDiv"><p class="delete-message">Are you sure you want to approve the selected register?</p></div></div><div class="PopupButtonOuterWrapper"><div class="PopupButtonInnerWrapper"><a href="#" class="delete-confirm k-button" id="dialog-confirm">Yes</a> <a href="#" class="delete-cancel k-button" id="dialog-cancel">No</a></div></div></div></div></div><div class="k-animation-container _409cd30a-6d8a-4250-8216-6c6f504e4318 notificationWindow" style="width: 453px; height: 119px; overflow: visible; display: block; position: fixed; top: 50px; z-index: 10050; left: 780px; margin: 0px; padding-top: 0px; padding-right: 0px; padding-left: 0px;"><div class="k-widget k-notification k-notification-message k-notification-button k-popup k-group k-reset k-state-border-up" data-role="alert" style="display: block; position: absolute; font-size: 11px; font-family: &quot;Lucida Sans&quot;,&quot;Lucida Sans&quot;; font-stretch: normal; font-style: normal; font-weight: 400; line-height: 15px; opacity: 1;"><div class="notificationContainer error"><div class="notificationContent"><div class="message">Database Custom Error: Procedure:pyApproveRegister; User:dbo; Workstation:ALB-GRD-TESTWEB - The action: Approve Payroll Register has already been performed on the object:@PayrollRegisterId=353</div><div class="close"><a onclick="javascript: FINSUI.FINSUINotifications.AppNotification().hide();" alt="Dismiss" class="closeImage"></a></div></div></div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="642"></canvas></html>

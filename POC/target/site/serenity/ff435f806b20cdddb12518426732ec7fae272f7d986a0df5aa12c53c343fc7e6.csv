@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Deduction assignment test","Add direct deposit with amount","SUCCESS","2017-07-07T11:56:12.516+05:00","0.0","103.85"
+"Deduction assignment test","Add direct deposit with percentage","SUCCESS","2017-07-07T11:47:00.437+05:00","0.0","105.65"
+"Deduction assignment test","Add non variable deduction for percentage","SUCCESS","2017-07-07T11:52:59.088+05:00","0.0","91.2"
+"Deduction assignment test","Delete non variable deduction for percentage","SUCCESS","2017-07-07T11:54:30.638+05:00","0.0","101.56"

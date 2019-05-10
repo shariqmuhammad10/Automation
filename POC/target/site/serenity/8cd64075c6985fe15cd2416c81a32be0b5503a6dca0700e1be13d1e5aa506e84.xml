@@ -1,0 +1,16 @@
+<acceptance-test-run title="Verify logout" name="VerifyLogout" steps="3" successful="3" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="22692" timestamp="2017-11-08T15:40:59.305+05:00" session-id="0643c205-fab9-41ae-978b-b97402d89db7">
+  <user-story id="com.aptafund.test.features.login.commonTest.AptaLoginTest" name="Apta login test" path="com.aptafund.test.features.login.commonTest"/>
+  <tags>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Apta login test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12952">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9234">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="470">
+    <description>Logout application</description>
+  </test-step>
+</acceptance-test-run>

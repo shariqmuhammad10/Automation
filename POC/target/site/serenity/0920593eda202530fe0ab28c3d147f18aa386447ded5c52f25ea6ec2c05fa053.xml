@@ -1,0 +1,26 @@
+<acceptance-test-run title="Verify add fixed amount calculation deduction" name="verifyAddFixedAmountCalculationDeduction" steps="6" successful="6" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="161415" timestamp="2018-04-24T15:50:03.403+05:00" session-id="3306f564-325e-4fc9-83e1-ff70d6ad99d6">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="22078">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11662">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20254">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="15047">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="73211">
+    <description>Add manage deduction</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19086">
+    <description>Search deduction set</description>
+  </test-step>
+</acceptance-test-run>

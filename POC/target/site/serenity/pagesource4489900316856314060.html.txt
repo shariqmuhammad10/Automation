@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>My Dashboard | AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.3.1026.545/kendocss?v=9b3Pb8L0Sh843zHN4fSyt6LB87OXGtjN4-E-XTmlUUk1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=ZE9OeKGd1ptfm8cWXtxoL7HmDW-0N_hm1IiLYzsbrSI1" />
+
+    <script src="/Bundles/framework?v=Mh1woxRtbybvOSxP_SrOKPxJTxWtEti3TGb9AQLcLYw1"></script>
+
+    <script src="/Bundles/aptafundscript?v=D8_aBm_UM5xcBb6g_ZeW6USS6777Wj_ZiAK2iQClqfI1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        var urlSubMenus = '/QAAutom/Home/SubMenus';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+            <img src="/Content/Images/icons/Info_icon.png" id="infoIconDifferentEmail" style="vertical-align:middle" data-role="tooltip" />
+        <span class="UserLoginLabel">req@apta.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            SetToolTipForDifferentEmailMessage('#infoIconDifferentEmail', 'autoreq@apta.com');
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(7, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 3);" class="menuheaderrollover" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(7, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="subMenu">    <div class="menudropdown" id="menudropdown0" style="display: none;"><div><ul><li>My Reports</li><li class="grayColor">(Add favorites from the Reports screen)</li></ul><ul><li>User</li><li><a href="/QAAutom">My Dashboard</a></li><li><a href="/QAAutom/Administration/Security/Security/UserChangePassword">Change Password</a></li><li><a href="/QAAutom/Administration/Security/Security/SecurityQuestion">Security Question</a></li><li><a href="/QAAutom/My/MyJobQueue/Manage">My Job Queue</a></li></ul><ul><li>Help</li><li><a target="_blank" href="/WebHelp/AptaFund_Overview.htm">User Guide</a></li></ul></div><div><ul><li>Employee Self-Service</li><li><a href="/QAAutom/ESS/ESS/LeaveDetails">My Leave Balances</a></li><li><a href="/QAAutom/ESS/ESS/ManageLeaveRequests">My Leave Requests</a></li><li><a href="/QAAutom/ESS/ESS/ManagePaychecks">My Paychecks</a></li><li><a href="/QAAutom/ESS/ESS/ManageW2Forms">My W-2 Forms</a></li><li><a href="/QAAutom/ESS/ESS/YTDTotals">My Year to Date Totals</a></li><li><a href="/QAAutom/ESS/ESS/ViewMyDocuments">My Documents</a></li></ul><ul><li>Purchasing</li><li><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR">My Purchase Requisitions</a></li></ul></div><div><ul><li>My Approvals</li><li><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals">My Leave Request Approvals</a></li></ul><ul><li>Reports</li><li><a href="/QAAutom/Reports/DBReports/Select">Reports</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports">Exports</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown1" style="display: none;"><div><ul><li>Budget</li><li><a href="/QAAutom/Budget/BudgetManagement/Manage">Budget Management</a></li><li><a href="/QAAutom/Budget/BudgetDevelopment/Details">Budget Development</a></li></ul></div><div><ul><li>General Ledger</li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal">General Ledger - Normal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation">General Ledger - Aggregation</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal">Actual - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal">Actual - Account Journal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal">Encumbrance - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal">Encumbrance - Account Journal</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal">Budget - Journal Entry</a></li><li><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal">Budget - Account Journal</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown2" style="display: none;"><div><ul><li>Banking</li><li><a href="/QAAutom/Banking/BankingManagement/ManageBank">Bank Account Management</a></li><li><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts">Banking Cash Accounts</a></li><li><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister">Bank Account Register</a></li></ul></div><div><ul><li>Chart of Accounts</li><li><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage">Structure Maintenance</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage">Element Value Maintenance</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage">Accounting Cycle</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage">Chart of Accounts</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage">Account Mapping</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown3" style="display: inline; position: absolute; left: 0px; top: 119.5px; width: 1251px;"><div><ul><li>Purchasing</li><li><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration">Purchasing Configuration</a></li><li><a href="/QAAutom/Purchasing/AdminRequisition/Manage">Purchase Requisition</a></li><li><a href="/QAAutom/Purchasing/PurchaseOrder/Manage">Purchase Order</a></li><li><a href="/QAAutom/Receiving/OrderReceipt/Manage">Order Receipt</a></li><li><a href="/QAAutom/Purchasing/AdminPOCopies/Manage">Manage PO Copies</a></li></ul></div><div><ul><li>Accounts Payable</li><li><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage">Vendor Invoice</a></li><li><a href="/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceDetailAllocation">Vendor Invoice Detail Allocation</a></li><li><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage">Payment Management</a></li></ul><ul><li>Vendor</li><li><a href="/QAAutom/Vendor/Vendor/Manage">Vendor Management</a></li><li><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage">Vendor 1099 Adjustment</a></li></ul></div><div><ul><li>Capital Assets</li><li><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage">Capital Assets Configuration</a></li><li><a href="/QAAutom/CapitalAssets/AssetManagement/Manage">Asset Management</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown4" style="display: none;"><div><ul><li>Cash Receipts</li><li><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage">Cash Receipts Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage">Cash Receipts</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage">Cash Receipts Details</a></li></ul></div><div><ul><li>Accounts Receivable</li><li><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage">Accounts Receivable Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage">A/R Records</a></li><li><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage">Bill Schedules</a></li><li><a href="/QAAutom/AccountsReceivable/BillItems/Manage">Bill Items</a></li><li><a href="/QAAutom/AccountsReceivable/Category/Manage">Categories</a></li><li><a href="/QAAutom/AccountsReceivable/EventJobs/Manage">Event/Jobs</a></li><li><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage">Recurring Billing Items</a></li></ul></div><div><ul><li>Customers</li><li><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage">Customer Management</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown5" style="display: none;"><div><ul><li>Human Resources</li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage">Human Resources Configuration</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search">Manage Employees</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs">Employee Jobs</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation">Employee Jobs Account Allocation</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search">Master Position Management</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage">Position Management</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage">Employee Contracts</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage">Civil Service</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage">Tenure Areas</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage">Position Classifications</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage">Appointment Types</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage">Appointment Categories</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage">Termination Reason</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage">State Termination Reason</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage">Bargaining Unit</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage">Evaluation Types</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage">Longevity Schedules</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage">Employee Certificates</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail">Employee Leave Detail</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail">Position Management Detail</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage">Salary Schedules</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage">Employee Assignments</a></li></ul></div><div><ul><li>Payroll</li><li><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration">Payroll Configuration</a></li><li><a href="/QAAutom/Payroll/PayrollDeduction/Manage">Manage Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage">Deduction Assignment</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions">Fixed Amount Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions">Percentage Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions">Direct Deposit Deductions</a></li><li><a href="/QAAutom/Payroll/PayrollEmployee/Manage">Employee Payroll Information</a></li><li><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs">Employee Payroll Jobs</a></li><li><a href="/QAAutom/Payroll/Payroll/Manage">Manage Payroll</a></li><li><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage">Manage Payroll Vouchers</a></li><li><a href="/QAAutom/Payroll/PayrollLiabilities/Manage">Payroll Liabilities</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage">Employee W-2 Information</a></li></ul></div><div><ul><li>Affordable Care Act</li><li><a href="/QAAutom/ACA/ACAConfiguration/Manage">Affordable Care Act Configuration</a></li><li><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage">Manage Employee Health Coverage</a></li><li><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage">Manage Dependent Health Coverage</a></li><li><a href="/QAAutom/ACA/ACA/ManageReportingPeriod">Manage Reporting Periods</a></li><li><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod">Manage Coverage Periods</a></li><li><a href="/QAAutom/Benefits/Benefits/ManageDependents">Manage Dependents</a></li><li><a href="/QAAutom/ACA/ACA/ManageACAExport">Manage Export</a></li></ul></div><div><ul><li>Employee Self-Service</li><li><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests">Leave Requests</a></li><li><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage">Employee Group Leave Details</a></li><li><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments">Manage Employee Documents</a></li><li><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory">Manage Document Categories</a></li><li><a href="/QAAutom/ESS/ESS/ManageScreenInstructions">Screen Instructions</a></li><li><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests">Approved Leave Requests</a></li><li><a href="/QAAutom/ESS/ESS/EmployeeDocumentAcknowledgements">Employee Document Acknowledgements</a></li></ul></div></div>
+    <div class="menudropdown" id="menudropdown6" style="display: none;"><div><ul><li>Security</li><li><a href="/QAAutom/Administration/Security/Security/Search">Manage Users</a></li><li><a href="/QAAutom/Administration/Security/Security/AllUsersSecurity">User Permissions</a></li><li><a href="/QAAutom/Administration/Security/Role/Search">Manage Security Templates</a></li><li><a href="/QAAutom/Administration/Configuration/AccountCodeSecurity/Manage">Account Code Security</a></li><li><a href="/QAAutom/Administration/Security/Security/UserAccountCodeManage">User Account Code Security</a></li><li><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage">Manage Requisitioners</a></li></ul><ul><li>Configuration</li><li><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage">System Configuration</a></li><li><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage">Accounting Cycle</a></li><li><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration">Purchasing Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage">Cash Receipts Configuration</a></li><li><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage">Accounts Receivable Configuration</a></li><li><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage">Human Resources Configuration</a></li><li><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration">Payroll Configuration</a></li><li><a href="/QAAutom/ACA/ACAConfiguration/Manage">Affordable Care Act Configuration</a></li><li><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage">Capital Assets Configuration</a></li><li><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage">Scheduled Jobs</a></li><li><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage">Manage Signatures</a></li><li><a href="/QAAutom/Administration/ManageLogos/Logos/Manage">Manage Logos</a></li><li><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index">Dashboard Custom Text</a></li></ul></div><div><ul><li>Fiscal Year End</li><li><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard">Rollover Dashboard</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export">Calendar Export</a></li><li><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export">Element Value Export</a></li></ul><ul><li>Approval Process</li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage">Approvers</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage">Approval Levels</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage">Approval Process</a></li><li><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary">Approval Processes - Summary</a></li></ul></div><div><ul><li>Importing</li><li><a href="/QAAutom/DataImport/DataImport/Manage">Data Import</a></li></ul></div></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        loadSubMenus('e85f37af-bdb2-4add-8736-91ab9af7f308');
+    });
+
+    $(document).click(function (event) {
+        documentMenuClickHandler(event, 7);
+    });
+</script>
+            </div>
+            <div id="menuhr"></div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+ <a href="/QAAutom">Home</a>                                 </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div id="actionbuttons">
+                                    <div style="visibility:visible">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+<div id="divMainDashboard">
+
+    <div></div>
+
+<script>
+</script>
+
+    <div class="aptaDashboardMainDiv" id="divAptaDashboard">
+        <table>
+            <tbody><tr>
+                    <td style="width:175px; vertical-align:top">
+                        <div class="aptaDashboardLeftDiv">
+                                                            <div>
+                                    <label for="Quick_Links" class="quickLinksLabel">Quick Links</label>
+                                    <div id="divMyQuickLinks">
+                                        <ul>
+                                            Employee Self-Service
+
+                                                <li><span onclick="NavigateToNewDatabase();" class="clsMyQuickLinks" id="lnk_navigatetonewdatabase">Change My Location</span></li>                                                                                            <li><span onclick="NavigateToNewLeaveRequest();" class="clsMyQuickLinks" id="lnk_navigatetonewleaverequest">New Leave Request</span></li>                                                                                            <li><span onclick="NavigateToMyPaychecks();" class="clsMyQuickLinks" id="lnk_navigatetomypaychecks">My Paychecks</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveRequests();" class="clsMyQuickLinks" id="lnk_navigatetomyleaverequests">My Leave Requests</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveBalances();" class="clsMyQuickLinks" id="lnk_navigatetomyleavebalances">My Leave Balances</span></li>                                                                                            <li><span onclick="NavigateToMyLeaveApprovals();" class="clsMyQuickLinks" id="lnk_navigatetomyleaveapprovals">My Leave Approvals</span></li>                                                                                            <li><span onclick="NavigateToMyYTDTotals();" class="clsMyQuickLinks" id="lnk_navigatetomyyeartodatetotals">My Year to Date Totals</span></li>                                                                                            <li><span onclick="NavigateToMyDocuments();" class="clsMyQuickLinks" id="lnk_navigatetomydocuments">My Documents</span></li>                                                                                            <li><span onclick="NavigateToMyW2Forms();" class="clsMyQuickLinks" id="lnk_navigatetomyw2forms">My W-2 Forms</span></li>                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </td>                <td style="vertical-align:top">
+                            <div class="DashboardWidget" id="divPayCheck">
+                                <a href="/QAAutom/ESS/ESS/ManagePaychecks" class="DashBoardHeaderLink">My Paychecks</a> (most recent)
+                                <div data-role="AptaDataView" id="divDashboardPaycheckDataView">
+    <script>
+        $("#divDashboardPaycheckDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardPaycheckDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardPaycheckDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:125px" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Pay Date" data-index="0" data-field="PayDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=323%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PayDate-asc" class="k-link">Pay Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Check Number" data-index="1" data-field="CheckNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=323%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=CheckNumber-asc" class="k-link">Check Number</a></th><th style="text-align:right;" scope="col" data-title="Net Pay" data-index="2" data-field="NetPay" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=323%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=NetPay-asc" class="k-link">Net Pay</a></th><th style="text-align:left;" scope="col" data-title="Check Type" data-index="3" data-field="PaycheckType" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView&amp;parentFilter=323%7E365&amp;gridKey=DashboardPaycheckDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardPaycheckDataView-sort=PaycheckType-asc" class="k-link">Check Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:125px" class="k-sorted" /><col style="width:125px" /><col style="width:115px" /><col style="width:143px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardPaycheckDataView").kendoGrid({"dataBound":$('#divDashboardPaycheckDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Pay Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PayDate","data-title":"Pay Date"},"width":"125px","field":"PayDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Check Number","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"CheckNumber","data-title":"Check Number"},"width":"125px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/PaycheckDetails/#=Id#\"\u003e${ CheckNumber }\u003c/a\u003e","field":"CheckNumber","filterable":false,"encoded":true},{"title":"Net Pay","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"NetPay","data-title":"Net Pay"},"width":"115px","template":"\u003cdiv \u003e#= kendo.toString(NetPay, \"C\") #\u003c/div\u003e","field":"NetPay","format":"{0:C}","filterable":false,"encoded":true},{"title":"Check Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckType","data-title":"Check Type"},"width":"143px","field":"PaycheckType","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardPaycheckDataView\u0026parentFilter=323~365","data":$('#divDashboardPaycheckDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardPaycheckDataView\u0026parentFilter=323~365"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardPaycheckDataView\u0026parentFilter=323~365"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardPaycheckDataView\u0026parentFilter=323~365"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"PayDate","dir":"desc"}],"filter":[],"error":$('#divDashboardPaycheckDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"PaycheckId":{"editable":false,"type":"number"},"EmployeeId":{"editable":false,"type":"number"},"PayDate":{"editable":false,"type":"date"},"CheckNumber":{"editable":false,"type":"number"},"NetPay":{"editable":false,"type":"number"},"PaycheckType":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardPaycheckDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardPaycheckDataView" value="true" />
+
+<div id="dvGridSettings__DashboardPaycheckDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardPaycheckDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardPaycheckDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardPaycheckDataView() {
+        if ($("#dvGridSearchSettings__DashboardPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardPaycheckDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#settingsWindow__DashboardPaycheckDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardPaycheckDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardPaycheckDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardPaycheckDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView();
+        $('#tbFilterName__DashboardPaycheckDataView').val("");
+        $("#searchSettings__DashboardPaycheckDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardPaycheckDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardPaycheckDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardPaycheckDataView').html(result);
+                InitializeGrid___DashboardPaycheckDataView(false);
+                var function_name = 'DashboardPaycheckDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+                }
+                HideGridFooter("DashboardPaycheckDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__DashboardPaycheckDataView();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardPaycheckDataView()
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardPaycheckDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardPaycheckDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardPaycheckDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardPaycheckDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardPaycheckDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardPaycheckDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardPaycheckDataView() {
+        var gridName = 'DashboardPaycheckDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardPaycheckDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardPaycheckDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardPaycheckDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardPaycheckDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardPaycheckDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardPaycheckDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardPaycheckDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveRequest">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="DashBoardHeaderLink">My Leave Requests</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveRequestDataView">
+    <script>
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveRequestDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveRequestDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="desc" aria-sort="descending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20323&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveStartDate-asc" class="k-link">Start Date<span class="k-icon k-i-sort-desc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Leave Type" data-index="1" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20323&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th style="text-align:right;" scope="col" data-title="Total" data-index="2" data-field="LeaveTotal" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20323&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=LeaveTotal-asc" class="k-link">Total</a></th><th style="text-align:right;;display:none" scope="col" data-title="ID" data-index="3" data-field="RequestId" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20323&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=RequestId-asc" class="k-link">ID</a></th><th style="text-align:left;" scope="col" data-title="Approval Status" data-index="4" data-field="ApprovalStatusDescription" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView&amp;parentFilter=EmployeeId%20%3D%20323&amp;gridKey=DashboardLeaveRequestDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=FINS.Framework.Grid.GridUserSettings&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=FINS.Framework.Grid.GridUserSettings&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveRequestDataView-sort=ApprovalStatusDescription-asc" class="k-link">Approval Status</a></th><th scope="col" data-index="5" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:175px" /><col style="width:80px" /><col style="width:163px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveRequestDataView").kendoGrid({"dataBound":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"175px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/EditLeaveRequest?selectedRecord=#= RequestId#\"\u003e${ LeaveTypeName }\u003c/a\u003e","field":"LeaveTypeName","filterable":false,"encoded":true},{"title":"Total","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"LeaveTotal","data-title":"Total"},"width":"80px","field":"LeaveTotal","format":"{0:0.0000}","filterable":false,"encoded":true},{"title":"ID","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"RequestId","data-title":"ID"},"hidden":true,"width":"50px","field":"RequestId","filterable":false,"encoded":true},{"title":"Approval Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"ApprovalStatusDescription","data-title":"Approval Status"},"width":"163px","field":"ApprovalStatusDescription","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20323","data":$('#divDashboardLeaveRequestDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20323"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20323"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveRequestDataView\u0026parentFilter=EmployeeId%20%3D%20323"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"desc"}],"filter":[],"error":$('#divDashboardLeaveRequestDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"EmployeeId":{"type":"number"},"CycleId":{"type":"number"},"RequestId":{"editable":false,"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveTypeName":{"editable":false,"type":"string"},"LeaveTotal":{"type":"number"},"ApprovalStatusDescription":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveRequestDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveRequestDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveRequestDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveRequestDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardLeaveRequestDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView() {
+        if ($("#dvGridSearchSettings__DashboardLeaveRequestDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardLeaveRequestDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardLeaveRequestDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#settingsWindow__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardLeaveRequestDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardLeaveRequestDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardLeaveRequestDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardLeaveRequestDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView();
+        $('#tbFilterName__DashboardLeaveRequestDataView').val("");
+        $("#searchSettings__DashboardLeaveRequestDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardLeaveRequestDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardLeaveRequestDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardLeaveRequestDataView').html(result);
+                InitializeGrid___DashboardLeaveRequestDataView(false);
+                var function_name = 'DashboardLeaveRequestDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+                }
+                HideGridFooter("DashboardLeaveRequestDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardLeaveRequestDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveRequestDataView();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardLeaveRequestDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveRequestDataView()
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardLeaveRequestDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardLeaveRequestDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardLeaveRequestDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardLeaveRequestDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardLeaveRequestDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardLeaveRequestDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardLeaveRequestDataView() {
+        var gridName = 'DashboardLeaveRequestDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardLeaveRequestDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardLeaveRequestDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardLeaveRequestDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardLeaveRequestDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardLeaveRequestDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardLeaveRequestDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardLeaveRequestDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="divLeaveApproval">
+                                <a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="DashBoardHeaderLink">My Leave Approvals</a>
+                                <div data-role="AptaDataView" id="divDashboardLeaveApprovalDataView">
+    <script>
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardLeaveApprovalDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters(null)
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardLeaveApprovalDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:90px" /><col style="width:90px" /><col style="width:200px" /><col style="width:128px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Start Date" data-index="0" data-field="LeaveStartDate" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveStartDate-desc" class="k-link">Start Date<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="End Date" data-index="1" data-field="LeaveEndDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveEndDate-asc" class="k-link">End Date</a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="2" data-field="DisplayName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=DisplayName-asc" class="k-link">Employee Name</a></th><th style="text-align:left;" scope="col" data-title="Leave Type" data-index="3" data-field="LeaveTypeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView&amp;gridKey=DashboardLeaveApprovalDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=null&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=&amp;verticallyScrollable=True&amp;DashboardLeaveApprovalDataView-sort=LeaveTypeName-asc" class="k-link">Leave Type</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:90px" class="k-sorted" /><col style="width:90px" /><col style="width:200px" /><col style="width:128px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardLeaveApprovalDataView").kendoGrid({"dataBound":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Start Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveStartDate","data-title":"Start Date"},"width":"90px","field":"LeaveStartDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"End Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveEndDate","data-title":"End Date"},"width":"90px","field":"LeaveEndDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Employee Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DisplayName","data-title":"Employee Name"},"width":"200px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/ManageLeaveApprovals\"\u003e${ DisplayName }\u003c/a\u003e","field":"DisplayName","filterable":false,"encoded":true},{"title":"Leave Type","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"LeaveTypeName","data-title":"Leave Type"},"width":"128px","field":"LeaveTypeName","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardLeaveApprovalDataView","data":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardLeaveApprovalDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardLeaveApprovalDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardLeaveApprovalDataView"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"LeaveStartDate","dir":"asc"}],"filter":[],"error":$('#divDashboardLeaveApprovalDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"RequestId":{"editable":false,"type":"number"},"EmployeeId":{"type":"number"},"LeaveStartDate":{"type":"date"},"LeaveEndDate":{"type":"date"},"DisplayName":{"editable":false,"type":"string"},"LeaveTypeName":{"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardLeaveApprovalDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardLeaveApprovalDataView" value="true" />
+
+<div id="dvGridSettings__DashboardLeaveApprovalDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardLeaveApprovalDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardLeaveApprovalDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardLeaveApprovalDataView() {
+        if ($("#dvGridSettings__DashboardLeaveApprovalDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveApprovalDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardLeaveApprovalDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardLeaveApprovalDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardLeaveApprovalDataView() {
+        if ($("#dvGridSearchSettings__DashboardLeaveApprovalDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardLeaveApprovalDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardLeaveApprovalDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardLeaveApprovalDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardLeaveApprovalDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveApprovalDataView();
+        $("#settingsWindow__DashboardLeaveApprovalDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardLeaveApprovalDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardLeaveApprovalDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardLeaveApprovalDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardLeaveApprovalDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardLeaveApprovalDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardLeaveApprovalDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveApprovalDataView();
+        $('#tbFilterName__DashboardLeaveApprovalDataView').val("");
+        $("#searchSettings__DashboardLeaveApprovalDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardLeaveApprovalDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveApprovalDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardLeaveApprovalDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardLeaveApprovalDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardLeaveApprovalDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardLeaveApprovalDataView').html(result);
+                InitializeGrid___DashboardLeaveApprovalDataView(false);
+                var function_name = 'DashboardLeaveApprovalDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardLeaveApprovalDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardLeaveApprovalDataView");
+                }
+                HideGridFooter("DashboardLeaveApprovalDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardLeaveApprovalDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveApprovalDataView();
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardLeaveApprovalDataView').click(function () {
+        LoadSettingsOnDemand__DashboardLeaveApprovalDataView();
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardLeaveApprovalDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardLeaveApprovalDataView()
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardLeaveApprovalDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveApprovalDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardLeaveApprovalDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardLeaveApprovalDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardLeaveApprovalDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardLeaveApprovalDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardLeaveApprovalDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardLeaveApprovalDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardLeaveApprovalDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardLeaveApprovalDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardLeaveApprovalDataView() {
+        var gridName = 'DashboardLeaveApprovalDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardLeaveApprovalDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardLeaveApprovalDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardLeaveApprovalDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardLeaveApprovalDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardLeaveApprovalDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardLeaveApprovalDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardLeaveApprovalDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                            <div class="DashboardWidget" id="MyDocumentAcknowledgments">
+                                <a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="DashBoardHeaderLink"> My Documents</a> (acknowledgements required)
+                                <div data-role="AptaDataView" id="divDashboardESSMyDocumentAcknowledgementsDataView">
+    <script>
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView",
+            AptaFundDataView.DataViewManager.CreateDataView("DashboardESSMyDocumentAcknowledgementsDataView", "False")
+            .SetBaseURL("/QAAutom/controller/action")
+            .SetDataViewParameters({"CycleId":5,"BaseParam":null})
+            .SetGridHeight(160, false)
+            .SetVerticallyScrollable(true)
+            )
+    </script>
+<div style="height: 160px;" id="DashboardESSMyDocumentAcknowledgementsDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col style="width:200px" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th style="text-align:left;" scope="col" data-title="Document Name" data-index="0" data-field="DocumentName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DocumentName-desc" class="k-link">Document Name<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:left;" scope="col" data-title="Employee Name" data-index="1" data-field="EmployeeName" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=EmployeeName-asc" class="k-link">Employee Name</a></th><th style="text-align:left;" scope="col" data-title="Due Date" data-index="2" data-field="DueDate" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=DueDate-asc" class="k-link">Due Date</a></th><th style="text-align:left;" scope="col" data-title="Actions" data-index="3" data-field="Actions" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridKey=DashboardESSMyDocumentAcknowledgementsDataView&amp;gridHeight=160&amp;filter=&amp;AdjustGridHeightOnResize=False&amp;settings=&amp;dataViewParams=%7B%22CycleId%22%3A5%2C%22BaseParam%22%3Anull%7D&amp;isEditable=False&amp;a7854417-c79a-4ed6-baec-e2fe5c57ba01=System.Web.Mvc.DictionaryValueProvider%601%5BSystem.Object%5D&amp;userSettings=&amp;doNotLoad=False&amp;optionalParameters=AptaFund.DataContracts.AptaDataViewParams&amp;verticallyScrollable=True&amp;DashboardESSMyDocumentAcknowledgementsDataView-sort=Actions-asc" class="k-link">Actions</a></th><th scope="col" data-index="4" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 131px;" class="k-grid-content"><table role="grid"><colgroup><col style="width:200px" class="k-sorted" /><col style="width:140px" /><col style="width:90px" /><col style="width:80px" /><col /></colgroup><tbody role="rowgroup"></tbody></table><div class="k-grid-content-expander" style="width: 516px;"></div></div></div><script>
+	kendo.syncReady(function(){jQuery("#DashboardESSMyDocumentAcknowledgementsDataView").kendoGrid({"dataBound":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Document Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DocumentName","data-title":"Document Name"},"width":"200px","template":"\u003ca href=\"https://test.aptafund.com/QAAutom/ESS/ESS/ViewEmployeeDocument/#= Id#\"\u003e${ DocumentName }\u003c/a\u003e","field":"DocumentName","filterable":false,"encoded":true},{"title":"Employee Name","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"EmployeeName","data-title":"Employee Name"},"width":"140px","field":"EmployeeName","filterable":false,"encoded":true},{"title":"Due Date","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DueDate","data-title":"Due Date"},"width":"90px","field":"DueDate","format":"{0:MM/dd/yyyy}","filterable":false,"encoded":true},{"title":"Actions","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"Actions","data-title":"Actions"},"width":"80px","template":"\u003ca href=\"javascript:acknowledgeDocumentFinsWindow(#= Id#)\"\u003e \u003cimg src=\"../../Content/Images/status_ready_48.png\" style=\"width:20px;height:20px;border:0;\" alt=\"Acknowledge\" tooltiptitle=\"Acknowledge\" class=\"tooltipgridcolumn\"\u003e\u003c/a\u003e","field":"Actions","filterable":false,"encoded":true},{}],"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=DashboardESSMyDocumentAcknowledgementsDataView","data":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=DashboardESSMyDocumentAcknowledgementsDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=DashboardESSMyDocumentAcknowledgementsDataView"}},"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"DocumentName","dir":"asc"}],"filter":[],"error":$('#divDashboardESSMyDocumentAcknowledgementsDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Id":{"editable":false,"type":"string"},"DocumentName":{"editable":false,"type":"string"},"EmployeeName":{"editable":false,"type":"string"},"DueDate":{"editable":false,"type":"date"},"Actions":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_DashboardESSMyDocumentAcknowledgementsDataView" value="true" />
+
+<div id="dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+<div id="dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView">
+</div>
+
+
+<script>
+
+    $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView() {
+        if ($("#dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__DashboardESSMyDocumentAcknowledgementsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__DashboardESSMyDocumentAcknowledgementsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView() {
+        if ($("#dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__DashboardESSMyDocumentAcknowledgementsDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#settingsWindow__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'DashboardESSMyDocumentAcknowledgementsDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__DashboardESSMyDocumentAcknowledgementsDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $('#tbFilterName__DashboardESSMyDocumentAcknowledgementsDataView').val("");
+        $("#searchSettings__DashboardESSMyDocumentAcknowledgementsDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'DashboardESSMyDocumentAcknowledgementsDataView', GridHeight: '160', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#DashboardESSMyDocumentAcknowledgementsDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divDashboardESSMyDocumentAcknowledgementsDataView').html(result);
+                InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(false);
+                var function_name = 'DashboardESSMyDocumentAcknowledgementsDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "DashboardESSMyDocumentAcknowledgementsDataView");
+                }
+                HideGridFooter("DashboardESSMyDocumentAcknowledgementsDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__DashboardESSMyDocumentAcknowledgementsDataView').click(function () {
+        LoadSearchSettingsOnDemand__DashboardESSMyDocumentAcknowledgementsDataView()
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-top", "0px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("padding-left", "0px");
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-top", "0px");
+        $('#divOptions__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-right", "3px");
+        $('#divQuickSearch__DashboardESSMyDocumentAcknowledgementsDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("DashboardESSMyDocumentAcknowledgementsDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__DashboardESSMyDocumentAcknowledgementsDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__DashboardESSMyDocumentAcknowledgementsDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__DashboardESSMyDocumentAcknowledgementsDataView() {
+        var gridName = 'DashboardESSMyDocumentAcknowledgementsDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___DashboardESSMyDocumentAcknowledgementsDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_DashboardESSMyDocumentAcknowledgementsDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "DashboardESSMyDocumentAcknowledgementsDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_DashboardESSMyDocumentAcknowledgementsDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__DashboardESSMyDocumentAcknowledgementsDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__DashboardESSMyDocumentAcknowledgementsDataView').click(function (e) {
+        e.preventDefault();
+        $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+                            </div>
+                </td>
+            </tr>
+        </tbody></table>
+            <div style="clear: both;"></div>
+            <a class="k-button" id="btnConfigure__Index">Configure</a>
+    </div>
+</div>
+
+<script>
+
+    function NavigateToMyPaycheckDetail(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/PaycheckDetails" + "?id=" + Id);
+    }
+
+    function NavigateToNewLeaveRequest() {
+        NavigateTo("/QAAutom/ESS/ESS/CreateLeaveRequest" + "?EmployeeId=" + "323");
+    }
+
+    function NavigateToMyPaychecks() {
+        NavigateTo("/QAAutom/ESS/ESS/ManagePaychecks");
+    }
+
+    function NavigateToMyLeaveRequest(Id) {
+        NavigateTo("/QAAutom/ESS/ESS/EditLeaveRequest" + "?selectedRecord=" + Id);
+    }
+
+    function NavigateToMyLeaveRequests() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveRequests");
+    }
+
+    function NavigateToMyLeaveBalances() {
+        NavigateTo("/QAAutom/ESS/ESS/LeaveDetails");
+    }
+
+    function NavigateToMyLeaveApprovals() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageLeaveApprovals");
+    }
+
+    function NavigateToMyYTDTotals() {
+        NavigateTo("/QAAutom/ESS/ESS/YTDTotals");
+    }
+
+    function NavigateToMyDocuments() {
+        NavigateTo("/QAAutom/ESS/ESS/ViewMyDocuments");
+    }
+
+    function NavigateToMyW2Forms() {
+        NavigateTo("/QAAutom/ESS/ESS/ManageW2Forms");
+    }
+
+    function NavigateToNewDatabase() {
+        $('#defaultDatabaseName').click();
+	}
+
+	function EditPurchaseRequisitionPopup(id)
+	{
+		 var data, options;
+		 var aptaDataViewSelection = $("#divDashboardPRApprovalsDataView").data("AptaDataView").GetAptaDataViewSelection();
+        data = { Id: id, origin: 3, aptaDataViewSelection: aptaDataViewSelection, statusType: 3 };
+        options = { url: "/QAAutom/Purchasing/RequisitionApproval/EditMyRequisitionPopup", data: data, type: "POST" };
+
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowRequisition")
+       .SetIsModal(true)
+	   .SetContent(options)
+	   .SetonClose(function () { $("#divDashboardPRApprovalsDataView").data("AptaDataView").Refresh();})
+       .SetTitle('Edit Purchase Requisition')
+       .SetWidth(900)
+       .SetHeight("90%")
+        finsWindow.CreateWindow(true);
+	}
+
+    $('#btnConfigure__Index').click(function (e) {
+        e.preventDefault();
+        showConfigurePopup();
+    });
+
+    function showConfigurePopup() {
+
+		var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupWindowConfigure")
+        .SetContent({ url: "/Home/ConfigureHomeScreen?enableGrids=" + 'True' + '~' + 'True' + '~' + 'True' + '~' + 'False' + '~' + 'True' + '~' + 'False'+ '~' + 'True'})
+        .SetWidth('40%')
+        .SetHeight('40%')
+        .SetIsModal(true)
+        .SetTitle('Configure')
+        finsWindow.CreateWindow(true);
+       }
+
+    function acknowledgeDocumentFinsWindow(Id) {        
+        var data = { id: Id };
+        var options = { url: "/ESS/AcknowledgeEmployeeDocument", data: data, type: "POST" };
+        var presenter = new AptaFund.ESS.AcknowledgeDocumentDetailPresenter();
+        var finsWindow = FINSWindow.FinsWindowManager.CreateFINSWindowObject("popupwindowAcknowledgeDocument")
+            .SetTitle('Acknowledge Document')
+            .SetContent(options)
+            .SetWidth('40%')
+            .SetHeight('60%')
+            .SetonClose(function () {
+                $("#divDashboardESSMyDocumentAcknowledgementsDataView").data("AptaDataView").Refresh();
+            })            
+        finsWindow.SetPresenter(presenter);
+        finsWindow.CreateWindow(true);
+    }
+
+    $(document).ready(function () {
+        var documentId = '';
+        if (documentId !== null &amp;&amp; documentId != '') {
+            var canAcknowlege='';
+            if (canAcknowlege == 'True') {
+                acknowledgeDocumentFinsWindow(documentId);              
+            }
+            else {
+                ShowAjaxMessage('You are not authorized to acknowledge this document or document does not exist.', "Error");
+            }
+        }
+    });   
+</script>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2018 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Friday, March 30, 2018 5:42 AM
+                    <br />
+                    AptaFund Version: 2018.3.29.12928
+                    <br />
+                    Last Updated: 3/30/2018 2:44:36 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#03302018024436"></script>
+    <script type="text/javascript">
+        $(document).click(function (event) {
+            documentMoreButtonClickHandler(event);
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/Home/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="1000"></canvas></html>

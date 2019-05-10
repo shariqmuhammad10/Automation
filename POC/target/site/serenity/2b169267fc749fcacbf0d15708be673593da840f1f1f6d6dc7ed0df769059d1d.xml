@@ -1,0 +1,68 @@
+<acceptance-test-run title="Attach file in purchase requisition" name="attachFileInPurchaseRequisition" steps="20" successful="20" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="143531" timestamp="2018-03-12T18:11:49.152+05:00" session-id="a9248957-9e6f-4e40-9fdf-a351ea23af13">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13647">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7602">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5271">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11886">
+    <description>Navigate to purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11284">
+    <description>Add purchase requisiton</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12278">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16062">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6294">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19455">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2700">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="4936">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="174">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1425">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6180">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5976">
+    <description>Click on attached tab</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="225">
+    <description>Click on attachfile add</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3416">
+    <description>Click select file to attach</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="310">
+    <description>Define description in attached files</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="147">
+    <description>Click on save button after attaching file</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14214">
+    <description>Select the file to attach</description>
+  </test-step>
+</acceptance-test-run>

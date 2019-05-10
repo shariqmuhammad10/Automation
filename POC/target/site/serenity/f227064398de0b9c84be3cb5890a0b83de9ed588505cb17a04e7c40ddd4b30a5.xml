@@ -1,0 +1,23 @@
+<acceptance-test-run title="Create purchase order inquiry report" name="createPurchaseOrderInquiryReport" steps="5" successful="5" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="89625" timestamp="2018-04-23T16:29:13.263+05:00">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="19608">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13379">
+    <description>Login for reports test</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5289">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8409">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="42903">
+    <description>Create purchase order inquiry report</description>
+  </test-step>
+</acceptance-test-run>

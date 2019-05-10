@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Deduction assignment test","Add direct deposit with amount","ERROR","2017-06-16T09:07:54.912+05:00","0.0","109.0"
+"Deduction assignment test","Add direct deposit with percentage","ERROR","2017-06-16T08:58:46.578+05:00","0.0","99.93"
+"Deduction assignment test","Add non variable deduction for percentage","SUCCESS","2017-06-16T09:04:39.892+05:00","0.0","91.94"
+"Deduction assignment test","Delete non variable deduction for percentage","SUCCESS","2017-06-16T09:06:12.105+05:00","0.0","102.47"
+"Deduction assignment test","Verify add fixed amount deduction","SUCCESS","2017-06-16T09:02:37.924+05:00","0.0","121.61"
+"Deduction assignment test","Verify edit fixed amount deduction","SUCCESS","2017-06-16T09:00:26.770+05:00","0.0","130.87"

@@ -1,0 +1,4 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Deduction assignment test","Add non variable deduction for percentage","SUCCESS","2017-06-16T09:04:39.892+05:00","0.0","91.94"
+"Deduction assignment test","Delete non variable deduction for percentage","SUCCESS","2017-06-16T09:06:12.105+05:00","0.0","102.47"
+"Employee jobs test","Verify add employee hourly job","SUCCESS","2017-06-16T08:53:31.052+05:00","0.0","92.07"

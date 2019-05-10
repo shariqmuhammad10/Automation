@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 2.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="k-ff k-ff46"><head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>AptaFund</title>
+
+        <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+        <meta content="width=device-width; height=device-height" name="viewport" />
+        <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+	    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+        <link type="text/css" rel="stylesheet" href="/Content/LoginLayout.css#12062017015404" />
+        <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+        <script src="/Bundles/aptafundscript?v=fAzrNmZTVeAelngU3BiWKrksT1KkImpoyXKKd3ss57s1"></script>
+
+        <style>
+            .k-widget.k-notification {
+                box-shadow: none;
+            }
+            .notificationWindow .k-notification {
+                border-width: 0px !important;
+            }
+            .notificationContainer {
+                width: 400px;
+                min-height: 50px;
+                padding: 1px 1px 1px 50px;
+                background-repeat: no-repeat;
+                background-position: 10px center;
+            }
+            .info.notificationContainer {
+                background-color: #3572B0;
+                background-image: url('/Content/Images/status_info_white_48.png');
+                background-size: 32px;
+            }
+            .success.notificationContainer {
+                background-color: #8eb021;
+                background-image: url('/Content/Images/status_success_white_48.png');
+                background-size: 32px;
+            }
+            .error.notificationContainer {
+                background-color: #d04437;
+                background-image: url('/Content/Images/status_error_white_48.png');
+                background-size: 32px;
+            }
+            .warning.notificationContainer {
+                background-color: #f6c342;
+                background-image: url('/Content/Images/status_warning_white_48.png');
+                background-size: 32px;
+            }
+            .notificationContent {
+                font-size: larger;
+                color: #000000;
+                background-color: #ffffff;
+                width: 100%;
+                padding: 20px 10px 20px 20px;
+                display: inline-block;
+                box-sizing: border-box;
+            }
+            .notificationContent .message {
+                width: 90%;
+                box-sizing: border-box;
+                white-space: pre-wrap;      /* CSS3 */
+                word-wrap: break-word;      /* IE */
+                display: inline-block;
+            }
+            .notificationContent .close {
+                width: 10%;
+                float: right;
+            }
+            .closeImage {
+                width: 24px;
+                height: 24px;
+                background-image: url('/Content/Images/x_icon_48.png');
+                background-size: 24px;
+                background-repeat: no-repeat;
+                display: inline-block;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body id="login">
+        <span style="display:none;" id="divUINotification"></span>
+
+        <div id="RenderLoginBodyFrame">
+            <div id="LoginRenderBody">
+                
+
+<div class="LoginDialog">
+    <div class="LoginDialogHeaderImage">
+        <img alt="AptaFund" src="/Content/Images/AptaLogo.png" />
+    </div>
+    <div class="LoginDialogLoginImage">
+        <img alt="AptaFund" src="/Content/Images/Login.png" />
+    </div>
+    <div class="LoginDialogMain">
+<form method="post" id="loginForm" action="/Home/AuthenticateUser?ReturnUrl=%2F" novalidate="novalidate"><input type="hidden" value="q_KTtBlrwsYuBIoNIkokuE4BBKC8Ba3r_7QI6EDHwJx2SEGBqPbHHvTlFCx5zDhstc5gVHlSgISU9Dhdn5WV_eKiKTfgADzPLZKyAj7kzsY1" name="__RequestVerificationToken" /><input type="hidden" value="5" name="hdnClientTimeZoneOffset" id="hdnClientTimeZoneOffset" />            <div id="UsernameTextbox">
+                <input type="text" value="" placeholder="Email" name="UserName" id="loginName" data-val-required="User Name is required." data-val="true" class="LoginText valid" autofocus="autofocus" />
+            </div>
+            <div id="PasswordTextbox">
+                <input type="password" placeholder="Password" name="Password" id="Password" data-val-required="The Password field is required." data-val-length-max="15" data-val-length="Passwords cannot be greater than 15 characters." data-val="true" class="LoginText valid" />
+            </div>
+            <div id="ForgotPasswordText">
+                <a class="forgotpwlink" id="btnForgotPassword">Forgot Password?</a>
+            </div>
+            <div id="LoginButtonBox">
+                <input type="submit" value="Sign In" class="login-button" />
+            </div>
+</form>    </div>
+</div>
+
+<script>
+    function checkClientTimeZone() {
+        // Set the client time zone
+        var dt = new Date();
+        var tz = dt.getTimezoneOffset() / 60 * -1;
+        $('#hdnClientTimeZoneOffset').val(tz);
+    }
+    // Attach to the document onload event
+    checkClientTimeZone();
+    localStorage.clear();
+    $("#btnForgotPassword").click(function () {
+        window.location.href = "/Home/ForgotPasswordGetEmail";
+    });
+</script>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="loginfooterwrapper">
+            <div id="loginbottomhr"></div>
+            <div id="loginfooter">
+                <div id="LoginSupportLogo">
+                    <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="LoginSupportLogo" />
+                </div>
+                <div id="LoginSystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                </div>
+            </div>
+        </div>
+    
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/controller/action", false);
+        
+    });
+</script></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1268" height="609"></canvas></html>

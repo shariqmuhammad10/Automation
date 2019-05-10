@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" skipped="0" tests="1" time="49.58" timestamp="2017-11-312 04:30:43"><testcase classname="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Verify navigate to purchase requisition"><error message="Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@49cc9b2a&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown&#10;For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown" type="org.openqa.selenium.NoSuchElementException">Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@49cc9b2a
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown</error><system-err>Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@49cc9b2a
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown&#13;
+com.aptafund.test.pages.PurchasingAndPayables.PurchaseRequisitionPage.clickPurchaseRequisition(PurchaseRequisitionPage.java:24)&#13;
+com.aptafund.test.steps.PurchasingAndPayables.PurchaseRequisitionSteps.navigateToPurchaseRequisition(PurchaseRequisitionSteps.java:24)&#13;
+com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest.verifyNavigateToPurchaseRequisition(PurchaseRequisitionTest.java:67)&#13;
+</system-err></testcase></testsuite>

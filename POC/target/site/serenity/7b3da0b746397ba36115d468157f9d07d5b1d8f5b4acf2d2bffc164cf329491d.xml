@@ -1,0 +1,25 @@
+<acceptance-test-run title="Add account code" name="addAccountCode" steps="6" successful="6" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="79886" timestamp="2018-04-25T15:01:35.527+05:00" session-id="7b52cdaa-fd60-436f-9cdf-d52314c8a388">
+  <user-story id="com.aptafund.test.features.login.BankingAndCOA.ChartOfAccountTest" name="Chart of account test" path="com.aptafund.test.features.login.BankingAndCOA"/>
+  <tags>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Chart of account test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="15114">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19923">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10240">
+    <description>Navigate to banking and COA</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8868">
+    <description>Navigate to chart of accounts</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14615">
+    <description>Select account type group</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11090">
+    <description>Add account code</description>
+  </test-step>
+</acceptance-test-run>

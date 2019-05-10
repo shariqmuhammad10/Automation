@@ -1,0 +1,35 @@
+<acceptance-test-run title="Verify add employee hourly job" name="verifyAddEmployeeHourlyJob" steps="5" successful="4" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="126094" timestamp="2018-04-09T19:28:59.219+05:00" session-id="786df4db-cd67-4c40-b42d-c5805e1c2088">
+  <user-story id="com.aptafund.test.features.login.HumanResource.EmployeeJobsTest" name="Employee jobs test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Employee jobs test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="21053">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="21001">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16149">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9122">
+    <description>Navigate to employee jobs</description>
+  </test-step>
+  <test-step result="ERROR" duration="58716">
+    <screenshots>
+      <screenshot image="91d83e11f79750a856db3c447fa91e8c.png" source="pagesource8097703318768219471.html.txt"/>
+    </screenshots>
+    <description>Add new hourly employee job</description>
+    <error>org.openqa.selenium.ElementNotVisibleException: Timed out after 15 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.ElementNotVisibleException:Timed out after 15 seconds. Element not available
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.hrPayrollESS.EmployeeJobsPage.selectContributionType(EmployeeJobsPage.java:268), com.aptafund.test.steps.HRPayrollESS.EmployeeJobsSteps.addNewHourlyEmployeeJob(EmployeeJobsSteps.java:70), com.aptafund.test.features.login.HumanResource.EmployeeJobsTest.verifyAddEmployeeHourlyJob(EmployeeJobsTest.java:117)]</exception>
+  </test-step>
+</acceptance-test-run>

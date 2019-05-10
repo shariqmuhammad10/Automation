@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="com.aptafund.test.features.login.commonTest.AptaLoginTest" skipped="0" tests="1" time="27.47" timestamp="2018-04-114 03:25:51"><testcase classname="com.aptafund.test.features.login.commonTest.AptaLoginTest" name="Verify login into site"/></testsuite>

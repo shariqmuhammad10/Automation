@@ -1,0 +1,20 @@
+<acceptance-test-run title="Verify navigate to deduction assignment" name="verifyNavigateToDeductionAssignment" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="35176" timestamp="2017-07-07T12:08:39.969+05:00" session-id="673f631c-1406-4317-8390-5f8b3ee9eb48">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="11260">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7007">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14229">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2679">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+</acceptance-test-run>

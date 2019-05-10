@@ -1,0 +1,47 @@
+<acceptance-test-run title="View purchase requisition for admin" name="viewPurchaseRequisitionForAdmin" steps="13" successful="13" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="203176" timestamp="2018-04-10T19:53:42.583+05:00" session-id="b0fd8ad4-bb2b-4b6c-8202-0e1474519ad3">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="12442">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9566">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14189">
+    <description>Navigate to admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14771">
+    <description>Navigate to purchase requisition for admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14251">
+    <description>Add purchase requisiton for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12314">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6319">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9410">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45391">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5610">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13375">
+    <description>Search newly created PR for PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="33515">
+    <description>Select item line check box for admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11977">
+    <description>View for admin PR</description>
+  </test-step>
+</acceptance-test-run>

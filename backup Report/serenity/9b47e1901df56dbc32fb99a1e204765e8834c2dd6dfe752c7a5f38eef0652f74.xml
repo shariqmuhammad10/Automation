@@ -1,0 +1,46 @@
+<acceptance-test-run title="Verify add percentage calculation deduction" name="verifyAddPercentageCalculationDeduction" steps="6" successful="4" failures="0" errors="1" skipped="1" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="89985" timestamp="2017-06-16T09:15:10.334+05:00" session-id="19e4ece7-433d-4dcb-8309-1a02ced3e65d">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManageDeductionTest" name="Manage deduction test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage deduction test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="11473">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6981">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14199">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7216">
+    <description>Navigate to manage deduction</description>
+  </test-step>
+  <test-step result="ERROR" duration="50090">
+    <screenshots>
+      <screenshot image="eba952ea8d8c8b699adb7e2b30326db9.png" source="pagesource1767560408277915821.html.txt"/>
+    </screenshots>
+    <description>Add manage deduction using percentage calculation</description>
+    <error>org.openqa.selenium.NoSuchElementException: Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown</error>
+    <exception>org.openqa.selenium.NoSuchElementException:Timed out after 25 seconds waiting for net.serenitybdd.core.pages.WebElementFacadeImpl$1@101b2ddd
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: driver.version: unknown&#xd;
+[com.aptafund.test.pages.hrPayrollESS.ManageDeductionsPage.clickonPPP(ManageDeductionsPage.java:361), com.aptafund.test.steps.HRPayrollESS.ManageDeductionSteps.addManageDeductionUsingPercentageCalculation(ManageDeductionSteps.java:57), com.aptafund.test.features.login.Payroll.ManageDeductionTest.verifyAddPercentageCalculationDeduction(ManageDeductionTest.java:73)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search deduction set</description>
+  </test-step>
+</acceptance-test-run>

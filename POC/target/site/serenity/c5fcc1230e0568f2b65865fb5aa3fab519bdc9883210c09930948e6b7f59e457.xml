@@ -1,0 +1,140 @@
+<acceptance-test-run title="Verify add job to register" name="verifyAddJobToRegister" steps="43" successful="43" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="376963" timestamp="2017-11-07T20:20:54.153+05:00" session-id="88cbe373-2406-40d3-af4a-2265d1b54187">
+  <user-story id="com.aptafund.test.features.login.Payroll.ManagePayrollTest" name="Manage payroll test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage payroll test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="15983">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="17516">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8175">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8973">
+    <description>Navigate to manage payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2208">
+    <description>Add payroll register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3288">
+    <description>Open payroll cycle</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2109">
+    <description>Select biweekly value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="294">
+    <description>Open payroll period</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9140">
+    <description>Select payroll period value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="233">
+    <description>Add register number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3213">
+    <description>Open register type</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9136">
+    <description>Select register type value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3229">
+    <description>Set register description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8869">
+    <description>Save add register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="120">
+    <description>Select register number</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="17337">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3822">
+    <description>Search register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12436">
+    <description>Select checkbox register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12728">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5124">
+    <description>Add job to register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14538">
+    <description>Select employee from add job reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16261">
+    <description>Select job from add job reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8158">
+    <description>Verify full time pay rate</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5159">
+    <description>Save add job to register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5420">
+    <description>Select check box to select job</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10182">
+    <description>Click edit button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="3867">
+    <description>Click and set job hours</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8094">
+    <description>Verify gross pay</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5116">
+    <description>Save job edit hours</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19293">
+    <description>Select return to search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="258">
+    <description>Search register</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13221">
+    <description>Click submit reg button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="19270">
+    <description>Click yes confirm msg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="41534">
+    <description>Click approve reg</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14151">
+    <description>Click yes confirm msg for approval</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10185">
+    <description>Click on more button</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2462">
+    <description>Click print payroll check</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8228">
+    <screenshots>
+      <screenshot image="97d8525759e368b48c4d8069280e0f72.png"/>
+    </screenshots>
+    <description>Pay check amount verification</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10780">
+    <description>Click on check box to select regular payment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1305">
+    <description>Click print pay check</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5135">
+    <description>Click print PDF</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5164">
+    <description>Click verify option</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5130">
+    <description>Click close pay check after printing</description>
+  </test-step>
+</acceptance-test-run>

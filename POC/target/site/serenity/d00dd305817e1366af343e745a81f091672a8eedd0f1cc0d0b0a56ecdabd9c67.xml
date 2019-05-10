@@ -1,0 +1,19 @@
+<acceptance-test-run title="Verify navigate to manage employee" name="verifyNavigateToManageEmployee" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="53508" timestamp="2018-04-02T22:50:45.090+05:00" session-id="cc8bceec-0c0f-45cb-b58d-dcda899a5597">
+  <user-story id="com.aptafund.test.features.login.HumanResource.ManageEmployeeTest" name="Manage employee test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage employee test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="19975">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9347">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16186">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7912">
+    <description>Navigate to manage employee</description>
+  </test-step>
+</acceptance-test-run>

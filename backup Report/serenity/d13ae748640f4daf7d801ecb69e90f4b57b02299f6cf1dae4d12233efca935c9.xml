@@ -1,0 +1,50 @@
+<acceptance-test-run title="Add direct deposit with amount" name="AddDirectDepositWithAmount" steps="8" successful="7" failures="0" errors="1" skipped="0" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="109002" timestamp="2017-06-16T09:07:54.912+05:00" session-id="b8abda20-0a67-46a9-bd3b-5b1be7b65a6d">
+  <user-story id="com.aptafund.test.features.login.Payroll.DeductionAssignmentTest" name="Deduction assignment test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 1" type="release"/>
+    <tag name="Deduction assignment test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="11996">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6649">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14152">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6339">
+    <description>Navigate to deduction assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14116">
+    <description>Search new ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="190">
+    <description>Edit ded assignment</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13793">
+    <description>Click on direct deposit</description>
+  </test-step>
+  <test-step result="ERROR" duration="41762">
+    <screenshots>
+      <screenshot image="a85fb033de284d031c056d4891c133e5.png" source="pagesource1879131618358469148.html.txt"/>
+    </screenshots>
+    <description>Add direct deposit amount</description>
+    <error>org.openqa.selenium.WebDriverException: Element is not clickable at point (689.0333251953125, 410.6333312988281). Other element would receive the click: &lt;div style=&quot;width: 226px; height: 50px; overflow: hidden; display: block; position: absolute; top: 421.983px; z-index: 10015; left: 479.983px;&quot; class=&quot;k-animation-container&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 65 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b8abda20-0a67-46a9-bd3b-5b1be7b65a6d</error>
+    <exception>org.openqa.selenium.WebDriverException:Element is not clickable at point (689.0333251953125, 410.6333312988281). Other element would receive the click: &lt;div style=&quot;width: 226px; height: 50px; overflow: hidden; display: block; position: absolute; top: 421.983px; z-index: 10015; left: 479.983px;&quot; class=&quot;k-animation-container&quot;&gt;&lt;/div&gt;
+Command duration or timeout: 65 milliseconds
+Build info: version: &apos;2.53.0&apos;, revision: &apos;35ae25b1534ae328c771e0856c93e187490ca824&apos;, time: &apos;2016-03-15 10:43:46&apos;
+System info: host: &apos;ShariqM-PC&apos;, ip: &apos;10.14.5.80&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0.1, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b8abda20-0a67-46a9-bd3b-5b1be7b65a6d&#xd;
+[com.aptafund.test.pages.hrPayrollESS.DeductionAssignmentPage.setPrimaryLocation(DeductionAssignmentPage.java:396), com.aptafund.test.steps.HRPayrollESS.DeductionAssignmentSteps.addDirectDepositAmount(DeductionAssignmentSteps.java:150), com.aptafund.test.features.login.Payroll.DeductionAssignmentTest.AddDirectDepositWithAmount(DeductionAssignmentTest.java:118)]</exception>
+  </test-step>
+</acceptance-test-run>

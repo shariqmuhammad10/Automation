@@ -1,0 +1,47 @@
+<acceptance-test-run title="Delete purchase requisition for admin using hyper link" name="deletePurchaseRequisitionForAdminUsingHyperLink" steps="13" successful="13" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="198213" timestamp="2018-04-24T18:45:56.838+05:00" session-id="de101a96-b3cd-4bb5-a37f-1337aae270af">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="16691">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10709">
+    <description>Login into apta as my admin req1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14282">
+    <description>Navigate to admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12674">
+    <description>Navigate to purchase requisition for admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14301">
+    <description>Add purchase requisiton for my PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12368">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6425">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9296">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45393">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10744">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="13386">
+    <description>Search newly created PR for PR admin</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="31728">
+    <description>Select item line check box for admin PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="185">
+    <description>Delete p rusing admin</description>
+  </test-step>
+</acceptance-test-run>

@@ -1,0 +1,23 @@
+<acceptance-test-run title="Create AP aging summaryreport" name="createAPAgingSummaryreport" steps="5" successful="5" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="64412" timestamp="2018-03-05T17:59:41.153+05:00" session-id="337dc7ad-c666-4825-87f3-73f5e422ee13">
+  <user-story id="com.aptafund.test.features.login.Reports.ReportsTest" name="Reports test" path="com.aptafund.test.features.login.Reports"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Reports test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13746">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8176">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5277">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7456">
+    <description>Navigate to reports</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="29733">
+    <description>Create AP aging summary report</description>
+  </test-step>
+</acceptance-test-run>

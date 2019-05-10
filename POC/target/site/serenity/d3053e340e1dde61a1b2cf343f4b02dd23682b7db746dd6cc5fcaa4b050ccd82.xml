@@ -1,0 +1,92 @@
+<acceptance-test-run title="Disapprove purchase requisition" name="disapprovePurchaseRequisition" steps="28" successful="28" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="272186" timestamp="2018-04-26T16:42:40.888+05:00" session-id="f19b3bd7-28a6-4580-9a4e-4d3427dc8eef">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="17485">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8101">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5252">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12095">
+    <description>Navigate to purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16344">
+    <description>Add purchase requisiton</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12346">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6346">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9107">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45604">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8792">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2840">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="4867">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="154">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1302">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5567">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10249">
+    <description>Submit PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9840">
+    <description>Confirm submit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10723">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11612">
+    <description>Logout application</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="1586">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6659">
+    <description>Login into apta as approver1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="18234">
+    <description>Navigate to my apta fund for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11311">
+    <description>Navigate to my PR approvals</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16375">
+    <description>Search newly created PR for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5605">
+    <description>Apply check for search for app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8226">
+    <description>Click disapprove using app1</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="336">
+    <description>Provide disapprove comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5188">
+    <description>Click ok button after comments</description>
+  </test-step>
+</acceptance-test-run>

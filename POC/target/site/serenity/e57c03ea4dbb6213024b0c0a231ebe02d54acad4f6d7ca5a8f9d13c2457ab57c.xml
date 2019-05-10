@@ -1,0 +1,76 @@
+<acceptance-test-run title="Withdraw my purchase requisition from grid" name="withdrawMyPurchaseRequisitionFromGrid" steps="23" successful="23" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="268552" timestamp="2018-04-26T18:19:27.617+05:00" session-id="dadcc16e-712d-4f9c-9672-edfd0177ddaf">
+  <user-story id="com.aptafund.test.features.login.PurchasingAndPayables.PurchaseRequisitionTest" name="Purchase requisition test" path="com.aptafund.test.features.login.PurchasingAndPayables"/>
+  <tags>
+    <tag name="Regression Level 2" type="release"/>
+    <tag name="Purchase requisition test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="16869">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8108">
+    <description>Login into apta as requisitionor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5274">
+    <description>Navigate to my apta fund</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="11962">
+    <description>Navigate to purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="16349">
+    <description>Add purchase requisiton</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="12356">
+    <description>Add suggested ordering vendor</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6357">
+    <description>Add comments</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9105">
+    <description>Save purchase requisition</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="45554">
+    <description>Get requisition number value</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8689">
+    <description>Click add requested item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="2833">
+    <description>Set unit price for line item</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="5785">
+    <description>Set account code</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="218">
+    <description>Set item description</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="806">
+    <description>Save PR item line</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6227">
+    <description>Close line item popup</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10304">
+    <description>Add req num in terms</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10309">
+    <description>Submit PR</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="9693">
+    <description>Confirm submit</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10609">
+    <description>Close PR pop up</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="20383">
+    <description>Search submitted records only</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="22499">
+    <description>Apply check for search</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14164">
+    <description>Withdraw purchase requisition out grid</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14067">
+    <description>Withdraw PR confirm message</description>
+  </test-step>
+</acceptance-test-run>

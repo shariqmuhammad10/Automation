@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: com.aptafund.test.features.login.Payroll.ManagePayrollTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 3, Skipped: 2, Time elapsed: 475.275 sec <<< FAILURE! - in com.aptafund.test.features.login.Payroll.ManagePayrollTest
+verifyAddJobToRegister(com.aptafund.test.features.login.Payroll.ManagePayrollTest)  Time elapsed: 154.161 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 5 seconds. Element not found
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.selectEmpFromAddJobReg(ManagePayrollPage.java:450)
+	at com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.selectEmployeeFromAddJobReg(ManagePayrollSteps.java:137)
+	at com.aptafund.test.features.login.Payroll.ManagePayrollTest.verifyAddJobToRegister(ManagePayrollTest.java:99)
+
+verifyRemoveJobToRegister(com.aptafund.test.features.login.Payroll.ManagePayrollTest)  Time elapsed: 95.143 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 5 seconds. Element not found
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.clickAddJobToRegistor(ManagePayrollPage.java:588)
+	at com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.addJobToRegistor(ManagePayrollSteps.java:159)
+	at com.aptafund.test.features.login.Payroll.ManagePayrollTest.verifyRemoveJobToRegister(ManagePayrollTest.java:146)
+
+voidRegister(com.aptafund.test.features.login.Payroll.ManagePayrollTest)  Time elapsed: 152.697 sec  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: Timed out after 5 seconds. Element not found
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown
+	at com.aptafund.test.pages.hrPayrollESS.ManagePayrollPage.selectEmpFromAddJobReg(ManagePayrollPage.java:450)
+	at com.aptafund.test.steps.HRPayrollESS.ManagePayrollSteps.selectEmployeeFromAddJobReg(ManagePayrollSteps.java:137)
+	at com.aptafund.test.features.login.Payroll.ManagePayrollTest.voidRegister(ManagePayrollTest.java:193)
+

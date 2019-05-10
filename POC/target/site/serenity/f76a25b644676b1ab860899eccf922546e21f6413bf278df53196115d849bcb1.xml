@@ -1,0 +1,20 @@
+<acceptance-test-run title="Verify navigate to chart of accounts" name="verifyNavigateToChartOfAccounts" steps="4" successful="4" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="36868" timestamp="2018-01-29T22:33:06.930+05:00" session-id="8ea1df59-2efc-4c55-8b63-8b668114a0b3">
+  <user-story id="com.aptafund.test.features.login.BankingAndCOA.ChartOfAccountTest" name="Chart of account test" path="com.aptafund.test.features.login.BankingAndCOA"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Regression Level 3" type="release"/>
+    <tag name="Chart of account test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="11211">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="6871">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="10212">
+    <description>Navigate to banking and COA</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="8536">
+    <description>Navigate to chart of accounts</description>
+  </test-step>
+</acceptance-test-run>

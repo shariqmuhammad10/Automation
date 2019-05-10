@@ -1,0 +1,38 @@
+<acceptance-test-run title="Verify add new employee" name="verifyAddNewEmployee" steps="9" successful="0" failures="0" errors="1" skipped="8" ignored="0" pending="0" annotated-result="ERROR" result="ERROR" duration="45288" timestamp="2017-06-16T08:58:01.255+05:00">
+  <user-story id="com.aptafund.test.features.login.HumanResource.ManageEmployeeTest" name="Manage employee test" path="com.aptafund.test.features.login.HumanResource"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Manage employee test" type="story"/>
+  </tags>
+  <test-step result="ERROR" duration="45281">
+    <description>Navigate to login page</description>
+    <error>net.thucydides.core.webdriver.UnsupportedDriverException: Could not instantiate class org.openqa.selenium.firefox.FirefoxDriver</error>
+    <exception>net.thucydides.core.webdriver.UnsupportedDriverException:Could not instantiate class org.openqa.selenium.firefox.FirefoxDriver&#xd;
+[com.aptafund.test.steps.commonSteps.AptaLoginSteps.navigateToLoginPage(AptaLoginSteps.java:28), com.aptafund.test.features.login.HumanResource.ManageEmployeeTest.verifyAddNewEmployee(ManageEmployeeTest.java:61)]</exception>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Navigate to payroll</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="1">
+    <description>Navigate to manage employee</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Add new employee</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Search newly created employee</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Sort employee</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Select check box</description>
+  </test-step>
+  <test-step result="SKIPPED" duration="0">
+    <description>Click on enable employee</description>
+  </test-step>
+</acceptance-test-run>

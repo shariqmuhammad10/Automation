@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="k-ff k-ff46"><head>
+    <meta charset="utf-8" />
+    <title>AptaFund</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico?v=2" />
+    <!--This CSS entry was added by the Kendo UI VS Extensions for compatibility reasons-->
+    <link rel="stylesheet" href="/Content/kendocompatibility?v=b9mu5LENzfLIlJksEvApNKGkd8tgRf9Y9DTqZCJnNDg1" />
+
+    <link rel="stylesheet" href="/Content/kendo/2017.2.621/kendocss?v=sqn813rm2LdSO3_pGe9FhGZB8OpRVSRm2upeIxIlquA1" />
+
+    <link rel="stylesheet" href="/Content/sitecss?v=n670ze6eWNBMS3I8maQ010nXmCvugfIemcG9aeGDDy01" />
+
+    <script src="/Bundles/framework?v=SGVtt4IJbZh6X7AmmsFTdR7nfQhybeqgFl9IAfhfN-w1"></script>
+
+    <script src="/Bundles/aptafundscript?v=SEqa5qM76g7fsHF2GCPRpna2h11oqzIOkagSJrsbclk1"></script>
+
+    <script>
+        var urlGetFirstLastDayOfFY = '/QAAutom/Home/GetFirstLastDayOfFY';
+        SpinnerImageURL = "/Content/Images/spinner.gif";
+        var screenList = new Array(new Array(new Array()));
+        var currentShortCutRegister = new Array();
+        var customKeyShortCutRegister = new Array();
+        var focusedWindow = new Array();
+    </script>
+</head>
+<body>
+    <div id="popupwindowAttachmentFramework__PurchaseOrder"></div>
+
+    <div class="maindiv" id="wrap">
+        <div id="header">
+            <div id="NavigationHeader">
+                
+<div id="NavigationHeaderImage"><a href="/QAAutom"><img alt="AptaFund" src="/Content/Images/logo.png" class="NavigationHeaderImage" /></a></div>
+<div id="NavigationHeaderInfo">
+    <div style="margin:0px;">
+        <span class="UserLoginLabel">smuhammad@harriscomputer.com</span>
+        <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultDatabase', '/QAAutom/Home/QuickSelectDatabase', 'Database', 'defaultDatabaseName', '250').CreateWindow(true);" class="NavigationHeaderLink" id="defaultDatabaseName">QA_Automation</a>
+            <a onclick="javascript: FINSWindow.FinsWindowManager.CreateQuickSelectListWindowObject('popupwindow__DefaultCycle', '/QAAutom/Home/QuickSelectCycle', 'Cycle', 'defaultCycleName', '150').CreateWindow(true);" class="NavigationHeaderLink" id="defaultCycleName">FY17-18</a>
+        <a onclick="LogoutUser()" class="logout-button" id="btnLogout">Log out</a>
+    </div>
+</div>
+
+<div id="popupwindow__DefaultCycle"></div>
+<div id="popupwindow__DefaultDatabase"></div>
+<div id="popupwindow__DefaultOrganization"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    function LogoutUser() {
+        NavigateTo("/Home/Logout");
+    };
+</script>
+            </div>
+            <span style="display:none;" id="divUINotification"></span>
+            <div id="divModalPopup"></div>
+            <div id="popupWindowJobResult"></div>
+            <div id="popupwindowMassActionResults"></div>
+        </div>
+        <div id="RenderBodyFrame">
+            <div id="menu">
+                <div id="menuwrapper">
+        <div onclick="showhidemenu(8, 0);" class="menuheader" id="menuheader0">My AptaFund<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 1);" class="menuheader" id="menuheader1">Budget &amp; G/L<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 2);" class="menuheader" id="menuheader2">Banking &amp; COA<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 3);" class="menuheader" id="menuheader3">Purchasing &amp; Payables<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 4);" class="menuheader" id="menuheader4">A/R<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 5);" class="menuheader" id="menuheader5">HR, Payroll &amp; ESS<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 6);" class="menuheader" id="menuheader6">Administration<span class="k-icon k-i-arrow-s"></span></div>
+        <div onclick="showhidemenu(8, 7);" class="menuheader" id="menuheader7">Harris Admin<span class="k-icon k-i-arrow-s"></span></div>
+</div>
+<div id="menuhr"></div>
+    <div style="display:none" class="menudropdown" id="menudropdown0"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Reports</li><li class="menuitem grayColor">(Add favorites from the Reports screen)</li></ul><ul class="menuul"><li class="menusubheader">User</li><li class="menuitem"><a href="/QAAutom" class="menulink">My Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/UserChangePassword" class="menulink">Change Password</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/SecurityQuestion" class="menulink">Security Question</a></li><li class="menuitem"><a href="/QAAutom/My/MyJobQueue/Manage" class="menulink">My Job Queue</a></li></ul><ul class="menuul"><li class="menusubheader">Help</li><li class="menuitem"><a target="_blank" href="/WebHelp/AptaFund_Overview.htm" class="menulink">User Guide</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/LeaveDetails" class="menulink">My Leave Balances</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveRequests" class="menulink">My Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManagePaychecks" class="menulink">My Paychecks</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2Forms" class="menulink">My W-2 Forms</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageW2ConsentElections" class="menulink">My W-2 Consent Elections</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/YTDTotals" class="menulink">My Year to Date Totals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ViewMyDocuments" class="menulink">My Documents</a></li></ul><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/ManageViewBudget" class="menulink">My Budget Accounts</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/MyPurchaseRequisition/MyPR" class="menulink">My Purchase Requisitions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">My Approvals</li><li class="menuitem"><a href="/QAAutom/Purchasing/RequisitionApproval/Manage" class="menulink">My Purchase Requisition Approvals</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageLeaveApprovals" class="menulink">My Leave Request Approvals</a></li></ul><ul class="menuul"><li class="menusubheader">Reports</li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/Select" class="menulink">Reports</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports" class="menulink">Exports</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown1"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Budget</li><li class="menuitem"><a href="/QAAutom/Budget/BudgetManagement/Manage" class="menulink">Budget Management</a></li><li class="menuitem"><a href="/QAAutom/Budget/BudgetDevelopment/Details" class="menulink">Budget Development</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">General Ledger</li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageNormal" class="menulink">General Ledger - Normal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedgerAggregation/ManageAggregation" class="menulink">General Ledger - Aggregation</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualJournal" class="menulink">Actual - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageActualAccountJournal" class="menulink">Actual - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceJournal" class="menulink">Encumbrance - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageEncumbranceAccountJournal" class="menulink">Encumbrance - Account Journal</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetJournal" class="menulink">Budget - Journal Entry</a></li><li class="menuitem"><a href="/QAAutom/GeneralLedger/GeneralLedger/ManageBudgetAccountJournal" class="menulink">Budget - Account Journal</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown2"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Banking</li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageBank" class="menulink">Bank Account Management</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/BankingCashAccounts" class="menulink">Banking Cash Accounts</a></li><li class="menuitem"><a href="/QAAutom/Banking/BankingManagement/ManageAccountRegister" class="menulink">Bank Account Register</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Chart of Accounts</li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/StructureMaintenance/Manage" class="menulink">Structure Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ElementValueMaintenance/Manage" class="menulink">Element Value Maintenance</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/ChartofAccounts/Manage" class="menulink">Chart of Accounts</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountMapping/Manage" class="menulink">Account Mapping</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown3"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Purchasing</li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminRequisition/Manage" class="menulink">Purchase Requisition</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/Manage" class="menulink">Purchase Order</a></li><li class="menuitem"><a href="/QAAutom/Receiving/OrderReceipt/Manage" class="menulink">Order Receipt</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/AdminPOCopies/Manage" class="menulink">Manage PO Copies</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Payable</li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/Manage" class="menulink">Vendor Invoice</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/VendorInvoice/VendorInvoiceDetailAllocation" class="menulink">Vendor Invoice Detail Allocation</a></li><li class="menuitem"><a href="/QAAutom/AccountsPayable/PaymentManagement/Manage" class="menulink">Payment Management</a></li></ul><ul class="menuul"><li class="menusubheader">Vendor</li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor/Manage" class="menulink">Vendor Management</a></li><li class="menuitem"><a href="/QAAutom/Vendor/Vendor1099Adjustment/Manage" class="menulink">Vendor 1099 Adjustment</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Capital Assets</li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/AssetManagement/Manage" class="menulink">Asset Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown4"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Cash Receipts</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/Manage" class="menulink">Cash Receipts</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceipts/DetailsManage" class="menulink">Cash Receipts Details</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Accounts Receivable</li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/AccountsReceivable/Manage" class="menulink">A/R Records</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillSchedules/Manage" class="menulink">Bill Schedules</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/BillItems/Manage" class="menulink">Bill Items</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/Category/Manage" class="menulink">Categories</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/EventJobs/Manage" class="menulink">Event/Jobs</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/RecurringBillingItems/Manage" class="menulink">Recurring Billing Items</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Customers</li><li class="menuitem"><a href="/QAAutom/CustomerManagement/CustomerManagement/Manage" class="menulink">Customer Management</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown5"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Human Resources</li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/Search" class="menulink">Manage Employees</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobs" class="menulink">Employee Jobs</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/EmployeeJobsAccountAllocation" class="menulink">Employee Jobs Account Allocation</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/MasterPosition/Search" class="menulink">Master Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/Manage" class="menulink">Position Management</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeContract/Manage" class="menulink">Employee Contracts</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/CivilServiceManage" class="menulink">Civil Service</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TenureAreasManage" class="menulink">Tenure Areas</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/PositionClassificationsManage" class="menulink">Position Classifications</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentTypesManage" class="menulink">Appointment Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/AppointmentCategoriesManage" class="menulink">Appointment Categories</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/TerminationReasonManage" class="menulink">Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/StateTerminationReasonManage" class="menulink">State Termination Reason</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/BargainingUnitManage" class="menulink">Bargaining Unit</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/EmployeeEvaluationTypesManage" class="menulink">Evaluation Types</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResource/LongevityScheduleManage" class="menulink">Longevity Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeCertificate/Manage" class="menulink">Employee Certificates</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/Employee/LeaveDetail" class="menulink">Employee Leave Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/PositionManagement/ManagementDetail" class="menulink">Position Management Detail</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/SalarySchedule/Manage" class="menulink">Salary Schedules</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/EmployeeAssignments/Manage" class="menulink">Employee Assignments</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Payroll</li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollDeduction/Manage" class="menulink">Manage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/Manage" class="menulink">Deduction Assignment</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/FixedAmountDeductions" class="menulink">Fixed Amount Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/PercentageDeductions" class="menulink">Percentage Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeDeduction/DirectDepositDeductions" class="menulink">Direct Deposit Deductions</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/Manage" class="menulink">Employee Payroll Information</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployee/PayrollJobs" class="menulink">Employee Payroll Jobs</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/Manage" class="menulink">Manage Payroll</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollVoucherManagement/Manage" class="menulink">Manage Payroll Vouchers</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollLiabilities/Manage" class="menulink">Payroll Liabilities</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeW2/Manage" class="menulink">Employee W-2 Information</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Affordable Care Act</li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageEmployeeHealthCoverage" class="menulink">Manage Employee Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageDependentHealthCoverage" class="menulink">Manage Dependent Health Coverage</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageReportingPeriod" class="menulink">Manage Reporting Periods</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageCoveragePeriod" class="menulink">Manage Coverage Periods</a></li><li class="menuitem"><a href="/QAAutom/Benefits/Benefits/ManageDependents" class="menulink">Manage Dependents</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACA/ManageACAExport" class="menulink">Manage Export</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Employee Self-Service</li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageAdminLeaveRequests" class="menulink">Leave Requests</a></li><li class="menuitem"><a href="/QAAutom/Payroll/PayrollEmployeeGLD/Manage" class="menulink">Employee Group Leave Details</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocuments" class="menulink">Manage Employee Documents</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageEmployeeDocumentCategory" class="menulink">Manage Document Categories</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ManageScreenInstructions" class="menulink">Screen Instructions</a></li><li class="menuitem"><a href="/QAAutom/ESS/ESS/ApprovedLeaveRequests" class="menulink">Approved Leave Requests</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown6"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Security</li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/Search" class="menulink">Manage Users</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Security/AllUsersSecurity" class="menulink">User Permissions</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">Manage Security Templates</a></li><li class="menuitem"><a href="/QAAutom/Administration/Requisitioners/Requisitioners/Manage" class="menulink">Manage Requisitioners</a></li></ul><ul class="menuul"><li class="menusubheader">Configuration</li><li class="menuitem"><a href="/QAAutom/Administration/Configuration/SystemConfiguration/Manage" class="menulink">System Configuration</a></li><li class="menuitem"><a href="/QAAutom/ChartofAccountsAdministration/AccountingCycle/Manage" class="menulink">Accounting Cycle</a></li><li class="menuitem"><a href="/QAAutom/Purchasing/PurchaseOrder/PurchasingConfiguration" class="menulink">Purchasing Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/CashReceiptsConfiguration/Manage" class="menulink">Cash Receipts Configuration</a></li><li class="menuitem"><a href="/QAAutom/AccountsReceivable/ARConfiguration/Manage" class="menulink">Accounts Receivable Configuration</a></li><li class="menuitem"><a href="/QAAutom/HumanResources/Admin/Employee/HumanResourceConfiguration/Manage" class="menulink">Human Resources Configuration</a></li><li class="menuitem"><a href="/QAAutom/Payroll/Payroll/PayrollConfiguration" class="menulink">Payroll Configuration</a></li><li class="menuitem"><a href="/QAAutom/ACA/ACAConfiguration/Manage" class="menulink">Affordable Care Act Configuration</a></li><li class="menuitem"><a href="/QAAutom/CapitalAssets/CapitalAssetsConfiguration/Manage" class="menulink">Capital Assets Configuration</a></li><li class="menuitem"><a href="/QAAutom/Administration/ScheduledJobs/ScheduledJobs/Manage" class="menulink">Scheduled Jobs</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageSignatures/Signatures/Manage" class="menulink">Manage Signatures</a></li><li class="menuitem"><a href="/QAAutom/Administration/ManageLogos/Logos/Manage" class="menulink">Manage Logos</a></li><li class="menuitem"><a href="/QAAutom/Administration/DesktopScreenInstructions/DesktopScreenInstructions/Index" class="menulink">Dashboard Custom Text</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Fiscal Year End</li><li class="menuitem"><a href="/QAAutom/Administration/FiscalYearEnd/FYERollover/Dashboard" class="menulink">Rollover Dashboard</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Employee%20Management&amp;Report=Calendar%20Export" class="menulink">Calendar Export</a></li><li class="menuitem"><a href="/QAAutom/Reports/DBReports/SelectExports?Module=Chart%20Of%20Accounts&amp;Report=Element%20Value%20Export" class="menulink">Element Value Export</a></li></ul><ul class="menuul"><li class="menusubheader">Approval Process</li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApproversManage" class="menulink">Approvers</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalLevelManage" class="menulink">Approval Levels</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessManage" class="menulink">Approval Process</a></li><li class="menuitem"><a href="/QAAutom/Administration/ApprovalProcess/ApprovalProcess/ApprovalProcessSummary" class="menulink">Approval Processes - Summary</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Importing</li><li class="menuitem"><a href="/QAAutom/DataImport/DataImport/Manage" class="menulink">Data Import</a></li></ul></div></div>
+    <div style="display:none" class="menudropdown" id="menudropdown7"><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Harris Admin</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationErrors/ApplicationErrors/Manage" class="menulink">Application Errors</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/JobQueue/JobQueue/Manage" class="menulink">Job Queue</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ManageDatabaseModules/DatabaseModules/Manage" class="menulink">Manage Database Modules</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/Manage" class="menulink">Conversion Routines</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ApplicationDetails/ApplicationDetails/Details" class="menulink">Application Details</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/IntegrityChecks/IntegrityChecks/Manage" class="menulink">Integrity Checks</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ConversionRoutines/ConversionRoutines/DatabaseConversions" class="menulink">Database Conversions</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">R&amp;D Sandbox</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/ExampleControls/Manage" class="menulink">Example Controls</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignExamples/Manage" class="menulink">Redesign Examples</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/ExampleControls/SinglePageDemo/Index" class="menulink">Single Page Demo</a></li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/RedesignExamples/RedesignEmployees/Manage" class="menulink">Manage Employees</a></li></ul></div><div id="menucolumn"><ul class="menuul"><li class="menusubheader">Metadata</li><li class="menuitem"><a href="/QAAutom/HarrisAdmin/Metadata/Metadata/sysDataViewFields" class="menulink">sysDataViewFields</a></li><li class="menuitem"><a href="/QAAutom/Administration/Security/Role/Search" class="menulink">secRolePermissions</a></li></ul></div></div>
+<script>
+    /* Added Deferred and the code below to fix menu render problem */
+    $("#menu1").kendoMenu();
+
+    $(document).click(function (event) {
+        var isMenuClick = false;
+        if (!($(event.target).hasClass("menuheader") || $(event.target).hasClass("menuheaderrollover") || $(event.target).hasClass("k-icon k-i-arrow-s")))
+        {
+            for (var i = 0; i &lt; 8; i++)
+            {
+                if ($(event.target).closest('#menudropdown' + i).length)
+                {
+                    isMenuClick = true;
+                    break;
+                }
+            }
+            if (!isMenuClick)
+            {
+                hideopendropdowns(8);
+            }
+        }
+    });
+</script>
+            </div>
+            <div class="breadcrumbactionbuttons" id="breadcrumb_actionbuttons">
+                <table width="100%">
+                    <tbody><tr>
+                        <td align="left">
+                            <div class="bread_crumb">
+                                <div style="visibility:visible">
+
+
+    
+    <a href="/QAAutom">Home</a> -&gt; Payroll -&gt; <a href="/QAAutom/Payroll/Payroll/Manage%20">Manage Payroll</a> -&gt; Paycheck Printing
+
+                                </div>
+                            </div>
+                        </td>
+                        <td align="right">
+                            <div id="actionbuttonswrapper">
+                                <div class="action_buttons" id="actionbuttons">
+                                    <div style="visibility:visible">
+
+
+    
+    <a onclick="btnCancel_PaycheckPrinting()" class="k-button" id="btnCancel_PaycheckPrinting">Cancel</a>
+    <a class="k-button" id="btnPrint_PaycheckPrinting">Print</a>
+    <a class="k-button" id="btnVerify_PaycheckPrinting">Verify</a>
+    <a href="#" id="btnReprint_PaycheckPrinting" class="k-button">Reprint</a>
+    <a class="k-button" id="btnVoid_PaycheckPrinting">Void</a>
+    <a class="k-button" id="btnPaycheckStubReport_PaycheckPrinting">Paycheck Stub Report</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="RenderBody">
+
+                
+
+
+
+
+
+
+
+
+
+
+<div id="divPaycheckPrintingMain">
+<form method="post" id="FormPrintPaychecks" action="/QAAutom/Payroll/PayrollPaycheck/PaycheckShowMainDialog" novalidate="novalidate"><input type="hidden" value="W6nPLNgUDZDrjuQ2xPZFTe_ekuS8ABz-HtZ78WzGHU0vuGIWP5o2KS0uJddbuSCymqJNkYCUr0gl0w_SIGiumxSjLy6Qxrxtzub5A2t393TJSXXHF8V-KIQlIdMAXRp1-7optWVqxrDqxSHghICV4g2" name="__RequestVerificationToken" />        <div id="divPrintingInformation">
+            <fieldset style="border:inset; width: 445px; height: 95px;">
+                <legend style="display:block">Printing Information</legend>
+
+                <div id="lblRegisterNumber"><label for="RegisterNumber">Register</label></div>
+                <div id="txtRegisterNumber">SpcReg-57789</div>
+
+                <div id="lblBankAccountNumber"><label for="CurrentBankAccountNumber">Bank Account No.</label></div>
+                <div id="txtBankAccountNumber">
+                    <span style="width: 250px;" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="CurrentBankId_listbox" aria-disabled="false" aria-busy="false" aria-activedescendant="8474886a-8a54-460d-b3cd-5d97d04b7b28"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">1000429637</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><input type="text" value="1" style="width: 250px; display: none;" name="CurrentBankId" id="CurrentBankId" data-val-number="The field CurrentBankId must be a number." data-val="true" data-role="dropdownlist" class="valid" /></span><script>
+	kendo.syncReady(function(){jQuery("#CurrentBankId").kendoDropDownList({"change":BankAccountOnChange,"dataSource":[{"Text":"1000429637","Value":"1","Selected":false},{"Text":"None","Value":"-1","Selected":false}],"dataTextField":"Text","dataValueField":"Value"});});
+</script>
+                </div>
+
+                <div id="lblFirstPaycheckNumber"><label for="FirstPaycheckNumber">First Check No.</label></div>
+                <div id="txtFirstPaycheckNumber">
+                    <span style="width: 120px;" class="k-widget k-numerictextbox"><span class="k-numeric-wrap k-state-default k-expand-padding expand-padding"><input type="text" class="k-formatted-value k-input" title="1002894" tabindex="0" style="display: inline;" role="spinbutton" aria-valuenow="1002894" aria-disabled="false" /><input type="text" value="1002894" style="display: none;" name="FirstPaycheckNumber" id="FirstPaycheckNumber" data-val-number="The field First Check No. must be a number." data-val="true" data-role="numerictextbox" role="spinbutton" class="k-input" aria-valuenow="1002894" aria-disabled="false" /><span class="k-icon k-i-warning" style="display: none;"></span><span class="k-select" style="display: none;"><span title="Increase value" aria-label="Increase value" class="k-link k-link-increase k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-up" unselectable="on"></span></span><span title="Decrease value" aria-label="Decrease value" class="k-link k-link-decrease k-state-disabled" unselectable="on"><span class="k-icon k-i-arrow-60-down" unselectable="on"></span></span></span></span></span><script>
+	kendo.syncReady(function(){jQuery("#FirstPaycheckNumber").kendoNumericTextBox({"format":"0:0","spinners":false});});
+</script>
+                </div>
+            </fieldset>
+        </div>
+        <div id="divPaymentTypes">
+            <fieldset style="border: inset; width: 135px; height: 95px;">
+                <legend style="display:block">Payment Type</legend>
+
+                <input type="radio" value="0" onclick="PaymentTypeChange(this.value)" name="PaymentType" id="radPaymentTypeRegular" data-val-number="The field Paycheck Type must be a number." data-val="true" checked="checked" />
+                Regular
+                <br />
+                <input type="radio" value="1" onclick="PaymentTypeChange(this.value)" name="PaymentType" id="radPaymentTypeEFT" />
+                Direct Deposit
+            </fieldset>
+        </div>
+        <div id="divPaychecks">
+            <fieldset style="border: inset; width: 615px; height: 455px;">
+                <legend style="display:block">Paychecks</legend>
+
+                <div data-role="AptaDataView" id="divPayrollPaycheckDataView"><div style="height: 430px;" id="PayrollPaycheckDataView" class="k-widget k-grid k-display-block k-reorderable" data-role="grid"><div class="k-header k-grid-toolbar k-grid-top"><text style="width: 100%"><div><div><div style="float: left; padding-top: 5px; padding-left: 5px; margin-top: 3px;" id="divQuickSearch__PayrollPaycheckDataView"><input value="" placeholder="Search" onkeypress="GridSearchTextOnKeyPress(event, 'PayrollPaycheckDataView', '/QAAutom/GridConfig/GridQuickSearch')" name="SearchText__PayrollPaycheckDataView" id="SearchText__PayrollPaycheckDataView" class="searchBox" data-role="tooltip" /><script>
+	kendo.syncReady(function(){jQuery("\#SearchText__PayrollPaycheckDataView").kendoTooltip({"showAfter":500,"content":"Quick Search :\u003cbr /\u003e Status\u003cbr /\u003eNumber\u003cbr /\u003eEmployee\u003cbr /\u003eAmount\u003cbr /\u003ePaycheck Site"});});
+</script></div></div><div class="ElementFilterWrapper">
+</div>
+<script>
+    $(document).ready(function () {
+        pinnedfilter_init('PayrollPaycheckDataView');
+    });
+</script><div style="float: right; padding-top: 0px; margin-top: 0px; margin-right: 3px;" id="divOptions__PayrollPaycheckDataView"><div style="margin-top:7px;float: left;"><span id="divFilterText__PayrollPaycheckDataView" style="display:none;" class="GridSettingSelected"></span><div class="GridFilterWrapper"><a id="SearchSettings__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Filter.png" class="ToolBarIcon GridToolBarIcon" title="Filter" /></a><a id="ClearSearchSettings__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Unfilter" /></a></div><div class="GridSettingsWrapper"><a id="GridSettingsWnd__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Wrench.png" class="ToolBarIcon GridToolBarIcon" title="Display Settings" /></a><a id="ClearGridSettingsWnd__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Restore.png" class="ToolBarIcon GridToolBarIcon" title="Reset Display Settings to Default" /></a></div><div class="ExportAndNamedGridSettingsWrapper"><a id="ExportToExcel__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Excel.png" class="ToolBarIcon GridToolBarIcon" title="Export to Excel" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><a id="ExportToPdf__PayrollPaycheckDataView"><img src="/Content/Images/filtericons/Pdf.png" class="ToolBarIcon GridToolBarIcon" title="Export to PDF" /></a><img src="/Content/Images/filtericons/FilterDivider.png" class="GridToolBarDivider" /><script type="text/javascript">
+
+    var GridSettingGuid = '';
+    var displayButton;
+    var isGridFiltered;
+
+    function ReturnFromPopup__PayrollPaycheckDataView(e) {
+        var dataViewSettings = {
+            GridHeight: '430',
+            AdjustGridHeightOnResize: 'False',
+            VerticallyScrollable: 'True',
+            IsGridEditable: 'false'
+        };
+
+        var urls = {
+            ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+            ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+            ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+            GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+            GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+            DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+            SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+            RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+            Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+        };
+
+        var msgs = {
+            Success: "Record saved successfully.",
+            Delete: "Record deleted successfully.",
+            ConfirmDelete: "Confirm Delete",
+            DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+        };
+
+        UserGridSettingsMenuReturn('/Content/Images/filtericons/Gear.png', e, 'PayrollPaycheckDataView', urls.GetNamedGridSettings, dataViewSettings, urls.Apply,
+                                    function (e) {
+                                        UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollPaycheckDataView', dataViewSettings, urls, msgs)
+                                    });
+    }
+
+    $(document).ready(function () {
+        UpdataNamedGridSettingsMenu('/Content/Images/filtericons/Gear.png', 'PayrollPaycheckDataView', '/QAAutom/GridConfig/GetNamedGridSettings',
+            function (e) {
+                UserGridSettingsMenuOnSelect(e, '/Content/Images/filtericons/Gear.png', 'PayrollPaycheckDataView',
+                {
+                    GridHeight: '430',
+                    AdjustGridHeightOnResize: 'False',
+                    IsGridEditable: 'false'
+                },
+                {
+                    ResetNamedGridSettingsToDefault: '/QAAutom/GridConfig/ResetNamedGridSettingsToDefault',
+                    ResetNamedGridSettingsSave: '/QAAutom/GridConfig/SaveNamedGridSetting',
+                    ExistsInSession: '/QAAutom/GridConfig/NamedGridSettingseExistInSession',
+                    GetGridUserSettingsView: '/QAAutom/GridConfig/GetUserGridSettingsView',
+                    GetNamedGridSettings: '/QAAutom/GridConfig/GetNamedGridSettings',
+                    DeleteNamedGridSetting: '/QAAutom/GridConfig/DeleteNamedGridSetting',
+                    SetNamedGridSettingAsDefault: '/QAAutom/GridConfig/SetNamedGridSettingAsDefault',
+                    RemoveMyDefault: '/QAAutom/GridConfig/RemoveMyDefault',
+                    Apply: '/QAAutom/GridConfig/ApplyNamedGridSettings'
+                },
+                {
+                    Success: "Record saved successfully.",
+                    Delete: "Record deleted successfully.",
+                    ConfirmDelete: "Confirm Delete",
+                    DeleteSelectedRecords: "Are you sure you want to delete the selected records?"
+                })
+            });
+    });
+
+    function LoadPageSetup__PayrollPaycheckDataView() {
+        UserGridSettingsMenuLoadPageSetup('PayrollPaycheckDataView', '', '/QAAutom/GridConfig/GetUserGridPageSetupView');
+    }
+</script>
+
+<div class="k-rtl" style="float: right" id="divNamedGridSetting__PayrollPaycheckDataView">
+    <ul class="namedgridsettingsmenudropdown k-widget k-reset k-header k-menu k-menu-horizontal" style="border-style:hidden" id="menu-images__PayrollPaycheckDataView" data-role="menu" tabindex="0" role="menubar"><li aria-haspopup="true" role="menuitem" class="k-item k-state-default k-first k-last"><span class="k-link"><img src="/Content/Images/filtericons/Gear.png" alt="" class="k-image" /><span class="k-icon  k-i-arrow-60-down"></span></span><ul aria-hidden="true" role="menu" style="display:none" class="k-group k-menu-group"><li role="menuitem" class="k-item k-state-default k-first"><span class="k-link"><a class="defaultSetting__PayrollPaycheckDataView button" id="Reset__PayrollPaycheckDataView">Reset All Settings To My Default</a></span></li><li role="menuitem" class="k-item k-state-default"><span class="k-link"><a class="defaultSetting__PayrollPaycheckDataView button" id="SaveAs__PayrollPaycheckDataView">Save As</a></span></li><li role="menuitem" class="k-item k-state-default k-last"><span class="k-link"><a class="defaultSetting__PayrollPaycheckDataView button" id="PageSetup__PayrollPaycheckDataView">Report Settings</a></span></li></ul></li></ul>
+</div>
+    <script>
+	kendo.syncReady(function(){jQuery("#usergridsettingsWindow__PayrollPaycheckDataView").kendoWindow({"close":ReturnFromPopup__PayrollPaycheckDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Save Grid Settings","resizable":false,"width":570,"height":380,"actions":["Close"]});});
+</script>
+
+    <script>
+	kendo.syncReady(function(){jQuery("#pagesetupWindow__PayrollPaycheckDataView").kendoWindow({"refresh":LoadPageSetup__PayrollPaycheckDataView,"modal":true,"iframe":false,"draggable":true,"scrollable":true,"pinned":false,"title":"Report Settings","resizable":false,"width":500,"height":350,"actions":["Close"]});});
+</script>
+
+<script type="text/kendo-ui" id="menu-template__PayrollPaycheckDataView">
+    # for (var i = 0; i &lt; data.length; i++) { #
+    &lt;li id="${data[i].id}" class="${data[i].settingclass}"&gt;${data[i].text}&lt;/li&gt;
+
+    # } #
+    &lt;li id="Reset__PayrollPaycheckDataView" class="button"&gt;Reset All Settings To My Default &lt;/li&gt;
+    #if(displayButton.Save)
+    {#
+    &lt;li id="Save__PayrollPaycheckDataView" class="button"&gt;Save &lt;/li&gt;
+    #}#
+    &lt;li id="SaveAs__PayrollPaycheckDataView" class="button"&gt;Save As&lt;/li&gt;
+    #if(displayButton.Edit)
+    {#
+    &lt;li id="Edit__PayrollPaycheckDataView" class="button"&gt;Edit&lt;/li&gt;
+    #}#
+    #if(displayButton.Delete)
+    {#
+    &lt;li id="Delete__PayrollPaycheckDataView" class="button"&gt;Delete&lt;/li&gt;
+    #}#
+    #if(displayButton.SetasMyDefault)
+    {#
+    &lt;li id="SetDefault__PayrollPaycheckDataView" class="button"&gt;Set as My Default&lt;/li&gt;
+    #}#
+    #if(displayButton.RemoveMyDefault)
+    {#
+    &lt;li id="RemoveMyDefault__PayrollPaycheckDataView" class="button"&gt;Remove My Default &lt;/li&gt;
+    #}#
+    &lt;li id="PageSetup__PayrollPaycheckDataView" class="button"&gt;Report Settings&lt;/li&gt;
+</script>
+
+<script type="text/css">
+    .bgimg {
+    background-image: url(../Content/Images/icons/options_with_downarrow.gif);
+    }
+</script></div></div></div><div style="float:none;"></div></div> </text></div><div class="k-grouping-header" data-role="droptarget"><div data-dir="asc" data-title="Paycheck Site" data-field="PaycheckSite" class="k-group-indicator"><a class="k-link" href="#"><span title="(sorted ascending)" class="k-icon k-i-sort-asc-sm"></span>Paycheck Site</a><a class="k-button k-button-icon k-bare"><span class="k-icon k-i-close"></span></a></div></div><div class="k-grid-header" style="padding-right: 17px;"><div class="k-grid-header-wrap k-auto-scrollable" data-role="resizable"><table role="grid"><colgroup><col class="k-group-col" /><col style="width:35px" /><col style="width:75px" /><col style="width:90px" /><col style="width:165px" /><col style="width:115px" /><col /></colgroup><thead role="rowgroup"><tr role="row"><th class="k-group-cell k-header"> </th><th scope="col" data-title="Select" data-index="0" data-groupable="false" data-field="Select" class="k-header" data-role="droptarget"><input type="checkbox" class="selectAll__PayrollPaycheckDataView" /></th><th style="text-align: left; display: none;" scope="col" data-title="Paycheck Site" data-index="1" data-field="PaycheckSite" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView&amp;GridHeight=430&amp;_=1509985510644&amp;PayrollPaycheckDataView-sort=PaycheckSite-asc" class="k-link">Paycheck Site</a></th><th style="text-align:left;" scope="col" data-title="Status" data-index="2" data-field="PaycheckStatus" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView&amp;GridHeight=430&amp;_=1509985510644&amp;PayrollPaycheckDataView-sort=PaycheckStatus-asc" class="k-link">Status</a></th><th style="text-align:right;" scope="col" data-title="Number" data-index="3" data-field="PaycheckNumber" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView&amp;GridHeight=430&amp;_=1509985510644&amp;PayrollPaycheckDataView-sort=PaycheckNumber-asc" class="k-link">Number</a></th><th style="text-align:left;" scope="col" data-title="Employee" data-index="4" data-field="DisplayName" class="k-header k-sorted" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView&amp;GridHeight=430&amp;_=1509985510644&amp;PayrollPaycheckDataView-sort=DisplayName-desc" class="k-link">Employee<span class="k-icon k-i-sort-asc-sm"></span></a></th><th style="text-align:right;" scope="col" data-title="Amount" data-index="5" data-field="AmountPaid" class="k-header" data-role="columnsorter"><a href="/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView&amp;GridHeight=430&amp;_=1509985510644&amp;PayrollPaycheckDataView-sort=AmountPaid-asc" class="k-link">Amount</a></th><th scope="col" data-index="6" class="k-header" data-role="droptarget"><span class="k-link"> </span></th></tr></thead></table></div></div><div style="height: 294px;" class="k-grid-content"><table role="grid" data-aptafund-kendogrid-selected=""><colgroup><col class="k-group-col" /><col style="width:35px" /><col style="width:75px" /><col style="width:90px" /><col style="width:165px" /><col style="width:115px" class="k-sorted" /><col /></colgroup><tbody role="rowgroup"><tr class="k-grouping-row" role="row"><td aria-expanded="true" colspan="7"><p class="k-reset"><a aria-label="Collapse" tabindex="-1" href="#" class="k-icon k-i-collapse"></a>Paycheck Site: BCCHS</p></td></tr><tr role="row" data-uid="80b2512b-b64c-4aa2-8a29-e306a15c6bf6" class="kendo-data-row" data-aptafund-kendogrid-rowid="24797"><td class="k-group-cell"> </td><td role="gridcell"><input type="checkbox" class="check_row__PayrollPaycheckDataView" /></td><td role="gridcell" style="text-align: left; display: none;">BCCHS</td><td role="gridcell" style="text-align:left;">New</td><td role="gridcell" style="text-align:right;"></td><td role="gridcell" style="text-align:left;">1Brakus, Automation Malachi</td><td role="gridcell" style="text-align:right;"><div>$14.69</div></td><td role="gridcell"></td></tr></tbody></table></div><div class="k-pager-wrap k-grid-pager k-widget k-floatwrap" data-role="pager"><a title="Go to the first page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-first" aria-label="Go to the first page" tabindex="-1"><span class="k-icon k-i-seek-w"></span></a><a title="Go to the previous page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the previous page" tabindex="-1"><span class="k-icon k-i-arrow-w"></span></a><ul class="k-pager-numbers k-reset"><li class="k-current-page"><span class="k-link k-pager-nav">1</span></li><li><span class="k-state-selected">1</span></li></ul><a title="Go to the next page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled" aria-label="Go to the next page" tabindex="-1"><span class="k-icon k-i-arrow-e"></span></a><a title="Go to the last page" href="#" data-page="1" class="k-link k-pager-nav k-state-disabled k-pager-last" aria-label="Go to the last page" tabindex="-1"><span class="k-icon k-i-seek-e"></span></a><span class="k-pager-sizes k-label"><span style="" title="" class="k-widget k-dropdown k-header" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-owns="" aria-disabled="false" aria-busy="false" aria-activedescendant="dabb15f9-4895-4b72-9339-559e487e6287"><span class="k-dropdown-wrap k-state-default" unselectable="on"><span class="k-input" unselectable="on">25</span><span aria-label="select" class="k-select" unselectable="on"><span class="k-icon k-i-arrow-60-down"></span></span></span><select data-role="dropdownlist" style="display: none;" aria-label="25"><option value="10">10</option><option value="25" selected="selected">25</option><option value="50">50</option><option value="100">100</option><option value="200">200</option></select></span>items per page</span><span class="k-pager-info k-label">1 - 1 of 1 items</span></div></div><script>
+	kendo.syncReady(function(){jQuery("#PayrollPaycheckDataView").kendoGrid({"dataBound":$('#divPayrollPaycheckDataView').data('AptaDataView').GridDataBound,"columns":[{"title":"Select","headerAttributes":{"data-field":"Select","data-title":"Select","data-groupable":"false"},"width":"35px","template":"\u003cinput class=\u0027check_row__PayrollPaycheckDataView\u0027 type=\u0027checkbox\u0027 /\u003e","field":"Select","groupable":false,"sortable":false,"filterable":false,"encoded":true},{"title":"Paycheck Site","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckSite","data-title":"Paycheck Site"},"width":"105px","field":"PaycheckSite","filterable":false,"encoded":true},{"title":"Status","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"PaycheckStatus","data-title":"Status"},"width":"75px","field":"PaycheckStatus","filterable":false,"encoded":true},{"title":"Number","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"PaycheckNumber","data-title":"Number"},"width":"90px","field":"PaycheckNumber","filterable":false,"encoded":true},{"title":"Employee","attributes":{"style":"text-align:left;"},"headerAttributes":{"style":"text-align:left;","data-field":"DisplayName","data-title":"Employee"},"width":"165px","field":"DisplayName","filterable":false,"encoded":true},{"title":"Amount","attributes":{"style":"text-align:right;"},"headerAttributes":{"style":"text-align:right;","data-field":"AmountPaid","data-title":"Amount"},"width":"115px","template":"\u003cdiv \u003e#= kendo.toString(AmountPaid, \"C\") #\u003c/div\u003e","field":"AmountPaid","format":"{0:C}","filterable":false,"encoded":true},{}],"groupable":{"enabled":true},"pageable":{"autoBind":false,"pageSizes":[10,25,50,100,200],"buttonCount":10},"sortable":{"allowUnsort":false},"resizable":true,"reorderable":true,"scrollable":{"height":"200px"},"toolbar":{},"messages":{"noRecords":"No records available."},"autoBind":false,"dataSource":{"type":(function(){if(kendo.data.transports['aspnetmvc-ajax']){return 'aspnetmvc-ajax';} else{throw new Error('The kendo.aspnetmvc.min.js script is not included.');}})(),"transport":{"read":{"url":"/QAAutom/GridConfig/Grid_Read?gridName=PayrollPaycheckDataView","data":$('#divPayrollPaycheckDataView').data('AptaDataView').GetGridReadParams},"prefix":"","update":{"url":"/QAAutom/GridConfig/Grid_Update?gridName=PayrollPaycheckDataView"},"create":{"url":"/QAAutom/GridConfig/Grid_Create?gridName=PayrollPaycheckDataView"},"destroy":{"url":"/QAAutom/GridConfig/Grid_Destroy?gridName=PayrollPaycheckDataView"}},"pageSize":25,"page":1,"total":0,"serverPaging":true,"serverSorting":true,"serverFiltering":true,"serverGrouping":true,"serverAggregates":true,"sort":[{"field":"DisplayName","dir":"asc"}],"group":[{"field":"PaycheckSite","dir":"asc"}],"filter":[],"error":$('#divPayrollPaycheckDataView').data('AptaDataView').OnDataError,"schema":{"data":"Data","total":"Total","errors":"Errors","model":{"id":"Id","fields":{"Select":{"type":"string"},"Id":{"editable":false,"type":"string"},"PaycheckStatus":{"editable":false,"type":"string"},"PaycheckNumber":{"editable":false,"type":"number"},"DisplayName":{"editable":false,"type":"string"},"AmountPaid":{"editable":false,"type":"number"},"PaycheckSite":{"editable":false,"type":"string"}}}},"batch":true}});});
+</script>
+<input type="hidden" class="noheight" id="hdnAutoAdjustHeight_PayrollPaycheckDataView" value="false" />
+<input type="hidden" class="noheight" id="hdnScrollable_PayrollPaycheckDataView" value="true" />
+
+<div id="dvGridSettings__PayrollPaycheckDataView">
+</div>
+
+<div id="dvGridSearchSettings__PayrollPaycheckDataView">
+</div>
+
+    <div style=" background-color:#ffffff; width:100%" id="divUnselectAll">Total records selected : <span id="SelectedRecordCount__PayrollPaycheckDataView">0</span> <a href="#" id="UnselectAll__PayrollPaycheckDataView">(Unselect All)</a> </div>
+
+<script>
+
+    $("#divPayrollPaycheckDataView").data("AptaDataView")
+        .SetFilterColumns('')
+        .SetAutoLoad(true)
+        .SetEditable(false)
+
+    function LoadSettingsOnDemand__PayrollPaycheckDataView() {
+        if ($("#dvGridSettings__PayrollPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridSettings',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollPaycheckDataView', GridHeight: '430', settings: null },
+            success: function (result) {
+                $('#dvGridSettings__PayrollPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Settings__PayrollPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand(dataViewKey) {
+        if ($("#dvGridSearchSettings__" + dataViewKey).html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: dataViewKey, GridHeight: '430', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__' + dataViewKey).html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__" + dataViewKey + ": " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    function LoadSearchSettingsOnDemand__PayrollPaycheckDataView() {
+        if ($("#dvGridSearchSettings__PayrollPaycheckDataView").html().length &gt; 100) return;
+        $.ajax({
+            url: '/QAAutom/GridConfig/GridFilter',
+            cache: false,
+            async: false,
+            data: { dataViewName: 'PayrollPaycheckDataView', GridHeight: '430', gridFilter: null },
+            success: function (result) {
+                $('#dvGridSearchSettings__PayrollPaycheckDataView').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("SearchSettings__PayrollPaycheckDataView: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    }
+
+    $('#GridSettingsWnd__PayrollPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__PayrollPaycheckDataView();
+        $("#settingsWindow__PayrollPaycheckDataView").data("kendoWindow").center().open();
+
+        //refreshing source grid data
+        var gridSource = $("#gridSettings__PayrollPaycheckDataView").data("kendoGrid");
+        gridSource.dataSource.read();
+
+        $.ajax({
+            url: '/QAAutom/GridConfig/GetOtherGridSettingsOnLoad',
+            cache: false,
+            data: { dataViewName: 'PayrollPaycheckDataView' },
+            success: function (result) {
+                // debugger;
+                if (result != null) {
+                    // debugger;
+                    var ddSortBy = $('#SortBy__PayrollPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortBy.select(function (dataItem) {
+                        return dataItem.Text === result.SortBy;
+                    });
+
+                    var ddSortDir = $('#SortDir__PayrollPaycheckDataView').data("kendoDropDownList");
+
+                    ddSortDir.select(function (dataItem) {
+                        return dataItem === result.SortDir;
+                    });
+
+                    var ddPageSize = $('#PageSize__PayrollPaycheckDataView').data("kendoDropDownList");
+                    ddPageSize.select(function (dataItem) {
+                        return dataItem === result.PageSize;
+                    });
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#SearchSettings__PayrollPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollPaycheckDataView();
+        $('#tbFilterName__PayrollPaycheckDataView').val("");
+        $("#searchSettings__PayrollPaycheckDataView").data("kendoWindow").center().open();
+    });
+
+    $('#ClearGridSettingsWnd__PayrollPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__PayrollPaycheckDataView();
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: {
+                gridName: 'PayrollPaycheckDataView', GridHeight: '430', AutoAdjustHeight:
+                          $('#hdnAutoAdjustHeight_PayrollPaycheckDataView').val(),
+                verticallyScrollable: 'True',
+                selectedRecords: $("#PayrollPaycheckDataView").data("kendoGrid").table.attr("data-AptaFund-KendoGrid-selected"),
+                isEditable: false
+            },
+            success: function (result) {
+                $('#divPayrollPaycheckDataView').html(result);
+                InitializeGrid___PayrollPaycheckDataView(false);
+                var function_name = 'PayrollPaycheckDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+
+                var hdnAutoAdjustHeightVal = $('#hdnAutoAdjustHeight_PayrollPaycheckDataView').val();
+                if (hdnAutoAdjustHeightVal == "true") {
+                    RegisterGridForAutoHeight("#" + "PayrollPaycheckDataView");
+                }
+                HideGridFooter("PayrollPaycheckDataView", true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+    });
+
+    $('#ExportToExcel__PayrollPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__PayrollPaycheckDataView();
+        $("#divPayrollPaycheckDataView").data("AptaDataView").ExportToFile("XLS");
+    });
+
+    $('#ExportToPdf__PayrollPaycheckDataView').click(function () {
+        LoadSettingsOnDemand__PayrollPaycheckDataView();
+        $("#divPayrollPaycheckDataView").data("AptaDataView").ExportToFile("PDF");
+    });
+
+    $('#ClearSearchSettings__PayrollPaycheckDataView').click(function () {
+        LoadSearchSettingsOnDemand__PayrollPaycheckDataView()
+        $("#divPayrollPaycheckDataView").data("AptaDataView").ClearFilterData();
+        $('#divOptions__PayrollPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollPaycheckDataView').css("padding-top", "0px");
+        $('#divQuickSearch__PayrollPaycheckDataView').css("padding-left", "0px");
+        $('#divOptions__PayrollPaycheckDataView').css("margin-top", "0px");
+        $('#divOptions__PayrollPaycheckDataView').css("margin-right", "3px");
+        $('#divQuickSearch__PayrollPaycheckDataView').css("margin-top", "0px");
+    });
+
+    function MaintainGridState(grid) {
+        MaintainGridStateHandler(grid, grid.element[0].id, '/QAAutom/GridConfig/SaveGridState');
+    }
+
+    function InitializeGrid___PayrollPaycheckDataView(fromPageLoad) {
+        var autoLoad = 'True' == 'True';
+        //debugger;
+        if ((fromPageLoad == true) || (!autoLoad)) {
+            setTimeout(function () {
+                GridGotoPage("PayrollPaycheckDataView", "1");
+            }, 300)
+        }
+    }
+
+    function PersistGridSelectionOnPageChange(grid) {
+        PersistGridSelectionOnPageChangeHandler(grid, this.element[0].id)
+    }
+
+    function grid_columnResize__PayrollPaycheckDataView(e) {
+        e.preventDefault = true;
+        var grid = e.sender;
+        MaintainGridState(grid);
+    }
+
+    function grid_columnReorder__PayrollPaycheckDataView(e) {
+        var grid = e.sender;
+        e.preventDefault = true;
+        grid.reorderColumn(e.newIndex, grid.columns[e.oldIndex]);
+        MaintainGridState(grid);
+    }
+
+    function collapseGroupRows(grid) {
+        grid.collapseGroup(grid.tbody.find("&gt;tr.k-grouping-row"));
+        $('tr[role*="row"]').hide();
+    }
+
+    function PageLoad__PayrollPaycheckDataView() {
+        var gridName = 'PayrollPaycheckDataView';
+        var grid = $("#" + gridName).data("kendoGrid");
+        //if its not gridsettings or gridsearchsettings
+        if (gridName.toLowerCase().indexOf("gridsettings") == -1 || gridName.toLowerCase().indexOf("gridsearchsettings") == -1) {
+            //
+                InitializeGrid___PayrollPaycheckDataView(true);
+        }
+        var hdnAutoAdjustHeight = $('#hdnAutoAdjustHeight_PayrollPaycheckDataView');
+
+        if (parseBool("False")) {
+            RegisterGridForAutoHeight("#" + "PayrollPaycheckDataView");
+            hdnAutoAdjustHeight.val('true');
+        }
+        else {
+            hdnAutoAdjustHeight.val('false');
+        }
+
+        var hdnScrollable = $('#hdnScrollable_PayrollPaycheckDataView');
+        hdnScrollable.val('true');
+    }
+    $(document).ready(function () { PageLoad__PayrollPaycheckDataView(); });
+
+    function grid_checkbox_onclick(fldName, gridName, theCheckBox) {
+        var checked = theCheckBox.checked;
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theCheckBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            eval("dataItem." + fldName + " = checked");
+            dataItem.dirty = true;
+            if ($(theCheckBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theCheckBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    function grid_textbox_onchange(fldName, gridName, theTextBox) {
+        var gridData = $("#" + gridName).data("kendoGrid");
+        var dataItem = gridData.dataItem($(theTextBox).closest('tr'));
+        if (typeof dataItem != "undefined" &amp;&amp; dataItem != null) {
+            dataItem.dirty = true;
+            if ($(theTextBox).closest('td').html().indexOf("k-dirty") &lt; 0)
+            { $(theTextBox).closest('td').prepend('&lt;span class="k-dirty"&gt;&lt;/span&gt;'); }
+        }
+    }
+
+    $('#UnselectAll__PayrollPaycheckDataView').click(function (e) {
+        e.preventDefault();
+        $("#divPayrollPaycheckDataView").data("AptaDataView").ClearGridSelection();
+    });
+</script></div>
+
+
+            </fieldset>
+        </div>
+<input type="hidden" value="661" name="RegisterId" id="RegisterId" data-val-number="The field RegisterId must be a number." data-val="true" /><input type="hidden" value="1" name="CurrentBankId" id="CurrentBankId" /><input type="hidden" value="1000429637" name="CurrentBankAccountNumber" id="CurrentBankAccountNumber" /><input type="hidden" value="0" name="FirstPaycheckOk" id="FirstPaycheckOk" data-val-number="The field FirstPaycheckOk must be a number." data-val="true" /><input type="hidden" value="0" name="FirstPaycheckWarning" id="FirstPaycheckWarning" data-val-number="The field FirstPaycheckWarning must be a number." data-val="true" /><input type="hidden" value="0" name="PaycheckStatusCodesOk" id="PaycheckStatusCodesOk" data-val-number="The field PaycheckStatusCodesOk must be a number." data-val="true" /><input type="hidden" value="0" name="PaycheckAmountsOk" id="PaycheckAmountsOk" data-val-number="The field PaycheckAmountsOk must be a number." data-val="true" /><input type="hidden" value="0" name="RegisterStatusCodesOk" id="RegisterStatusCodesOk" data-val-number="The field RegisterStatusCodesOk must be a number." data-val="true" /><input type="hidden" value="0" name="PaycheckBankRegisterReconciled" id="PaycheckBankRegisterReconciled" data-val-number="The field PaycheckBankRegisterReconciled must be a number." data-val="true" /><input type="hidden" value="" name="RegisterStatusCode" id="RegisterStatusCode" /><input type="hidden" value="0" name="AssociatedPaychecksExist" id="AssociatedPaychecksExist" data-val-number="The field AssociatedPaychecksExist must be a number." data-val="true" /></form>    <div id="popupWindowPrintPaychecks"></div>
+    <div id="popupWindowReprintPaychecks"></div>
+    <div id="popupWindowVerifyPaychecks"></div>
+    <div id="popupWindowVoidPaychecks"></div>
+    <div id="popupWindowPaycheckStubReport"></div>
+</div>
+
+<script>
+
+    $("#btnPrint_PaycheckPrinting").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+        if (NoItemsSelected(grid.table.attr("data-AptaFund-KendoGrid-selected"))) {
+            ShowOkDialog("Paycheck Error", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        // Validate the status codes and amounts for rows selected
+        ValidatePaychecks("N,G", "Print");
+        if (document.getElementById("PaycheckStatusCodesOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You have selected paychecks that are not in the New or Pending state.    This process cannot proceed.", null);
+            return;
+        }
+        if (document.getElementById("PaycheckAmountsOk").value &lt;= 0) {
+            ShowOkDialog("Paycheck Error", "You must enter the First Check Number before printing checks.", null);
+            return;
+        }
+
+        // Validate the first Paycheck number
+        var FirstPaycheckNumber = $('#FirstPaycheckNumber').val();
+        if (FirstPaycheckNumber &lt;= 0) {
+            ShowOkDialog("Paycheck Error", "You must enter the First Check Number before printing checks.", null);
+            return;
+        }
+        ValidateFirstPaycheck(FirstPaycheckNumber);
+        if (document.getElementById("FirstPaycheckOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "The First Check Number has already been used for this bank and account number.    This process cannot proceed.", null);
+            return;
+        }
+        if (document.getElementById("FirstPaycheckWarning").value == 1) {
+            ShowYesNoDialog("Warning", "Do you want to reuse this check number?  If you select Yes, AptaFund will print a paycheck using the duplicate check number.",
+                                function () { LoadPaycheckPrintDialog(FirstPaycheckNumber); });
+        }
+        else {
+            LoadPaycheckPrintDialog(FirstPaycheckNumber);
+        }
+    });
+
+    function LoadPaycheckPrintDialog(firstPaycheckNumber) {
+        var paymentType = $('[name="PaymentType"]:radio:checked').val()
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var selectedCount = $("#SelectedRecordCount__PayrollPaycheckDataView").text();
+
+        var kendoWindow = $("#popupWindowPrintPaychecks").kendoWindow({
+            content: {
+                url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowPrintDialog?" +
+                            "&amp;firstPaycheckNumber=" + firstPaycheckNumber + "&amp;paymentType=" + paymentType +
+                            "&amp;bankId=" + combobox.value() + "&amp;accountNumber=" + combobox.text() + "&amp;selectedCount=" + selectedCount
+            },
+            modal: true,
+            actions: [],
+            refresh: function (e) { e.sender.title(paymentType == 0 ? "Print Paychecks" : "Print Direct Deposits"); e.sender.center(); }
+        });
+        kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 150 });
+        kendoWindow.data("kendoWindow").center().open();
+    }
+
+    $("#btnReprint_PaycheckPrinting").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+        if (NoItemsSelected(grid.table.attr("data-AptaFund-KendoGrid-selected"))) {
+            ShowOkDialog("Paycheck Error", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        // Make sure the status is in Pending or Printed state
+        ValidatePaychecks("G,P", "Reprint");
+        if (document.getElementById("PaycheckStatusCodesOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You have selected paychecks that are not in the Pending or Printed state and amount should be greater then 0.    This process cannot proceed.", null);
+            return;
+        }
+        if (document.getElementById("PaycheckAmountsOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You must enter the First Check Number before printing checks.", null);
+            return;
+        }
+
+        // Validate First Paycheck Number
+        var FirstPaycheckNumber = $('#FirstPaycheckNumber').val();
+        if (FirstPaycheckNumber &lt;= 0) {
+            ShowOkDialog("Paycheck Error", "You must enter the First Check Number before printing checks.", null);
+            return;
+        }
+
+        ValidateFirstPaycheck(FirstPaycheckNumber);
+        if (document.getElementById("FirstPaycheckOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "The First Check Number has already been used for this bank and account number.    This process cannot proceed.", null);
+            return;
+        }
+        if (document.getElementById("FirstPaycheckWarning").value == 1) {
+            ShowYesNoDialog("Warning", "Do you want to reuse this check number?  If you select Yes, AptaFund will print a paycheck using the duplicate check number.",
+                                function () { LoadPaycheckReprintDialog(FirstPaycheckNumber); });
+        }
+        else {
+            LoadPaycheckReprintDialog(FirstPaycheckNumber);
+        }
+
+    });
+
+    function LoadPaycheckReprintDialog(firstPaycheckNumber) {
+        var paymentType = $('[name="PaymentType"]:radio:checked').val()
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var selectedCount = $("#SelectedRecordCount__PayrollPaycheckDataView").text();
+
+        // Get register status and load a reprint dialog based on status
+        GetRegisterStatus();
+        if (document.getElementById("RegisterStatusCode").value != "X") {
+            if (document.getElementById("RegisterStatusCode").value == "P") {
+                var kendoWindow = $("#popupWindowReprintPaychecks").kendoWindow({
+                    content: {
+                        url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowReprintDateDialog?" +
+                                          "&amp;firstPaycheckNumber=" + firstPaycheckNumber + "&amp;paymentType=" + paymentType +
+                                          "&amp;bankId=" + combobox.value() + "&amp;accountNumber=" + combobox.text() + "&amp;selectedCount=" + selectedCount
+                    },
+                    modal: true,
+                    actions: [],
+                    refresh: function (e) { e.sender.title(paymentType == 0 ? "Reprint Paychecks" : "Reprint Direct Deposits"); e.sender.center(); }
+                });
+                kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 225 });
+            }
+            else {
+                var kendoWindow = $("#popupWindowReprintPaychecks").kendoWindow({
+                    content: {
+                        url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowReprintDialog?" +
+                                          "&amp;firstPaycheckNumber=" + firstPaycheckNumber + "&amp;paymentType=" + paymentType +
+                                          "&amp;bankId=" + combobox.value() + "&amp;accountNumber=" + combobox.text() + "&amp;selectedCount=" + selectedCount
+                    },
+                    modal: true,
+                    actions: [],
+                    refresh: function (e) { e.sender.title(paymentType == 0 ? "Reprint Paychecks" : "Reprint Direct Deposits"); e.sender.center(); }
+                });
+                kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 195 });
+
+            }
+            kendoWindow.data("kendoWindow").center().open();
+        }
+    }
+
+    $("#btnVerify_PaycheckPrinting").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+        var selectedCount = $("#SelectedRecordCount__PayrollPaycheckDataView").text();
+
+        if (NoItemsSelected(grid.table.attr("data-AptaFund-KendoGrid-selected"))) {
+            ShowOkDialog("Paycheck Error", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        // Make sure selected records are in Pending State
+        ValidatePaychecks("G", "Verify");
+        if (document.getElementById("PaycheckStatusCodesOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You have selected paychecks that are not in the Pending state.    This process cannot proceed.", null);
+            return;
+        }
+        if (document.getElementById("PaycheckAmountsOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You must enter the First Check Number before printing checks.", null);
+            return;
+        }
+
+        // Get register status and load a verify dialog based on status
+        GetRegisterStatus();
+        if (document.getElementById("RegisterStatusCode").value != "X") {
+            if (document.getElementById("RegisterStatusCode").value == "P") {
+                var kendoWindow = $("#popupWindowVerifyPaychecks").kendoWindow({
+                    content: { url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowVerifyDateDialog?" + "selectedCount=" + selectedCount },
+                    modal: true,
+                    actions: [],
+                    refresh: function (e) { e.sender.title("Verify Paychecks"); e.sender.center(); }
+                });
+                kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 180 });
+            }
+            else {
+                var kendoWindow = $("#popupWindowVerifyPaychecks").kendoWindow({
+                    content: { url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowVerifyDialog?" + "selectedCount=" + selectedCount },
+                    modal: true,
+                    actions: [],
+                    refresh: function (e) { e.sender.title("Verify Paychecks"); e.sender.center(); }
+                });
+                kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 150 });
+            }
+            kendoWindow.data("kendoWindow").center().open();
+        }
+    })
+
+    // Validate the first Paycheck number
+    function ValidateFirstPaycheck(FirstPaycheckNumber) {
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var data = {
+            firstPaycheckNumber: FirstPaycheckNumber,
+            bankId: combobox.value(),
+            accountNumber: combobox.text()
+        }
+        $.ajax({
+            cache: false,
+            async: false,
+            url: "/QAAutom/Payroll/PayrollPaycheck/ValidateFirstPaycheckNumber",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    if (result.ErrorCode == 0) {
+                        document.getElementById("FirstPaycheckOk").value = 1;
+                    }
+                    else {
+                        if (result.DuplicateAllowed == "Yes" || result.DuplicateAllowed == "1") {
+                            document.getElementById("FirstPaycheckOk").value = 1;
+                            document.getElementById("FirstPaycheckWarning").value = 1;
+                        }
+                        else {
+                            document.getElementById("FirstPaycheckOk").value = 0;
+                            document.getElementById("FirstPaycheckWarning").value = 0;
+                        }
+                    }
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    // Validate the status codes and amounts for rows selected
+    function ValidatePaychecks(statusCodes, operationCode) {
+        var data = { statusCodes: statusCodes, operationCode: operationCode }
+        $.ajax({
+            cache: false,
+            async: false,
+            data: data,
+            dataType: "json",
+            url: "/QAAutom/Payroll/PayrollPaycheck/ValidatePaycheckStatusAndAmount",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    if (result.ErrorCode == 0) {
+                        document.getElementById("PaycheckStatusCodesOk").value = 1;
+                        document.getElementById("PaycheckAmountsOk").value = 1;
+                    }
+                    else {
+                        if (result.ErrorCode == 1) {
+                            document.getElementById("PaycheckStatusCodesOk").value = 0;
+                        }
+                        else {
+                            document.getElementById("PaycheckAmountsOk").value = 0;
+                        }
+                    }
+                }
+                else {
+                    document.getElementById("PaycheckStatusCodesOk").value = 0;
+                    document.getElementById("PaycheckAmountsOk").value = 0;
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    // Fetch the register status
+    function GetRegisterStatus() {
+        var data = { registerId: "661" }
+
+        $.ajax({
+            cache: false,
+            async: false,
+            data: data,
+            dataType: "json",
+            url: "/QAAutom/Payroll/PayrollPaycheck/GetPayrollRegisterStatus",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    document.getElementById("RegisterStatusCode").value = result.RegisterStatus;
+                }
+                else {
+                    document.getElementById("RegisterStatusCode").value = "X";
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    // Validate the bank register status for Paychecks being voided
+    //  If register is reconciled then return error.
+    function ValidateBankRegister() {
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var data = {
+            bankId: combobox.value(),
+            accountNumber: combobox.text()
+        }
+        $.ajax({
+            cache: false,
+            async: false,
+            data: data,
+            dataType: "json",
+            url: "/QAAutom/Payroll/PayrollPaycheck/ValidateBankRegister",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    if (result.PaycheckNumber == 0) {
+                        document.getElementById("PaycheckBankRegisterReconciled").value = 0;
+                    }
+                    else {
+                        document.getElementById("PaycheckBankRegisterReconciled").value = result.PaycheckNumber;
+                    }
+                }
+                else {
+                    document.getElementById("PaycheckBankRegisterReconciled").value = -1;
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    function BankAccountOnChange(e) {
+        refreshDataView(true);
+    }
+
+    function PaymentTypeChange(e) {
+        refreshDataView(true);
+    }
+
+    function refreshDataView(clearSelectedPaychecks) {
+        ShowAjaxMessage("", "");
+
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var data = {
+            registerId: $('#RegisterId').val(),
+            bankId: combobox.value(),
+            accountNumber: combobox.text(),
+            paymentType: $('[name="PaymentType"]:radio:checked').val()
+        }
+
+        $.ajax({
+            cache: false,
+            url: "/QAAutom/Payroll/PayrollPaycheck/GetPaychecksForRegister",
+            data: data,
+            dataType: "json",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    var numericTextBox = $("#FirstPaycheckNumber").data("kendoNumericTextBox");
+                    numericTextBox.value(result.FirstPaycheck);
+
+                    var combobox = $('#CurrentBankId').data("kendoDropDownList");
+                    var divGrid = $("#divPayrollPaycheckDataView").data("AptaDataView");
+                    var data2 = divGrid.GetDataViewParameters();
+                    data2.AccountNumber = combobox.text();
+                    data2.BankId = combobox.value();
+                    data2.RegisterId = $('#RegisterId').val();
+                    data2.PaymentMethod = $('[name="PaymentType"]:radio:checked').val();
+                    divGrid.SetDataViewParameters(data2);
+
+                    var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+                    if (clearSelectedPaychecks == true) {
+                        ClearGridSelectionAndReload(grid, "/QAAutom/GridConfig/SetGridSelectedRecords");
+                    }
+                    else {
+                        grid.dataSource.read();
+                    }
+                }
+                else {
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    function btnCancel_PaycheckPrinting() {
+        NavigateTo("/QAAutom/Payroll/Payroll/Manage");
+    }
+
+    $("#btnVoid_PaycheckPrinting").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+        if (NoItemsSelected(grid.table.attr("data-AptaFund-KendoGrid-selected"))) {
+            ShowOkDialog("Paycheck Error", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        // Make sure selected records are in New, Pending or Printed State
+        ValidatePaychecks("N,G,P", "Void");
+        if (document.getElementById("PaycheckStatusCodesOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You have selected paychecks that are not in the New, Pending or Printed state.  This process cannot proceed.", null);
+            return;
+        }
+
+        // Error if selected Paycheck has been reconciled in the bank account register
+        ValidateBankRegister();
+        if (document.getElementById("PaycheckBankRegisterReconciled").value != 0) {
+            ShowOkDialog("Paycheck Error", "A paycheck has been selected that has already been reconciled in the bank account register.  This process cannot proceed.", null);
+            return;
+        }
+
+        // Check for associated paychecks.  If they exist, prompt user to Print Report or Continue
+        CheckForAssociatedPaychecks();
+        if (document.getElementById("AssociatedPaychecksExist").value &gt; 0) {
+            LoadAssociatedPaycheckDialog();
+        }
+        if (document.getElementById("AssociatedPaychecksExist").value == 0) {
+            LoadPaycheckVoidDialog();
+        }
+
+    })
+
+    function LoadPaycheckVoidDialog() {
+
+        var selectedCount = $("#SelectedRecordCount__PayrollPaycheckDataView").text();
+        var kendoWindow = $("#popupWindowVoidPaychecks").kendoWindow({
+            content: { url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowVoidDialog?" + "selectedCount=" + selectedCount },
+            modal: true,
+            actions: [],
+            refresh: function (e) { e.sender.title("Void Paychecks"); e.sender.center(); }
+        });
+        kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 235 });
+        kendoWindow.data("kendoWindow").center().open();
+    }
+
+    function LoadAssociatedPaycheckDialog() {
+        var kendoWindow = $("&lt;div style='text-align:center' /&gt;").kendoWindow({
+            title: "Associated Paychecks",
+            resizable: false,
+            width: 350,
+            height: 170,
+            modal: true
+        });
+
+        var windowContent = "&lt;p class='dialogMessage'&gt;You have selected paychecks that are associated with other paychecks.  " +
+                            "Voiding these paychecks require that all associated paychecks be voided.&lt;/p&gt;" +
+                            "&lt;p&gt;It is recommended that you Print the Associated Paychecks report before proceeding to void selected paychecks.&lt;/p&gt;" +
+                            "&lt;div id='btnVoidPrintAssociatedRpt'&gt;&lt;button class='button-print k-button'&gt;Print Report&lt;/button&gt;&lt;/div&gt;" +
+                            "&lt;div id='btnVoidVoidAssociatedRpt'&gt;&lt;button class='button-void k-button'&gt;Void Paychecks&lt;/button&gt;&lt;/div&gt;" +
+                            "&lt;div id='btnVoidCancelAssociatedRpt'&gt;&lt;button class='button-cancel k-button'&gt;Cancel&lt;/button&gt;&lt;/div&gt;" +
+                            "&lt;style&gt;" +
+                            "#btnVoidPrintAssociatedRpt {position: absolute; top: 125px; left: 70px}" +
+                            "#btnVoidVoidAssociatedRpt {position: absolute; top: 125px; left: 145px}" +
+                            "#btnVoidCancelAssociatedRpt {position: absolute; top: 125px; left: 220px}" +
+                            "&lt;/style&gt;"
+
+        kendoWindow.data("kendoWindow").content(windowContent).center().open();
+        kendoWindow.find(".button-print,.button-void,.button-cancel").click(function () {
+            kendoWindow.data("kendoWindow").close();
+
+            if (($(this).hasClass("button-print"))) {
+                PrintAssociatedPaycheckReport();
+            }
+            else if (($(this).hasClass("button-void"))) {
+                LoadPaycheckVoidDialog();
+            }
+            else if (($(this).hasClass("button-cancel"))) {
+                return;
+            }
+        }).end();
+    }
+
+    function PrintAssociatedPaycheckReport() {
+
+        jQuery.post("/QAAutom/Payroll/PayrollPaycheck/PrintAssociatedPaycheckReport", null, function (result) {
+            if (typeof (result) == "object") {
+                ShowAjaxMessage("There was an error printring the Associated Paycheck report.", "error");
+            }
+            else {
+                ShowAjaxMessage("Associated Paycheck report printed successfully.", "success");
+            }
+        });
+    }
+
+    // Check for paycheck associated with selected paycheck Ids
+    function CheckForAssociatedPaychecks() {
+        $.ajax({
+            cache: false,
+            async: false,
+            dataType: "json",
+            url: "/QAAutom/Payroll/PayrollPaycheck/CheckForAssociatedPaychecks",
+            success: function (result) {
+                if (result != null &amp;&amp; result.Success) {
+                    document.getElementById("AssociatedPaychecksExist").value = result.RowsReturned;
+                }
+                else {
+                    document.getElementById("AssociatedPaychecksExist").value = -1;
+                    ShowAjaxMessage(result.Message, "error");
+                }
+            }
+        });
+    }
+
+    $("#btnPaycheckStubReport_PaycheckPrinting").click(function () {
+        ShowAjaxMessage("", "");
+
+        var grid = $("#PayrollPaycheckDataView").data("kendoGrid");
+        if (NoItemsSelected(grid.table.attr("data-AptaFund-KendoGrid-selected"))) {
+            ShowOkDialog("Paycheck Error", "Please select one or more records for this operation.", null);
+            return;
+        }
+
+        // Make sure the status is in Pending or Printed state
+        ValidatePaychecks("G,P", "Reprint");
+        if (document.getElementById("PaycheckStatusCodesOk").value == 0) {
+            ShowOkDialog("Paycheck Error", "You have selected paychecks that are not in the Pending or Printed state and amount should be greater then 0.    This process cannot proceed.", null);
+            return;
+        }
+
+        var paymentType = $('[name="PaymentType"]:radio:checked').val();
+        var combobox = $('#CurrentBankId').data("kendoDropDownList");
+        var selectedCount = $("#SelectedRecordCount__PayrollPaycheckDataView").text();
+        var kendoWindow = $("#popupWindowPaycheckStubReport").kendoWindow({
+            content: {
+                url: "/QAAutom/Payroll/PayrollPaycheck/PaycheckShowPaycheckStubReportDialog?" +
+                      "firstPaycheckNumber=0" + "&amp;paymentType=" + paymentType +
+                      "&amp;bankId=" + combobox.value() + "&amp;accountNumber=" + combobox.text() + "&amp;selectedCount=" + selectedCount
+            },
+            modal: true,
+            actions: [],
+            refresh: function (e) { e.sender.title("Paycheck Stub Report"); e.sender.center(); }
+        });
+        kendoWindow.data("kendoWindow").setOptions({ width: 430, height: 160 });
+        kendoWindow.data("kendoWindow").center().open();
+
+    });
+
+    $(document).ready(function () {
+        // Reset grid to default values.   This ensures that the default sort order Employee Name is always initially selected.
+        $.ajax({
+            url: '/QAAutom/GridConfig/RestoreToDefault',
+            cache: false,
+            data: { gridName: 'PayrollPaycheckDataView', GridHeight: '430' },
+            success: function (result) {
+                $('#divPayrollPaycheckDataView').html(result);
+                InitializeGrid___PayrollPaycheckDataView(false);
+                var function_name = 'PayrollPaycheckDataView__Restore';
+                if (typeof (window[function_name]) === "function") {
+                    window[function_name]();
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("ClearGridSettings: " + xhr.status + " " + thrownError + " " + ajaxOptions);
+            }
+        });
+        refreshDataView(true);
+    });
+</script>
+
+<style>
+    #divPaycheckPrintingMain {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    #popupWindowDuplicateNumberWarning {
+        display: none;
+    }
+
+    #divPaymentTypes {
+        margin-top: -112px;
+        margin-left: 480px;
+    }
+
+    #rdoPaymentTypeReg {
+        left: 5px;
+        width: 25px;
+    }
+
+    #lblPaymentTypeReg {
+        top: 25px;
+        left: 45px;
+        width: 50px;
+    }
+
+    #divPaychecks {
+        margin-top: 3px;
+        height: 480px;
+    }
+
+    #lblRegisterNumber {
+        margin-top: 5px;
+        width: 120px;
+        text-align: right;
+    }
+
+    #txtRegisterNumber {
+        margin-top: -13px;
+        margin-left: 132px;
+        width: 250px;
+    }
+
+    #lblBankAccountNumber {
+        margin-top: 10px;
+        width: 120px;
+        text-align: right;
+    }
+
+    #txtBankAccountNumber {
+        margin-top: -18px;
+        margin-left: 130px;
+        width: 120px;
+    }
+
+    #lblFirstPaycheckNumber {
+        margin-top: 10px;
+        width: 120px;
+        text-align: right;
+    }
+
+    #txtFirstPaycheckNumber {
+        margin-top: -18px;
+        margin-left: 130px;
+        width: 120px;
+    }
+
+    #divPrintButtons {
+        margin-top: 0px;
+        margin-left: 5px;
+    }
+
+    #btnConfig_PaycheckPrinting {
+        margin-left: 128px;
+    }
+
+    .clsMessageBeginClass {
+        color: black;
+    }
+
+    .clsMessageSuccessClass {
+        color: green;
+    }
+
+    .clsMessagePrintingClass {
+        color: blue;
+    }
+
+    .clsMessageErrorClass {
+        color: red;
+    }
+
+    .divMessageClass {
+        position: absolute;
+        width: 390px;
+        height: 20px;
+    }
+</style>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div id="footerwrapper">
+            <div id="bottomhr"></div>
+            <div id="footer">
+                <img alt="Harris" src="/Content/Images/NewHarrisSupportLogo.png" class="SupportLogo" />
+                <div id="SystemInfo">
+                    © 2017 Harris Computer Systems. All rights reserved.
+                    <br />
+                    Date/Time: Monday, November 6, 2017 11:25 AM
+                    <br />
+                    AptaFund Version: 2017.11.3.12439
+                    <br />
+                    Last Updated: 11/4/2017 12:03:16 AM
+                    <br />
+                </div>
+                <span style="display:none;" id="divJobQueueNotification"></span>
+            </div>
+        </div>
+    </div>
+    <script src="/Scripts/AptaFund/PageLoaded.js#11042017000316"></script>
+    <script type="text/javascript">
+
+        $(document).click(function (event) {
+
+            if (event.target.id == "btnMoreButtons" || event.target.parentNode.id == "btnMoreButtons") {
+                event.preventDefault();
+                showHideMoreButtons();
+            }
+            else {
+                if ($('#dvMoreButtons').is(':visible')) {
+                    document.getElementById("dvMoreButtons").style.display = "none";
+                }
+            }
+            if (event.target.classList.contains('btnDetailMoreButtons') || (event.target.parentNode != null &amp;&amp; event.target.parentNode.classList != null &amp;&amp; event.target.parentNode.classList.contains("btnDetailMoreButtons"))) {
+                event.preventDefault();
+                var id = event.target.id;
+                if (event.target.id == "") {
+                    id = event.target.parentNode.id;
+                }
+                showHideDetailMoreButtons(id);
+            }
+            else {
+                if ($('.dvDetailMoreButtons').is(':visible')) {
+                    $('.dvDetailMoreButtons').each(function () {
+                        $(this).css('display', 'none');
+                    });
+                }
+            }
+        });
+
+        $(window).scroll(function () {
+            if ($('#dvMoreButtons').is(':visible')) {
+                ShowMoreMenu();
+            }
+            if ($('.dvDetailMoreButtons').is(':visible')) {
+                $('.dvDetailMoreButtons').each(function () {
+                    if ($(this).css('display') != 'none') {
+                        ShowDetailMoreMenu(this.id);
+                    }
+                });
+            }
+        });
+
+        $(window).resize(function () {
+            ResetDivMoreButtonOnResize();
+        });
+
+        var _jobQueueNotificationTimer;
+
+        function StartJobQueueNotifications() {
+            if (_jobQueueNotificationTimer == null)
+                CheckJobQueueNotifications('/QAAutom/Home/CheckJobQueueStatus');
+        }
+
+        function DismissJobQueueNotification(jobQueueID) {
+            $.ajax({
+                cache: false,
+                async: false,
+                data: { jobQueueID: jobQueueID },
+                dataType: "json",
+                url: '/QAAutom/Payroll/PayrollPaycheck/DismissJobQueueStatus',
+                success: function (result) {
+                    if (result.Message != "") {
+                        FINSUI.FINSUINotifications.JobQueueNotification().ShowJobQueueNotification(result.TempData, result.Message)
+                    } else {
+                        FINSUI.FINSUINotifications.JobQueueNotification().hide();
+                    }
+                }
+            });
+        }
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+        FINSUI.FINSUIElement.setAptaFundBaseURL("/QAAutom/controller/action", true);
+        
+
+        if ('Detail' == "Detail") {
+            doStickyButtons();
+        }
+        registerFINSComboBoxEvents();
+        $("body").find("input, textarea, select, span[role=listbox]").filter(":visible:not([disabled]):not([readonly]):not([tabindex=-1]):first").focus();
+
+    });
+
+    function doStickyButtons() {
+        var sticky_button_offset_top = $('#menuhr').offset().top;
+
+        // our function that decides weather the navigation bar should have "fixed" css position or not.
+        var sticky_button_navigation = function () {
+            var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+            var screenwidth = $(window).width();
+            var buttonswidth = $('#actionbuttons').width();
+            var buttonsheight = $('#actionbuttons').height();
+
+            // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+            // otherwise change it back to relative
+            if (scroll_top &gt; sticky_button_offset_top) {
+                $('#menuhr').css({ 'position': 'fixed', 'top': 0, 'left': 40, 'z-index': 11, 'width': (screenwidth - 80) });
+                $('#actionbuttons').css({ 'position': 'fixed', 'top': 10, 'right': 48, 'z-index': 12, 'width': buttonswidth });
+                $('#actionbuttonswrapper').css({ 'height': buttonsheight });
+            } else {
+                $('#menuhr').removeAttr('style');
+                $('#actionbuttons').removeAttr('style');
+                $('#actionbuttonswrapper').removeAttr('style');
+            }
+        };
+
+        // run our function on load
+        sticky_button_navigation();
+
+        // and run it again every time you scroll
+        $(window).scroll(function () {
+            sticky_button_navigation();
+        });
+    }
+
+    
+    function registerFINSComboBoxEvents() {
+        $('.FINSComboBox').each(function () {
+            var kendoCombo = $(this).data("kendoComboBox");
+            if (kendoCombo != null) {
+
+                kendoCombo.bind("select", function (e) {
+                    if (e.item != null) {
+                        var dataItem = this.dataItem(e.item.index());
+                        if (dataItem.Value == -999) {
+                            e.preventDefault();
+                        }
+                    }
+
+                }
+               );
+
+            }
+        });
+    }
+</script><div class="k-list-container k-popup k-group k-reset" id="CurrentBankId-list" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" id="CurrentBankId_listbox" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="8474886a-8a54-460d-b3cd-5d97d04b7b28">1000429637</li><li data-offset-index="1" class="k-item" unselectable="on" role="option" tabindex="-1">None</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 357.55px; left: 585.683px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollPaycheckDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollPaycheckDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollPaycheckDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 357.55px; left: 585.683px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollPaycheckDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollPaycheckDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollPaycheckDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="eb794d4e-c55f-4e7e-92e9-fe91373237c2">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 570px; height: 380px; display: none; top: 357.55px; left: 585.683px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="usergridsettingsWindow__PayrollPaycheckDataView_wnd_title">Save Grid Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="usergridsettingsWindow__PayrollPaycheckDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="usergridsettingsWindow__PayrollPaycheckDataView_wnd_title"></div></div><div class="k-widget k-window" style="padding-top: 28px; min-width: 90px; min-height: 50px; width: 500px; height: 350px; display: none; top: 357.55px; left: 585.683px;" data-role="draggable"><div class="k-window-titlebar k-header" style="margin-top: -28px;"> <span class="k-window-title" id="pagesetupWindow__PayrollPaycheckDataView_wnd_title">Report Settings</span><div class="k-window-actions"><a aria-label="Close" class="k-button k-bare k-button-icon k-window-action" href="#" role="button"><span class="k-icon k-i-close"></span></a></div></div><div style="" id="pagesetupWindow__PayrollPaycheckDataView" data-role="window" class="k-window-content k-content" tabindex="0" role="dialog" aria-labelledby="pagesetupWindow__PayrollPaycheckDataView_wnd_title"></div></div><div class="k-list-container k-popup k-group k-reset" data-role="popup" style="display: none; position: absolute;"><div style="display:none" class="k-group-header"></div><div unselectable="on" class="k-list-scroller"><ul class="k-list k-reset" unselectable="on" tabindex="-1" aria-hidden="true" aria-live="off" data-role="staticlist" role="listbox"><li data-offset-index="0" class="k-item" unselectable="on" role="option" tabindex="-1">10</li><li data-offset-index="1" aria-selected="true" class="k-item k-state-selected k-state-focused" unselectable="on" role="option" tabindex="-1" id="dabb15f9-4895-4b72-9339-559e487e6287">25</li><li data-offset-index="2" class="k-item" unselectable="on" role="option" tabindex="-1">50</li><li data-offset-index="3" class="k-item" unselectable="on" role="option" tabindex="-1">100</li><li data-offset-index="4" class="k-item" unselectable="on" role="option" tabindex="-1">200</li></ul></div><div style="display:none" class="k-nodata"><div>No data found.</div></div></div></body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1251" height="860"></canvas></html>

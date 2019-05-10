@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" skipped="0" tests="2" time="155.31" timestamp="2017-06-167 09:28:36"><testcase classname="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" name="Verify add direct type vendor invoice"/><testcase classname="com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest" name="Verify edit direct type vendor invoice"><failure message="Expected enabled element was not enabled&#10;Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'&#10;System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'&#10;Driver info: driver.version: unknown" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown</failure><system-err>Expected enabled element was not enabled
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'ShariqM-PC', ip: '10.14.5.80', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: driver.version: unknown&#13;
+com.aptafund.test.pages.PurchasingAndPayables.VendorInvoicePage.clickAndSearchVendorInvoice(VendorInvoicePage.java:105)&#13;
+com.aptafund.test.steps.PurchasingAndPayables.VendorInvoiceSteps.searchVendorInvoice(VendorInvoiceSteps.java:53)&#13;
+com.aptafund.test.features.login.PurchasingAndPayables.VendorInvoiceTest.verifyEditDirectTypeVendorInvoice(VendorInvoiceTest.java:77)&#13;
+</system-err></testcase></testsuite>

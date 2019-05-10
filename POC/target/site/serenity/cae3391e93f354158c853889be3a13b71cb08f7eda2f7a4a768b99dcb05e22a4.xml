@@ -1,0 +1,7 @@
+<acceptance-test-run title="Verify change database" name="verifyChangeDatabase" steps="0" successful="0" failures="0" skipped="0" ignored="0" pending="0" annotated-result="IGNORED" result="IGNORED" duration="0" timestamp="2017-07-07T11:35:04.149+05:00">
+  <user-story id="com.aptafund.test.features.login.commonTest.ChangeDatabaseTest" name="Change database test" path="com.aptafund.test.features.login.commonTest"/>
+  <tags>
+    <tag name="Smoke Test" type="release"/>
+    <tag name="Change database test" type="story"/>
+  </tags>
+</acceptance-test-run>

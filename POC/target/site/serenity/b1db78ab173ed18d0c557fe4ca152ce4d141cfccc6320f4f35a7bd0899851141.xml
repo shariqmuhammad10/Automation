@@ -1,0 +1,17 @@
+<acceptance-test-run title="Verify navigate to payroll" name="verifyNavigateToPayroll" steps="3" successful="3" failures="0" skipped="0" ignored="0" pending="0" result="SUCCESS" duration="34813" timestamp="2017-07-07T12:14:00.768+05:00" session-id="b2884405-1913-4896-9419-104191472ed6">
+  <user-story id="com.aptafund.test.features.login.Payroll.PayrollHomeTest" name="Payroll home test" path="com.aptafund.test.features.login.Payroll"/>
+  <tags>
+    <tag name="High" type="Priority"/>
+    <tag name="Smoke-test" type="release"/>
+    <tag name="Payroll home test" type="story"/>
+  </tags>
+  <test-step result="SUCCESS" duration="13144">
+    <description>Navigate to login page</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="7498">
+    <description>Login into apta</description>
+  </test-step>
+  <test-step result="SUCCESS" duration="14171">
+    <description>Navigate to payroll</description>
+  </test-step>
+</acceptance-test-run>
